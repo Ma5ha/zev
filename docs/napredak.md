@@ -6,6 +6,8 @@ Posljednje ažuriranje: 16. oktobar 2026. (Europe/Belgrade).
 
 Postavljena je Nx/pnpm monorepo osnova u glavnom folderu repozitorijuma. Aplikacije i poslovne funkcionalnosti još nisu generisane. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
 
+DEV-01 je započet: pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik je potvrdio demo sa izmišljenim podacima, obračun po m² i ručni unos roka plaćanja. Potvrđeni su prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i uloge po pravilima ZEV-a. Prijava i konkretna matrica dozvola ostaju otvorene za backend. Plan sada predviđa DEV-02 kao interaktivni demo bez baze, potom korisnikov pregled i tek zatim odobreni DEV-03. DEV-02 nije započet.
+
 ## Koraci
 
 | ID | Korak | Status | Rezultat / napomena |
@@ -24,14 +26,42 @@ Postavljena je Nx/pnpm monorepo osnova u glavnom folderu repozitorijuma. Aplikac
 | ZEV-012 | Napraviti razvojni plan na osnovu minimalnog plana | ZAVRŠENO | Kreiran `razvojni-plan.md` sa deset faza, zavisnostima, kriterijumima završetka i otvorenim odlukama. Provjereni obim, lokalni linkovi i diff; implementacija nije započeta. |
 | ZEV-013 | Obavezati agente da prate razvojni plan | ZAVRŠENO | U `AGENTS.md` dodati obavezno čitanje plana, praćenje DEV faza, zavisnosti i kriterijuma te povezivanje sa evidencijom. Pregled diff-a, referenca i `git diff --check` prošli. |
 | ZEV-014 | Kreirati UI skill i smjernice iz Appleove filozofije | ZAVRŠENO | Kreiran projektni `zev-ui-design` sa smjernicama, primjerima i izvorima; povezan kroz `AGENTS.md`, README i razvojni plan. YAML i lokalni linkovi provjereni alternativnim alatima; zvanični validator nije radio zbog nedostajućeg PyYAML-a. UI nije implementiran. |
+| ZEV-015 | DEV-01 — dogovor pravila i specifikacija demoa/pilota | U TOKU | Nacrt, matrica pristupa i sintetički obračun pripremljeni; demo, obračun po m² i ručni rok potvrđeni. Platforma, landing, tenant smjer i ZEV uloge su potvrđeni; prijava i detaljne dozvole ostaju otvorene. |
+| DEV-01-A | Pripremiti nacrt pravila pilota | ZAVRŠENO | `pilot-specifikacija.md` odvaja potvrđene odluke, prijedloge i otvorena pitanja. |
+| DEV-01-B | Usaglasiti odluke sa korisnikom | U TOKU | Potvrđeni demo, obračun, web sa landingom, kasnije mobilne aplikacije, tenant smjer i ZEV uloge; prijava i detaljna prava još nisu potvrđeni. |
+| DEV-01-C | Provjeriti specifikaciju i kriterijume završetka | ZAVRŠENO | Pregledani nacrt i kriterijumi; lokalni linkovi, aritmetika i diff provjereni. Kriterijumi cijele DEV-01 još nisu ispunjeni; nova provjera nakon odluka. |
+| DEV-01-D | Uskladiti platforme, landing, tenant i ZEV uloge | ZAVRŠENO | Ažurirani planovi, stack i specifikacija; pregledana dosljednost i reference. Rezultat je dokumentacija, bez implementacije. |
+
+| ZEV-016 | Uvrstiti interaktivni demo bez baze u plan | ZAVRŠENO | DEV-02 razrađen kao demo bez Supabase-a, sa pregledom prije DEV-03; usklađeni planovi, specifikacija, stack i upute. Implementacija nije pokrenuta. |
 
 ## Sljedeći koraci
 
-- Sačekati korisnikovu instrukciju za nastavak prema `razvojni-plan.md`: DEV-01 potvrđuje pravila pilota, zatim DEV-02 generiše Next.js projekat u `apps/web`.
+- Na korisnikovu instrukciju izraditi DEV-02: landing i interaktivni demo sa lokalnim sintetičkim podacima, bez inicijalizacije baze/Supabase-a. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
+- Nakon provjere dostaviti demo korisniku na pregled i dorade. Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-01 ostaje U TOKU, DEV-02–DEV-10 PLANIRANO.
 - Pri dodavanju framework paketa provjeriti njihove kompatibilne verzije, uz Nx dodatke na istoj verziji kao `nx`.
 - Udaljeni, ranije započeti Sites projekat i dalje nije potvrđeno uklonjen (ZEV-006).
 
 ## Istorija rada
+
+### 16. oktobar 2026. — Plan demoa bez baze: početak
+
+- Zahtjev: eksplicitno uvrstiti interaktivni demo bez inicijalizacije baze u plan. Ovo je izmjena plana, bez početka implementacije.
+- Koraci ZEV-016: pregledati postojeći obim i zavisnosti; razraditi DEV-02 kao demo bez baze i korisnikov pregled prije DEV-03; uskladiti specifikaciju, minimalni plan, stack i glavne upute; provjeriti reference, diff i status.
+- Pregledani obavezni dokumenti i projektni UI skill. Stvarno stanje: aplikacije nisu generisane; zatečene izmjene dokumentacije ostaju sačuvane. ZEV-016 je U TOKU.
+
+### 16. oktobar 2026. — DEV-01: razjašnjenje platformi i tenant pristupa, početak
+
+- Korisnik je razjasnio smjer: prvo web primjer sa landing stranicom i aplikacijom iza nje; za mobilni pristup posebne mobilne aplikacije. Traži tenant vrstu pristupa.
+- Koraci DEV-01-D: uskladiti minimalni plan, stack i razvojni plan; dopuniti specifikaciju tenant granicama i javnim/demo/internim pristupom; provjeriti reference i dosljednost statusa.
+- Rad je U TOKU. Tenant se u nacrtu tumači kao jedan ZEV sa svojim članstvima i podacima; grupisanje više zgrada pod jednim tenantom nije potvrđeno. Način prijave još nije odabran.
+- Primjenjuje se projektni `zev-ui-design` pri planiranju ulaska kroz landing stranicu. Nema runnable UI-ja za vizuelnu provjeru. Ranije izmjene dokumentacije ostaju sačuvane.
+
+### 16. oktobar 2026. — DEV-01: početak dogovora pilota
+
+- Zahtjev: odraditi sljedeći korak nakon pregleda stanja; započet DEV-01 prema razvojnom planu. Korisnikova instrukcija odobrava ovaj korak, bez objavljivanja aplikacije.
+- Provjereni dokumentacija, konfiguracija i Git stanje: radno stablo je čisto, `apps/` i `libs/` sadrže samo `.gitkeep`.
+- Koraci: DEV-01-A pripremiti specifikaciju sa odvojenim prijedlozima i potvrdama; DEV-01-B usaglasiti podatke pilota, pristup i obračun sa korisnikom; DEV-01-C provjeriti matricu pristupa, sintetički primjer i reference te evidentirati preostale odluke.
+- U toku DEV-01-A; poslana pitanja o web/PWA pristupu, pilot zgradi i obračunu. Dok odgovori ne stignu, zavisne odluke se ne smatraju potvrđenim.
 
 ### 16. oktobar 2026. — UI skill: početak
 
@@ -141,3 +171,39 @@ Postavljena je Nx/pnpm monorepo osnova u glavnom folderu repozitorijuma. Aplikac
 - Rezultat: u `AGENTS.md` dodate sekcije „Testovi“ i „Stil i organizacija koda“. Testovi i njihovo automatsko generisanje nisu dozvoljeni bez izričitog naloga korisnika.
 - Provjera: pregledan diff i izvršen `git diff --check`, bez grešaka. Nisu pisani ni pokretani testovi; mijenjana je samo dokumentacija.
 - Sljedeće: primjenjivati ova pravila pri narednom odobrenom razvoju. Commit nije napravljen.
+
+### 16. oktobar 2026. — DEV-01: nacrt i prvi odgovori
+
+- Kreiran `docs/pilot-specifikacija.md`: registar odluka PIL-01–PIL-13, prijedlog modela vlasničkih veza i članstva, matrica pristupa i sintetički mjesečni primjer.
+- Korisnik je potvrdio demo bez stvarne zgrade, obračun po m² i ručni unos roka. Odgovor „Želim drugačiji pristup“ na objedinjeno pitanje o platformi i email pozivima nije protumačen kao izbor određene tehnologije; poslano je dopunsko pitanje.
+- Primjer koristi dvije jedinice po 60 m² i ilustrativnu stopu 0,50 KM/m²; stopa nije potvrđena odluka. Račun daje 945,00 KM, dug A 10,00 KM i avans B 5,00 KM; ispravka rashoda na 110,00 daje 955,00 KM.
+- DEV-01 ostaje U TOKU; preostaju razjašnjenje platforme/prijave i dogovor ostalih pravila. Nisu generisani aplikacija, baza ili testovi, niti su kreirani udaljeni resursi.
+
+### 16. oktobar 2026. — DEV-01: provjera nacrta
+
+- Pregledana nova specifikacija i usklađen razvojni plan: DEV-01 U TOKU, DEV-02–DEV-10 PLANIRANO. Potvrde korisnika odvojene su od prijedloga i ilustrativnih iznosa.
+- Provjereni lokalni Markdown linkovi iz tri promijenjena dokumenta i aritmetika primjera; `git diff --check` prolazi. Nisu pisani testovi ni pokretani aplikacioni build/lint/typecheck jer aplikacioni kod ne postoji.
+- Fajlovi: novi `docs/pilot-specifikacija.md`, ažurirani `docs/napredak.md` i `docs/razvojni-plan.md`. Commit nije napravljen. Sljedeće je odgovor korisnika o željenom pristupu, zatim potvrda preostalih pravila; DEV-01 nije označen završenim.
+
+### 16. oktobar 2026. — DEV-01: platforme, tenant i uloge, rezultat
+
+- Korisnik je dodatno zatražio uloge u skladu sa ZEV pravilima. Nacrt razlikuje vlasnički odnos, zakonsku funkciju, tenant članstvo i dozvole aplikacije. Dodati su predsjednik skupštine, član/predsjednik upravnog odbora, upravnik i registrovani zastupnik, uz odvojene operativne i tehničke dozvole. Konačna matrica nije potvrđena; ranija tabela predsjednik/stanar označena je kao pojednostavljen nacrt.
+- Usklađeni `docs/minimalni-plan.md`, `docs/stack.md`, `docs/razvojni-plan.md` i `docs/pilot-specifikacija.md`: prvo web sa javnim landingom i sintetičkim demoom, posebne mobilne aplikacije kasnije, bez PWA instalacije kao kriterijuma. Landing je proširenje ranijeg obima po direktnoj korisnikovoj instrukciji.
+- Tenant smjer je potvrđen; jedan ZEV po tenantu je eksplicitna radna pretpostavka. Dokumentovani su odvojeni podaci, članstva, dozvole, prilozi i istorija, bez implicitnog pristupa administratora platforme svim tenantima. Demo i stvarni interni podaci imaju odvojene tokove.
+- Provjera izvora: javna NSRS stranica Zakona o održavanju zgrada 101/11 i lokalni izvod čl. 24–32; nije izvršena nova potpuna pravna konsolidacija. Funkcije se provjeravaju prema dokumentima stvarnog ZEV-a prije pilota.
+- UI skill primijenjen na specifikaciju javnog/demo/internog ulaza i jasnog tenant/role konteksta; runnable UI i vizuelna provjera ne postoje. Nisu pisani testovi ili generisani projekti. DEV-01 ostaje U TOKU, DEV-02–DEV-10 PLANIRANO.
+
+- Završna provjera dopune DEV-01-D: pregledani promijenjeni dokumenti i novi nepraćeni `pilot-specifikacija.md`, lokalni Markdown linkovi prolaze, `git diff --check` prolazi. Provjera obuhvata dokumentaciju; nije provjeren izvršivi UI, RLS ili stvarna dodjela prava. Commit nije napravljen.
+
+### 16. oktobar 2026. — Plan demoa bez baze: usklađivanje
+
+- ZEV-016: DEV-02 proširen sa web osnove na interaktivni demo svih pet cjelina. Dodati lokalni izmišljeni podaci, promjena demo uloge/tenanta, ključne forme i privremene promjene u memoriji, reset i osvježavanje na početno stanje.
+- Izričito isključeni inicijalizacija baze/Supabase-a, Auth, RLS, Storage, migracije i stvarni nalozi u DEV-02. Supabase ostaje prihvaćeni backend za DEV-03 nakon korisnikovog pregleda i instrukcije.
+- Promijenjena zavisnost: potvrđeni demo obim iz DEV-01 dovoljan je za DEV-02; otvorena produkciona pitanja ne blokiraju demo. Puna DEV-01 ostaje U TOKU i zavisna pitanja se rješavaju prije backend koraka. Brojevi DEV faza ostaju stabilni, a demo ne završava produkcione module.
+- Usklađeni `AGENTS.md`, `docs/minimalni-plan.md`, `docs/stack.md`, `docs/razvojni-plan.md`, `docs/pilot-specifikacija.md` i ova evidencija. Projektni UI skill primijenjen pri planiranju demo stanja i istinitih potvrda lokalnih radnji.
+- Izmijenjen je samo plan: nisu generisani aplikacija, baza ili testovi, nisu instalirane zavisnosti niti vršeno objavljivanje. Sljedeće je implementacija DEV-02 kada je korisnik naloži.
+
+### 16. oktobar 2026. — Plan demoa bez baze: završna provjera
+
+- ZEV-016 ZAVRŠENO: pregledani obim DEV-02, kriterijumi provjere i korisnikovog pregleda, granica prije DEV-03 i izuzetak od pune DEV-01 zavisnosti. Provjereni lokalni Markdown linkovi u šest izmijenjenih dokumenata, uključujući novi `pilot-specifikacija.md`; `git diff --check` prolazi.
+- Nisu pokretani aplikacioni lint/typecheck/build jer aplikacija ne postoji; nisu pisani testovi. Ovo je provjera dokumentacije, bez vizuelne ili funkcionalne provjere demoa. Commit nije napravljen; ranije izmjene su sačuvane.

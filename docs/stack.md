@@ -29,9 +29,8 @@ Predložena ciljna struktura:
 
 ```text
 apps/
-  web/                 # portal stanara i predsjednika
+  web/                 # javni landing i aplikacija ZEV-a
   mobile/              # Expo aplikacija, u kasnijoj fazi
-  website/             # budući prodajni sajt
   admin/               # buduća administracija poslovanja platforme
 
 libs/
@@ -49,6 +48,12 @@ AGENTS.md
 
 Za pilot se kreiraju samo potrebne aplikacije i biblioteke. Web i mobilna aplikacija dijele poslovna pravila, tipove i pristup API-ju. Njihovi ekrani i UI komponente mogu biti odvojeni i prilagođeni platformi. Serverski kod i tajne ne smiju se izvoziti kroz biblioteke dostupne klijentima.
 
+## Demo prije backenda
+
+DEV-02 koristi Next.js/React sa lokalnim sintetičkim podacima i stanjem u memoriji. Za pokretanje nisu potrebni baza, Supabase projekat, Auth, Storage, migracije ili backend ključevi. Izmjene su privremene, uz reset; osvježavanje vraća početno stanje. Demo pristup podacima odvojen je od prikaza radi kasnijeg povezivanja.
+
+Supabase ostaje prihvaćeni backend za naredne faze. Njegova inicijalizacija počinje tek u DEV-03, nakon korisnikovog pregleda demoa, instrukcije za backend i razrješenja zavisnih odluka. Simulacija uloga i tenant prikaza ne predstavlja autentifikaciju ili RLS.
+
 ## Pristup backendu
 
 - Supabase pokriva prijavu, PostgreSQL bazu i skladištenje dokumenata.
@@ -62,9 +67,11 @@ Za pilot se kreiraju samo potrebne aplikacije i biblioteke. Web i mobilna aplika
 
 ## Redoslijed i preostale odluke
 
-Početni prijedlog ostaje web aplikacija sa PWA mogućnostima, pa zasebna Expo aplikacija nakon provjere osnovnih tokova u pilotu. Tačan raspored razvoja weba i mobilne aplikacije treba potvrditi prije implementacije.
+Korisnik je potvrdio prvo web primjer sa landing stranicom i aplikacijom iza nje, zatim posebne mobilne aplikacije kroz Expo. PWA instalacija nije uslov prve verzije. Za početak se predlaže jedan `apps/web` projekat sa odvojenim javnim, demo i internim rutama.
 
-Verzije framework paketa, konkretna PWA implementacija, biblioteka za validaciju, alati za testiranje, hosting web aplikacije, region baze i operativni plan rezervnih kopija još nisu izabrani. Pri dodavanju Next.js-a i Expo-a provjeriti njihove kompatibilne verzije sa Nx-om. Ne uvoditi dodatne tehnologije kao prihvaćene odluke bez dogovora ili jasnog obrazloženja u evidenciji.
+Potvrđeni su tenant pristup i uloge prema pravilima ZEV-a. Radna granica tenanta je jedan ZEV. Identitet korisnika, tenant članstvo, funkcija u zajednici i dozvole aplikacije vode se odvojeno. Svi poslovni podaci, prilozi, istorija, serverske provjere i keš moraju poštovati tenant granicu i prava nad konkretnim podatkom. URL ili klijentski tenant ID nisu dokaz ovlašćenja. Konkretna šema i matrica dozvola razrađuju se u DEV-03.
+
+Verzije framework paketa, biblioteka za validaciju, alati za testiranje, hosting web aplikacije, region baze i operativni plan rezervnih kopija još nisu izabrani. Pri dodavanju Next.js-a i Expo-a provjeriti njihove kompatibilne verzije sa Nx-om. Ne uvoditi dodatne tehnologije kao prihvaćene odluke bez dogovora ili jasnog obrazloženja u evidenciji.
 
 ## Zvanična dokumentacija
 

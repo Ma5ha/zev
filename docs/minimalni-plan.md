@@ -6,10 +6,16 @@ Napraviti biznis oko jednostavne aplikacije za transparentno upravljanje zajedni
 
 Prva verzija treba predsjedniku ZEV-a olakšati evidenciju, a stanarima omogućiti razumljiv pregled novca, radova i dešavanja u zgradi.
 
-## 1. Korisničke uloge
+## 1. Korisnici, funkcije i tenant pristup
 
-- **Predsjednik ZEV-a:** unosi transakcije, objavljuje obavještenja, otvara radove i ankete.
-- **Stanar:** pregledava finansije i dokumente, prati radove, glasa u anketama i prijavljuje problem.
+Korisnik je potvrdio tenant pristup i uloge u skladu sa pravilima ZEV-a. Početni model je jedan tenant po ZEV-u, uz jednu demo zgradu; to je radna pretpostavka za granicu podataka, a ne potvrđeno pravilo o grupisanju više zgrada.
+
+- Evidentirati vlasnika/člana skupštine, predsjednika skupštine, predsjednika i člana upravnog odbora, upravnika i registrovanog zastupnika gdje su primjenjivi, prema dokumentima ZEV-a.
+- Odvojiti te funkcije od dozvola aplikacije: pregled zajedničkih podataka, pristup sopstvenoj kartici, finansijski unos, objave i upravljanje članstvima. Raniji naziv „predsjednik“ predstavljao je pojednostavljenu ulogu za unos; konačna prava traže razradu.
+- Zakupac i drugi korisnik prostora nemaju automatski prava vlasnika. Ovlašćenje, osnov i period važenja vode se zasebno.
+- Jedan nalog može imati članstva i različita ovlašćenja u više tenanata; podaci ostaju odvojeni. Tenant ovdje znači organizacioni prostor ZEV-a, ne zakupca.
+
+Detaljan nacrt i otvorena pitanja su u [specifikaciji pilota](pilot-specifikacija.md). Formalno elektronsko odlučivanje ostaje izvan početnog obima.
 
 ## 2. Minimalna aplikacija — pet cjelina
 
@@ -34,11 +40,13 @@ Ponude za radove u početku predsjednik unosi ili prilaže, a stanari ih prate i
 
 ## 4. Web i mobilni pristup
 
-Predloženi početak je jedna responzivna web aplikacija koja se može instalirati na telefon kao PWA. Pilot tako dobija pristup sa računara i telefona uz manji početni trošak.
+Potvrđeni smjer je prvo web primjer sa javnom landing stranicom i aplikacijom iza nje, sa izmišljenim podacima. Landing objašnjava proizvod i vodi do demoa ili prijave. Interni podaci stvarnog ZEV-a zahtijevaju prijavu i provjeru članstva/ovlašćenja u tenant prostoru.
 
-Prihvaćeni stack je Nx + pnpm + TypeScript, Next.js/React i Tailwind CSS za web, React Native/Expo za Android i iOS, te Supabase sa PostgreSQL bazom, autentifikacijom i skladištenjem dokumenata. Detalji su u [tehnološkom stacku](stack.md).
+Prva isporuka za pregled je interaktivni demo **bez inicijalizacije baze i Supabase-a**: lokalni izmišljeni podaci, simulacija tenant/role prikaza i forme koje privremeno mijenjaju demo u memoriji. Reset ili osvježavanje vraća početne podatke. Korisnik pregleda demo i daje povratne informacije prije dogovora o povezivanju sa backendom. Demo nije stvarni pilot sa stanarima.
 
-Prijedlog redoslijeda ostaje web/PWA pilot, pa posebna mobilna aplikacija. Tačan redoslijed i verzije tehnologija potvrđuju se prije izrade.
+Za Android i iOS planirane su posebne mobilne aplikacije. Web ostaje responzivan; PWA instalacija više nije kriterijum prve verzije.
+
+Prihvaćeni stack je Nx + pnpm + TypeScript, Next.js/React i Tailwind CSS za web, React Native/Expo za Android i iOS, te Supabase/PostgreSQL. Detalji su u [stacku](stack.md). Početni prijedlog je landing i app u istom `apps/web` projektu, bez posebnog prodajnog projekta.
 
 ## 5. Poslovni model
 
@@ -61,7 +69,7 @@ Pratiti:
 - Automatsko povezivanje sa bankama.
 - Online plaćanja.
 - Portal izvođača i samostalno dostavljanje ponuda.
-- Upravljanje većim brojem zgrada.
+- Prošireno upravljanje većim brojem zgrada; tenant izolacija planira se od početka.
 - Posebne Android i iOS aplikacije.
 
 ## Status
