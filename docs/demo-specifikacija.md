@@ -2,7 +2,7 @@
 
 Datum: 16. oktobar 2026. (Europe/Belgrade).
 
-Status: specifikacija za implementaciju DEV-02-B–DEV-02-I. Naknadno su implementirani web osnova B i demo podaci/kontekst C sa djelimičnim prikazom i opisom prava; kompletni poslovni ekrani i scenariji još nisu završeni. Izvršene provjere i granice vodi evidencija. Osnova su [razvojni plan](razvojni-plan.md), [minimalni plan](minimalni-plan.md), [specifikacija pilota](pilot-specifikacija.md) i projektni [UI skill](../skills/zev-ui-design/SKILL.md).
+Status: specifikacija za implementaciju DEV-02-B–DEV-02-I. Naknadno su implementirani web osnova B, demo podaci/kontekst C sa opisom prava i landing/navigacija/početni pregledi D; kompletni poslovni ekrani i scenariji još nisu završeni. Izvršene provjere i granice vodi evidencija. Osnova su [razvojni plan](razvojni-plan.md), [minimalni plan](minimalni-plan.md), [specifikacija pilota](pilot-specifikacija.md) i projektni [UI skill](../skills/zev-ui-design/SKILL.md).
 
 ## 1. Cilj i granice
 
@@ -140,4 +140,10 @@ DEV-02-A je završen kada su pregledani popis ekrana, glavne/sporedne radnje, na
 
 ## 8. Implementaciona dopuna DEV-02-C
 
-Za provjeru lokalnog stanja dodata je operaterska radna bilješka do 200 znakova, odvojena po ZEV-u i dostupna samo demo operateru. Ovo nije nova funkcionalnost pilota ili objava obavještenja. Kontrole i djelimični prikaz žive na `/demo`, a opis aktivnih privremenih prava na `/demo/prava`. Sačuvana bilješka opstaje kroz ove dvije rute; reset, osvježavanje i novi ulaz vraćaju početne podatke. Puna navigacija pet cjelina ostaje DEV-02-D.
+Za provjeru lokalnog stanja dodata je operaterska radna bilješka do 200 znakova, odvojena po ZEV-u i dostupna samo demo operateru. Ovo nije nova funkcionalnost pilota ili objava obavještenja. Kontrole i djelimični prikaz žive na `/demo`, a opis aktivnih privremenih prava na `/demo/prava`. Sačuvana bilješka opstaje kroz ove dvije rute; reset, osvježavanje i novi ulaz vraćaju početne podatke. Puna navigacija pet cjelina dodata je u DEV-02-D.
+
+## 9. Implementaciona dopuna DEV-02-D
+
+Landing na `/` vodi na pregled `/demo`. Okvir demoa ima pet destinacija iz odjeljka 3, bočnu navigaciju na širokom prikazu i označen native dialog meni na uskom. Demo kontrole i opis prava ostaju odvojeni od glavne navigacije. Sve cjeline prikazuju aktivni ZEV/profil i stalnu napomenu o privremenim izmjenama.
+
+Pregled prikazuje početna sredstva, dozvoljene kartice, aktivne radove, prazno stanje troškova i objave iz istog konteksta. Finansije prikazuju početne kartice, radovi sažetak, tabla postojeće objave, a ankete i prijave pitanja i dozvoljene prijave. Poslovni detalji i unosi ostaju za E–G; ne prikazuju se lažna aktivna dugmad za te radnje. Zato operaterova glavna prečica trenutno glasi „Otvori finansije“, a korisnika prostora „Otvori prijave“. Vlasnička prečica otvara početnu karticu u finansijama; puna istorija dolazi u E. Nema novih finansijskih zapisa: početna sredstva nisu prikazana kao prihod, a odsustvo troška nije izmišljeni iznos.

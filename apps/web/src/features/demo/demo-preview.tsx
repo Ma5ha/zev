@@ -1,42 +1,27 @@
 'use client';
 
+import { LinkButton } from '@/components/ui/button';
+import { PageHeading } from '@/components/ui/page-heading';
 import { useDemo } from './demo-provider';
 import { DemoNote } from './demo-note';
-import { formatDemoMoney } from './selectors';
+import { AnnouncementList, DemoSection, FundsSummary, UnitCards, WorkList } from './demo-sections';
 
 export function DemoPreview() {
   const { view } = useDemo();
-  return (
-    <div className="space-y-6">
-      <section aria-labelledby="podaci-naslov" className="space-y-4 rounded-xl border border-line bg-surface p-5 sm:p-6">
-        <h2 id="podaci-naslov" className="text-xl font-semibold">Početni podaci · {view.tenantName}</h2>
-        <div>
-          <p className="text-sm text-muted">Početna sredstva demoa</p>
-          <p className="mt-1 text-3xl font-semibold tabular-nums">{formatDemoMoney(view.openingFundsCents)}</p>
-          <p className="mt-2 text-sm text-muted">Demo stanje na dan 1. oktobra 2026. Podaci nisu provjereni u banci.</p>
-        </div>
-        <h3 className="font-semibold">Kartice dostupne ovom profilu</h3>
-        {view.cards.length ? <ul className="divide-y divide-line">
-          {view.cards.map(unit => <li key={unit.id} className="flex flex-wrap justify-between gap-2 py-3">
-            <span>{unit.label} · {unit.areaM2} m²</span>
-            <span className="font-semibold tabular-nums">{unit.openingBalanceCents > 0 ? 'Dug' : unit.openingBalanceCents < 0 ? 'Avans' : 'Saldo'}: {formatDemoMoney(Math.abs(unit.openingBalanceCents))}</span>
-          </li>)}
-        </ul> : <p className="text-muted">Ovaj demo profil nema pristup pojedinačnim karticama.</p>}
-      </section>
-      <section aria-labelledby="sadrzaj-naslov" className="space-y-4 rounded-xl border border-line bg-surface p-5 sm:p-6">
-        <h2 id="sadrzaj-naslov" className="text-xl font-semibold">Sadržaj aktivnog ZEV-a</h2>
-        <dl className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2">
-          <dt>Radovi</dt><dd>{view.works.length}</dd>
-          <dt>Obavještenja</dt><dd>{view.announcements.length}</dd>
-          <dt>Informativne ankete</dt><dd>{view.polls.length}</dd>
-          <dt>Prijave vidljive profilu</dt><dd>{view.issues.length}</dd>
-        </dl>
-        {view.issues.length > 0 && <ul className="space-y-2 border-t border-line pt-4">
-          {view.issues.map(issue => <li key={issue.id} className="text-sm leading-relaxed">{issue.description} <span className="font-semibold">{issue.status}</span></li>)}
-        </ul>}
-        <p className="text-sm leading-relaxed text-muted">Ovo je početni prikaz za provjeru podataka i dozvola. Navigacija kroz poslovne cjeline slijedi u narednom koraku.</p>
-      </section>
-      <DemoNote />
+  const primary = view.profileId === 'owner'
+    ? { href: '/demo/finansije#kartice', label: 'Otvori moju karticu' }
+    : view.profileId === 'operator'
+      ? { href: '/demo/finansije', label: 'Otvori finansije' }
+      : { href: '/demo/ankete-i-prijave#prijave', label: 'Otvori prijave' };
+  return <div className="space-y-6">
+    <div className="flex flex-wrap items-start justify-between gap-5"><PageHeading eyebrow="Vaša zgrada na jednom mjestu" title="Pregled zgrade">Novac, održavanje i najnovije informacije aktivnog demo ZEV-a.</PageHeading><LinkButton href={primary.href}>{primary.label}</LinkButton></div>
+    <div className="grid gap-6 xl:grid-cols-2">
+      <DemoSection id="sredstva" title="Zajednička sredstva" href="/demo/finansije" linkLabel="Finansije"><FundsSummary cents={view.openingFundsCents} reconciledOn={view.reconciledOn} /></DemoSection>
+      {view.permissions.cards !== 'none' ? <DemoSection id="kartica-pregled" title={view.profileId === 'owner' ? 'Moja kartica' : 'Kartice'} href="/demo/finansije#kartice" linkLabel={view.profileId === 'owner' ? 'Otvori moju karticu' : 'Otvori kartice'}><p className="text-sm text-muted">Početno stanje · oktobar 2026.</p><UnitCards cards={view.cards} /></DemoSection> : <DemoSection id="prijave-pregled" title="Vaše prijave" href="/demo/ankete-i-prijave#prijave" linkLabel="Otvori prijave"><p className="text-muted">Prijave vidljive vašem profilu: {view.issues.length}. Status i opis dostupni su u cjelini Ankete i prijave.</p></DemoSection>}
+      <DemoSection id="radovi-pregled" title="Aktivni radovi" href="/demo/radovi"><WorkList works={view.works.filter(work => work.status !== 'Završeno')} /></DemoSection>
+      <DemoSection id="troskovi-pregled" title="Posljednji troškovi" href="/demo/finansije" linkLabel="Otvori finansije"><p className="leading-relaxed text-muted">Još nema evidentiranih troškova u ovom demou. Početna sredstva su odvojena od budućih prihoda i rashoda.</p></DemoSection>
     </div>
-  );
+    <DemoSection id="objave-pregled" title="Obavještenja" href="/demo/obavjestenja" linkLabel="Otvori oglasnu tablu"><AnnouncementList announcements={view.announcements} /></DemoSection>
+    <DemoNote />
+  </div>;
 }

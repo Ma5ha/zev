@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: { default: 'ZEV — web osnova', template: '%s | ZEV' },
-  description: 'Aplikacija za transparentno upravljanje zajednicom etažnih vlasnika. Web demo je u pripremi.',
+  title: { default: 'ZEV — pregled vaše zgrade', template: '%s | ZEV' },
+  description: 'Aplikacija za transparentno upravljanje zajednicom etažnih vlasnika. Isprobajte početne preglede sa izmišljenim podacima.',
   robots: { index: false, follow: false },
   icons: { icon: '/icon.svg' },
 };
