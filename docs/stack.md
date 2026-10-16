@@ -23,7 +23,7 @@ Status: korisnik je prihvatio predloženi stack uz izbor **Nx-a umjesto Turborep
 
 ## Organizacija aplikacija i zajedničkog koda
 
-Nx i pnpm osnova je inicijalizovana u glavnom folderu repozitorijuma. Nx je zaključan na 23.3.0, pnpm na 10.34.7, a `.nvmrc` navodi korišćeni Node.js 22.22.1. `apps/` i `libs/` postoje kao prazni folderi; aplikacije i biblioteke još nisu generisane. Ostali paketi iz stacka dodaju se kada bude odobrena izrada odgovarajućih dijelova.
+Nx i pnpm osnova je inicijalizovana u glavnom folderu repozitorijuma. Nx je zaključan na 23.3.0, pnpm na 10.34.7, a `.nvmrc` navodi korišćeni Node.js 22.22.1. U DEV-02-B generisan je `apps/web` sa Next.js 16.4.2, Reactom 19.3.1, Tailwindom 4.3.3, TypeScriptom 6.0.3 i ESLint konfiguracijom. Web ima početni placeholder i razvojni pregled UI komponenti, bez poslovnih demo tokova. `libs/` još sadrži samo `.gitkeep`; Expo i Supabase nisu inicijalizovani. Ostali paketi dodaju se kada budu potrebni odgovarajućoj fazi.
 
 Predložena ciljna struktura:
 

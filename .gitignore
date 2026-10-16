@@ -12,3 +12,7 @@ coverage/
 .env
 .env.*
 !.env.example
+
+# Next.js generated files
+out/
+**/next-env.d.ts

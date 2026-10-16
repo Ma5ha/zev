@@ -76,4 +76,4 @@ Pratiti:
 
 Faze implementacije, zavisnosti i kriterijumi završetka razrađeni su u [razvojnom planu](razvojni-plan.md).
 
-Ovaj dokument predstavlja plan. Korisnik je odobrio i izvršeno je postavljanje Nx/pnpm monorepo osnove. Generisanje aplikacija i razvoj funkcionalnosti čekaju narednu instrukciju.
+Ovaj dokument predstavlja plan. Korisnik je odobrio i izvršeno je postavljanje Nx/pnpm monorepo osnove. Naknadno su završeni specifikacija demoa DEV-02-A i web osnova DEV-02-B. Poslovni demo podaci i funkcionalnosti DEV-02-C–DEV-02-I još nisu izrađeni; stvarni status i provjere vodi evidencija.

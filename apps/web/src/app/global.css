@@ -1,0 +1,33 @@
+@import 'tailwindcss' source('../');
+
+@theme {
+  --color-canvas: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-ink: #17212f;
+  --color-muted: #526071;
+  --color-line: #d5dae1;
+  --color-control: #758194;
+  --color-accent: #175cd3;
+  --color-accent-hover: #124aa8;
+  --color-danger: #b42318;
+  --color-success: #067647;
+  --color-warning: #8a4b08;
+  --color-focus: #175cd3;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  html { color-scheme: light; }
+  body { @apply m-0 bg-canvas font-sans text-ink antialiased; }
+  button, input, select, textarea { font: inherit; }
+  :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
+  h1, h2, h3, p, a { overflow-wrap: anywhere; }
+  ::selection { background: #dbe8ff; color: var(--color-ink); }
+}
+
+@layer components {
+  .action { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-center text-base font-semibold; }
+  .action-primary { @apply bg-accent text-white hover:bg-accent-hover; }
+  .action-secondary { @apply border border-control bg-surface text-ink hover:bg-canvas; }
+  .action:disabled { @apply cursor-not-allowed border border-line bg-canvas text-muted; }
+}

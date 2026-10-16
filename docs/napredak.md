@@ -4,9 +4,9 @@ Posljednje ažuriranje: 16. oktobar 2026. (Europe/Belgrade).
 
 ## Trenutno stanje
 
-Postavljena je Nx/pnpm monorepo osnova u glavnom folderu repozitorijuma. Aplikacije i poslovne funkcionalnosti još nisu generisane. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
+Postavljeni su Nx/pnpm monorepo i Next.js web osnova u `apps/web`, sa TypeScriptom, Tailwindom i osnovnim UI komponentama. Poslovni demo podaci i funkcionalnosti još nisu izrađeni. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
 
-DEV-01 je započet: pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik je potvrdio demo sa izmišljenim podacima, obračun po m² i ručni unos roka plaćanja. Potvrđeni su prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i uloge po pravilima ZEV-a. Prijava i konkretna matrica dozvola ostaju otvorene za backend. Plan sada predviđa DEV-02 kao interaktivni demo bez baze, potom korisnikov pregled i tek zatim odobreni DEV-03. DEV-02 nije započet.
+Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), a DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom. Poslije implementacije slijede provjere i korisnikov pregled, pa odvojeno odobreni DEV-03.
 
 ## Koraci
 
@@ -33,16 +33,39 @@ DEV-01 je započet: pripremljena je [specifikacija pilota](pilot-specifikacija.m
 | DEV-01-D | Uskladiti platforme, landing, tenant i ZEV uloge | ZAVRŠENO | Ažurirani planovi, stack i specifikacija; pregledana dosljednost i reference. Rezultat je dokumentacija, bez implementacije. |
 
 | ZEV-016 | Uvrstiti interaktivni demo bez baze u plan | ZAVRŠENO | DEV-02 razrađen kao demo bez Supabase-a, sa pregledom prije DEV-03; usklađeni planovi, specifikacija, stack i upute. Implementacija nije pokrenuta. |
+| DEV-02-A | Specifikacija ekrana i demo scenarija | ZAVRŠENO | `demo-specifikacija.md`: ekrani, navigacija, demo prava, podaci i očekivani ishodi; pregled dokumentacije i aritmetike završen. UI nije implementiran. |
+| DEV-02-B | Tehnička web osnova i osnovne komponente | ZAVRŠENO | `apps/web`: Next.js/React, TypeScript, Tailwind, UI tokeni i komponente; frozen instalacija, lint, eksplicitni typecheck, build i lokalni dev/produkcioni pregled prošli. Poslovni demo nije izrađen. |
 
 ## Sljedeći koraci
 
-- Razmotriti [predložene podfaze DEV-02-A–DEV-02-I](razvojni-plan.md#predložene-podfaze-dev-02). Trenutni zadatak priprema podjelu; implementacija podfaza nije započeta.
-- Na korisnikovu instrukciju izraditi DEV-02: landing i interaktivni demo sa lokalnim sintetičkim podacima, bez inicijalizacije baze/Supabase-a. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
-- Nakon provjere dostaviti demo korisniku na pregled i dorade. Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-01 ostaje U TOKU, DEV-02–DEV-10 PLANIRANO.
+- Slijedi DEV-02-C: lokalni sintetički podaci, tenant/profil kontekst i stanje u memoriji prema specifikaciji demoa. Ovaj zadatak završio je DEV-02-B; C nije započet.
+- DEV-02-C–DEV-02-I ostaju PLANIRANO: lokalni interaktivni demo, provjere i korisnikov pregled. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
+- Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-02 je U TOKU; DEV-03–DEV-10 ostaju PLANIRANO. Raniji zapisi o statusima ostaju istorija.
 - Pri dodavanju framework paketa provjeriti njihove kompatibilne verzije, uz Nx dodatke na istoj verziji kao `nx`.
 - Udaljeni, ranije započeti Sites projekat i dalje nije potvrđeno uklonjen (ZEV-006).
 
 ## Istorija rada
+
+### 16. oktobar 2026. — DEV-02-B: početak web osnove
+
+- Korisnik je naložio nastavak nakon DEV-02-A. Obim: `apps/web`, TypeScript, Tailwind, osnovni UI tokeni i komponente, lokalno pokretanje i tehničke provjere, bez demo poslovnih funkcionalnosti C–I.
+- DEV-02-B-1 — pregled preduslova i kompatibilnosti: ZAVRŠENO. Pročitani obavezni dokumenti i UI skill; izmjene A u dokumentaciji i novi `demo-specifikacija.md` su sačuvani. Nx dodatak 23.3.0 usklađen sa workspace-om; podržani Next 16 potvrđen kroz [Nx dokumentaciju](https://nx.dev/docs/technologies/react/next/introduction). Stabilne verzije provjerene u registru: Next 16.4.2, React 19.3.1, Tailwind 4.3.3. [Tailwind PostCSS integracija](https://tailwindcss.com/docs/installation/framework-guides/nextjs) primijenjena u app projektu.
+- DEV-02-B-2 — generisanje bez testova i priprema UI osnove: ZAVRŠENO. Nx generator izvršen sa `unitTestRunner=none` i `e2eTestRunner=none`; postavljeni i podrazumijevani izbori za naredno generisanje. Generator je napisao fajlove, ali završna instalacija nije našla direktni `pnpm` u PATH-u; završena zasebno preko Corepacka. Kreirani TypeScript/ESLint/PostCSS konfiguracija, semantički tokeni, Button/LinkButton, TextField, Notice, PageHeading, početni placeholder, razvojni `/ui` pregled i 404. Uklonjeni generisani welcome sadržaj, favicon i primjer API rute. Nema poslovnih demo podataka ili backenda.
+- DEV-02-B-3 — lint/typecheck/build, lokalno pokretanje, vizuelna provjera i README: ZAVRŠENO. Sandbox je odbio pnpm skladište izvan projekta i Nx sockete; relevantne komande ponovljene uz odobrenu eskalaciju. Instalacija prijavila deprecated ESLint 9 iz generatora i preskočene instalacione skripte `@swc/core` i `unrs-resolver`; konkretne lint/typecheck/build i runtime provjere prolaze bez odobravanja dodatnih skripti. Upozorenja ostaju zabilježena.
+- Međurezultat provjere: prvi lint/build prošli; `typecheck` target nije bio automatski generisan, dodat eksplicitni `next typegen` + `tsc --noEmit` i prošao. Uključeni Next preporučeni/core-web-vitals lint kriterijumi, tipovi ruta i zajednički ulazi Nx keša; nakon tih izmjena slijedi nova završna provjera. README sada opisuje komande, dostupne rute i obim. ESLint 9 zadržan zbog peer opsega React lint dodataka koje generator koristi; deprecation ostaje poznato razvojno ograničenje.
+- Ručni pregled lokalnog dev servera u ugrađenom browseru: `/`, `/ui`, greška praznog unosa sa fokusom na polju, unos, potvrda Tab/Enter, poništavanje, navigacija i 404. Screenshot pregled na 320, 360, 768 i 1280 CSS px; na 320/360 nema horizontalnog prelijevanja. Vidljiv fokus potvrđen. Stvarni CSS tokeni izmjereni prema bijeloj površini: glavni tekst 16,22:1, sekundarni 6,42:1, akcent 5,99:1, hover 8,17:1, greška 6,57:1, uspjeh 5,69:1, upozorenje 6,79:1, granica inputa 3,94:1. Puni čitač ekrana, 200% tekst i drugi browseri još nisu provjereni; poslovni scenariji pripadaju kasnijim podfazama.
+- Završna provjera: `corepack pnpm install --frozen-lockfile` sa postojećim skladištem prolazi; `nx run-many -t lint typecheck build -p web --parallel=1 --output-style=static` izvršio sva tri targeta bez grešaka. Build generiše `/`, `/ui` i 404. Dev server zaustavljen prije produkcione provjere; `nx start web --hostname=127.0.0.1 --port=3000` radi, a potvrda i reset osvježavanjem provjereni u produkcionom buildu. Browser tab poslije prekida dev servera zahtijevao je ponovno otvaranje; nije mijenjana browser zaštita ili mrežna konfiguracija.
+- Fajlovi: `apps/web/`, `package.json`, `pnpm-lock.yaml`, `nx.json`, `tsconfig*.json`, `eslint.config.mjs`, `.gitignore`, README i statusi u `AGENTS.md`, `docs/stack.md`, `docs/minimalni-plan.md`, `docs/razvojni-plan.md`, ovoj evidenciji. Next.js je tokom dev pokretanja automatski dodao lokalni `apps/web/AGENTS.md`; pročitan je zajedno sa relevantnim bundled Next vodičima, zadržan u projektu. Generisani `next-env.d.ts` se ignoriše i obnavlja kroz typegen/dev/build.
+- DEV-02-B ZAVRŠENO; DEV-02 ostaje U TOKU. Sačuvan screenshot komponenti `/private/tmp/zev-dev-02-b-ui.jpg`. Lokalni produkcioni server ostavljen je na `127.0.0.1:3000` radi pregleda; nije objavljen. Testovi, Supabase, udaljeni resursi i poslovne funkcionalnosti nisu dodavani; commit nije napravljen. Sljedeći korak je DEV-02-C.
+- Završni pregled dokumentacije i konfiguracije: `git diff --check`, parsiranje šest JSON konfiguracija, lokalni linkovi u sedam dokumenata, usklađenost root/app runtime zavisnosti i odsustvo dodatih testnih fajlova/frameworka prošli.
+
+### 16. oktobar 2026. — DEV-02-A: početak specifikacije demoa
+
+- Korisnik je prihvatio podjelu DEV-02 i naložio sljedeći korak: DEV-02-A, specifikaciju ekrana i demo scenarija.
+- DEV-02-A-1 — pregled preduslova: ZAVRŠENO. Pročitani obavezni dokumenti i UI skill sa smjernicama i primjerima; Git stablo je čisto, `apps/` i `libs/` imaju samo `.gitkeep`. Otvorene produkcione odluke ne blokiraju ovaj korak.
+- DEV-02-A-2 — ekrani, navigacija, privremene dozvole i sintetički scenariji: ZAVRŠENO. Kreiran `docs/demo-specifikacija.md`: 12 ekrana/grupa prikaza, pet destinacija, tri demo profila, dva tenanta i 14 scenarija sa očekivanim ishodima. Označene pretpostavke, granice lokalnog stanja, finansijska privatnost, obrasci i relevantna UI stanja.
+- DEV-02-A-3 — pregled pokrivenosti, aritmetike, lokalnih referenci i statusa: ZAVRŠENO. Pregledano svih pet cjelina i pokrivenost podfaza B–I; lokalne Markdown reference u tri dokumenta, jedinstvenost oznaka UI-01–UI-12 i SC-01–SC-14, finansijska aritmetika i `git diff --check` prolaze. Korišćena je jednokratna provjera dokumentacije, bez dodavanja testova ili infrastrukture. Usklađeni `docs/razvojni-plan.md` i ova evidencija. Nema izvršivog UI-ja: scenariji, širine, tastatura, kontrast i aplikacioni lint/typecheck/build nisu izvršeni. DEV-02-A ZAVRŠENO; sljedeći korak DEV-02-B. Nisu instalirane zavisnosti, kreirani udaljeni resursi ili izvršeni commit/objavljivanje.
+- Ovaj zadatak ne generiše aplikaciju; DEV-02-B i kasnije podfaze još nisu započete.
 
 ### 16. oktobar 2026. — DEV-02: početak razrade podfaza
 

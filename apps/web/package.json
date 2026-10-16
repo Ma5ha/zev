@@ -1,0 +1,38 @@
+{
+  "name": "@zev/web",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "web",
+    "sourceRoot": "apps/web/src",
+    "targets": {
+      "typecheck": {
+        "executor": "nx:run-commands",
+        "cache": true,
+        "inputs": [
+          "default",
+          "^default",
+          {
+            "externalDependencies": [
+              "typescript",
+              "next"
+            ]
+          }
+        ],
+        "outputs": [
+          "{projectRoot}/dist/tsconfig.tsbuildinfo",
+          "{projectRoot}/.next/types"
+        ],
+        "options": {
+          "cwd": "apps/web",
+          "command": "next typegen && tsc --noEmit -p tsconfig.json"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}

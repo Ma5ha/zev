@@ -14,7 +14,7 @@ Obavezno obuhvatiti svih pet cjelina minimalnog plana. U pilot ne ulaze bankovne
 
 ## 2. Polazno stanje i način rada
 
-- Nx/pnpm workspace je postavljen; `apps/` i `libs/` sadrže samo `.gitkeep` fajlove. Ne ponavljati inicijalizaciju workspace-a.
+- Nx/pnpm workspace je postavljen; `apps/web` sada sadrži tehničku web osnovu DEV-02-B, dok `libs/` još sadrži samo `.gitkeep`. Ne ponavljati inicijalizaciju workspace-a.
 - Prihvaćeni su TypeScript, Next.js/React, Tailwind CSS i Supabase/PostgreSQL/Auth/Storage; Expo ostaje za kasnije.
 - Verzije framework paketa, validaciona biblioteka, hosting, region baze i plan rezervnih kopija još nisu odabrani. Provjeriti aktuelnu kompatibilnost pri implementaciji; `@nx/*` držati usklađenim sa `nx`.
 - DEV-02 prvo razvija lokalne demo tokove bez baze. Od DEV-03 razvijati kompletne tokove od baze do ekrana, uz kontrolu pristupa u svakoj fazi. Demo prikazi uloga ne dokazuju zaštitu stvarnih podataka.
@@ -25,12 +25,12 @@ Obavezno obuhvatiti svih pet cjelina minimalnog plana. U pilot ne ulaze bankovne
 
 ## 3. Redoslijed i zavisnosti
 
-DEV-01 je započet naknadnom korisnikovom instrukcijom; odluke i prijedlozi vode se u [specifikaciji pilota](pilot-specifikacija.md). Potvrđeni su sintetički demo, obračun po m² i ručni unos roka plaćanja. Platforma je potvrđena: web sa landing stranicom, zatim mobilne aplikacije. Prijava i detaljna matrica ZEV uloga ostaju otvorene; ostale faze su **PLANIRANO**. Zavisnost znači da prethodni rezultat mora biti provjeren prije nastavka. Osnova workspace-a je već završena kao ZEV-010.
+Odluke i prijedlozi DEV-01 vode se u [specifikaciji pilota](pilot-specifikacija.md). Potvrđeni su sintetički demo, obračun po m² i ručni unos roka plaćanja. Platforma je potvrđena: web sa landing stranicom, zatim mobilne aplikacije. Korisnik navodi završen DEV-01; dokumentacija još ostavlja prijavu i detaljnu matricu ZEV uloga za backend. DEV-02 ima završene specifikaciju A i web osnovu B; DEV-03–DEV-10 su **PLANIRANO**. Zavisnost znači da prethodni rezultat mora biti provjeren prije nastavka. Osnova workspace-a je već završena kao ZEV-010.
 
 | ID | Faza / rezultat | Zavisnosti | Status |
 |---|---|---|---|
 | DEV-01 | Potvrđen pilot i specifikacija otvorenih pravila | Minimalni plan i postojeća dokumentacija | U TOKU |
-| DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01; otvorene produkcione odluke ne blokiraju demo | PLANIRANO |
+| DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01; otvorene produkcione odluke ne blokiraju demo | U TOKU — specifikacija A i web osnova B završene; poslovni demo nije izrađen |
 | DEV-03 | Baza, prijava, članstva i kontrola pristupa | Pregledan DEV-02, korisnikova instrukcija za backend i razriješene zavisne odluke DEV-01 | PLANIRANO |
 | DEV-04 | Finansijska evidencija i sopstvena kartica | DEV-03 | PLANIRANO |
 | DEV-05 | Radovi, ponude, napredak i povezane isplate | DEV-04 | PLANIRANO |
@@ -79,7 +79,7 @@ Redoslijed je: potvrđeni demo obim DEV-01 → DEV-02 demo bez baze → korisnik
 
 #### Predložene podfaze DEV-02
 
-Prijedlog od 16. oktobra 2026, na korisnikov zahtjev za manjim koracima. Podfaze razrađuju postojeći obim; ne predstavljaju početak implementacije. Sve su PLANIRANO. Oznake DEV-03–DEV-10 ostaju nepromijenjene.
+Podjela od 16. oktobra 2026, prihvaćena korisnikovom instrukcijom za nastavak sa DEV-02-A. Podfaze razrađuju postojeći obim; A je specifikacija, a B–I obuhvataju izradu, provjeru i pregled. Rezultat A vodi se u [specifikaciji demoa](demo-specifikacija.md), a statusi i provjere u [evidenciji](napredak.md). A i B su završene; C–I još nisu započete. Oznake DEV-03–DEV-10 ostaju nepromijenjene.
 
 | ID | Podfaza | Rezultat i kriterijum završetka | Zavisnost |
 |---|---|---|---|
@@ -217,4 +217,4 @@ Nakon pilota prvo riješiti utvrđene probleme. Cijenu i nastavak pretplate potv
 
 ## 9. Sljedeći konkretan korak
 
-Naredni implementacioni korak je DEV-02 — interaktivni web demo bez baze, prema već potvrđenom demo smjeru DEV-01. Trenutni zahtjev ažurira plan; implementacija još nije započeta. Kada korisnik naloži izradu, otvorena pitanja stvarne prijave i pilot podataka ne blokiraju demo: koriste se jasno označene sintetičke vrijednosti i simulirana prava. Nakon pregleda i dorada demoa razriješiti preostale odluke DEV-01, pa na korisnikovu instrukciju preći na DEV-03. Objavljivanje je zaseban korak.
+DEV-02-A je pripremio [specifikaciju demoa](demo-specifikacija.md), a DEV-02-B provjerenu tehničku web osnovu sa početnim UI komponentama. Naredni korak je DEV-02-C — sintetički podaci, demo kontekst i stanje; poslovni demo još nije izrađen. Otvorena pitanja stvarne prijave i pilot podataka ne blokiraju demo: koriste se jasno označene sintetičke vrijednosti i simulirana prava. Nakon izrade, provjera i korisnikovog pregleda demoa razriješiti preostale odluke DEV-01, pa na korisnikovu instrukciju preći na DEV-03. Objavljivanje je zaseban korak.
