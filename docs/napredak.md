@@ -36,12 +36,21 @@ DEV-01 je započet: pripremljena je [specifikacija pilota](pilot-specifikacija.m
 
 ## Sljedeći koraci
 
+- Razmotriti [predložene podfaze DEV-02-A–DEV-02-I](razvojni-plan.md#predložene-podfaze-dev-02). Trenutni zadatak priprema podjelu; implementacija podfaza nije započeta.
 - Na korisnikovu instrukciju izraditi DEV-02: landing i interaktivni demo sa lokalnim sintetičkim podacima, bez inicijalizacije baze/Supabase-a. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
 - Nakon provjere dostaviti demo korisniku na pregled i dorade. Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-01 ostaje U TOKU, DEV-02–DEV-10 PLANIRANO.
 - Pri dodavanju framework paketa provjeriti njihove kompatibilne verzije, uz Nx dodatke na istoj verziji kao `nx`.
 - Udaljeni, ranije započeti Sites projekat i dalje nije potvrđeno uklonjen (ZEV-006).
 
 ## Istorija rada
+
+### 16. oktobar 2026. — DEV-02: početak razrade podfaza
+
+- Zahtjev: korisnik navodi da je završio DEV-01 i želi prijedlog podjele DEV-02 na manje faze. Ovaj zadatak razrađuje plan, bez generisanja aplikacije.
+- ZEV-017-A — pregled plana i stvarnog stanja: ZAVRŠENO. Radno stablo je bilo čisto; `apps/` i `libs/` sadrže samo `.gitkeep`. Pregledani obavezni dokumenti, specifikacija i projektni UI skill sa smjernicama i primjerima.
+- ZEV-017-B — pripremiti podfaze sa rezultatima, zavisnostima i kriterijumima: ZAVRŠENO. U `docs/razvojni-plan.md` dodat prijedlog DEV-02-A–DEV-02-I, od specifikacije do korisnikovog pregleda, uz odvojene tehničku osnovu, interaktivne module i završnu provjeru. Sve implementacione podfaze su PLANIRANO.
+- ZEV-017-C — provjeriti obim, reference i diff, te uskladiti evidenciju: ZAVRŠENO. Pregledom potvrđeno da podfaze pokrivaju postojeće korake DEV-02 i zadržavaju uslove za DEV-03; provjeren cilj nove reference i `git diff --check`, bez grešaka. Izmijenjeni samo `docs/razvojni-plan.md` i `docs/napredak.md`; aplikacioni lint/typecheck/build i vizuelna provjera nisu primjenjivi jer aplikacija ne postoji. Testovi nisu pisani. Sljedeće: korisnikov izbor nastavka, počevši od DEV-02-A; izrada i objavljivanje nisu pokrenuti.
+- Razlika u statusu: korisnik prijavljuje završen DEV-01, dok postojeća dokumentacija još navodi otvorenu prijavu i matricu dozvola. Nove odluke nisu dostavljene ovim zahtjevom; potvrde se ne izmišljaju. Potvrđeni demo obim dovoljan je za planiranje DEV-02, a zavisna pitanja ostaju evidentirana prije DEV-03/04.
 
 ### 16. oktobar 2026. — Plan demoa bez baze: početak
 

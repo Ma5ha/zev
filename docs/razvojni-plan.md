@@ -77,6 +77,24 @@ Redoslijed je: potvrđeni demo obim DEV-01 → DEV-02 demo bez baze → korisnik
 
 **Kriterijum završetka faze:** implementacija i navedene provjere postoje, korisnik je pregledao demo, povratne informacije i ishod su evidentirani. Dostavljanje demoa samo po sebi ne znači korisnikovo prihvatanje ili instrukciju za DEV-03. Backend se pokreće nakon eksplicitne instrukcije korisnika i razrješenja njegovih preduslova; objavljivanje se odobrava zasebno.
 
+#### Predložene podfaze DEV-02
+
+Prijedlog od 16. oktobra 2026, na korisnikov zahtjev za manjim koracima. Podfaze razrađuju postojeći obim; ne predstavljaju početak implementacije. Sve su PLANIRANO. Oznake DEV-03–DEV-10 ostaju nepromijenjene.
+
+| ID | Podfaza | Rezultat i kriterijum završetka | Zavisnost |
+|---|---|---|---|
+| DEV-02-A | Specifikacija ekrana i demo scenarija | Popis ekrana, glavnih radnji, navigacije i privremenih dozvola; označene demo pretpostavke i očekivani ishodi. Pregledano prema UI skillu i postojećem obimu. | Potvrđeni demo obim DEV-01 |
+| DEV-02-B | Tehnička web osnova | `apps/web` sa Next.js, TypeScriptom i Tailwindom, osnovnim UI tokenima i komponentama. Lokalno pokretanje, dostupne lint/typecheck/build provjere i README rade bez backend ključeva; testovi se ne generišu. | A |
+| DEV-02-C | Demo podaci, kontekst i stanje | Dva sintetička tenanta, izbor demo uloge/funkcije, opis privremenih dozvola i podaci odvojeni od prikaza. Ručno provjereni promjena konteksta bez miješanja prikaza, lokalna promjena, reset i osvježavanje na početno stanje. | B |
+| DEV-02-D | Landing, navigacija i početni pregled | Landing vodi do jasno označenog demoa; svih pet cjelina dostupno kroz responzivni okvir. Početni pregled čita zajedničke demo podatke, uz kasnije povezivanje radnji iz E–G. Ručno provjereni ulaz, navigacija i vidljiv tenant/role kontekst. | C |
+| DEV-02-E | Finansijski demo | Trošak, uplata, kartica i primjer zaduženja po m² sa ručnim rokom. Čisti izračuni i promjene u memoriji osvježavaju pregled; ručno provjeren sintetički mjesečni primjer, odvojena sredstva/dug/avans i prikaz prema demo dozvolama. | D |
+| DEV-02-F | Demo radova i ponuda | Pregled i poređenje ponuda, izabrani izvođač, ugovoreni iznos, promjena statusa i prikaz povezanih demo isplata. Ručno provjeren tok i odvojeni iznosi ponuđeno/ugovoreno/plaćeno. | E |
+| DEV-02-G | Obavještenja, prijave i ankete | Lokalna objava obavještenja, prijava problema sa opcionim lokalnim pregledom fotografije i odgovor na informativnu anketu. Ručno provjerene promjene i relevantna validaciona/prazna stanja; bez udaljenog uploada i formalnog glasanja. | F, radi dogovorenog redoslijeda |
+| DEV-02-H | Cjelovita provjera i dorade | Pregled povezan sa svim modulima; provjereni ključni tokovi, reset, uloge/tenanti, uski i široki prikaz, tastatura, fokus, povećan tekst, kontrast i relevantna stanja. Izvršene dostupne lint/typecheck/build komande; nalazi, ispravke i granice provjere zapisani. | E–G |
+| DEV-02-I | Korisnikov pregled i zaključak | Demo i kratki scenariji dostavljeni korisniku; nakon stvarnog pregleda evidentirani povratne informacije, dogovorene dorade i njihov ishod. DEV-02 se završava prema kriterijumu iznad. | H |
+
+Responzivnost, pristupačnost i provjera svakog toka rade se kroz B–G; H provjerava povezanu cjelinu. Kontrolne tačke za pregled su D (izgled i navigacija), E (novac i kartica) i I (cijeli demo). Tehničko postavljanje B nije završen demo. Podfaze E–G prikazuju lokalne simulacije i ne završavaju produkcione DEV-04–DEV-08. Za DEV-03 i objavljivanje ostaju postojeći odvojeni uslovi.
+
 ### DEV-03 — Podaci, identitet i pristup
 
 **Preduslov:** korisnik je pregledao demo DEV-02 i dao instrukciju za backend; potvrđeni su način prijave, tenant granica i potrebna matrica dozvola iz DEV-01.
