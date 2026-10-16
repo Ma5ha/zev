@@ -11,6 +11,7 @@ Prije svakog zadatka pročitaj:
 1. Ovaj fajl — `AGENTS.md`.
 2. [Evidenciju napretka](docs/napredak.md) — šta je urađeno, trenutno stanje i sljedeći koraci.
 3. [Minimalni plan](docs/minimalni-plan.md) — obim prve verzije.
+   Pri tehničkom radu pročitaj i [prihvaćeni stack](docs/stack.md): Nx, pnpm, TypeScript, Next.js, Expo i Supabase. Nx zamjenjuje raniji prijedlog Turborepo-a.
 4. [Istraživanje ZEV RS](docs/istrazivanje-zev-rs.md), kada zadatak uključuje pravila poslovanja, finansije, glasanje ili prava pristupa.
 
 Provjeri stvarno stanje relevantnih fajlova i Git izmjena. Evidencija može biti nepotpuna nakon prekida; ne pretpostavljaj da zapisano ili planirano znači i implementirano.
@@ -61,6 +62,22 @@ U istoriju dodaj novi zapis; ne briši prethodne zapise da bi promijenio prikaz 
 - Ne nastavljaj pauziranu izradu niti objavljuj aplikaciju na osnovu same stavke „sljedeći korak“. Potrebna je instrukcija korisnika za nastavak.
 - Završni odgovor treba kratko navesti rezultat, važna ograničenja i link do ažurirane evidencije kada je relevantna.
 
+## Testovi
+
+- Ne piši, ne generiši i ne dodaj testove dok korisnik to izričito ne naredi. Ovo važi za unit, integration, end-to-end i snapshot testove, kao i za automatsko generisanje testova pri kreiranju aplikacija ili biblioteka.
+- Pri korišćenju generatora isključi generisanje testova gdje god je podržano. Ne dodaj testni framework ili testnu infrastrukturu bez izričitog naloga korisnika.
+- Provjeru izmjena obavljaj pregledom koda, provjerom tipova, postojećim lint/build komandama i ručnom provjerom, prema zadatku. U evidenciji jasno navedi šta je provjereno; ove provjere ne predstavljaj kao napisane testove.
+
+## Stil i organizacija koda
+
+- Prednost daj čistim (pure) funkcijama: isti ulaz daje isti izlaz, bez mutiranja ulaznih podataka ili skrivenih sporednih efekata. Izračune, validaciju i transformacije podataka izdvajaj iz UI komponenti.
+- Sporedne efekte, poput mrežnih zahtjeva, pristupa skladištu i izmjena baze, jasno odvoji od čistih poslovnih pravila.
+- Koristi što manje `useEffect` poziva. Izvedene vrijednosti izračunavaj tokom renderovanja, a radnje nastale korisničkom interakcijom obrađuj u event handlerima. Efekte koristi kada je potrebna sinhronizacija sa spoljnim sistemom, uz ispravne zavisnosti i cleanup gdje je potreban.
+- Piši male, granularne komponente sa jasnom odgovornošću i razumljivim props interfejsom. Veće ekrane sastavljaj od takvih komponenti; izbjegavaj komponente koje istovremeno upravljaju prikazom, obračunima, mrežom i svim stanjem ekrana.
+- Grupisanje logike prilagodi funkcionalnosti: povezani kod drži zajedno, a po potrebi razdvoji domenska pravila, pristup podacima, validaciju, stanje i prikaz u odgovarajuće module ili Nx biblioteke. Ne uvodi apstrakcije samo radi povećanja broja fajlova.
+- Koristi custom hookove za izdvajanje povezanog React stanja, ponašanja i ponovljive React logike. Obične izračune i transformacije ostavi u čistim funkcijama; hook koristi kada su potrebni React hookovi ili životni ciklus.
+- Custom hookovi takođe treba da imaju jasnu odgovornost. Nemoj samo premjestiti veliku komponentu u jedan veliki hook niti skrivati nepotrebne `useEffect` pozive iza hooka.
+
 ## Trenutno ograničenje
 
-Korisnik je zaustavio izradu aplikacije i zatražio planiranje i dokumentaciju. Kreiranje ovog fajla nije dozvola za nastavak razvoja ili objavljivanje. Za status ranije započetog projekta pogledaj `docs/napredak.md`.
+Korisnik je nakon faze planiranja odobrio postavljanje Nx i pnpm workspace-a. Osnova je inicijalizovana u glavnom folderu repozitorijuma; komande su u `README.md`. Generisanje aplikacija, implementacija funkcionalnosti i objavljivanje čekaju narednu instrukciju korisnika. Za status ranije započetog projekta pogledaj `docs/napredak.md`.

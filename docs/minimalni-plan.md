@@ -36,7 +36,9 @@ Ponude za radove u početku predsjednik unosi ili prilaže, a stanari ih prate i
 
 Predloženi početak je jedna responzivna web aplikacija koja se može instalirati na telefon kao PWA. Pilot tako dobija pristup sa računara i telefona uz manji početni trošak.
 
-Posebne Android i iOS aplikacije razvijaju se kada pilot pokaže potrebu. PWA je prijedlog početnog pristupa, a konačna tehnička odluka donosi se prije izrade.
+Prihvaćeni stack je Nx + pnpm + TypeScript, Next.js/React i Tailwind CSS za web, React Native/Expo za Android i iOS, te Supabase sa PostgreSQL bazom, autentifikacijom i skladištenjem dokumenata. Detalji su u [tehnološkom stacku](stack.md).
+
+Prijedlog redoslijeda ostaje web/PWA pilot, pa posebna mobilna aplikacija. Tačan redoslijed i verzije tehnologija potvrđuju se prije izrade.
 
 ## 5. Poslovni model
 
@@ -64,4 +66,4 @@ Pratiti:
 
 ## Status
 
-Ovaj dokument predstavlja plan. Izrada aplikacije je zaustavljena na zahtjev korisnika; nastavak zahtijeva novu instrukciju.
+Ovaj dokument predstavlja plan. Korisnik je odobrio i izvršeno je postavljanje Nx/pnpm monorepo osnove. Generisanje aplikacija i razvoj funkcionalnosti čekaju narednu instrukciju.
