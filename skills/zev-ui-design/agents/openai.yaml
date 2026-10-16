@@ -1,0 +1,4 @@
+interface:
+  display_name: "ZEV UI dizajn"
+  short_description: "Appleovi UI principi prilagođeni ZEV aplikaciji"
+  default_prompt: "Koristi $zev-ui-design za oblikovanje i provjeru ZEV interfejsa prema zadatku."

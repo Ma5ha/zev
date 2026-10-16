@@ -12,9 +12,18 @@ Prije svakog zadatka pročitaj:
 2. [Evidenciju napretka](docs/napredak.md) — šta je urađeno, trenutno stanje i sljedeći koraci.
 3. [Minimalni plan](docs/minimalni-plan.md) — obim prve verzije.
    Pri tehničkom radu pročitaj i [prihvaćeni stack](docs/stack.md): Nx, pnpm, TypeScript, Next.js, Expo i Supabase. Nx zamjenjuje raniji prijedlog Turborepo-a.
-4. [Istraživanje ZEV RS](docs/istrazivanje-zev-rs.md), kada zadatak uključuje pravila poslovanja, finansije, glasanje ili prava pristupa.
+4. [Razvojni plan](docs/razvojni-plan.md) — faze razvoja, zavisnosti, konkretni koraci, kriterijumi završetka i otvorene odluke.
+5. [Istraživanje ZEV RS](docs/istrazivanje-zev-rs.md), kada zadatak uključuje pravila poslovanja, finansije, glasanje ili prava pristupa.
 
 Provjeri stvarno stanje relevantnih fajlova i Git izmjena. Evidencija može biti nepotpuna nakon prekida; ne pretpostavljaj da zapisano ili planirano znači i implementirano.
+
+## Obavezni skill za UI dizajn
+
+Pri planiranju, implementaciji ili pregledu ekrana, komponenti, navigacije, formi, UI teksta, responzivnosti i pristupačnosti ZEV-a obavezno pročitaj i primijeni projektni skill [zev-ui-design](skills/zev-ui-design/SKILL.md). Koristi ga i kada ga korisnik ne navede izričito. Skill se učitava direktno preko ove putanje; ne oslanjaj se na to da se pojavljuje u globalnom katalogu skillova.
+
+- Prati njegove [UI smjernice](skills/zev-ui-design/references/guidelines.md) i čitaj relevantne [primjere](skills/zev-ui-design/references/examples.md) prema zadatku. Appleovi principi služe jasnoći, kontroli i povjerenju, uz prilagođavanje web/PWA i kasnijim platformama.
+- Razlikuj zvanične principe i standarde od lokalnih ZEV preporuka; konkretne boje, dimenzije i primjeri nisu Appleova obavezna pravila. Postojeći potvrđeni dizajn i posljednje upute korisnika imaju prednost.
+- UI rezultat provjeri u odgovarajućem obimu i evidentiraj granice provjere. Čisto serverske, bazne ili infrastrukturne izmjene bez uticaja na UI ne zahtijevaju ovaj skill.
 
 ## Obavezno praćenje koraka
 
@@ -54,6 +63,9 @@ U istoriju dodaj novi zapis; ne briši prethodne zapise da bi promijenio prikaz 
 ## Pravila rada
 
 - Prati posljednje upute korisnika i dogovoreni minimalni obim.
+- Razvoj vodi prema `docs/razvojni-plan.md`: prati redoslijed faza DEV-01–DEV-10, njihove zavisnosti i kriterijume završetka. Prije početka odredi kojoj fazi zadatak pripada i provjeri stvarno stanje preduslova.
+- U `docs/napredak.md` poveži razvojni zadatak sa oznakom odgovarajuće DEV faze i evidentiraj njen stvarni status, rezultate i provjere. Fazu označi završenom tek kada su ispunjeni njeni kriterijumi; djelimičan rezultat i preostale stavke navedi izričito.
+- Otvorene odluke razriješi prije zavisnog koraka. Odstupanje od razvojnog plana obrazloži i uskladi plan i evidenciju prema posljednjim uputama korisnika; postojanje plana samo po sebi ne odobrava nastavak pauzirane izrade ili objavljivanje.
 - Planiranje, implementaciju, provjeru i objavljivanje evidentiraj kao odvojene rezultate.
 - Sama instalacija zavisnosti ili postavljanje početnog projekta ne znači da je aplikacija izrađena.
 - Ne označavaj funkcionalnost kao završenu dok nije provjereno da radi; navedi granice provjere.

@@ -42,6 +42,8 @@ Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx`. Sledeći tehnički k
 
 - [Glavne upute agentima](AGENTS.md)
 - [Minimalni plan](docs/minimalni-plan.md)
+- [Razvojni plan](docs/razvojni-plan.md)
+- [UI dizajn skill](skills/zev-ui-design/SKILL.md) i [UI smjernice](skills/zev-ui-design/references/guidelines.md)
 - [Prihvaćeni stack](docs/stack.md)
 - [Napredak](docs/napredak.md)
 - [Istraživanje ZEV RS](docs/istrazivanje-zev-rs.md)

@@ -66,4 +66,6 @@ Pratiti:
 
 ## Status
 
+Faze implementacije, zavisnosti i kriterijumi završetka razrađeni su u [razvojnom planu](razvojni-plan.md).
+
 Ovaj dokument predstavlja plan. Korisnik je odobrio i izvršeno je postavljanje Nx/pnpm monorepo osnove. Generisanje aplikacija i razvoj funkcionalnosti čekaju narednu instrukciju.
