@@ -2,7 +2,7 @@
 
 Datum: 16. oktobar 2026. (Europe/Belgrade).
 
-Status: specifikacija za implementaciju DEV-02-B–DEV-02-I. Ekrani i scenariji nisu implementirani ili interaktivno provjereni. Osnova su [razvojni plan](razvojni-plan.md), [minimalni plan](minimalni-plan.md), [specifikacija pilota](pilot-specifikacija.md) i projektni [UI skill](../skills/zev-ui-design/SKILL.md).
+Status: specifikacija za implementaciju DEV-02-B–DEV-02-I. Naknadno su implementirani web osnova B i demo podaci/kontekst C sa djelimičnim prikazom i opisom prava; kompletni poslovni ekrani i scenariji još nisu završeni. Izvršene provjere i granice vodi evidencija. Osnova su [razvojni plan](razvojni-plan.md), [minimalni plan](minimalni-plan.md), [specifikacija pilota](pilot-specifikacija.md) i projektni [UI skill](../skills/zev-ui-design/SKILL.md).
 
 ## 1. Cilj i granice
 
@@ -137,3 +137,7 @@ Za SC-06 početni rad ima dvije ponude i nema isplata; sintetički izvođači su
 | DEV-02-I | Korisnikov pregled, povratne informacije i ishod dogovorenih dorada |
 
 DEV-02-A je završen kada su pregledani popis ekrana, glavne/sporedne radnje, navigacija, privremena prava, pretpostavke i očekivani ishodi. To ne potvrđuje izgled, pristupačnost ili izvršavanje buduće aplikacije. Preostale produkcione odluke vodi [specifikacija pilota](pilot-specifikacija.md); ovaj dokument ih ne zamjenjuje.
+
+## 8. Implementaciona dopuna DEV-02-C
+
+Za provjeru lokalnog stanja dodata je operaterska radna bilješka do 200 znakova, odvojena po ZEV-u i dostupna samo demo operateru. Ovo nije nova funkcionalnost pilota ili objava obavještenja. Kontrole i djelimični prikaz žive na `/demo`, a opis aktivnih privremenih prava na `/demo/prava`. Sačuvana bilješka opstaje kroz ove dvije rute; reset, osvježavanje i novi ulaz vraćaju početne podatke. Puna navigacija pet cjelina ostaje DEV-02-D.

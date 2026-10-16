@@ -4,9 +4,9 @@ Posljednje ažuriranje: 16. oktobar 2026. (Europe/Belgrade).
 
 ## Trenutno stanje
 
-Postavljeni su Nx/pnpm monorepo i Next.js web osnova u `apps/web`, sa TypeScriptom, Tailwindom i osnovnim UI komponentama. Poslovni demo podaci i funkcionalnosti još nisu izrađeni. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
+Postavljeni su Nx/pnpm monorepo i Next.js web osnova u `apps/web`, sa TypeScriptom, Tailwindom i osnovnim UI komponentama. DEV-02-C dodaje sintetičke podatke i demo kontekst sa stanjem u memoriji; puni poslovni moduli još nisu izrađeni. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
 
-Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), a DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom. Poslije implementacije slijede provjere i korisnikov pregled, pa odvojeno odobreni DEV-03.
+Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, a DEV-02-C kao demo podaci, profili i stanje sa resetom. Poslije implementacije slijede provjere i korisnikov pregled, pa odvojeno odobreni DEV-03.
 
 ## Koraci
 
@@ -35,16 +35,29 @@ Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi 
 | ZEV-016 | Uvrstiti interaktivni demo bez baze u plan | ZAVRŠENO | DEV-02 razrađen kao demo bez Supabase-a, sa pregledom prije DEV-03; usklađeni planovi, specifikacija, stack i upute. Implementacija nije pokrenuta. |
 | DEV-02-A | Specifikacija ekrana i demo scenarija | ZAVRŠENO | `demo-specifikacija.md`: ekrani, navigacija, demo prava, podaci i očekivani ishodi; pregled dokumentacije i aritmetike završen. UI nije implementiran. |
 | DEV-02-B | Tehnička web osnova i osnovne komponente | ZAVRŠENO | `apps/web`: Next.js/React, TypeScript, Tailwind, UI tokeni i komponente; frozen instalacija, lint, eksplicitni typecheck, build i lokalni dev/produkcioni pregled prošli. Poslovni demo nije izrađen. |
+| DEV-02-C | Sintetički podaci, demo kontekst i stanje | ZAVRŠENO | Dva tenanta, tri profila, selektori dozvoljenog prikaza, lokalna bilješka i reset. Lint/typecheck/build i ručni scenariji konteksta/memorije prošli; opis prava nije stvarna zaštita. |
 
 ## Sljedeći koraci
 
-- Slijedi DEV-02-C: lokalni sintetički podaci, tenant/profil kontekst i stanje u memoriji prema specifikaciji demoa. Ovaj zadatak završio je DEV-02-B; C nije započet.
-- DEV-02-C–DEV-02-I ostaju PLANIRANO: lokalni interaktivni demo, provjere i korisnikov pregled. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
+- Slijedi DEV-02-D: landing, navigacija pet cjelina i početni pregled zgrade. Ovaj zadatak završio je DEV-02-C; D nije započet.
+- DEV-02-D–DEV-02-I ostaju PLANIRANO: lokalni interaktivni demo, provjere i korisnikov pregled. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
 - Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-02 je U TOKU; DEV-03–DEV-10 ostaju PLANIRANO. Raniji zapisi o statusima ostaju istorija.
 - Pri dodavanju framework paketa provjeriti njihove kompatibilne verzije, uz Nx dodatke na istoj verziji kao `nx`.
 - Udaljeni, ranije započeti Sites projekat i dalje nije potvrđeno uklonjen (ZEV-006).
 
 ## Istorija rada
+
+### 16. oktobar 2026. — DEV-02-C: početak demo podataka i konteksta
+
+- Korisnik je naložio nastavak nakon B. DEV-02-C-1 — pregled preduslova: ZAVRŠENO; Git stablo je čisto, postoje web osnova i specifikacija A, pročitani obavezni dokumenti, UI skill i relevantni bundled Next vodič.
+- DEV-02-C-2 — sintetički skupovi, čista pravila prikaza i stanje u memoriji: ZAVRŠENO. `features/demo/` sadrži tipove, determinističku fabriku podataka sa eksplicitnim vremenom početka, čisti reducer i selektore, te uski React context/hook. Javor: A/B, sredstva 1.000 KM, dug 20/avans 10; Lipa: C i 500 KM. Pripremljeni sintetički rad/ponude, objava, prijave i anketa; puni moduli još ne postoje. Relativni rok ankete dolazi iz vremena zahtjeva/reset radnje i ostaje fiksan u sesiji.
+- DEV-02-C-3 — kontrole ZEV/profil, demo prava, provjera lokalne izmjene, promjene konteksta i reseta: ZAVRŠENO. Kreirani `/demo`, `/demo/prava`, selektori, opis aktivnih prava i native dijalog za reset/odbacivanje/izlaz. Mala operaterska radna bilješka služi provjeri memorije i tenant granice; nije novo poslovno obavještenje. Stanje živi u demo layoutu, bez localStorage, efekata ili backend upisa. Pregled kroz profile koristi samo dozvoljene kartice i prijave.
+- DEV-02-C-4 — lint/typecheck/build, ručni browser pregled, dokumentacija i granice: ZAVRŠENO. Sva tri tehnička targeta su prošla; provjeren build razlikuje statičke osnovne rute od `/demo` i `/demo/prava` koje dobijaju početno vrijeme na zahtjev. Prethodni lokalni server zaustavljen; ažurirani produkcioni server radi na `127.0.0.1:3000`.
+- Ručna provjera u ugrađenom browseru: početni Javor/Vlasnik i samo A/20 KM duga, operater sa A/B i dvije prijave, korisnik prostora bez kartice i samo sopstvena prijava. Lipa prikazuje C/50 m², 500 KM i prazne module. Bilješka Javora ne prelazi u Lipu i ostaje pri povratku i navigaciji `/demo` → `/demo/prava` → `/demo`. Nepotvrđena bilješka u Lipi ostaje poslije Escape; potvrda promjene odbacuje je bez prenosa. Sačuvane bilješke u oba ZEV-a nestaju poslije potvrđenog reseta, uz povratak Javor/Vlasnik. Potvrđen izlazak i ponovni ulaz, te osvježavanje, vraćaju početni kontekst i podatke.
+- UI provjera: screenshot i mjerenje na 320 i 1280 CSS px bez horizontalnog prelijevanja; native dijalog ima naziv, fokus na Odustani i Escape zatvaranje. Postojeći semantički tokeni nisu mijenjani. Puni čitač ekrana, 200% tekst, svi browseri i još neizrađeni poslovni tokovi nisu provjereni. Ovo dokazuje lokalni demo prikaz, ne autentifikaciju, RLS ili produkcionu izolaciju.
+- Izmjene: novi `apps/web/src/features/demo/` i `src/app/demo/`, ulaz u demo na početnom placeholderu, README i statusi u glavnim uputama, minimalnom/razvojnom planu, stacku, specifikaciji demoa i evidenciji. Nema novih paketa, testova, baze, udaljenih resursa, commita ili objavljivanja. Screenshot: `/private/tmp/zev-dev-02-c-demo.jpg`. DEV-02-C ZAVRŠENO; cijela DEV-02 ostaje U TOKU. Sljedeći korak DEV-02-D.
+- Završni pregled dokumentacije: `git diff --check`, lokalne reference sedam dokumenata i završni razmaci novih izvornih fajlova prolaze. Provjera nije dodala testne fajlove ili infrastrukturu.
+- Obim je osnova demoa sa jednostavnim prikazom radi provjere konteksta. Landing i puni pregled zgrade pripadaju D, a poslovni unosi E–G. Ne dodavati testove, backend ili trajnu pohranu.
 
 ### 16. oktobar 2026. — DEV-02-B: početak web osnove
 

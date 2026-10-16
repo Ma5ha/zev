@@ -13,8 +13,11 @@ export default function HomePage() {
         <PageHeading eyebrow="Web demo u pripremi" title="Jasan pregled života vaše zgrade.">
           Novac, radovi i obavještenja na jednom mjestu, sa informacijama koje je lako razumjeti.
         </PageHeading>
-        <Notice>Interaktivni demo još nije dostupan. Trenutno je pripremljena web osnova za naredne korake.</Notice>
-        <LinkButton href="/ui">Pregled osnovnih komponenti <span aria-hidden="true">→</span></LinkButton>
+        <Notice>Dostupni su demo podaci i izbor ZEV-a i profila. Poslovni ekrani su još u pripremi.</Notice>
+        <div className="flex flex-wrap gap-3">
+          <LinkButton href="/demo">Isprobaj demo okruženje <span aria-hidden="true">→</span></LinkButton>
+          <LinkButton href="/ui" variant="secondary">Pregled osnovnih komponenti</LinkButton>
+        </div>
       </main>
       <footer className="border-t border-line py-6 text-sm text-muted">ZEV · Transparentno upravljanje zajednicom</footer>
     </div>

@@ -4,7 +4,7 @@ Nx monorepo za web i buduću mobilnu aplikaciju za zajednice etažnih vlasnika.
 
 ## Trenutni obim
 
-DEV-02-B postavlja Next.js web osnovu u `apps/web`: TypeScript, Tailwind CSS, zajedničke UI tokene i početne komponente. `/` je privremena početna stranica, a `/ui` razvojni pregled dugmadi, tekstualnog polja, validacije i poruka. Interaktivni ZEV demo, landing i poslovni moduli dolaze kroz DEV-02-C–DEV-02-I.
+DEV-02-B postavlja Next.js web osnovu u `apps/web`: TypeScript, Tailwind CSS, zajedničke UI tokene i početne komponente. `/` je privremena početna stranica, a `/ui` razvojni pregled dugmadi, tekstualnog polja, validacije i poruka. DEV-02-C dodaje `/demo` sa dva sintetička ZEV-a i tri demo profila, te `/demo/prava`. Landing, navigacija poslovnih cjelina i njihovi puni moduli dolaze kroz DEV-02-D–DEV-02-I.
 
 Za pokretanje nisu potrebni `.env`, backend ključevi, Supabase projekat ili baza. Mobilna aplikacija još nije generisana. Nema stvarne prijave, trajne pohrane ili objavljivanja.
 
@@ -35,6 +35,14 @@ corepack pnpm nx dev web --hostname=127.0.0.1 --port=3000
 
 Pregled komponenti je na [localhost:3000/ui](http://localhost:3000/ui). Prazna potvrda prikazuje grešku i fokusira polje; unos i potvrda daju lokalnu poruku; „Poništi unos“ prazni polje. Osvježavanje vraća početno stanje. Ovaj primjer nije prijava problema niti finansijski upis.
 
+## Demo podaci i memorija
+
+Na [localhost:3000/demo](http://localhost:3000/demo) početni kontekst je Javor / Vlasnik. Izbor ZEV-a i profila mijenja prikazane podatke; „Demo prava“ opisuje privremene dozvole. Operater može sačuvati radnu bilješku zasebno za svaki demo ZEV. To je provjera stanja, bez objavljivanja obavještenja.
+
+Sačuvane bilješke ostaju pri promjeni ZEV-a i navigaciji kroz demo. Nepotvrđen unos pri promjeni konteksta traži potvrdu odbacivanja. Reset vraća oba ZEV-a i početni profil; osvježavanje ili izlazak i ponovni ulaz takođe započinju početno stanje. Nema localStorage-a, baze ili API-ja. „Demo prava“ su simulacija prikaza nad sintetičkim podacima, a ne kontrola pristupa stvarnim podacima.
+
+`src/features/demo` odvaja tipove, sintetičke podatke, čisti reducer i selektore od React stanja i prikaza. Podaci ankete dobijaju rok sedam dana od početnog zahtjeva/reset radnje; rok se ne pomjera kroz navigaciju iste sesije.
+
 ## Provjere i produkciono pokretanje
 
 ```sh
@@ -62,7 +70,7 @@ nx.json               # Nx podešavanja
 pnpm-workspace.yaml   # aplikacije i paketi obuhvaćeni workspace-om
 ```
 
-Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. Sljedeći razvojni korak je DEV-02-C: sintetički podaci, demo kontekst i stanje.
+Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. Sljedeći razvojni korak je DEV-02-D: landing, navigacija i početni pregled.
 
 ## Dokumentacija
 
