@@ -27,7 +27,7 @@ export function FinanceNavigationGuard({ children }: { children: ReactNode }) {
     dialog.current?.showModal();
   }}>
     {children}
-    <dialog ref={dialog} aria-labelledby="finansije-odlazak" className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-lg rounded-xl border border-line bg-surface p-6 text-ink backdrop:bg-black/40">
+    <dialog ref={dialog} aria-labelledby="finansije-odlazak" className="fixed inset-0 m-auto max-h-[90dvh] overflow-y-auto w-[calc(100%-2rem)] max-w-lg rounded-xl border border-line bg-surface p-6 text-ink backdrop:bg-black/40">
       <h2 id="finansije-odlazak" className="text-xl font-semibold">Odbaciti nepotvrđeni unos?</h2>
       <p className="mt-3 text-muted">Obrazac nije potvrđen. Nastavak odbacuje unos i lokalni prilog.</p>
       <div className="mt-6 flex flex-wrap gap-3">

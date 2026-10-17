@@ -12,7 +12,7 @@ export function DemoWorks() {
 
 export function DemoAnnouncements() {
   const { view } = useDemo();
-  return <div className="space-y-6"><PageHeading eyebrow="Informacije za zajednicu" title="Oglasna tabla">Obavještenja aktivnog demo ZEV-a.</PageHeading><CommunityForm kind="announcement" /><DemoSection id="objave-lista" title="Obavještenja"><AnnouncementList announcements={view.announcements} /></DemoSection></div>;
+  return <div className="space-y-6"><PageHeading eyebrow="Informacije za zajednicu" title="Oglasna tabla">Obavještenja aktivnog demo ZEV-a.</PageHeading><CommunityForm key={`${view.tenantId}:${view.profileId}`} kind="announcement" /><DemoSection id="objave-lista" title="Obavještenja"><AnnouncementList announcements={view.announcements} /></DemoSection></div>;
 }
 
 export function DemoPollsAndIssues() {

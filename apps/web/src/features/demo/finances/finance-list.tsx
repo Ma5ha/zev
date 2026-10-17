@@ -29,7 +29,7 @@ export function DemoFinances() {
     <DemoSection id="finansije-sredstva" title="Zajednička sredstva"><FundsSummary cents={view.fundsCents} reconciledOn={view.reconciledOn} /></DemoSection>
     <DemoSection id="kartice" title={view.profileId === 'owner' ? 'Moja kartica' : 'Kartice'}><p className="text-sm text-muted">Trenutno stanje iz svih demo zaduženja i uplata.</p><UnitCards cards={view.cards} linkToCards /></DemoSection>
     <DemoSection id="promet" title="Prihodi i rashodi">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div><label htmlFor="period" className="font-semibold">Period</label><input id="period" type="month" value={period} onChange={event => filter('period', event.target.value)} className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3" /><p className="mt-2 text-sm text-muted">Prazan period prikazuje sve stavke.</p></div>
         <div><label htmlFor="filter-category" className="font-semibold">Kategorija</label><select id="filter-category" value={category} onChange={event => filter('category', event.target.value)} className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3"><option value="">Sve kategorije</option>{[...EXPENSE_CATEGORIES, 'Uplate održavanja'].map(item => <option key={item}>{item}</option>)}</select></div>
       </div>

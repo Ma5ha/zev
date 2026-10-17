@@ -78,7 +78,7 @@ nx.json               # Nx podešavanja
 pnpm-workspace.yaml   # aplikacije i paketi obuhvaćeni workspace-om
 ```
 
-Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. Sljedeći razvojni korak je DEV-02-G: obavještenja, prijave i ankete, nakon korisnikove instrukcije.
+Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. DEV-02-H provjera i dorade su završeni u obimu [izvještaja](docs/demo-provjera-h.md). Slijedi korisnikov pregled DEV-02-I prema novoj instrukciji; backend i objavljivanje zahtijevaju zasebno odobrenje.
 
 ## Dokumentacija
 

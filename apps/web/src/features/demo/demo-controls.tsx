@@ -31,7 +31,7 @@ export function DemoControls() {
 
   return (
     <div className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className="space-y-2 font-semibold">Demo ZEV
           <select className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3 py-2 font-normal" value={view.tenantId}
             onChange={event => { const tenant = DEMO_TENANTS.find(item => item.id === event.target.value); if (tenant) request({ type: 'context', tenantId: tenant.id, profileId: view.profileId }); }}>
@@ -50,7 +50,7 @@ export function DemoControls() {
         <Button variant="secondary" onClick={() => request('exit')}>Izađi iz demoa</Button>
       </div>
       <dialog ref={dialog} aria-labelledby="potvrda-naslov" onCancel={() => setPending(null)}
-        className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-lg rounded-xl border border-line bg-surface p-6 text-ink shadow-xl backdrop:bg-black/40">
+        className="fixed inset-0 m-auto max-h-[90dvh] overflow-y-auto w-[calc(100%-2rem)] max-w-lg rounded-xl border border-line bg-surface p-6 text-ink shadow-xl backdrop:bg-black/40">
         <h2 id="potvrda-naslov" className="text-xl font-semibold">{pending === 'exit' ? 'Izaći iz demoa?' : pending?.type === 'reset' ? 'Vratiti početne podatke?' : 'Odbaciti nepotvrđeni unos?'}</h2>
         <p className="mt-3 leading-relaxed text-muted">{pending === 'exit' ? 'Lokalne izmjene će biti izgubljene. Ponovni ulaz započinje početni demo.' : pending?.type === 'reset' ? 'Odbaci demo izmjene u oba ZEV-a i vrati Javor / Vlasnik.' : 'Nepotvrđeni unos će biti odbačen. Sačuvane demo izmjene ostaju u svom ZEV-u.'}</p>
         <div className="mt-6 flex flex-wrap gap-3">

@@ -48,6 +48,18 @@ Koristi sljedeće statuse:
 
 Svaki korak treba imati stabilnu oznaku, opis, status i napomenu o rezultatu ili prepreci. Nove korake dodaj bez prepisivanja istorije ranijih odluka.
 
+### Obavezna završna tabela napretka
+
+- `docs/napredak.md` uvijek završava odjeljkom **„Status svih dogovorenih stavki“** i jednom Markdown tabelom: `ID | Dogovorena stavka | Status | Rezultat / preostalo / prepreka`.
+- Tabela je posljednji sadržaj dokumenta. Nove istorijske zapise, provjere i sljedeće korake dodaj **iznad** nje; ništa ne dopisuj ispod tabele.
+- Obuhvati sve dogovorene zadatke i faze, uključujući završene, planirane, blokirane, pauzirane i otkazane stavke. Ne prikazuj samo posljednji zadatak. Koristi stabilne postojeće oznake; razvojne faze DEV-01–DEV-10 i dogovorene podfaze prikaži zasebnim redovima. Detaljni izvedbeni koraci mogu ostati u istoriji uz vezu na odgovarajuću stavku.
+- Pri svakom ažuriranju evidencije uskladi tabelu sa stvarnim stanjem i posljednjim dogovorom. Uz nezavršenu stavku navedi šta preostaje ili šta je blokira; uz završenu rezultat i relevantnu granicu provjere ili vezu na zapis.
+- Jasno razlikuj planirano od odobrenog za izvršavanje. Status PLANIRANO ili red u tabeli ne odobrava nastavak, backend ili objavljivanje.
+- Neposredno iznad završnog popisa prikaži odjeljak **„Statistika i pregled statusa“**: ukupan broj stavki i tabelu `Status | Broj stavki | Značenje`. Prikaži svih šest dozvoljenih statusa, uključujući one sa nulom. Brojeve izračunaj iz aktuelne završne tabele, po jednom za svaki jedinstveni ID; ne iz istorijskih zapisa.
+- Za brzo čitanje izdvoji kratki popis stavki U TOKU, BLOKIRANO i PAUZIRANO, sa ID-jem i konkretnim preostalim korakom/preprekom. Cijeli popis sa imenima, statusima i napomenama ostaje u završnoj tabeli.
+- Statistika broji evidencione redove, uključujući zbirne faze i njihove podfaze. Ne predstavljaj je kao procenat završenosti aplikacije ili procjenu preostalog rada. Planirane faze nisu automatski odobrene.
+- Tabela je aktuelni pregled, a istorija ostaje sačuvana iznad statistike i popisa. Prije završnog odgovora provjeri potpunost, jedinstvene ID-jeve, zbir statistike, ažurne statuse i da je detaljna tabela zaista na kraju dokumenta.
+
 ## Šta upisivati u evidenciju
 
 Za svaku značajnu promjenu zabilježi:

@@ -2,7 +2,7 @@
 
 Datum: 16. oktobar 2026. (Europe/Belgrade).
 
-Status: specifikacija za implementaciju DEV-02-B–DEV-02-I. Naknadno su implementirani web osnova B, demo podaci/kontekst C sa opisom prava i landing/navigacija/početni pregledi D; kompletni poslovni ekrani i scenariji još nisu završeni. Izvršene provjere i granice vodi evidencija. Osnova su [razvojni plan](razvojni-plan.md), [minimalni plan](minimalni-plan.md), [specifikacija pilota](pilot-specifikacija.md) i projektni [UI skill](../skills/zev-ui-design/SKILL.md).
+Status: specifikacija za implementaciju DEV-02-B–DEV-02-I. Naknadno su implementirani B–G i provjeren povezani demo kroz H; korisnikov pregled I još nije završen. Izvršene provjere i granice vodi evidencija. Osnova su [razvojni plan](razvojni-plan.md), [minimalni plan](minimalni-plan.md), [specifikacija pilota](pilot-specifikacija.md) i projektni [UI skill](../skills/zev-ui-design/SKILL.md).
 
 ## 1. Cilj i granice
 

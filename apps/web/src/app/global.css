@@ -21,7 +21,8 @@
   body { @apply m-0 bg-canvas font-sans text-ink antialiased; }
   button, input, select, textarea { font: inherit; }
   :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
-  h1, h2, h3, p, a { overflow-wrap: anywhere; }
+  h1, h2, h3, p, a, label, li, dd, button { overflow-wrap: anywhere; }
+  input, select, textarea { min-width: 0; max-width: 100%; }
   ::selection { background: #dbe8ff; color: var(--color-ink); }
 }
 

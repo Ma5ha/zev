@@ -34,13 +34,13 @@ export function MobileNavigation() {
   const active = DEMO_DESTINATIONS.find(item => item.href === pathname || (item.href !== '/demo' && pathname.startsWith(`${item.href}/`)))?.label ?? 'Demo prava';
   function close() { dialog.current?.close(); setOpen(false); }
   return <div className="lg:hidden">
-    <div className="flex items-center justify-between gap-3 border-b border-line pb-4">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-4">
       <p className="font-semibold">{active}</p>
       <Button variant="secondary" aria-haspopup="dialog" aria-expanded={open} aria-controls="demo-meni" onClick={() => { dialog.current?.showModal(); setOpen(true); }}>Meni</Button>
     </div>
     <dialog id="demo-meni" ref={dialog} aria-labelledby="meni-naslov" onClose={() => setOpen(false)}
       className="fixed inset-0 m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-md overflow-y-auto rounded-xl border border-line bg-surface p-5 text-ink shadow-xl backdrop:bg-black/40">
-      <div className="mb-5 flex items-center justify-between gap-3"><h2 id="meni-naslov" className="text-xl font-semibold">Meni zgrade</h2><Button variant="secondary" onClick={close}>Zatvori</Button></div>
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3"><h2 id="meni-naslov" className="text-xl font-semibold">Meni zgrade</h2><Button variant="secondary" onClick={close}>Zatvori</Button></div>
       <NavigationLinks onNavigate={close} />
     </dialog>
   </div>;

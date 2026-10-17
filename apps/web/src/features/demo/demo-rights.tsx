@@ -17,7 +17,7 @@ export function DemoRights() {
   ];
   return (
     <dl className="divide-y divide-line rounded-xl border border-line bg-surface px-5 sm:px-6">
-      {rows.map(([label, value]) => <div key={label} className="grid gap-2 py-5 sm:grid-cols-2 sm:gap-6">
+      {rows.map(([label, value]) => <div key={label} className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-2 sm:gap-6">
         <dt className="font-semibold">{label}</dt><dd className="leading-relaxed text-muted">{value}</dd>
       </div>)}
     </dl>

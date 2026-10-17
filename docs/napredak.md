@@ -6,47 +6,14 @@ Posljednje ažuriranje: 17. oktobar 2026. (Europe/Belgrade).
 
 Postavljeni su Nx/pnpm monorepo i Next.js web osnova u `apps/web`, sa TypeScriptom, Tailwindom i osnovnim UI komponentama. DEV-02-C dodaje sintetičke podatke i demo kontekst sa stanjem u memoriji, a DEV-02-D landing, responzivnu navigaciju pet cjelina i početne preglede. DEV-02-E dodaje lokalne finansijske unose, kartice i obračun; DEV-02-F dodaje detalj rada, ponude, status i povezane isplate; DEV-02-G dodaje objave, prijave sa lokalnom fotografijom i informativne ankete. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
 
-Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, DEV-02-C kao demo podaci, profili i stanje sa resetom, DEV-02-D kao landing, navigacija i početni pregledi, DEV-02-E kao lokalni finansijski demo, DEV-02-F kao radovi i ponude, a DEV-02-G kao obavještenja, prijave i informativne ankete. Poslije implementacije slijede provjere i korisnikov pregled, pa odvojeno odobreni DEV-03.
+Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, DEV-02-C kao demo podaci, profili i stanje sa resetom, DEV-02-D kao landing, navigacija i početni pregledi, DEV-02-E kao lokalni finansijski demo, DEV-02-F kao radovi i ponude, a DEV-02-G kao obavještenja, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Preostaje korisnikov pregled DEV-02-I, pa odvojeno odobreni DEV-03.
 
-## Koraci
-
-| ID | Korak | Status | Rezultat / napomena |
-|---|---|---|---|
-| ZEV-001 | Inicijalizovati Git repozitorijum | ZAVRŠENO | Repozitorijum postoji u glavnom folderu projekta. |
-| ZEV-002 | Istražiti pravila i potrebe ZEV-a u RS | ZAVRŠENO | [Istraživanje](istrazivanje-zev-rs.md) i tekstovi propisa u `izvori/`; otvorene pravne provjere navedene su u istraživanju. |
-| ZEV-003 | Definisati minimalni plan za pilot jedne zgrade | ZAVRŠENO | [Minimalni plan](minimalni-plan.md) sa ulogama, funkcionalnostima i poslovnim modelom. |
-| ZEV-004 | Izraditi aplikaciju | PAUZIRANO | Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena. |
-| ZEV-005 | Ukloniti ranije započetu lokalnu aplikaciju | ZAVRŠENO | Nova provjera potvrdila je da folder `aplikacija/` više ne postoji. Raniji pokušaj agenta bio je odbijen; agent u ovom zadatku nije izvršavao brisanje niti je utvrđeno ko je folder uklonio. |
-| ZEV-006 | Ukloniti privatni, neobjavljeni Sites projekat | BLOKIRANO | Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen. |
-| ZEV-007 | Uvesti glavne upute i evidenciju napretka | ZAVRŠENO | Kreirani `../AGENTS.md` i ovaj dokument; provjereno postojanje fajlova i sadržaj uputa. |
-| ZEV-008 | Napraviti početni commit dokumentacije | ZAVRŠENO | Kreiran početni commit za `AGENTS.md` i `docs/`; identifikator je dostupan u Git istoriji. |
-| ZEV-009 | Zapisati prihvaćeni stack sa Nx-om | ZAVRŠENO | Kreiran `stack.md`, usklađeni minimalni plan i glavne upute; provjerene reference i diff. Razvoj nije nastavljen. |
-| ZEV-010 | Inicijalizovati Nx i pnpm workspace | ZAVRŠENO | Nx 23.3.0, pnpm 10.34.7, workspace konfiguracija, lockfile, `apps/`, `libs/` i README; prošle provjere verzije, izvještaja, projekata, grafa i frozen instalacije. |
-| ZEV-011 | Dodati pravila pisanja koda i testova | ZAVRŠENO | U `AGENTS.md` dodati zabrana pisanja/generisanja testova bez naloga, prednost čistim funkcijama, minimalan `useEffect`, male komponente, grupisanje logike i custom hookovi. Pregled izmjena i `git diff --check` prošli. |
-| ZEV-012 | Napraviti razvojni plan na osnovu minimalnog plana | ZAVRŠENO | Kreiran `razvojni-plan.md` sa deset faza, zavisnostima, kriterijumima završetka i otvorenim odlukama. Provjereni obim, lokalni linkovi i diff; implementacija nije započeta. |
-| ZEV-013 | Obavezati agente da prate razvojni plan | ZAVRŠENO | U `AGENTS.md` dodati obavezno čitanje plana, praćenje DEV faza, zavisnosti i kriterijuma te povezivanje sa evidencijom. Pregled diff-a, referenca i `git diff --check` prošli. |
-| ZEV-014 | Kreirati UI skill i smjernice iz Appleove filozofije | ZAVRŠENO | Kreiran projektni `zev-ui-design` sa smjernicama, primjerima i izvorima; povezan kroz `AGENTS.md`, README i razvojni plan. YAML i lokalni linkovi provjereni alternativnim alatima; zvanični validator nije radio zbog nedostajućeg PyYAML-a. UI nije implementiran. |
-| ZEV-015 | DEV-01 — dogovor pravila i specifikacija demoa/pilota | U TOKU | Nacrt, matrica pristupa i sintetički obračun pripremljeni; demo, obračun po m² i ručni rok potvrđeni. Platforma, landing, tenant smjer i ZEV uloge su potvrđeni; prijava i detaljne dozvole ostaju otvorene. |
-| DEV-01-A | Pripremiti nacrt pravila pilota | ZAVRŠENO | `pilot-specifikacija.md` odvaja potvrđene odluke, prijedloge i otvorena pitanja. |
-| DEV-01-B | Usaglasiti odluke sa korisnikom | U TOKU | Potvrđeni demo, obračun, web sa landingom, kasnije mobilne aplikacije, tenant smjer i ZEV uloge; prijava i detaljna prava još nisu potvrđeni. |
-| DEV-01-C | Provjeriti specifikaciju i kriterijume završetka | ZAVRŠENO | Pregledani nacrt i kriterijumi; lokalni linkovi, aritmetika i diff provjereni. Kriterijumi cijele DEV-01 još nisu ispunjeni; nova provjera nakon odluka. |
-| DEV-01-D | Uskladiti platforme, landing, tenant i ZEV uloge | ZAVRŠENO | Ažurirani planovi, stack i specifikacija; pregledana dosljednost i reference. Rezultat je dokumentacija, bez implementacije. |
-
-| ZEV-016 | Uvrstiti interaktivni demo bez baze u plan | ZAVRŠENO | DEV-02 razrađen kao demo bez Supabase-a, sa pregledom prije DEV-03; usklađeni planovi, specifikacija, stack i upute. Implementacija nije pokrenuta. |
-| DEV-02-A | Specifikacija ekrana i demo scenarija | ZAVRŠENO | `demo-specifikacija.md`: ekrani, navigacija, demo prava, podaci i očekivani ishodi; pregled dokumentacije i aritmetike završen. UI nije implementiran. |
-| DEV-02-B | Tehnička web osnova i osnovne komponente | ZAVRŠENO | `apps/web`: Next.js/React, TypeScript, Tailwind, UI tokeni i komponente; frozen instalacija, lint, eksplicitni typecheck, build i lokalni dev/produkcioni pregled prošli. Poslovni demo nije izrađen. |
-| DEV-02-C | Sintetički podaci, demo kontekst i stanje | ZAVRŠENO | Dva tenanta, tri profila, selektori dozvoljenog prikaza, lokalna bilješka i reset. Lint/typecheck/build i ručni scenariji konteksta/memorije prošli; opis prava nije stvarna zaštita. |
-| DEV-02-D | Landing, navigacija i početni pregled | ZAVRŠENO | Landing, responzivna navigacija pet cjelina i početni pregledi iz demo konteksta; lint/typecheck/build i ručna provjera ulaza, navigacije, profila, tenanta i praznih stanja prošli. Poslovni unosi E–G ostaju naredni koraci. |
-| DEV-02-E | Finansijski demo | ZAVRŠENO | Trošak, uplata, obračun po m² sa ručnim rokom, kartice, filteri, detalji i lokalni prilozi. SC-04/05, nedupliranje obračuna i demo privatnost ručno potvrđeni; lint/typecheck/build prolaze. Nema stvarnog knjiženja. |
-
-| DEV-02-F | Demo radova i ponuda | ZAVRŠENO | Detalj, poređenje ponuda, izvođač, ugovoreno/plaćeno, status i povezane isplate; SC-06/07, lint/typecheck/build i UI 320/1280 px provjereni. |
-
-| DEV-02-G | Obavještenja, prijave i informativne ankete | ZAVRŠENO | Lokalni obrasci, fotografija, statusi, odgovor/izmjena/zatvaranje i zbirni rezultati. SC-08–10 i validacija ručno provjereni u navedenim granicama; lint/typecheck/build prolaze. |
+Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-svih-dogovorenih-stavki). Detalji i ranije promjene statusa ostaju u istoriji.
 
 ## Sljedeći koraci
 
-- DEV-02-G je završen u demo obimu. Slijedi DEV-02-H tek nakon nove instrukcije korisnika.
-- DEV-02-H–DEV-02-I ostaju PLANIRANO: lokalni interaktivni demo, provjere i korisnikov pregled. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
+- DEV-02-H je završen u dokumentovanom obimu. Slijedi DEV-02-I: korisnikov pregled, tek prema novoj instrukciji korisnika.
+- DEV-02-I ostaje PLANIRANO; DEV-02 kao cjelina ostaje U TOKU do korisnikovog pregleda i zaključka. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
 - Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-02 je U TOKU; DEV-03–DEV-10 ostaju PLANIRANO. Raniji zapisi o statusima ostaju istorija.
 - Pri dodavanju framework paketa provjeriti njihove kompatibilne verzije, uz Nx dodatke na istoj verziji kao `nx`.
 - Udaljeni, ranije započeti Sites projekat i dalje nije potvrđeno uklonjen (ZEV-006).
@@ -328,3 +295,120 @@ Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi 
 
 - G-3 — završna potvrda: nakon ispravke asinhronog prilaganja ponovljeni lint/typecheck/build, svi prolaze. Konačni build ručno potvrđuje PNG pregled i čuvanje, Escape iz potvrde promjene ZEV-a čuva nacrt, a osvježavanje vraća početne podatke. Nova anketa odbija iste opcije i nedostajući rok; sa dvije opcije i budućim rokom se kreira, prihvata odgovor i po zatvaranju prikazuje tačan zbir. Dokaz prikaza je lokalni `/tmp/zev-dev02g.png`. `git diff --check` prolazi. Nisu dodani testovi, paketi, baza ili udaljeni resursi.
 - G-4 — dokumentacija i gašenje: ZAVRŠENO. Usklađeni README, minimalni plan, stack, razvojni plan i evidencija. Privremeni server zaustavljen Ctrl+C; `lsof` ne prikazuje slušaoca na 3000/3001. Izmjene ostaju nezakomitovane, ranija evidencija i kod F su očuvani. DEV-02-G je ZAVRŠENO u demo obimu; DEV-02 ostaje U TOKU. H/I, backend i objavljivanje nisu nastavljeni.
+
+### 17. oktobar 2026. — predaja DEV-02-H u novi chat
+
+- H-0 — korisnik je izričito naložio pokretanje idućeg koraka u novom chatu. U TOKU: kreiranje novog lokalnog chata za cjelovitu provjeru i dorade DEV-02-H u istom checkoutu. Sačuvati sve nezakomitovane izmjene G i raniju evidenciju; serveri su nakon G zaustavljeni. Novi chat evidentira konkretne korake, nalaze i provjere. I/backend/objavljivanje nisu odobreni ovom predajom.
+
+- H-0 — predaja: ZAVRŠENO. Kreiran lokalni chat „DEV-02-H — cjelovita provjera i dorade ZEV demoa“, ID `01a148bf-cbea-7880-9e5e-68b9554931a1`, u istom projektu. Ispravka u odnosu na raniju pretpostavku: `git status --short` neposredno prije predaje bio je prazan, pa su ranije izmjene G u međuvremenu već sačuvane u Gitu; novi chat treba ponovo provjeriti trenutno stanje.
+
+### 17. oktobar 2026. — DEV-02-H: početak provjere
+
+- H-1 — preduslovi i očuvanje: ZAVRŠENO. Stvarni Git status pokazuje samo izmijenjenu evidenciju (H-0 predaja); kod G je već u Gitu. Postojeći diff i status sačuvani su u `/tmp/zev-h-backup/`. Pročitani obavezni dokumenti i UI skill; E–G postoje.
+- H-2 — povezana ručna provjera SC-01–14, prikaza/prava i pristupačnosti: U TOKU. Pregled koda, lokalni browser i konkretne dorade unutar demo obima.
+- H-3 — lint/typecheck/build i ponovna provjera dorada: PLANIRANO.
+- H-4 — dokumentacija rezultata, granica i gašenje servera: PLANIRANO. I, backend i objavljivanje nisu dio naloga.
+
+- H-2a — međurezultat: na 320 CSS px ručno provjeren landing → demo, operater → trošak 120 KM → obračun 60 KM → uplate A 40/B 25. Rezultat 945 KM, dug A 10/avans B 5; datum osnove ostaje 1. oktobar. Redoslijed troška prije obračuna odstupa od SC-04/05, konačni rezultat je isti. Vlasnik vidi samo A; zajednički detalj uplate B ne prikazuje jedinicu ni privatnu napomenu. Lipa ostaje 500 KM sa C i praznim modulima. Mobilni meni otvara se Enterom, Escape vraća fokus na Meni. Finansijska validacija čuva unos i fokusira sažetak.
+- H-2b — konkretne dorade U TOKU: ažuriran zastario landing tekst, ograničena visina i omogućeno skrolovanje potvrda, dodat reflow dugih labela/kontrola, fokus i povezivanje greške community obrasca; anketa koristi prelom umjesto bočne margine na telefonu. Fajlovi: `page.tsx`, `global.css`, `community.ts`, `community-ui.tsx`, `demo-modules.tsx`, `demo-controls.tsx`, `finances/navigation-guard.tsx`. Konačna provjera slijedi poslije novog builda.
+
+- H-2c — ZAVRŠENO u provjerenom obimu: novi build potvrđuje community grešku sa fokusom i `aria-describedby`, PNG pregled/čuvanje, skrivanje prijave drugom članstvu, operaterski status U obradi, jedan izmijenjen odgovor ankete i zbir 0/1 nakon zatvaranja. Objava je povezana sa pregledom. Rad prikazuje U toku, dvije ponude, ugovoreno 1.150 i plaćeno 600 iz jednog rashoda; sredstva 400. Na 360/768/1280 px nema horizontalnog preliva u provjerenim prikazima. Kontrast tokena izračunat WCAG relativnom luminansom: tekst najmanje 5,26:1, granice kontrola najmanje 3,65:1 na canvas/surface.
+- H-2d — povećan tekst: U TOKU. Ugrađeni browser ne primjenjuje zoom prečicu; koristi se privremeni lokalni CSS `html { font-size: 200%; }`, koji će biti uklonjen. Na 320 px pronađen preliv finansijskih filtera (433 px) zbog implicitne minimalne širine grid kolone. Rasporedi sada eksplicitno koriste jednu `minmax(0,1fr)` kolonu prije širih breakpointa (`grid-cols-1`); ponovna provjera u toku. To je simulacija povećanja osnovnog fonta, nije dokaz ponašanja svih browser zoom režima.
+
+- H-2d — rezultat dorade: ZAVRŠENO. Sa osnovnim fontom 32 px i viewportom 320 px ponovo izmjereni landing, pregled, finansije/filteri, detalj rada, tabla, ankete/prijave i operaterska finansijska forma: širina dokumenta 320 px. Dijalog potvrde ima vertikalno skrolovanje; Escape čuva „Nepotvrđeno H“, potvrđeni reset vraća Javor/Vlasnik. Mobilna zaglavlja dodatno dozvoljavaju prelamanje cijelih kontrola. Privremeni CSS za povećanje uklonjen; završni normalni build/provjere u toku.
+
+- H-3 — ZAVRŠENO. Konačni normalni CSS (16 px, bez privremenog pravila 200%) potvrđen u browseru. Node 22.22.1, `corepack pnpm lint`, `typecheck`, `build` prolaze nakon svih kodnih dorada; bez novih testova, paketa ili infrastrukture. `git diff --check` prolazi. Ponovljen obračun oktobra pokazuje 0 novih zaduženja i poruku bez dupliranja; A 50/B 20, sredstva 1.000. Direktni vlasnički detalj B je nedostupan. Navigacioni guard + Escape čuva nacrt. Završni screenshot `/tmp/zev-dev02h.png`.
+- H-4 — dokumentacija ZAVRŠENO: [izvještaj H](demo-provjera-h.md) daje matricu scenarija, ispravke i stvarne granice. Usklađeni README, status specifikacije i razvojni plan. DEV-02-H je ZAVRŠENO u tom obimu, DEV-02 ostaje U TOKU, I PLANIRANO. Nema tvrdnje o potpunoj WCAG sertifikaciji, svim browserima ili produkcionoj kontroli pristupa. Gašenje servera evidentira se zasebno ispod.
+- H-4 — gašenje i završno usklađivanje: ZAVRŠENO. Lokalni server zaustavljen Ctrl+C; `lsof -nP -iTCP:3000 -iTCP:3001 -sTCP:LISTEN` nema izlaza. Postojeća H-0 evidencija očuvana, nove izmjene ostaju nezakomitovane. Izvještaj izričito razlikuje H ručne provjere, pregled koda i ranije E/G dokaze; nisu sve kombinacije ponovljene. Sljedeće je DEV-02-I tek po novoj korisnikovoj instrukciji. Završni diff pregledan i `git diff --check` prolazi.
+
+### 17. oktobar 2026. — tabela svih dogovorenih stavki na kraju evidencije
+
+- DOC-STATUS-1 — U TOKU: korisnik traži obaveznu završnu tabelu napretka. Koraci: dopuniti `AGENTS.md`, premjestiti postojeću tabelu na kraj, dopuniti pregled svih DEV faza i ovog zadatka, provjeriti potpunost i položaj tabele. Postojeće nezakomitovane izmjene H ostaju očuvane; aplikacioni kod se ne mijenja ovim zadatkom.
+
+- DOC-STATUS-1 — ZAVRŠENO: `AGENTS.md` sada zahtijeva jednu aktuelnu tabelu svih dogovorenih zadataka/faza na samom kraju `docs/napredak.md`, ažuriranje pri svakom značajnom koraku i dodavanje istorije iznad tabele. Postojeći redovi sačuvani i premješteni, uklonjeni prazni prekidi tabele; dodani zbirni DEV-01–DEV-10, raniji ZEV-017, OPS-01, H-0 i ovaj zadatak. Planirane faze nisu time odobrene. Provjereni jedinstveni ID-jevi, prisustvo ranijih redova, dozvoljeni statusi, završni položaj tabele i `git diff --check`. Dokumentaciona izmjena ne zahtijeva aplikacioni build ili UI provjeru.
+
+### 17. oktobar 2026. — statistika i pregled statusa
+
+- DOC-STATUS-2 — U TOKU: korisnik traži pregledniji popis i statistiku statusa. Koraci: dopuniti upute agentu, dodati sažetak sa značenjem i brojem svakog statusa, izdvojiti stavke koje traže pažnju i uskladiti brojke sa završnim popisom. Postojeće Git izmjene, uključujući staged izmjene, ostaju očuvane.
+
+- DOC-STATUS-2 — ZAVRŠENO: dopunjen `AGENTS.md`; dodati statistika svih šest statusa i popis stavki koje traže pažnju. Detaljna tabela uređena po porodici oznaka i stabilnim ID-jevima, bez uklanjanja ranijih stavki. Brojevi izračunati iz aktuelnih redova; provjereni jedinstvenost ID-jeva, zbir, očuvanje ranijeg popisa i završni položaj tabele. `git diff --check` prolazi. Izmjena je dokumentaciona; aplikacione provjere nisu potrebne. Sljedeći razvojni korak ostaje korisnikov pregled DEV-02-I po novoj instrukciji.
+
+## Statistika i pregled statusa
+
+**Ukupno: 44 evidentirane stavke.** Ažurirano: 17. oktobar 2026. (Europe/Belgrade).
+
+| Status | Broj stavki | Značenje |
+|---|---:|---|
+| **ZAVRŠENO** | 29 | Rezultat postoji i provjeren je u navedenom obimu. |
+| **U TOKU** | 4 | Započeto; preostale stavke navedene su u popisu. |
+| **PLANIRANO** | 9 | Još nije započeto; nije automatski odobreno. |
+| **BLOKIRANO** | 1 | Nastavak zavisi od konkretne prepreke. |
+| **PAUZIRANO** | 1 | Korisnik je zatražio zaustavljanje. |
+| **OTKAZANO** | 0 | Napušteno ili zamijenjeno uz zabilježen razlog. |
+| **UKUPNO** | **44** | Svi jedinstveni ID-jevi završnog popisa. |
+
+Broje se evidencione stavke, uključujući zbirne faze i njihove podfaze. Ovo nije procenat završenosti aplikacije niti procjena preostalog rada.
+
+### Stavke koje traže pažnju
+
+| Status | Stavke | Preostalo / prepreka |
+|---|---|---|
+| U TOKU | ZEV-015, DEV-01, DEV-01-B — pravila pilota | Razriješiti način prijave i detaljne dozvole prije backenda; tri povezana evidenciona reda. |
+| U TOKU | DEV-02 — demo i korisnikov pregled | A–H završeni; preostaje DEV-02-I, stvarni korisnikov pregled i zaključak. |
+| BLOKIRANO | ZEV-006 — stari Sites projekat | Brisanje nije potvrđeno; raniji dostupni alati nisu nudili brisanje. |
+| PAUZIRANO | ZEV-004 — ranije započeta aplikacija | Istorijski zaustavljena izrada u `aplikacija/`; ne miješati sa sadašnjim DEV-02 demoom. |
+
+**Sljedeće:** DEV-02-I je PLANIRANO i čeka novu instrukciju za pregled. DEV-03–DEV-10 ostaju planirane faze; backend i objavljivanje nisu odobreni.
+
+## Status svih dogovorenih stavki
+
+### Potpuni popis stavki
+
+Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene statusa ostaju u istoriji iznad. PLANIRANO ne znači odobreno za izvršavanje.
+
+| ID | Dogovorena stavka | Status | Rezultat / preostalo / prepreka |
+|---|---|---|---|
+| ZEV-001 | Inicijalizovati Git repozitorijum | ZAVRŠENO | Repozitorijum postoji u glavnom folderu projekta. |
+| ZEV-002 | Istražiti pravila i potrebe ZEV-a u RS | ZAVRŠENO | [Istraživanje](istrazivanje-zev-rs.md) i tekstovi propisa u `izvori/`; otvorene pravne provjere navedene su u istraživanju. |
+| ZEV-003 | Definisati minimalni plan za pilot jedne zgrade | ZAVRŠENO | [Minimalni plan](minimalni-plan.md) sa ulogama, funkcionalnostima i poslovnim modelom. |
+| ZEV-004 | Izraditi aplikaciju | PAUZIRANO | Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena. |
+| ZEV-005 | Ukloniti ranije započetu lokalnu aplikaciju | ZAVRŠENO | Nova provjera potvrdila je da folder `aplikacija/` više ne postoji. Raniji pokušaj agenta bio je odbijen; agent u ovom zadatku nije izvršavao brisanje niti je utvrđeno ko je folder uklonio. |
+| ZEV-006 | Ukloniti privatni, neobjavljeni Sites projekat | BLOKIRANO | Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen. |
+| ZEV-007 | Uvesti glavne upute i evidenciju napretka | ZAVRŠENO | Kreirani `../AGENTS.md` i ovaj dokument; provjereno postojanje fajlova i sadržaj uputa. |
+| ZEV-008 | Napraviti početni commit dokumentacije | ZAVRŠENO | Kreiran početni commit za `AGENTS.md` i `docs/`; identifikator je dostupan u Git istoriji. |
+| ZEV-009 | Zapisati prihvaćeni stack sa Nx-om | ZAVRŠENO | Kreiran `stack.md`, usklađeni minimalni plan i glavne upute; provjerene reference i diff. Razvoj nije nastavljen. |
+| ZEV-010 | Inicijalizovati Nx i pnpm workspace | ZAVRŠENO | Nx 23.3.0, pnpm 10.34.7, workspace konfiguracija, lockfile, `apps/`, `libs/` i README; prošle provjere verzije, izvještaja, projekata, grafa i frozen instalacije. |
+| ZEV-011 | Dodati pravila pisanja koda i testova | ZAVRŠENO | U `AGENTS.md` dodati zabrana pisanja/generisanja testova bez naloga, prednost čistim funkcijama, minimalan `useEffect`, male komponente, grupisanje logike i custom hookovi. Pregled izmjena i `git diff --check` prošli. |
+| ZEV-012 | Napraviti razvojni plan na osnovu minimalnog plana | ZAVRŠENO | Kreiran `razvojni-plan.md` sa deset faza, zavisnostima, kriterijumima završetka i otvorenim odlukama. Provjereni obim, lokalni linkovi i diff; implementacija nije započeta. |
+| ZEV-013 | Obavezati agente da prate razvojni plan | ZAVRŠENO | U `AGENTS.md` dodati obavezno čitanje plana, praćenje DEV faza, zavisnosti i kriterijuma te povezivanje sa evidencijom. Pregled diff-a, referenca i `git diff --check` prošli. |
+| ZEV-014 | Kreirati UI skill i smjernice iz Appleove filozofije | ZAVRŠENO | Kreiran projektni `zev-ui-design` sa smjernicama, primjerima i izvorima; povezan kroz `AGENTS.md`, README i razvojni plan. YAML i lokalni linkovi provjereni alternativnim alatima; zvanični validator nije radio zbog nedostajućeg PyYAML-a. UI nije implementiran. |
+| ZEV-015 | DEV-01 — dogovor pravila i specifikacija demoa/pilota | U TOKU | Nacrt, matrica pristupa i sintetički obračun pripremljeni; demo, obračun po m² i ručni rok potvrđeni. Platforma, landing, tenant smjer i ZEV uloge su potvrđeni; prijava i detaljne dozvole ostaju otvorene. |
+| ZEV-016 | Uvrstiti interaktivni demo bez baze u plan | ZAVRŠENO | DEV-02 razrađen kao demo bez Supabase-a, sa pregledom prije DEV-03; usklađeni planovi, specifikacija, stack i upute. Implementacija nije pokrenuta. |
+| ZEV-017 | Razraditi podfaze DEV-02 | ZAVRŠENO | Podfaze A–I i kriterijumi pripremljeni i dokumentaciono provjereni; detalji u istoriji. |
+| DEV-01 | Pravila pilota i zavisne odluke | U TOKU | Demo pravila potvrđena; stvarna prijava i detaljne dozvole ostaju otvorene prije backenda. |
+| DEV-01-A | Pripremiti nacrt pravila pilota | ZAVRŠENO | `pilot-specifikacija.md` odvaja potvrđene odluke, prijedloge i otvorena pitanja. |
+| DEV-01-B | Usaglasiti odluke sa korisnikom | U TOKU | Potvrđeni demo, obračun, web sa landingom, kasnije mobilne aplikacije, tenant smjer i ZEV uloge; prijava i detaljna prava još nisu potvrđeni. |
+| DEV-01-C | Provjeriti specifikaciju i kriterijume završetka | ZAVRŠENO | Pregledani nacrt i kriterijumi; lokalni linkovi, aritmetika i diff provjereni. Kriterijumi cijele DEV-01 još nisu ispunjeni; nova provjera nakon odluka. |
+| DEV-01-D | Uskladiti platforme, landing, tenant i ZEV uloge | ZAVRŠENO | Ažurirani planovi, stack i specifikacija; pregledana dosljednost i reference. Rezultat je dokumentacija, bez implementacije. |
+| DEV-02 | Interaktivni web demo i korisnikov pregled | U TOKU | A–H završeni u dokumentovanim granicama; preostaje korisnikov pregled I. |
+| DEV-02-A | Specifikacija ekrana i demo scenarija | ZAVRŠENO | `demo-specifikacija.md`: ekrani, navigacija, demo prava, podaci i očekivani ishodi; pregled dokumentacije i aritmetike završen. UI nije implementiran. |
+| DEV-02-B | Tehnička web osnova i osnovne komponente | ZAVRŠENO | `apps/web`: Next.js/React, TypeScript, Tailwind, UI tokeni i komponente; frozen instalacija, lint, eksplicitni typecheck, build i lokalni dev/produkcioni pregled prošli. Poslovni demo nije izrađen. |
+| DEV-02-C | Sintetički podaci, demo kontekst i stanje | ZAVRŠENO | Dva tenanta, tri profila, selektori dozvoljenog prikaza, lokalna bilješka i reset. Lint/typecheck/build i ručni scenariji konteksta/memorije prošli; opis prava nije stvarna zaštita. |
+| DEV-02-D | Landing, navigacija i početni pregled | ZAVRŠENO | Landing, responzivna navigacija pet cjelina i početni pregledi iz demo konteksta; lint/typecheck/build i ručna provjera ulaza, navigacije, profila, tenanta i praznih stanja prošli. Poslovni unosi E–G ostaju naredni koraci. |
+| DEV-02-E | Finansijski demo | ZAVRŠENO | Trošak, uplata, obračun po m² sa ručnim rokom, kartice, filteri, detalji i lokalni prilozi. SC-04/05, nedupliranje obračuna i demo privatnost ručno potvrđeni; lint/typecheck/build prolaze. Nema stvarnog knjiženja. |
+| DEV-02-F | Demo radova i ponuda | ZAVRŠENO | Detalj, poređenje ponuda, izvođač, ugovoreno/plaćeno, status i povezane isplate; SC-06/07, lint/typecheck/build i UI 320/1280 px provjereni. |
+| DEV-02-G | Obavještenja, prijave i informativne ankete | ZAVRŠENO | Lokalni obrasci, fotografija, statusi, odgovor/izmjena/zatvaranje i zbirni rezultati. SC-08–10 i validacija ručno provjereni u navedenim granicama; lint/typecheck/build prolaze. |
+| DEV-02-H | Cjelovita provjera i dorade | ZAVRŠENO | Povezani tokovi, uloge/tenanti, reset/osvježavanje, reflow i pristupačnost provjereni u obimu [izvještaja](demo-provjera-h.md); konkretne dorade i završni lint/typecheck/build potvrđeni. |
+| DEV-02-I | Korisnikov pregled i zaključak | PLANIRANO | Korisnikov pregled nije izvršen; potreban je novi nalog. |
+| DEV-03 | Baza, prijava, članstva i kontrola pristupa | PLANIRANO | Čeka pregled demoa, instrukciju za backend i zavisne odluke DEV-01; izvršavanje nije odobreno. |
+| DEV-04 | Produkciona finansijska evidencija i kartice | PLANIRANO | Zavisnost DEV-03; lokalni finansijski demo E nije završena produkciona faza. |
+| DEV-05 | Produkcioni radovi, ponude i isplate | PLANIRANO | Zavisnost DEV-04; demo F ne zamjenjuje backend tokove. |
+| DEV-06 | Produkciona oglasna tabla i prijave | PLANIRANO | Zavisnost DEV-03, povezivanje sa radovima poslije DEV-05. |
+| DEV-07 | Produkcione informativne ankete | PLANIRANO | Zavisnost DEV-03; stvarna članstva i trajni odgovori nisu implementirani. |
+| DEV-08 | Produkcioni pregled zgrade i responzivni web | PLANIRANO | Zavisnost DEV-04–DEV-07; demo pregled postoji zasebno u DEV-02. |
+| DEV-09 | Provjera i priprema pilot izdanja | PLANIRANO | Zavisnost DEV-08; nije započeto. |
+| DEV-10 | Odobreno objavljivanje i stvarni pilot | PLANIRANO | Zavisnost DEV-09 i zasebna instrukcija za objavljivanje; nije odobreno niti objavljeno. |
+| OPS-01 | Zaustaviti lokalne demo servere | ZAVRŠENO | Serveri 3000/3001 zaustavljeni; završna H provjera potvrdila odsustvo slušaoca. |
+| H-0 | Predati DEV-02-H u novi chat | ZAVRŠENO | Predaja završena; H izvršen u ovom chatu, detalji i ispravka Git pretpostavke sačuvani u istoriji. |
+| DOC-STATUS-1 | Obavezati agenta na završnu tabelu svih stavki | ZAVRŠENO | Dopunjen AGENTS.md, postojeći pregled premješten i dopunjen; položaj, ID-jevi, statusi i diff provjereni. |
+| DOC-STATUS-2 | Dodati statistiku i pregled statusa | ZAVRŠENO | Dodati brojevi svih statusa, legenda i izdvojene stavke za pažnju; zbir i potpunost provjereni. |
