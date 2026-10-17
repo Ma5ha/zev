@@ -81,3 +81,7 @@ Ovaj dokument predstavlja plan. Korisnik je odobrio i izvršeno je postavljanje 
 ### Naknadno odobren lokalni staging
 
 17. oktobar 2026: korisnik odobrava DEV-03-A, lokalnu Supabase staging bazu sa kasnijim prenosom na udaljeni projekat. Time je razriješeno ranije čekanje instrukcije za taj ograničeni obim. Demo ostaje zaseban u memoriji; puna prijava, prava pristupa i produkcioni moduli preostaju. Udaljeni resursi i objavljivanje nisu odobreni. Operativni detalji i provjere su u [uputstvu](lokalni-staging.md) i [evidenciji](napredak.md).
+
+## Lokalni pristup DEV-03-C
+
+17. oktobar 2026: korisnik je odobrio C kroz predaju u novi chat. Lokalni web ima stvarnu prijavu, sesije, pozive i administraciju osnove; [rezultat i granice](web-pristup-c.md). Demo poslovnih modula ostaje sintetički i odvojen. DEV-03 kao cjelina još nije završen; nema udaljenih resursa ili objavljivanja.

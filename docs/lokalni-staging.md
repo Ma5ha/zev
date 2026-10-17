@@ -77,3 +77,7 @@ Provjera dokazuje baznu strukturu, sintetički seed, audit i trenutno zatvoren p
 ## Nadogradnja DEV-03-B
 
 Za migracije: `corepack pnpm db:migrate`, zatim lokalni sintetički identiteti `corepack pnpm db:seed-users`. Lozinke su nasumične i nalaze se samo u ignorisanom `.temp/local-identities.json` (0600); ponovni seed ih mijenja. Klijenti sada čitaju osnovu kroz RLS i pišu samo kroz kontrolisane RPC-e. Globalna javna registracija je isključena, a email provider uključen radi prijave pozvanih naloga. Postojeći web demo i dalje koristi memoriju. Potpun [izvještaj B](pristup-bazi-b.md) odvaja implementiranu baznu autorizaciju od poslovnih modula i naredne web Auth integracije.
+
+## Web integracija DEV-03-C
+
+Migracije 007–009 i email predlošci dopunjuju bazu pozivima i uskim prikazima administracije. `corepack pnpm web:configure-local` generiše ignorisanu konfiguraciju lokalnog weba; [detalji C](web-pristup-c.md). Raniji opisi bez web Auth-a iznad odnose se na A/B. Demo ostaje u memoriji, a poslovni Storage nije završen.

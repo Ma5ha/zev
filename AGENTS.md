@@ -121,3 +121,7 @@ Korisnik je 17. oktobra 2026. odobrio lokalnu Supabase bazu za staging uz kasnij
 ### Naknadno odobrenje DEV-03-B
 
 Korisnik je nakon lokalne baze odobrio sljedeći korak: serverske operacije i prava pristupa B. Migracije i lokalni sintetički identiteti opisani su u `docs/pristup-bazi-b.md`. Web Auth/UI integracija i poslovni moduli nisu završeni tim korakom; nastaviti prema posljednjoj instrukciji i evidenciji. Ne prenositi lokalne fixture kredencijale na udaljeni projekat.
+
+### Naknadno odobrenje DEV-03-C
+
+Korisnik je u predaji u novi chat odobrio lokalnu web Auth/server/UI integraciju. Rezultat i granice su u `docs/web-pristup-c.md`: prijava/odjava, cookie sesije/obnova, pozivi/prihvatanje, email oporavak i administracija zgrada/jedinica/članstava/rola. `web:configure-local` generiše ignorisani env samo za lokalni API; servisni ključ je isključivo serverski. C ne završava cijeli DEV-03, poslovni Storage ili module. K-B–K-E ostaju pauzirani; udaljeni resursi, objavljivanje i Git upisi zahtijevaju zaseban nalog.

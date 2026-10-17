@@ -105,3 +105,7 @@ Operater može otvoriti informativnu anketu sa pitanjem, najmanje dvije različi
 DEV-03-A dodaje lokalni Supabase. Pokretanje: `corepack pnpm db:start` uz pokrenut Docker; upravljanje i granice su u [uputstvu](docs/lokalni-staging.md). Web demo još nije povezan sa bazom. Udaljeni Supabase nije kreiran ili povezan.
 
 DEV-03-B dodaje kontrolisane operacije i RLS nad osnovom baze. Lokalni sintetički nalozi: `corepack pnpm db:seed-users`. [Prava, ručne provjere i granice](docs/pristup-bazi-b.md); web prijava još nije povezana.
+
+## Lokalni web pristup — DEV-03-C
+
+`corepack pnpm web:configure-local` generiše ignorisanu serversku konfiguraciju (0600) iz lokalnog Supabase statusa. Pokrenuti web na `127.0.0.1:3000`, pa otvoriti [prijavu](http://127.0.0.1:3000/prijava). Prijava, sesija/obnova, email pozivi/oporavak i administracija osnove rade lokalno; [pokretanje, ručne provjere i granice](docs/web-pristup-c.md). Sintetički kredencijali ostaju samo u ignorisanim lokalnim fixture datotekama. Demo `/demo` ostaje u memoriji i nije produkcioni poslovni modul. Ranije tvrdnje o odsustvu web prijave iznad opisuju stanje prije C.

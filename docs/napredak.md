@@ -6,9 +6,9 @@ Posljednje ažuriranje: 17. oktobar 2026. (Europe/Belgrade).
 
 Postavljeni su Nx/pnpm monorepo i Next.js web osnova u `apps/web`, sa TypeScriptom, Tailwindom i osnovnim UI komponentama. DEV-02-C dodaje sintetičke podatke i demo kontekst sa stanjem u memoriji, a DEV-02-D landing, responzivnu navigaciju pet cjelina i početne preglede. DEV-02-E dodaje lokalne finansijske unose, kartice i obračun; DEV-02-F dodaje detalj rada, ponude, status i povezane isplate; DEV-02-G dodaje objave, prijave sa lokalnom fotografijom i informativne ankete. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
 
-Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; prijava, šest aplikacionih rola i osnovna pravila pristupa/oporavka potvrđeni su u odjeljcima 10–22 specifikacije; potvrde su objedinjene u `matrica-prava.md`, PIL tabela je usklađena, a preostali backend preduslovi izdvojeni kao PRE-01–PRE-09. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU zbog nezaključenih vizuelnih dorada J/K; preostali K-B–K-E su pauzirani na korisnikov zahtjev; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, DEV-02-C kao demo podaci, profili i stanje sa resetom, DEV-02-D kao landing, navigacija i početni pregledi, DEV-02-E kao lokalni finansijski demo, DEV-02-F kao radovi i ponude, a DEV-02-G kao obavještenja, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Korisnik je pregledao demo i potvrdio „za sada je ok“, bez trenutno traženih dorada; DEV-02-I je ZAVRŠENO. DEV-03-A i DEV-03-B završeni su u lokalnom baznom obimu; web prijava i poslovna pravila budućih modula preostaju.
+Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; prijava, šest aplikacionih rola i osnovna pravila pristupa/oporavka potvrđeni su u odjeljcima 10–22 specifikacije; potvrde su objedinjene u `matrica-prava.md`, PIL tabela je usklađena, a preostali backend preduslovi izdvojeni kao PRE-01–PRE-09. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU zbog nezaključenih vizuelnih dorada J/K; preostali K-B–K-E su pauzirani na korisnikov zahtjev; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, DEV-02-C kao demo podaci, profili i stanje sa resetom, DEV-02-D kao landing, navigacija i početni pregledi, DEV-02-E kao lokalni finansijski demo, DEV-02-F kao radovi i ponude, a DEV-02-G kao obavještenja, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Korisnik je pregledao demo i potvrdio „za sada je ok“, bez trenutno traženih dorada; DEV-02-I je ZAVRŠENO. DEV-03-A i DEV-03-B završeni su u lokalnom baznom obimu; C dodaje lokalnu web prijavu/administraciju; poslovna pravila budućih modula preostaju.
 
-Lokalna staging baza DEV-03-A je pokrenuta: PostgreSQL 17.11, migracija osnove identiteta/tenanata, sintetički seed i audit. DEV-03-B sada otvara kontrolisani RLS/RPC pristup osnovi i dodaje sintetičke Auth korisnike; nema web prijave ili povezivanja demoa sa bazom. Studio je na `http://127.0.0.1:54323`; operativa i granice su u [uputstvu](lokalni-staging.md).
+Lokalna staging baza DEV-03-A je pokrenuta: PostgreSQL 17.11, migracija osnove identiteta/tenanata, sintetički seed i audit. DEV-03-B otvara kontrolisani RLS/RPC pristup osnovi i dodaje sintetičke Auth korisnike; DEV-03-C dodaje odvojen lokalni web portal sa prijavom i administracijom. Demo ostaje u memoriji. Studio je na `http://127.0.0.1:54323`; operativa i granice su u [uputstvu](lokalni-staging.md).
 
 Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-svih-dogovorenih-stavki). Detalji i ranije promjene statusa ostaju u istoriji.
 
@@ -16,7 +16,7 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 
 - Preostali koraci [UI revizije](dizajn/ui-revizija-paneli-select.md) K-B–K-E su PAUZIRANO na korisnikov zahtjev: provjere komponenti/selecta, primjena na ekrane i završni pregled čuvaju se za kasniji povratak. Nastavak tek na novu instrukciju.
 - DEV-02-I je završen kao korisnikov pregled; naknadno je odobrena vizuelna dorada DEV-02-J, pa DEV-02 ponovo ostaje U TOKU.
-- DEV-03-A je ZAVRŠENO: lokalni Supabase staging radi, migracija/seed i SQL provjere prolaze; [uputstvo](lokalni-staging.md). DEV-03-B je završen u obimu [izvještaja](pristup-bazi-b.md); sljedeći planirani korak C su web prijava/sesije, pozivi i UI povezivanje. Udaljeni resursi i objavljivanje nisu odobreni. DEV-04–DEV-10 ostaju PLANIRANO.
+- DEV-03-A je ZAVRŠENO: lokalni Supabase staging radi, migracija/seed i SQL provjere prolaze; [uputstvo](lokalni-staging.md). DEV-03-B je završen u obimu [izvještaja](pristup-bazi-b.md); DEV-03-C je ZAVRŠENO u lokalnom obimu [izvještaja](web-pristup-c.md): prijava/sesije, pozivi i UI administracija. Naredno korisnikov pregled i instrukcija za preostali DEV-03. Udaljeni resursi i objavljivanje nisu odobreni. DEV-04–DEV-10 ostaju PLANIRANO.
 - Demo ostaje bez baze, stvarnih naloga i trajne pohrane. Prethodni lokalni server zaustavljen je prije K-B builda; nova produkciona verzija radi na `127.0.0.1:3000`.
 - Udaljeni, ranije započeti Sites projekat nije potvrđeno uklonjen (ZEV-006).
 
@@ -644,13 +644,29 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 - OPS-GIT-AUTH-COMMIT-1 — ZAVRŠENO: priprema i dokumentaciona provjera; nema aplikacionih izmjena ili potrebe za runtime provjerom.
 - OPS-GIT-AUTH-COMMIT-2 — ZAVRŠENO: commit `88c1ed3` pushan na `origin/master`; uspjeh potvrđen Git izlazom. Završna potvrda evidencije ide u prateći dokumentacioni commit.
 
+### 17. oktobar 2026. — DEV-03-C: predaja i lokalna web integracija
+
+- C-0 — ZAVRŠENO: predaja iz chata `01a14adc-3f1b-7431-9848-8f7fe8348be8` u ovaj chat; lokalni Auth/server/UI obim odobren. Git je bio čist na HEAD-u `8c86b6f`. K-B–K-E ostaju pauzirani; bez udaljenih resursa, objavljivanja, testova ili Git upisa.
+- C-1 — ZAVRŠENO: serverski Supabase SSR klijent, HttpOnly cookie sesije i proxy obnova, prijava/odjava, zaštita `/portal` i tenant ruta. Novi `features/access/`, `app/prijava`, `app/portal`, `proxy.ts`, biblioteke/lockfile i lokalni konfiguracioni script. Osam profila provjereno HTTP-om, stvarna browser prijava/odjava i namjerno istekao access token obnovljeni. Anonymous portal vraća 307 na prijavu. Servisni ključ nije pronađen u browser build-u.
+- C-2 — ZAVRŠENO u lokalnom obimu: pozivi bez pristupa do prihvatanja, email potvrda/lozinka i oporavak; migracije 007–009, email predlošci i Auth/server radnje. Mailpit dostava, browser potvrda/prihvatanje i HTTP serverska promjena lozinke potvrđeni; nova lozinka radi, jednokratna recovery veza se ne može ponoviti. Pogrešni identitet/opozvani poziv odbijeni. Prva ručno kodirana HTTP proba bila je neispravna; ispravljena proba je potvrda rezultata, detalji u izvještaju.
+- C-3 — ZAVRŠENO u obimu administracije osnove: izbor ZEV-a i profil, zgrade/jedinice, članstva/pet tenant rola, pozivi, te sistemske forme za ZEV/prvog administratora i globalnu rolu. Postojeći RLS/RPC ostaju zaštita; svaki server upis ponavlja autorizaciju. Novi uski RPC prikazuje imena samo vezanih članova/pozvanih osoba tog ZEV-a. Browser upis zgrade/jedinice vraćen na početne vrijednosti; profil tastaturom sačuvan. Web dodjela/opoziv content role odmah mijenja prava istog identiteta; posljednji tenant/globalni administrator zaštićen. Sintetički prihvaćen član i audit ostaju u bazi; privremena dodatna rola je opozvana.
+- C-4 — ZAVRŠENO u dokumentovanom obimu: lint, typecheck, produkcioni build, migracije i SQL lint prolaze; pregled tajni/ignore pravila i `git diff --check` prolaze. Browser prijava i administracija u produkcionom buildu, HTTP landing/demo/portal/član provjereni. Screenshot na 1280 px: `docs/dizajn/dev-03-c-administracija.png`; raniji pregled na 788 px i osnovna tastatura. 320 px, 200% tekst, puni čitač ekrana, svi browseri i opterećenje nisu provjereni. Nisu dodati testovi. Lokalni produkcioni server ostavljen je na `127.0.0.1:3000` uz lokalni Supabase.
+- Dokumentacija: [web-pristup-c.md](web-pristup-c.md), README, glavne upute, planovi, stack, matrica i bazni izvještaji usklađeni. `web:configure-local` i Node sintaksna provjera skripte uspješno izvršeni. Env i kredencijali su samo u ignorisanim fajlovima 0600; ništa nije poslato udaljenim resursima. Nema commita/pusha.
+- DEV-03-C je završen lokalni rezultat za korisnikov pregled. DEV-03 ostaje U TOKU: poslovni Storage/prilozi i ostali kriterijumi nisu završeni, operativna provjera identiteta/oporavka prije stvarnog pilota preostaje. Naredno je korisnikov pregled C i instrukcija za sljedeću podfazu; planirani poslovni moduli/udaljeni resursi/objavljivanje nisu automatski odobreni.
+
+### 17. oktobar 2026. — OPS-WEB-C-COMMIT: commit DEV-03-C
+
+- Korisnik je izričito naložio commit postojećeg rezultata C. Push nije naložen.
+- OPS-WEB-C-COMMIT-1 — ZAVRŠENO: pregled radnog stabla, grane `master` i remote-a `origin` (`Ma5ha/zev`); obim su lokalna web integracija, migracije 007–009, email predlošci i pripadajuća dokumentacija. Postojeće runtime provjere C nisu ponavljane jer nema nove aplikacione izmjene.
+- OPS-WEB-C-COMMIT-2 — ZAVRŠENO: provjera tajni i staged diff-a prošla; kreiran lokalni commit web integracije i dokumentacije. Ova završna evidencija uključena je u isti commit dopunom prije završnog odgovora; konačan identifikator dostupan je u Git istoriji. Push nije izvršen.
+
 ## Statistika i pregled statusa
 
-Ukupan broj stavki: **66**.
+Ukupan broj stavki: **69**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 45 | Detalji i preostalo u završnoj tabeli. |
+| ZAVRŠENO | 48 | Detalji i preostalo u završnoj tabeli. |
 | U TOKU | 7 | Detalji i preostalo u završnoj tabeli. |
 | PLANIRANO | 7 | Detalji i preostalo u završnoj tabeli. |
 | BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
@@ -661,15 +677,13 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 
 ### Stavke koje traže pažnju
 
-
-
 - **ZEV-004 — PAUZIRANO**: Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena.
 - **ZEV-006 — BLOKIRANO**: Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen.
 - **ZEV-015 — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena.
 - **DEV-01 — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena.
 - **DEV-01-B — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena.
 - **DEV-02 — U TOKU**: A–H završeni u dokumentovanim granicama; korisnik pregledao i za sada prihvatio bez dorada (I-3). Nova vizuelna dorada J je u toku; lokalni demo bez backenda i objavljivanja.
-- **DEV-03 — U TOKU**: A/B završeni lokalno u dokumentovanim granicama. Slijedi web Auth/server/UI integracija C i preostali kriterijumi DEV-03; poslovni moduli i udaljeni resursi nisu završeni/odobreni ovim korakom.
+- **DEV-03 — U TOKU**: A/B/C završeni lokalno u granicama izvještaja. Preostaju poslovni Storage/prilozi i kriterijumi cijele faze, operativna priprema i korisnikova instrukcija za nastavak. Udaljeni resursi nisu odobreni.
 - **DEV-02-J — U TOKU**: J-A–J-D završeni; J-E tehnički provjeren, čeka korisnikov pregled. Bez backenda ili objavljivanja.
 - **DEV-02-J-E — U TOKU**: Tehnički i ručni dio završen u obimu design-qa.md; preostaje stvarni korisnikov pregled novog dizajna.
 - **DEV-02-K — PAUZIRANO**: K-A završen; djelimični K-B/K-C sačuvani. Preostali K-B–K-E odloženi na korisnikov zahtjev 17. oktobra 2026; povratak na novu instrukciju.
@@ -718,7 +732,7 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-02-G | Obavještenja, prijave i informativne ankete | ZAVRŠENO | Lokalni obrasci, fotografija, statusi, odgovor/izmjena/zatvaranje i zbirni rezultati. SC-08–10 i validacija ručno provjereni u navedenim granicama; lint/typecheck/build prolaze. |
 | DEV-02-H | Cjelovita provjera i dorade | ZAVRŠENO | Povezani tokovi, uloge/tenanti, reset/osvježavanje, reflow i pristupačnost provjereni u obimu [izvještaja](demo-provjera-h.md); konkretne dorade i završni lint/typecheck/build potvrđeni. |
 | DEV-02-I | Korisnikov pregled i zaključak | ZAVRŠENO | Korisnik potvrdio „pregledano“ i „za sada je ok“; nema trenutno traženih dorada. Detalji I-3 u istoriji. |
-| DEV-03 | Baza, prijava, članstva i kontrola pristupa | U TOKU | A/B završeni lokalno u dokumentovanim granicama. Slijedi web Auth/server/UI integracija C i preostali kriterijumi DEV-03; poslovni moduli i udaljeni resursi nisu završeni/odobreni ovim korakom. |
+| DEV-03 | Baza, prijava, članstva i kontrola pristupa | U TOKU | A/B/C završeni lokalno u granicama izvještaja. Preostaju poslovni Storage/prilozi i kriterijumi cijele faze, operativna priprema i korisnikova instrukcija za nastavak. Udaljeni resursi nisu odobreni. |
 | DEV-04 | Produkciona finansijska evidencija i kartice | PLANIRANO | Zavisnost DEV-03; lokalni finansijski demo E nije završena produkciona faza. |
 | DEV-05 | Produkcioni radovi, ponude i isplate | PLANIRANO | Zavisnost DEV-04; demo F ne zamjenjuje backend tokove. |
 | DEV-06 | Produkciona oglasna tabla i prijave | PLANIRANO | Zavisnost DEV-03, povezivanje sa radovima poslije DEV-05. |
@@ -752,3 +766,6 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | OPS-ACCESS-COMMIT | Commit i push serverskih operacija DEV-03-B | ZAVRŠENO | Commit `cbea9ac` pushan na origin/master; Git potvrdio uspješan prenos. Završna evidencija u pratećem dokumentacionom commitu. |
 | DOC-GIT-AUTH | Git radnje samo na nalog, bez ponovne razgovorne potvrde | ZAVRŠENO | `AGENTS.md` definiše izričit nalog i zabranu samoinicijativnog commita/pusha; sistemske dozvole ostaju zasebne. |
 | OPS-GIT-AUTH-COMMIT | Commit i push pravila Git odobrenja | ZAVRŠENO | Commit `88c1ed3` pushan na origin/master; završna evidencija u pratećem dokumentacionom commitu. |
+| DEV-03-C | Web Auth, sesije, pozivi i administrativni UI | ZAVRŠENO | Lokalna integracija i provjere C-1–C-4; [izvještaj i granice](web-pristup-c.md). Preostali kriterijumi cijelog DEV-03, poslovni moduli i objavljivanje nisu završeni ovim korakom. |
+| C-0 | Predaja DEV-03-C u novi chat | ZAVRŠENO | Preuzeto odobrenje iz prethodnog chata; provjeren čist HEAD 8c86b6f i lokalni preduslovi. |
+| OPS-WEB-C-COMMIT | Komitovati lokalnu web integraciju DEV-03-C | ZAVRŠENO | Lokalni commit na master uključuje C i završnu evidenciju; tajne/ignore i diff provjereni. Bez pusha. |

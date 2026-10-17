@@ -89,3 +89,7 @@ Verzije framework paketa, biblioteka za validaciju, alati za testiranje, hosting
 ## Lokalna autorizacija DEV-03-B
 
 17. oktobar 2026: lokalni Supabase Auth sintetički identiteti, SELECT RLS i kontrolisane PostgreSQL RPC operacije implementirani su nad postojećom osnovom; [izvještaj B](pristup-bazi-b.md) navodi obim i granice. Nisu dodate aplikacione runtime zavisnosti. Web i dalje koristi demo u memoriji; Auth/server/UI integracija je naredni korak.
+
+## Web Auth/server integracija DEV-03-C
+
+17. oktobar 2026: dodati `@supabase/ssr` 0.12.7 i `@supabase/supabase-js` 2.118.0. Next server actions/proxy koriste lokalni Supabase Auth i HttpOnly cookie sesije; postojeći demo ostaje u memoriji. Nema browser servisnog ključa ili udaljenog projekta. [Izvještaj C](web-pristup-c.md) navodi rute, konfiguraciju, provjere i ograničenja.

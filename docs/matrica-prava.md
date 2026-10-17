@@ -53,7 +53,7 @@ Svaka promjena prava čuva autora i vrijeme, ciljnog korisnika/tenant i prethodn
 |---|---|---|
 | PRE-01 | Korisnikov pregled demoa | Završen I; naknadni K-B–K-E pauzirani na zahtjev. To nije potpuna provjera novog UI-ja. |
 | PRE-02 | Prijava, tenant granica, role i osnovna matrica | Potvrđeni i objedinjeni ovdje; izuzeci za lične podatke i periode imaju prednost nad opštim editom. |
-| PRE-03 | Instrukcija za backend | Odobrene lokalne podfaze A i B; osnova autorizacije implementirana, web Auth/UI integracija slijedi. |
+| PRE-03 | Instrukcija za backend | Odobrene lokalne podfaze A, B i C; osnova autorizacije i lokalna web Auth/UI integracija postoje. Granice C su u web-pristup-c.md. |
 | PRE-04 | Lokalni ili udaljeni početak DEV-03 | Izabran lokalni Supabase; migracije ostaju prenosive na kasniji udaljeni projekat. Provjere i granice u [uputstvu](lokalni-staging.md). |
 | PRE-05 | Hosting, region, trošak i odgovorna osoba | PIL-12 otvoren; riješiti prije kreiranja udaljenih resursa. SMTP/email isporuku razraditi prije stvarnih poziva i oporavka. |
 | PRE-06 | Prvi globalni administrator i oporavak | Definisati kontrolisanu proceduru i provjeru identiteta prije upotrebe; ne pretpostaviti početni nalog ili čuvati tajne ovdje. |

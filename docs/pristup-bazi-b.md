@@ -91,3 +91,7 @@ Probne SQL promjene profila, perioda i grantova poništene su rollbackom. Konkur
 Sljedeće: DEV-03-C — web Auth/server integracija, prijava/odjava, pozivi, sesija i administrativni UI; prije tih UI izmjena primijeniti projektni UI skill. Cijeli DEV-03 ostaje U TOKU.
 
 Tehnički izvori: [Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security), [funkcije i prava izvršavanja](https://supabase.com/docs/guides/database/functions).
+
+## Nastavak C
+
+Lokalna web integracija i migracije 007–009 implementirane su u DEV-03-C; [izvještaj C](web-pristup-c.md) dopunjuje raniji opis bez web Auth-a. Postojeći B RPC-i ostaju put upisa osnovnih evidencija.

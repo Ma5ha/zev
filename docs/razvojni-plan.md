@@ -300,3 +300,7 @@ Dopuna delegiranja, 17. oktobar 2026: potvrđeno da vlasnik može tražiti opozi
 ## DEV-03-B — lokalne serverske operacije i prava
 
 17. oktobar 2026: korisnik odobrava B nakon pregleda lokalne baze A. Migracije 002–006, lokalni seed identiteta, RLS osnovnih tabela i kontrolisani RPC-i implementiraju tenant/globalnu administraciju, vlasničke periode i delegiranje; [izvještaj](pristup-bazi-b.md) navodi ručne SQL/HTTP provjere i granice. B ne implementira finansijske/sadržajne tabele DEV-04–07 ili poslovni Storage. DEV-03-C je naredni planirani korak web Auth/server integracije i administrativnog UI-ja. DEV-03 ostaje U TOKU dok se ne ispune svi njegovi kriterijumi. Udaljeni resursi i objavljivanje nisu odobreni.
+
+## DEV-03-C — lokalna web integracija
+
+17. oktobar 2026: nastavak C odobren predajom u novi chat. Lokalna prijava/odjava, sesije i obnova, email pozivi/prihvatanje/oporavak i administrativni UI osnove imaju rezultat i ručne provjere u [izvještaju C](web-pristup-c.md). Migracije 007–009 nadograđuju B; postojeći demo ostaje odvojen. C se odnosi na Auth i osnovu administracije, bez poslovnog Storage-a i modula. DEV-03 ostaje U TOKU zbog preostalih kriterijuma, naročito privatnih priloga i operativnih postupaka prije stvarne upotrebe. Sljedeća implementaciona podfaza zahtijeva narednu instrukciju; K-B–K-E ostaju pauzirani, udaljeni resursi i objavljivanje nisu odobreni.
