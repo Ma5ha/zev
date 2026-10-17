@@ -30,8 +30,8 @@ Odluke i prijedlozi DEV-01 vode se u [specifikaciji pilota](pilot-specifikacija.
 | ID | Faza / rezultat | Zavisnosti | Status |
 |---|---|---|---|
 | DEV-01 | Potvrđen pilot i specifikacija otvorenih pravila | Minimalni plan i postojeća dokumentacija | U TOKU |
-| DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01 | ZAVRŠENO u demo obimu — A–H i korisnikov pregled I; prihvaćen za sada bez dorada 17. oktobra 2026. |
-| DEV-03 | Baza, prijava, članstva i kontrola pristupa | Pregledan DEV-02, korisnikova instrukcija za backend i razriješene zavisne odluke DEV-01 | PLANIRANO |
+| DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01 | U TOKU — A–I završeni u demo obimu; naknadne vizuelne dorade nezaključene, preostali K-B–K-E pauzirani na korisnikov zahtjev. |
+| DEV-03 | Baza, prijava, članstva i kontrola pristupa | Pregledan demo i potvrđene osnovne odluke; odobren lokalni početak | U TOKU — DEV-03-A lokalna staging baza; puna prijava i kontrola pristupa preostaju |
 | DEV-04 | Finansijska evidencija i sopstvena kartica | DEV-03 | PLANIRANO |
 | DEV-05 | Radovi, ponude, napredak i povezane isplate | DEV-04 | PLANIRANO |
 | DEV-06 | Oglasna tabla i prijave problema | DEV-03; povezivanje sa radovima nakon DEV-05 | PLANIRANO |
@@ -232,3 +232,67 @@ Korisnik je odabrao drugu prikazanu verziju „Živo dvorište“. Konkretni [st
 ### DEV-02-K — potvrđeni vizuelni izbor i spremna izvedbena specifikacija
 
 17. oktobar 2026: korisnik bira **drugu sliku posljednje serije**, `dizajn/ui-revizija-varijacije/dashboard-2.png` (Slate and Sand), i traži ažuriran plan spreman za izvedbu. [Aktuelni plan](dizajn/ui-revizija-paneli-select.md) sada definiše novu paletu, asimetričan desktop raspored, desni sažetak vlasničke kartice (puna kartica ostaje zasebna ruta), prikaze ostalih profila, mobilni redoslijed, mapu fajlova i ispravke generisanih podataka. Ovo zamjenjuje raniju pretpostavku nepromijenjene tople palete; J dokument ostaje istorija. K-A je završen dokumentacioni rezultat, K-B–K-E ostaju PLANIRANO; ovaj nalog priprema plan, bez izvedbe. Prvi izvedbeni korak je K-B, zatim K-C, K-D i K-E. Select primitive se bira i provjerava na početku K-C; ostale dizajnerske odluke su dovoljno razrađene za početak.
+
+## Odlaganje UI revizije — 17. oktobar 2026.
+
+Korisnik je naložio preskakanje preostalih DEV-02-K-B–K-E uz kasniji povratak. Zbirni K i te podfaze su **PAUZIRANO**; postojeći rezultati i granice provjera ostaju sačuvani u [evidenciji](napredak.md). Nisu završeni niti otkazani. DEV-02 ostaje U TOKU zbog nezaključenih vizuelnih dorada. Sljedeća tema su preostale odluke DEV-01 o prijavi i dozvolama; odlaganje UI rada ne odobrava backend ili objavljivanje.
+
+## Dopuna modela rola — administrator sistema
+
+17. oktobar 2026: potvrđena je zasebna najviša globalna rola **administrator sistema**, sa opsegom svih tenanata i bez obaveze pojedinačnog članstva u svakom ZEV-u. Administrator ZEV-a ostaje tenant rola. Naknadno je potvrđen puni pregled i edit svih modula, finansijskih kartica, privatnih priloga, korisnika i rola u svim tenantima, bez pojedinačnog članstva ili odobrenja tenant administratora. Istorija i korektivni finansijski zapisi ostaju obavezni. Prije DEV-03 dogovoriti postupak dodjele globalne role i oporavak; [specifikacija, odjeljak 11](pilot-specifikacija.md#11-administrator-sistema--potvrđena-globalna-rola) odvaja potvrdu od prijedloga. Serverski model mora razlikovati globalnu dodjelu i tenant dozvole, uz evidentiranje autora i ciljnog tenanta. Ovo nije početak implementacije.
+
+### Potvrda administratora ZEV-a
+
+17. oktobar 2026: administrator ZEV-a ima puni pregled i edit svih modula i podataka svog ZEV-a, uključujući finansije, privatne priloge, članstva i tenant role. Ne zahtijeva dodatne operaterske role. Može imenovati drugog administratora istog ZEV-a, ali ne dodjeljuje globalnu rolu niti mijenja globalni identitet ili članstva u drugim ZEV-ovima. Administrator sistema ima globalni opseg. Detalji i preostali postupci primopredaje/oporavka su u [specifikaciji](pilot-specifikacija.md#12-administrator-zev-a--potvrđen-puni-tenant-pristup).
+
+Naknadno pojašnjenje 17. oktobra 2026: za administratora ZEV-a privremeno je potvrđen unos zaduženja/uplata na kartice vlasnika svog ZEV-a, uz kasniji korisnikov pregled toka. Pravo izmjene tuđih ličnih podataka ostaje otvoreno i ima prednost nad ranijom opštom formulacijom punog tenant edita. Ovaj unos ne mijenja pravila istorije i korektivnih finansijskih zapisa; nije odobrenje implementacije DEV-03.
+
+### Potvrda finansijskog operatera
+
+17. oktobar 2026: potvrđena zasebna tenant rola finansijskog operatera — sve kartice i finansijski prilozi svog ZEV-a, unos zaduženja/uplata/troškova, usaglašavanje i korektivne ispravke uz istoriju. Bez upravljanja članovima, rolama ili drugim modulima. Detalji u [specifikaciji](pilot-specifikacija.md#13-finansijski-operater--potvrđena-rola); ovo je dogovor ovlašćenja, bez početka implementacije.
+
+### Potvrda operatera sadržaja
+
+17. oktobar 2026: potvrđeno upravljanje radovima/ponudama/statusima, obavještenjima, prijavama/statusima i informativnim anketama svog ZEV-a. Bez finansijskog upisa, tuđih kartica i upravljanja članovima/rolama. Detalji u [specifikaciji](pilot-specifikacija.md#14-operater-sadržaja--potvrđena-rola); implementacija nije započeta.
+
+### Potvrda osnovne role člana
+
+17. oktobar 2026: potvrđen pregled zajedničkih finansija, radova/ponuda, obavještenja, sopstvene prijave i učešće u informativnim anketama. Vlasnik vidi svoje kartice; zakupac samo uz posebno ovlašćenje. Bez izmjene zajedničkih podataka i tuđih kartica. Detalji i otvorena pravila perioda/suvlasništva su u [specifikaciji](pilot-specifikacija.md#15-član--potvrđena-osnovna-rola). Implementacija nije započeta.
+
+### Potvrda finansijskog pregleda
+
+17. oktobar 2026: uključena zasebna tenant rola finansijskog pregleda — sve kartice i finansijski prilozi svog ZEV-a, bez unosa ili izmjena. Dodjeljuje se izričito, nezavisno od funkcije/zanimanja. Detalji u [specifikaciji](pilot-specifikacija.md#16-finansijski-pregled--potvrđena-rola). Osnovne role su dogovorene; preostaju detalji pristupa, lični podaci i postupci dodjele/primopredaje/oporavka prije zavisne implementacije.
+
+### Potvrda dodjele i ukidanja prava
+
+17. oktobar 2026: administrator sistema postavlja prvog administratora ZEV-a; administrator ZEV-a upravlja tenant rolama, uključujući druge administratore svog ZEV-a. Posljednji administrator ne uklanja se bez prethodne zamjene. Promjene prava čuvaju autora i vrijeme. Detalji u [specifikaciji](pilot-specifikacija.md#17-dodjela-i-ukidanje-prava--potvrđena-pravila). Preostaju lični podaci, periodi/suvlasništvo i operativni oporavak/globalna primopredaja.
+
+### Potvrda prava nad ličnim podacima
+
+17. oktobar 2026: korisnik uređuje svoj profil; administrator ZEV-a uređuje jedinice, vlasničke veze, članstva i prava svog ZEV-a, bez izmjene tuđeg profila/prijavnih podataka; administrator sistema može ispraviti podatke uz istoriju. Ovo razrješava ranije otvoreno pitanje ličnih podataka i ima prednost nad opštim tenant editom. Detalji i preostali postupci u [specifikaciji](pilot-specifikacija.md#18-lični-podaci--potvrđena-podjela-prava).
+
+### Potvrda suvlasništva
+
+17. oktobar 2026: više potvrđenih suvlasnika može pregledati istu karticu jedinice; zaduženje nastaje jednom po jedinici, bez dupliranja po suvlasniku. Detalji u [specifikaciji](pilot-specifikacija.md#19-suvlasništvo--potvrđen-zajednički-pregled-kartice). Periodi pristupa pri promjeni vlasništva i delegiranje zakupcu još nisu razriješeni.
+
+### Potvrda promjene vlasništva
+
+17. oktobar 2026: potvrđeni datum promjene, nova evidencija od tog datuma bez privatnih podataka prethodnika, bez automatskog prenosa starog duga/avansa i istorijski pregled prethodnog vlasnika samo za njegov period. Vremensko ovlašćenje i privatni prilozi moraju pratiti period; zajednička kartica suvlasnika ne smije otvoriti tuđi period. Detalji i preostala finansijska pravila su u [specifikaciji](pilot-specifikacija.md#20-promjena-vlasništva--potvrđen-model-evidencije-i-pristupa).
+
+### Potvrda delegiranja zakupcu
+
+17. oktobar 2026: vlasnik traži, a administrator ZEV-a evidentira pristup zakupca konkretnoj kartici i periodu, samo za pregled. Ovlašćenje se može opozvati i prestaje istekom perioda. Detalji i preostali rubni slučajevi su u [specifikaciji](pilot-specifikacija.md#21-ovlašćenje-zakupca-za-karticu--potvrđeno-pravilo). Bez početka implementacije.
+
+Dopuna delegiranja, 17. oktobar 2026: potvrđeno da vlasnik može tražiti opoziv koji administrator evidentira; promjena vlasnika gasi ovlašćenja prethodnog vlasnika zakupcu, a novi vlasnik po potrebi traži novu dodjelu. Time su razriješeni ti rubni slučajevi iz odjeljka 21 specifikacije.
+
+### Potvrda oporavka i globalne primopredaje
+
+17. oktobar 2026: potvrđeni oporavak lozinke emailom, pomoć administratora sistema kod gubitka emaila nakon provjere identiteta uz evidenciju i dodjela novog administratora sistema od postojećeg, bez uklanjanja posljednjeg prije zamjene. Detalji u [specifikaciji](pilot-specifikacija.md#22-oporavak-pristupa-i-administrator-sistema--potvrđena-pravila). Sljedeće je konsolidacija potvrđenih odluka/matrice i pregled preduslova DEV-03; operativno prvo postavljanje i oporavak svih globalnih administratora treba razraditi prije upotrebe. DEV-03 i udaljeni resursi nisu odobreni ovom potvrdom.
+
+## Konsolidovana prava i preduslovi DEV-03
+
+17. oktobar 2026: [matrica prava](matrica-prava.md) je aktuelni objedinjeni izvor šest potvrđenih rola i vremenskih ovlašćenja. Zamjenjuje raniju operativnu dvoulognu matricu iz odjeljka 6 u dijelu konkretnih prava; ostaje sačuvana kao nacrt istorije. Odjeljci 10–22 specifikacije sadrže potvrde. PRE-01–PRE-09 odvajaju ispunjene preduslove od otvorenih odluka i kasnijih faza. Sljedeće je korisnikova instrukcija za DEV-03 i izbor lokalnog ili udaljenog početka; hosting/region/trošak i odgovorna osoba prije udaljenih resursa, procedure globalne administracije prije upotrebe. Finansijske odluke ostaju prije DEV-04, ankete prije DEV-07. Konsolidacija ne inicijalizuje backend.
+
+## Odobren lokalni staging — DEV-03-A
+
+17. oktobar 2026: korisnik odobrava lokalni Supabase staging i kasniji prenos na udaljeni. DEV-03 je U TOKU kroz podfazu A: konfiguracija/CLI, prenosiva migracija osnove identiteta/tenanata, sintetički seed, pokretanje i SQL provjera, uputstvo prenosa. Ovo odstupa od prethodnog čekanja instrukcije jer je lokalni obim sada izričito odobren. UI, stvarna prijava, mutacioni RPC-i i puna tenant/globalna RLS pravila dolaze u narednim podfazama. Za udaljene resurse i dalje potvrditi PIL-12; [uputstvo lokalnog staginga](lokalni-staging.md) navodi granice. Ne označavati DEV-03 završenim na osnovu baze.

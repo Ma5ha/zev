@@ -81,3 +81,7 @@ Verzije framework paketa, biblioteka za validaciju, alati za testiranje, hosting
 - [Expo — monorepo projekti](https://docs.expo.dev/guides/monorepos/)
 - [Supabase — zaštita podataka](https://supabase.com/docs/guides/database/secure-data)
 - [Supabase — kontrola pristupa dokumentima](https://supabase.com/docs/guides/storage/security/access-control)
+
+## Lokalni staging — naknadno odobren DEV-03-A
+
+17. oktobar 2026: odobren lokalni Supabase putem projektnog CLI-ja 2.121.0 i Docker Desktop-a, PostgreSQL 17. Migracije i sintetički seed su u `supabase/`; [uputstvo](lokalni-staging.md) odvaja osnovu baze od naredne Auth/RLS/UI implementacije. Web demo još radi u memoriji. Udaljeni projekat i objavljivanje nisu odobreni. Ranije tvrdnje o neinicijalizovanom Supabase-u opisuju prethodni demo.

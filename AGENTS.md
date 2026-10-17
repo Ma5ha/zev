@@ -105,3 +105,7 @@ U istoriju dodaj novi zapis; ne briši prethodne zapise da bi promijenio prikaz 
 ## Trenutno ograničenje
 
 Korisnik je nakon faze planiranja odobrio postavljanje Nx i pnpm workspace-a. Osnova je inicijalizovana u glavnom folderu repozitorijuma; komande su u `README.md`. Plan sada kao narednu implementacionu fazu predviđa DEV-02: interaktivni web demo sa landing stranicom, lokalnim sintetičkim podacima i simulacijom tenant/role pristupa, bez inicijalizacije baze ili Supabase-a. Otvorene odluke stvarnog pilota ne blokiraju taj demo; označiti demo pretpostavke. Korisnik je naknadno odobrio nastavak kroz podfaze: specifikacija DEV-02-A, tehnička web osnova DEV-02-B, demo podaci/kontekst DEV-02-C landing/navigacija/početni pregledi DEV-02-D, finansijski demo DEV-02-E i radovi/ponude DEV-02-F su završeni; za naredni korak pratiti posljednju instrukciju i evidenciju. DEV-03/backend zahtijeva prethodni korisnikov pregled demoa, instrukciju za backend i razriješene zavisne odluke. Objavljivanje se odobrava zasebno. Za status ranije započetog projekta pogledaj `docs/napredak.md`.
+
+### Naknadno odobrenje DEV-03-A
+
+Korisnik je 17. oktobra 2026. odobrio lokalnu Supabase bazu za staging uz kasniji prelazak na udaljenu. Prati `docs/lokalni-staging.md`, migracije i stvarni status u evidenciji. Ovo odobrava lokalnu baznu osnovu, ne znači završenu prijavu/RLS/UI integraciju ili odobrene udaljene resurse. Ranije ograničenje bez inicijalizacije baze odnosi se na DEV-02 demo. UI koraci K-B–K-E ostaju pauzirani.

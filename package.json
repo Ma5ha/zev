@@ -17,7 +17,13 @@
     "build": "nx build web",
     "lint": "nx lint web",
     "typecheck": "nx typecheck web",
-    "start": "nx start web"
+    "start": "nx start web",
+    "db:start": "supabase start --network-id zev-staging-local",
+    "db:stop": "supabase stop",
+    "db:status": "supabase status",
+    "db:migrate": "supabase migration up --local",
+    "db:lint": "supabase db lint --local",
+    "db:network": "docker network create --driver bridge --opt com.docker.network.bridge.host_binding_ipv4=127.0.0.1 zev-staging-local"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -43,6 +49,7 @@
     "eslint-plugin-react-hooks": "5.0.0",
     "nx": "23.3.0",
     "postcss": "^8.5.6",
+    "supabase": "2.121.0",
     "tailwindcss": "4.3.3",
     "tslib": "^2.3.0",
     "typescript": "~6.0.3",

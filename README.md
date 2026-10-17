@@ -99,3 +99,7 @@ Odabrani vizuelni smjer za doradu demoa: [Živo dvorište — stil i plan](docs/
 Operater na oglasnoj tabli objavljuje naslov i sadržaj. Svaki demo profil može prijaviti problem uz opcionu JPEG/PNG/WebP fotografiju do 5 MB, sa lokalnim pregledom i uklanjanjem prije potvrde. Operater mijenja status prijave; ostali vide sopstvene prijave. Fotografija se ne šalje udaljenom servisu.
 
 Operater može otvoriti informativnu anketu sa pitanjem, najmanje dvije različite opcije i budućim rokom. Svako demo članstvo ima jedan izmjenjiv odgovor do zatvaranja. Operater može zatvoriti ranije; zbirni rezultati se prikazuju poslije zatvaranja, bez imenika odgovora. To su demo pretpostavke, bez formalnog odlučivanja skupštine. Sve izmjene i prilozi nestaju nakon reseta/osvježavanja.
+
+## Lokalni staging baze
+
+DEV-03-A dodaje lokalni Supabase. Pokretanje: `corepack pnpm db:start` uz pokrenut Docker; upravljanje i granice su u [uputstvu](docs/lokalni-staging.md). Web demo još nije povezan sa bazom. Udaljeni Supabase nije kreiran ili povezan.

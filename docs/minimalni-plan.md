@@ -77,3 +77,7 @@ Pratiti:
 Faze implementacije, zavisnosti i kriterijumi završetka razrađeni su u [razvojnom planu](razvojni-plan.md).
 
 Ovaj dokument predstavlja plan. Korisnik je odobrio i izvršeno je postavljanje Nx/pnpm monorepo osnove. Naknadno su završeni specifikacija demoa DEV-02-A i web osnova DEV-02-B. DEV-02-C sada ima sintetičke podatke i stanje u memoriji sa izborom ZEV-a/profila i resetom. DEV-02-D dodaje landing, responzivnu navigaciju pet cjelina i početne preglede. DEV-02-E dodaje lokalni finansijski demo. DEV-02-F dodaje demo radova i ponuda. DEV-02-G dodaje lokalne objave, prijave i informativne ankete. DEV-02-H je provjeren u dokumentovanim granicama, a korisnik je 17. oktobra 2026. pregledao demo i potvrdio „za sada je ok“, bez trenutno traženih dorada. DEV-02 i I su završeni u demo obimu; backend čeka novu instrukciju i zavisne odluke.
+
+### Naknadno odobren lokalni staging
+
+17. oktobar 2026: korisnik odobrava DEV-03-A, lokalnu Supabase staging bazu sa kasnijim prenosom na udaljeni projekat. Time je razriješeno ranije čekanje instrukcije za taj ograničeni obim. Demo ostaje zaseban u memoriji; puna prijava, prava pristupa i produkcioni moduli preostaju. Udaljeni resursi i objavljivanje nisu odobreni. Operativni detalji i provjere su u [uputstvu](lokalni-staging.md) i [evidenciji](napredak.md).
