@@ -33,7 +33,7 @@ export function selectDemoView(state: DemoState) {
     works: tenant.works,
     announcements: tenant.announcements,
     issues: tenant.issues.filter(issue => permissions.canManageIssues || issue.authorMembershipId === membershipId),
-    polls: tenant.polls,
+    polls: tenant.polls.map(poll => ({ ...poll, answers: undefined, ownAnswer: poll.answers?.[membershipId], counts: poll.options.map((_, index) => Object.values(poll.answers ?? {}).filter(value => value === index).length) })),
     note: permissions.canEditNote ? tenant.note : null,
     permissions,
   };
@@ -44,7 +44,7 @@ export function hasUnsavedNote(state: DemoState) {
 }
 
 export function hasDemoChanges(state: DemoState) {
-  return hasUnsavedNote(state) || state.financeDraft !== null || Object.values(state.tenants).some(tenant => tenant.note !== '' || tenant.entries.length > 0 || tenant.assessments.length > 0 || tenant.works.some(work => work.statusHistory.length > 0));
+  return hasUnsavedNote(state) || state.financeDraft !== null || state.communityDraft !== null || Object.values(state.tenants).some(tenant => tenant.announcements.length > (tenant.id === 'javor' ? 1 : 0) || tenant.issues.length > (tenant.id === 'javor' ? 2 : 0) || tenant.issues.some(issue => issue.photo || issue.status === 'Riješeno' || (issue.id === 'javor-svjetlo' && issue.status !== 'Zaprimljeno')) || tenant.polls.some(poll => poll.closed || Object.keys(poll.answers ?? {}).length) || tenant.polls.length > (tenant.id === 'javor' ? 1 : 0) || tenant.note !== '' || tenant.entries.length > 0 || tenant.assessments.length > 0 || tenant.works.some(work => work.statusHistory.length > 0));
 }
 
 export function formatDemoMoney(cents: number) {

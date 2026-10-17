@@ -11,9 +11,10 @@ function useDemoState(startedAt: string) {
   return {
     view, dispatch,
     financeDraft: state.financeDraft,
+    communityDraft: state.communityDraft,
     hasUnsavedNote: hasUnsavedNote(state),
     draftNote: state.draftNote ?? view.note ?? '',
-    hasUnsavedChanges: hasUnsavedNote(state) || state.financeDraft !== null,
+    hasUnsavedChanges: hasUnsavedNote(state) || state.financeDraft !== null || state.communityDraft !== null,
     hasChanges: hasDemoChanges(state),
     message: state.message,
   };

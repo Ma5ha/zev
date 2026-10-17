@@ -1,9 +1,17 @@
+import { validateCommunity, pollClosed, issueStatuses, type CommunityDraft } from './community';
 import { assessmentPreview, validateFinanceDraft, parseCents, type FinanceDraft } from './finance';
 import { createDemoState } from './fixtures';
 import type { DemoState, ProfileId, TenantId } from './model';
 import { demoPermissions } from './selectors';
 
 export type DemoAction =
+  | { type: 'community-draft'; draft: CommunityDraft | null }
+  | { type: 'community-save'; now: string }
+  | { type: 'community-photo'; tenantId: TenantId; profileId: ProfileId; photo: NonNullable<CommunityDraft['photo']> }
+  | { type: 'issue-status'; id: string; status: typeof issueStatuses[number] }
+  | { type: 'poll-answer'; id: string; option: number; now: string }
+  | { type: 'poll-close'; id: string }
+
   | { type: 'finance-draft'; draft: FinanceDraft | null }
   | { type: 'finance-save' }
   | { type: 'work-status'; workId: string; status: 'Priprema' | 'U toku' | 'Završeno' }
@@ -15,6 +23,34 @@ export type DemoAction =
 
 export function demoReducer(state: DemoState, action: DemoAction): DemoState {
   switch (action.type) {
+    case 'community-photo':
+      return state.tenantId === action.tenantId && state.profileId === action.profileId && state.communityDraft?.kind === 'issue'
+        ? { ...state, communityDraft: { ...state.communityDraft, photo: action.photo } } : state;
+    case 'community-draft': return { ...state, communityDraft: action.draft, message: '' };
+    case 'community-save': {
+      const draft = state.communityDraft;
+      if (!draft || validateCommunity(draft, action.now) || (draft.kind !== 'issue' && state.profileId !== 'operator')) return state;
+      const tenant = state.tenants[state.tenantId];
+      const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Belgrade' }).format(new Date(action.now));
+      const id = `${tenant.id}-${draft.kind}-${action.now}`;
+      const updated = draft.kind === 'announcement' ? { ...tenant, announcements: [{ id, title: draft.title.trim(), body: draft.body.trim(), date }, ...tenant.announcements] }
+        : draft.kind === 'issue' ? { ...tenant, issues: [...tenant.issues, { id, description: draft.body.trim(), date, photo: draft.photo, authorMembershipId: `${tenant.id}:${state.profileId}`, status: 'Zaprimljeno' as const }] }
+        : { ...tenant, polls: [...tenant.polls, { id, question: draft.title.trim(), options: draft.options.split('\n').map(value => value.trim()).filter(Boolean), closesAt: new Date(draft.closesAt).toISOString() }] };
+      return { ...state, communityDraft: null, message: draft.kind === 'issue' ? 'Prijava je dodata u demo.' : draft.kind === 'poll' ? 'Informativna anketa je dodata u demo.' : 'Obavještenje je objavljeno u demou.', tenants: { ...state.tenants, [tenant.id]: updated } };
+    }
+    case 'issue-status': {
+      if (state.profileId !== 'operator' || !issueStatuses.includes(action.status)) return state;
+      const tenant = state.tenants[state.tenantId];
+      return { ...state, message: 'Status prijave je promijenjen u demou.', tenants: { ...state.tenants, [tenant.id]: { ...tenant, issues: tenant.issues.map(issue => issue.id === action.id ? { ...issue, status: action.status } : issue) } } };
+    }
+    case 'poll-close':
+    case 'poll-answer': {
+      const tenant = state.tenants[state.tenantId];
+      const poll = tenant.polls.find(item => item.id === action.id);
+      if (!poll || (action.type === 'poll-close' ? state.profileId !== 'operator' : pollClosed(poll, action.now) || !Number.isInteger(action.option) || !poll.options[action.option])) return state;
+      const updated = action.type === 'poll-close' ? { ...poll, closed: true } : { ...poll, answers: { ...poll.answers, [`${tenant.id}:${state.profileId}`]: action.option } };
+      return { ...state, message: action.type === 'poll-close' ? 'Anketa je zatvorena u demou.' : 'Odgovor je sačuvan u demou.', tenants: { ...state.tenants, [tenant.id]: { ...tenant, polls: tenant.polls.map(item => item.id === poll.id ? updated : item) } } };
+    }
     case 'work-status': {
       const tenant = state.tenants[state.tenantId];
       const work = tenant.works.find(item => item.id === action.workId);
@@ -54,7 +90,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
         tenants: { ...state.tenants, [tenant.id]: { ...tenant, entries: [...tenant.entries, entry] } } };
     }
     case 'context':
-      return { ...state, tenantId: action.tenantId, profileId: action.profileId, draftNote: null, financeDraft: null, message: 'Demo kontekst je promijenjen.' };
+      return { ...state, tenantId: action.tenantId, profileId: action.profileId, draftNote: null, financeDraft: null, communityDraft: null, message: 'Demo kontekst je promijenjen.' };
     case 'draft-note':
       return demoPermissions(state.profileId).canEditNote
         ? { ...state, draftNote: action.value.slice(0, 200), message: '' } : state;

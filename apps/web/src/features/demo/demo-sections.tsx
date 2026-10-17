@@ -23,7 +23,7 @@ export function WorkList({ works }: { works: DemoTenant['works'] }) {
 }
 
 export function AnnouncementList({ announcements }: { announcements: DemoTenant['announcements'] }) {
-  return announcements.length ? <ul className="divide-y divide-line">{announcements.map(item => <li key={item.id} className="space-y-2 py-3"><p className="text-sm text-muted"><time dateTime={item.date}>{formatDemoDate(item.date)}</time></p><h3 className="font-semibold">{item.title}</h3><p className="leading-relaxed text-muted">{item.body}</p></li>)}</ul> : <p className="leading-relaxed text-muted">Još nema obavještenja. Objavljena obavještenja zgrade prikazivaće se ovdje.</p>;
+  return announcements.length ? <ul className="divide-y divide-line">{announcements.map(item => <li key={item.id} className="space-y-2 py-3"><p className="text-sm text-muted"><time dateTime={item.date}>{formatDemoDate(item.date)}</time></p><details><summary className="min-h-11 cursor-pointer break-words font-semibold">{item.title}</summary><p className="whitespace-pre-wrap break-words leading-relaxed text-muted">{item.body}</p></details></li>)}</ul> : <p className="leading-relaxed text-muted">Još nema obavještenja. Objavljena obavještenja zgrade prikazivaće se ovdje.</p>;
 }
 
 export function formatDemoDate(date: string) {

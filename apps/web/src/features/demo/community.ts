@@ -1,0 +1,12 @@
+import type { DemoTenant } from './model';
+export type CommunityDraft = { kind: 'announcement' | 'issue' | 'poll'; title: string; body: string; options: string; closesAt: string; photo?: { name: string; data: string } };
+export const issueStatuses = ['Zaprimljeno', 'U obradi', 'Riješeno'] as const;
+export function validateCommunity(draft: CommunityDraft, now: string) {
+  if (draft.kind === 'issue') return draft.body.trim() ? '' : 'Unesite opis problema.';
+  if (!draft.title.trim()) return draft.kind === 'poll' ? 'Unesite pitanje.' : 'Unesite naslov.';
+  if (draft.kind === 'announcement') return draft.body.trim() ? '' : 'Unesite sadržaj.';
+  const options = draft.options.split('\n').map(value => value.trim()).filter(Boolean);
+  if (options.length < 2 || new Set(options).size !== options.length) return 'Unesite najmanje dvije različite opcije, svaku u novi red.';
+  return Number.isFinite(Date.parse(draft.closesAt)) && Date.parse(draft.closesAt) > Date.parse(now) ? '' : 'Izaberite budući rok.';
+}
+export function pollClosed(poll: DemoTenant['polls'][number], now: string) { return poll.closed || Date.parse(poll.closesAt) <= Date.parse(now); }

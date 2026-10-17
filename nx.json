@@ -79,5 +79,6 @@
         "formatter": "none"
       }
     }
-  }
+  },
+  "analytics": false
 }

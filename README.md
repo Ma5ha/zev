@@ -4,7 +4,7 @@ Nx monorepo za web i buduću mobilnu aplikaciju za zajednice etažnih vlasnika.
 
 ## Trenutni obim
 
-Next.js web demo u `apps/web` koristi TypeScript, Tailwind CSS i zajedničke UI tokene. `/` je javni landing, `/demo` pregled zgrade, a responzivna navigacija vodi na Finansije, Radove, Oglasnu tablu i Ankete i prijave. `/demo/prava` objašnjava tri demo profila, dok `/ui` ostaje razvojni pregled osnovnih komponenti. DEV-02-D dodaje landing, navigaciju i početne prikaze; DEV-02-E dodaje lokalni finansijski demo. DEV-02-F dodaje detalje radova, poređenje ponuda, status i povezane isplate. Unosi G još nisu dostupni.
+Next.js web demo u `apps/web` koristi TypeScript, Tailwind CSS i zajedničke UI tokene. `/` je javni landing, `/demo` pregled zgrade, a responzivna navigacija vodi na Finansije, Radove, Oglasnu tablu i Ankete i prijave. `/demo/prava` objašnjava tri demo profila, dok `/ui` ostaje razvojni pregled osnovnih komponenti. DEV-02-D dodaje landing, navigaciju i početne prikaze; DEV-02-E dodaje lokalni finansijski demo. DEV-02-F dodaje detalje radova, poređenje ponuda, status i povezane isplate. DEV-02-G dodaje lokalne objave, prijave sa opcionom fotografijom i informativne ankete.
 
 Za pokretanje nisu potrebni `.env`, backend ključevi, Supabase projekat ili baza. Mobilna aplikacija još nije generisana. Nema stvarne prijave, trajne pohrane ili objavljivanja.
 
@@ -90,3 +90,9 @@ Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni
 - [Prihvaćeni stack](docs/stack.md)
 - [Napredak](docs/napredak.md)
 - [Istraživanje ZEV RS](docs/istrazivanje-zev-rs.md)
+
+## Obavještenja, prijave i ankete — DEV-02-G
+
+Operater na oglasnoj tabli objavljuje naslov i sadržaj. Svaki demo profil može prijaviti problem uz opcionu JPEG/PNG/WebP fotografiju do 5 MB, sa lokalnim pregledom i uklanjanjem prije potvrde. Operater mijenja status prijave; ostali vide sopstvene prijave. Fotografija se ne šalje udaljenom servisu.
+
+Operater može otvoriti informativnu anketu sa pitanjem, najmanje dvije različite opcije i budućim rokom. Svako demo članstvo ima jedan izmjenjiv odgovor do zatvaranja. Operater može zatvoriti ranije; zbirni rezultati se prikazuju poslije zatvaranja, bez imenika odgovora. To su demo pretpostavke, bez formalnog odlučivanja skupštine. Sve izmjene i prilozi nestaju nakon reseta/osvježavanja.

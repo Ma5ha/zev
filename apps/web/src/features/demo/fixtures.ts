@@ -4,7 +4,7 @@ import type { DemoState } from './model';
 export function createDemoState(startedAt: string): DemoState {
   const closesAt = new Date(new Date(startedAt).getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
   return {
-    tenantId: 'javor', profileId: 'owner', draftNote: null, financeDraft: null, message: '',
+    tenantId: 'javor', profileId: 'owner', draftNote: null, financeDraft: null, communityDraft: null, message: '',
     tenants: {
       javor: {
         id: 'javor', name: 'ZEV Javor — demo', openingFundsCents: 100000,

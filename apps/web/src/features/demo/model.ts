@@ -1,3 +1,4 @@
+import type { CommunityDraft } from './community';
 import type { Assessment, FinanceDraft, FinanceEntry } from './finance';
 
 export type TenantId = 'javor' | 'lipa';
@@ -32,8 +33,8 @@ export type DemoTenant = Readonly<{
     contractedCents: number;
   }>[];
   announcements: readonly Readonly<{ id: string; title: string; body: string; date: string }>[];
-  issues: readonly Readonly<{ id: string; authorMembershipId: string; description: string; status: 'Zaprimljeno' | 'U obradi' | 'Riješeno' }>[];
-  polls: readonly Readonly<{ id: string; question: string; options: readonly string[]; closesAt: string }>[];
+  issues: readonly Readonly<{ id: string; authorMembershipId: string; description: string; date?: string; photo?: { name: string; data: string }; status: 'Zaprimljeno' | 'U obradi' | 'Riješeno' }>[];
+  polls: readonly Readonly<{ id: string; question: string; options: readonly string[]; closesAt: string; closed?: boolean; answers?: Readonly<Record<string, number>> }>[];
 }>;
 
 export type DemoState = Readonly<{
@@ -42,6 +43,7 @@ export type DemoState = Readonly<{
   profileId: ProfileId;
   draftNote: string | null;
   financeDraft: FinanceDraft | null;
+  communityDraft: CommunityDraft | null;
   message: string;
 }>;
 
