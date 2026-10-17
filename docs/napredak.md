@@ -702,14 +702,20 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 - Korisnik je izričito naložio „Comit i push“. OPS-PRIVATE-D-COMMIT U TOKU: pregled izmjena i ignorisanih tajni, commit lokalnog D i push grane master na origin. Push uključuje i raniji lokalni C commit koji još nije bio poslat.
 - Cilj potvrđen: `master`, `origin` je `https://github.com/Ma5ha/zev.git`. Prethodne tehničke/ručne D provjere ostaju važeće; ovaj korak mijenja Git i evidenciju, ne aplikacioni kod. Bez force pusha ili objavljivanja aplikacije.
 
+### 17. oktobar 2026. — OPS-PRIVATE-D-COMMIT: potvrda prenosa
+
+- ZAVRŠENO: commit `e7f7914` uključuje privatne priloge, migracije 010–014, recovery postupke i evidenciju. `git push origin master` uspješan: `8c86b6f..e7f7914 master -> master`; prenesen je i prethodni lokalni C commit `411ebb4`.
+- Pregledani fajlovi, grana/remote, staged diff i `git diff --check`; env/lokalni kredencijali ostaju ignorisani. Provjera vrijednosti lokalnih ključeva i privatnih key blokova u izmijenjenim fajlovima nije našla poklapanja. Raniji D lint/typecheck/build/SQL i ručne provjere nisu ponavljani jer aplikacioni kod nije mijenjan u Git zadatku.
+- Ova potvrda čuva se u pratećem dokumentacionom commitu u okviru istog naloga. DEV-03 ostaje U TOKU; nema objavljivanja ili nastavka drugih faza.
+
 ## Statistika i pregled statusa
 
 Ukupan broj stavki: **72**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 50 | Detalji i preostalo u završnoj tabeli. |
-| U TOKU | 8 | Detalji i preostalo u završnoj tabeli. |
+| ZAVRŠENO | 51 | Detalji i preostalo u završnoj tabeli. |
+| U TOKU | 7 | Detalji i preostalo u završnoj tabeli. |
 | PLANIRANO | 7 | Detalji i preostalo u završnoj tabeli. |
 | BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
 | PAUZIRANO | 6 | Detalji i preostalo u završnoj tabeli. |
@@ -733,7 +739,6 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 - **DEV-02-K-C — PAUZIRANO**: Radix 2.4.1, zajednička komponenta i sve lokacije migrirane; lint/typecheck/build, izbor ZEV-a, Home/Escape i povrat fokusa potvrđeni. Preostaje puna matrica validacije, nacrta, profila, mobilnog dodira i 200% teksta. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
 - **DEV-02-K-D — PAUZIRANO**: Nakon K-C: okvir, pregled, kartica i ostali postojeći ekrani. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
 - **DEV-02-K-E — PAUZIRANO**: Nakon K-D: tehničke i ručne provjere, screenshotovi i zaseban korisnikov ishod. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
-- **OPS-PRIVATE-D-COMMIT — U TOKU**: Izričit korisnikov nalog; pregled, commit i običan push master na origin.
 
 ## Status svih dogovorenih stavki
 
@@ -811,7 +816,7 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | OPS-GIT-AUTH-COMMIT | Commit i push pravila Git odobrenja | ZAVRŠENO | Commit `88c1ed3` pushan na origin/master; završna evidencija u pratećem dokumentacionom commitu. |
 | DEV-03-C | Web Auth, sesije, pozivi i administrativni UI | ZAVRŠENO | Lokalna integracija i provjere C-1–C-4; [izvještaj i granice](web-pristup-c.md). Preostali kriterijumi cijelog DEV-03, poslovni moduli i objavljivanje nisu završeni ovim korakom. |
 | C-0 | Predaja DEV-03-C u novi chat | ZAVRŠENO | Preuzeto odobrenje iz prethodnog chata; provjeren čist HEAD 8c86b6f i lokalni preduslovi. |
-| OPS-WEB-C-COMMIT | Komitovati lokalnu web integraciju DEV-03-C | ZAVRŠENO | Lokalni commit na master uključuje C i završnu evidenciju; tajne/ignore i diff provjereni. Bez pusha. |
+| OPS-WEB-C-COMMIT | Komitovati lokalnu web integraciju DEV-03-C | ZAVRŠENO | Commit 411ebb4; prvobitno bez pusha, naknadno prenesen na origin/master u OPS-PRIVATE-D-COMMIT po novom nalogu. |
 | D-0 | Predaja DEV-03-D u novi chat | ZAVRŠENO | Kreiran chat 01a14b16-80d2-7e10-b1a8-e35b52bb3b85; odobrenje i ograničenja preneseni. |
 | DEV-03-D | Privatni prilozi i operativni administratorski oporavak | ZAVRŠENO | Lokalna infrastruktura i ručne provjere D-1–D-4; [izvještaj](prilozi-d.md) i [recovery](oporavak-administratora.md). Sintetički prilozi, bez produkcionih roditeljskih modula; pregled C nije potvrđen. |
-| OPS-PRIVATE-D-COMMIT | Commit i push privatnih priloga DEV-03-D | U TOKU | Izričit korisnikov nalog; pregled, commit i običan push master na origin. |
+| OPS-PRIVATE-D-COMMIT | Commit i push privatnih priloga DEV-03-D | ZAVRŠENO | Commit e7f7914 pushan na origin/master, uključujući prethodni lokalni C commit 411ebb4; završna potvrda u pratećem dokumentacionom commitu. |
