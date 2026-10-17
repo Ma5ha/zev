@@ -109,3 +109,7 @@ Korisnik je nakon faze planiranja odobrio postavljanje Nx i pnpm workspace-a. Os
 ### Naknadno odobrenje DEV-03-A
 
 Korisnik je 17. oktobra 2026. odobrio lokalnu Supabase bazu za staging uz kasniji prelazak na udaljenu. Prati `docs/lokalni-staging.md`, migracije i stvarni status u evidenciji. Ovo odobrava lokalnu baznu osnovu, ne znači završenu prijavu/RLS/UI integraciju ili odobrene udaljene resurse. Ranije ograničenje bez inicijalizacije baze odnosi se na DEV-02 demo. UI koraci K-B–K-E ostaju pauzirani.
+
+### Naknadno odobrenje DEV-03-B
+
+Korisnik je nakon lokalne baze odobrio sljedeći korak: serverske operacije i prava pristupa B. Migracije i lokalni sintetički identiteti opisani su u `docs/pristup-bazi-b.md`. Web Auth/UI integracija i poslovni moduli nisu završeni tim korakom; nastaviti prema posljednjoj instrukciji i evidenciji. Ne prenositi lokalne fixture kredencijale na udaljeni projekat.

@@ -2,7 +2,7 @@
 
 Datum: 17. oktobar 2026. (Europe/Belgrade). Veza: DEV-01-B; priprema DEV-03.
 
-Status: **ZAVRŠENO — dokumentaciona konsolidacija potvrđenih odluka**. Prava nisu implementirana ili provjerena na backendu. Izvor potvrda su odjeljci 10–22 [specifikacije](pilot-specifikacija.md). Ovaj dokument zamjenjuje ranije dvoulogne i nepotvrđene matrice u dijelu potvrđenih prava; istorija ostaje sačuvana.
+Status: **ZAVRŠENO — dokumentaciona konsolidacija potvrđenih odluka**. DEV-03-B sada sprovodi prava nad osnovom identiteta/članstava/vlasništva; poslovne tabele, Storage i web tokovi još preostaju. [Izvještaj B](pristup-bazi-b.md) precizira implementaciju i granice provjere. Izvor potvrda su odjeljci 10–22 [specifikacije](pilot-specifikacija.md). Ovaj dokument zamjenjuje ranije dvoulogne i nepotvrđene matrice u dijelu potvrđenih prava; istorija ostaje sačuvana.
 
 ## Opseg i kombinovanje
 
@@ -53,7 +53,7 @@ Svaka promjena prava čuva autora i vrijeme, ciljnog korisnika/tenant i prethodn
 |---|---|---|
 | PRE-01 | Korisnikov pregled demoa | Završen I; naknadni K-B–K-E pauzirani na zahtjev. To nije potpuna provjera novog UI-ja. |
 | PRE-02 | Prijava, tenant granica, role i osnovna matrica | Potvrđeni i objedinjeni ovdje; izuzeci za lične podatke i periode imaju prednost nad opštim editom. |
-| PRE-03 | Instrukcija za backend | Odobrena lokalna staging baza DEV-03-A; UI/puna prijava nisu dio ovog koraka. |
+| PRE-03 | Instrukcija za backend | Odobrene lokalne podfaze A i B; osnova autorizacije implementirana, web Auth/UI integracija slijedi. |
 | PRE-04 | Lokalni ili udaljeni početak DEV-03 | Izabran lokalni Supabase; migracije ostaju prenosive na kasniji udaljeni projekat. Provjere i granice u [uputstvu](lokalni-staging.md). |
 | PRE-05 | Hosting, region, trošak i odgovorna osoba | PIL-12 otvoren; riješiti prije kreiranja udaljenih resursa. SMTP/email isporuku razraditi prije stvarnih poziva i oporavka. |
 | PRE-06 | Prvi globalni administrator i oporavak | Definisati kontrolisanu proceduru i provjeru identiteta prije upotrebe; ne pretpostaviti početni nalog ili čuvati tajne ovdje. |
@@ -64,3 +64,7 @@ Svaka promjena prava čuva autora i vrijeme, ciljnog korisnika/tenant i prethodn
 Pregled fajlova i zavisnosti potvrđuje postojeći Next.js demo i odsustvo verzionisanog Supabase projekta/migracija i Auth integracije. Ovo nije provjera udaljenih naloga ili resursa, Docker dostupnosti, RLS-a ili produkcione izolacije. Nove tehničke biblioteke i alati nisu odabrani niti instalirani.
 
 Sljedeći implementacioni pravac, kada korisnik odobri DEV-03: prvo definisati šemu identiteta/članstava/globalnih i tenant dodjela/vlasničkih perioda, zatim migracije i serverske provjere/RLS, pa prijavu i administrativne tokove prema razvojnom planu. Sintetički drugi tenant služi provjeri izolacije. Ne pisati testove bez izričitog naloga; postojeći lint/typecheck/build i ručne provjere evidentirati kada postoji implementacija.
+
+### Aktuelna implementacija DEV-03-B
+
+Pregled ranijeg stanja bez Auth integracije iznad opisuje preduslove pri planiranju. Lokalni Auth sada ima sintetičke korisnike, RLS/RPC nad osnovnim tabelama i kontrolisani jednokratni bootstrap. `can_read_card` je priprema periodne zaštite za buduće zapise, ne dokaz zaštite još nepostojećeg finansijskog ledgera ili Storage-a. Sažetak capability-ja nije zamjena za njihove buduće serverske provjere.

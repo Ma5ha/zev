@@ -103,3 +103,5 @@ Operater može otvoriti informativnu anketu sa pitanjem, najmanje dvije različi
 ## Lokalni staging baze
 
 DEV-03-A dodaje lokalni Supabase. Pokretanje: `corepack pnpm db:start` uz pokrenut Docker; upravljanje i granice su u [uputstvu](docs/lokalni-staging.md). Web demo još nije povezan sa bazom. Udaljeni Supabase nije kreiran ili povezan.
+
+DEV-03-B dodaje kontrolisane operacije i RLS nad osnovom baze. Lokalni sintetički nalozi: `corepack pnpm db:seed-users`. [Prava, ručne provjere i granice](docs/pristup-bazi-b.md); web prijava još nije povezana.

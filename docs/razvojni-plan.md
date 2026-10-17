@@ -296,3 +296,7 @@ Dopuna delegiranja, 17. oktobar 2026: potvrđeno da vlasnik može tražiti opozi
 ## Odobren lokalni staging — DEV-03-A
 
 17. oktobar 2026: korisnik odobrava lokalni Supabase staging i kasniji prenos na udaljeni. DEV-03 je U TOKU kroz podfazu A: konfiguracija/CLI, prenosiva migracija osnove identiteta/tenanata, sintetički seed, pokretanje i SQL provjera, uputstvo prenosa. Ovo odstupa od prethodnog čekanja instrukcije jer je lokalni obim sada izričito odobren. UI, stvarna prijava, mutacioni RPC-i i puna tenant/globalna RLS pravila dolaze u narednim podfazama. Za udaljene resurse i dalje potvrditi PIL-12; [uputstvo lokalnog staginga](lokalni-staging.md) navodi granice. Ne označavati DEV-03 završenim na osnovu baze.
+
+## DEV-03-B — lokalne serverske operacije i prava
+
+17. oktobar 2026: korisnik odobrava B nakon pregleda lokalne baze A. Migracije 002–006, lokalni seed identiteta, RLS osnovnih tabela i kontrolisani RPC-i implementiraju tenant/globalnu administraciju, vlasničke periode i delegiranje; [izvještaj](pristup-bazi-b.md) navodi ručne SQL/HTTP provjere i granice. B ne implementira finansijske/sadržajne tabele DEV-04–07 ili poslovni Storage. DEV-03-C je naredni planirani korak web Auth/server integracije i administrativnog UI-ja. DEV-03 ostaje U TOKU dok se ne ispune svi njegovi kriterijumi. Udaljeni resursi i objavljivanje nisu odobreni.

@@ -1,5 +1,7 @@
 # Lokalni staging — DEV-03-A
 
+Aktuelno: DEV-03-B dodaje RLS/RPC operacije i sintetičke identitete; [rezultat B i ograničenja](pristup-bazi-b.md) imaju prednost nad opisom zatvorene osnove A ispod.
+
 Datum: 17. oktobar 2026. Staging u ovom koraku znači izolovani lokalni Supabase za sintetičke podatke, ne javno staging izdanje aplikacije.
 
 ## Pokretanje i pristup
@@ -71,3 +73,7 @@ Ručne SQL provjere: devet aplikacionih tabela ima RLS; nema table grantova za `
 `db:lint` prolazi bez grešaka šeme; ponovljeni `db:migrate` ne primjenjuje ništa (migracije su ažurne). Frozen instalacija, postojeći web lint i typecheck prolaze; lint ima četiri postojeća non-null upozorenja u demo kodu. Build i vizuelna provjera nisu ponavljani jer UI i njegove runtime zavisnosti nisu mijenjani. Studio daje HTTP odgovor; ovo nije vizuelna provjera njegovog interfejsa.
 
 Provjera dokazuje baznu strukturu, sintetički seed, audit i trenutno zatvoren pristup. Ne dokazuje produkcionu tenant/globalnu matricu dozvola, prijavu korisnika, posljednjeg administratora, prestanak delegacija ili periodnu privatnost — to zahtijeva narednu DEV-03 implementaciju i provjere. Stvarni korisnici, udaljeni resursi i poslovni bucket-i nisu kreirani.
+
+## Nadogradnja DEV-03-B
+
+Za migracije: `corepack pnpm db:migrate`, zatim lokalni sintetički identiteti `corepack pnpm db:seed-users`. Lozinke su nasumične i nalaze se samo u ignorisanom `.temp/local-identities.json` (0600); ponovni seed ih mijenja. Klijenti sada čitaju osnovu kroz RLS i pišu samo kroz kontrolisane RPC-e. Globalna javna registracija je isključena, a email provider uključen radi prijave pozvanih naloga. Postojeći web demo i dalje koristi memoriju. Potpun [izvještaj B](pristup-bazi-b.md) odvaja implementiranu baznu autorizaciju od poslovnih modula i naredne web Auth integracije.

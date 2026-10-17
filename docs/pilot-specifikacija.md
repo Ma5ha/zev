@@ -348,3 +348,7 @@ Objedinjene su potvrde u [matrici prava](matrica-prava.md), usklađene PIL-03/04
 ## 24. Lokalni staging — odobren DEV-03-A
 
 17. oktobar 2026: korisnik nalaže lokalnu bazu za staging i kasniji prelazak na udaljenu. Lokalna osnova identiteta/tenant modela, migracija i sintetički seed pripadaju ovom zadatku; stvarna prijava, pun model RLS/RPC-a i UI povezivanje nisu završeni niti uključeni u ovu isporuku. PIL-12 ostaje uslov prije udaljenih resursa, a operativne procedure globalnog pristupa prije stvarnih naloga. [Uputstvo](lokalni-staging.md) i [evidencija](napredak.md) određuju stvarni rezultat provjere.
+
+## 25. DEV-03-B — izvršiva osnovna prava
+
+17. oktobar 2026: na korisnikovu instrukciju implementirani su RLS/RPC-i nad lokalnom osnovom identiteta, članstava, rola, vlasništva i delegiranja; sintetički Auth bootstrap i ručne SQL/HTTP provjere opisani su u [izvještaju B](pristup-bazi-b.md). Ovo ne implementira finansijski ledger, poslovne priloge ili web prijavu. Ranije tvrdnje da su svi klijenti zatvoreni i nema Auth identiteta odnose se na prethodnu A fazu. Operativni oporavak stvarnih naloga i poslovne odluke kasnijih faza ostaju zasebni.

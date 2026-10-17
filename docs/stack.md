@@ -85,3 +85,7 @@ Verzije framework paketa, biblioteka za validaciju, alati za testiranje, hosting
 ## Lokalni staging — naknadno odobren DEV-03-A
 
 17. oktobar 2026: odobren lokalni Supabase putem projektnog CLI-ja 2.121.0 i Docker Desktop-a, PostgreSQL 17. Migracije i sintetički seed su u `supabase/`; [uputstvo](lokalni-staging.md) odvaja osnovu baze od naredne Auth/RLS/UI implementacije. Web demo još radi u memoriji. Udaljeni projekat i objavljivanje nisu odobreni. Ranije tvrdnje o neinicijalizovanom Supabase-u opisuju prethodni demo.
+
+## Lokalna autorizacija DEV-03-B
+
+17. oktobar 2026: lokalni Supabase Auth sintetički identiteti, SELECT RLS i kontrolisane PostgreSQL RPC operacije implementirani su nad postojećom osnovom; [izvještaj B](pristup-bazi-b.md) navodi obim i granice. Nisu dodate aplikacione runtime zavisnosti. Web i dalje koristi demo u memoriji; Auth/server/UI integracija je naredni korak.

@@ -23,7 +23,8 @@
     "db:status": "supabase status",
     "db:migrate": "supabase migration up --local",
     "db:lint": "supabase db lint --local",
-    "db:network": "docker network create --driver bridge --opt com.docker.network.bridge.host_binding_ipv4=127.0.0.1 zev-staging-local"
+    "db:network": "docker network create --driver bridge --opt com.docker.network.bridge.host_binding_ipv4=127.0.0.1 zev-staging-local",
+    "db:seed-users": "node scripts/seed-local-identities.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
