@@ -68,3 +68,7 @@ Sljedeći implementacioni pravac, kada korisnik odobri DEV-03: prvo definisati �
 ### Aktuelna implementacija DEV-03-B
 
 Pregled ranijeg stanja bez Auth integracije iznad opisuje preduslove pri planiranju. Lokalni Auth sada ima sintetičke korisnike, RLS/RPC nad osnovnim tabelama i kontrolisani jednokratni bootstrap. `can_read_card` je priprema periodne zaštite za buduće zapise, ne dokaz zaštite još nepostojećeg finansijskog ledgera ili Storage-a. Sažetak capability-ja nije zamjena za njihove buduće serverske provjere.
+
+### Lokalna infrastruktura DEV-03-D
+
+Privatni prilozi sada imaju lokalnu infrastrukturu opsega/rola i serversko preuzimanje sa svježom provjerom; [izvještaj D](prilozi-d.md). Poslovni roditeljski zapisi još ne postoje, pa ovo nije završena zaštita produkcionog ledgera/prijava. [Kontrolisani recovery postupci](oporavak-administratora.md) razrađeni su i SQL dijelovi provjereni rollbackom; PRE-06 prije stvarne upotrebe i dalje traži imenovane osobe, nezavisnog odobravaoca, provjeru stvarnog identiteta i operativno uvježbavanje. PRE-03 uključuje i korisnikovo odobrenje lokalnog D; korisnikov pregled C nije potvrđen.

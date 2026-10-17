@@ -304,3 +304,9 @@ Dopuna delegiranja, 17. oktobar 2026: potvrđeno da vlasnik može tražiti opozi
 ## DEV-03-C — lokalna web integracija
 
 17. oktobar 2026: nastavak C odobren predajom u novi chat. Lokalna prijava/odjava, sesije i obnova, email pozivi/prihvatanje/oporavak i administrativni UI osnove imaju rezultat i ručne provjere u [izvještaju C](web-pristup-c.md). Migracije 007–009 nadograđuju B; postojeći demo ostaje odvojen. C se odnosi na Auth i osnovu administracije, bez poslovnog Storage-a i modula. DEV-03 ostaje U TOKU zbog preostalih kriterijuma, naročito privatnih priloga i operativnih postupaka prije stvarne upotrebe. Sljedeća implementaciona podfaza zahtijeva narednu instrukciju; K-B–K-E ostaju pauzirani, udaljeni resursi i objavljivanje nisu odobreni.
+
+## DEV-03-D — odobrena lokalna infrastruktura priloga i recovery operativa
+
+17. oktobar 2026: korisnik je naložio nastavak u narednom chatu nakon prijedloga D. To odobrava lokalni D bez tvrdnje da je korisnikov pregled C izvršen. Koraci su D-1 privatni bucket/metadata/RPC/RLS, D-2 serversko preuzimanje sa ponovnom provjerom prava bez signed URL-a, D-3 kontrolisani operativni oporavak i D-4 lokalne ručne/tehničke provjere. [Izvještaj D](prilozi-d.md) i [recovery postupak](oporavak-administratora.md) preciziraju granice.
+
+D koristi sintetičke priloge kao provjeru infrastrukture; ne uvodi produkcione poslovne module DEV-04–07. Prije njihove upotrebe vezati opseg priloga za stvarni roditeljski zapis i njegove periode. Prije stvarnog pilota potvrditi odgovorne osobe, dokaze identiteta, operativne tajne, SMTP/HTTPS, backup/restore baze i objekata, kvote i postupak za opasne dokumente. Zasebno pregledati cijeli DEV-03 prema kriterijumima iznad i potvrditi preostale poslovne odluke; D nije automatski završetak cijele faze. K-B–K-E ostaju pauzirani; udaljeni resursi i objavljivanje traže zaseban nalog.

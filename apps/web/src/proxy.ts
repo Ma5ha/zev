@@ -28,4 +28,4 @@ export async function proxy(request: NextRequest) {
   response.headers.set('Referrer-Policy', 'no-referrer');
   return response;
 }
-export const config = { matcher: ['/portal/:path*', '/prijava', '/oporavak', '/lozinka', '/auth/:path*'] };
+export const config = { matcher: ['/portal/:path*', '/prijava', '/oporavak', '/lozinka', '/auth/:path*', '/api/prilozi/:path*'] };

@@ -125,3 +125,7 @@ Korisnik je nakon lokalne baze odobrio sljedeći korak: serverske operacije i pr
 ### Naknadno odobrenje DEV-03-C
 
 Korisnik je u predaji u novi chat odobrio lokalnu web Auth/server/UI integraciju. Rezultat i granice su u `docs/web-pristup-c.md`: prijava/odjava, cookie sesije/obnova, pozivi/prihvatanje, email oporavak i administracija zgrada/jedinica/članstava/rola. `web:configure-local` generiše ignorisani env samo za lokalni API; servisni ključ je isključivo serverski. C ne završava cijeli DEV-03, poslovni Storage ili module. K-B–K-E ostaju pauzirani; udaljeni resursi, objavljivanje i Git upisi zahtijevaju zaseban nalog.
+
+### Naknadno odobrenje DEV-03-D
+
+Korisnik je naložio lokalni D kroz predaju u novi chat. Prati `docs/prilozi-d.md`, `docs/oporavak-administratora.md` i stvarne provjere u evidenciji: privatno skladište, metapodaci/RLS i serversko preuzimanje bez signed URL-a, te kontrolisana recovery operativa. Sintetički prilozi nisu produkcioni poslovni moduli; budući modul mora izvesti opseg iz stvarnog roditeljskog zapisa. Cijeli DEV-03 i stvarna operativna priprema nisu automatski završeni; pregled C nije potvrđen. Nema novih odobrenja udaljenih resursa, objavljivanja ili Git upisa.
