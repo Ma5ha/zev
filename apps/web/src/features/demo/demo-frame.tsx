@@ -7,12 +7,13 @@ import { Notice } from '@/components/ui/notice';
 import { DemoControls } from './demo-controls';
 import { DesktopNavigation, MobileNavigation } from './demo-navigation';
 import { useDemo } from './demo-provider';
+import { FinanceNavigationGuard } from './finances/navigation-guard';
 import { DEMO_PROFILES } from './model';
 
 export function DemoFrame({ children }: { children: ReactNode }) {
   const { view, message } = useDemo();
   const pathname = usePathname();
-  return <div className="mx-auto min-h-dvh max-w-[90rem] lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
+  return <FinanceNavigationGuard><div className="mx-auto min-h-dvh max-w-[90rem] lg:grid lg:grid-cols-[15rem_minmax(0,1fr)]">
     <DesktopNavigation />
     <div className="min-w-0 space-y-6 px-4 py-5 sm:px-8 lg:px-10 lg:py-8">
       <header className="space-y-5">
@@ -28,5 +29,5 @@ export function DemoFrame({ children }: { children: ReactNode }) {
       <main id="sadrzaj" tabIndex={-1}>{children}</main>
       <footer className="border-t border-line py-5 text-sm leading-relaxed text-muted">Izbor profila simulira prikaz. Ne predstavlja stvarnu prijavu ili zaštitu podataka. Demo prava su privremene pretpostavke.</footer>
     </div>
-  </div>;
+  </div></FinanceNavigationGuard>;
 }

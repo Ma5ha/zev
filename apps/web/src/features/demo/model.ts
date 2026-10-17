@@ -1,3 +1,5 @@
+import type { Assessment, FinanceDraft, FinanceEntry } from './finance';
+
 export type TenantId = 'javor' | 'lipa';
 export type ProfileId = 'owner' | 'operator' | 'resident';
 
@@ -16,6 +18,8 @@ export type DemoTenant = Readonly<{
   units: readonly DemoUnit[];
   ownerUnitId: string;
   note: string;
+  entries: readonly FinanceEntry[];
+  assessments: readonly Assessment[];
   works: readonly Readonly<{
     id: string;
     title: string;
@@ -35,6 +39,7 @@ export type DemoState = Readonly<{
   tenantId: TenantId;
   profileId: ProfileId;
   draftNote: string | null;
+  financeDraft: FinanceDraft | null;
   message: string;
 }>;
 

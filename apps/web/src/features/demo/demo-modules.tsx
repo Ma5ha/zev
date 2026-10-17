@@ -3,12 +3,7 @@
 import { Notice } from '@/components/ui/notice';
 import { PageHeading } from '@/components/ui/page-heading';
 import { useDemo } from './demo-provider';
-import { AnnouncementList, DemoSection, FundsSummary, UnitCards, WorkList } from './demo-sections';
-
-export function DemoFinances() {
-  const { view } = useDemo();
-  return <div className="space-y-6"><PageHeading eyebrow="Zajednička evidencija" title="Finansije">Početna sredstva zgrade i kartice dostupne aktivnom demo profilu.</PageHeading><DemoSection id="finansije-sredstva" title="Zajednička sredstva"><FundsSummary cents={view.openingFundsCents} reconciledOn={view.reconciledOn} /></DemoSection><DemoSection id="kartice" title={view.profileId === 'owner' ? 'Moja kartica' : 'Kartice'}><p className="text-sm text-muted">Početno stanje · oktobar 2026.</p><UnitCards cards={view.cards} /></DemoSection><DemoSection id="promet" title="Prihodi i rashodi"><p className="text-muted">Još nema evidentiranih prihoda ili rashoda. Početna sredstva nisu nova uplata.</p></DemoSection><Notice>Ovo je početni finansijski pregled. Detalji kartice i stavki dolaze u narednom koraku.{view.permissions.canWriteFinances ? ' Unos troška, uplate i mjesečni obračun još nisu dostupni.' : ''}</Notice></div>;
-}
+import { AnnouncementList, DemoSection, WorkList } from './demo-sections';
 
 export function DemoWorks() {
   const { view } = useDemo();

@@ -11,11 +11,11 @@ export function DemoSection({ id, title, href, linkLabel, children }: { id: stri
 }
 
 export function FundsSummary({ cents, reconciledOn }: { cents: number; reconciledOn: string }) {
-  return <div><p className="text-sm text-muted">Saldo evidencije</p><p className="mt-2 text-4xl font-semibold tracking-tight tabular-nums">{formatDemoMoney(cents)}</p><p className="mt-3 text-sm leading-relaxed text-muted">Demo stanje na dan {formatDemoDate(reconciledOn)} Podaci nisu provjereni u banci.</p><p className="mt-2 text-sm text-muted">Dug i avans pojedinačnih kartica nisu dio ovog iznosa.</p></div>;
+  return <div><p className="text-sm text-muted">Saldo evidencije</p><p className="mt-2 text-4xl font-semibold tracking-tight tabular-nums">{formatDemoMoney(cents)}</p><p className="mt-3 text-sm leading-relaxed text-muted">Početna osnova: demo stanje na dan {formatDemoDate(reconciledOn)} Datum ostaje isti pri lokalnim unosima. Podaci nisu provjereni u banci.</p><p className="mt-2 text-sm text-muted">Dug i avans pojedinačnih kartica nisu dio ovog iznosa.</p></div>;
 }
 
-export function UnitCards({ cards }: { cards: readonly DemoUnit[] }) {
-  return cards.length ? <ul className="divide-y divide-line">{cards.map(unit => <li key={unit.id} className="flex flex-wrap justify-between gap-3 py-3"><span>{unit.label} · {unit.areaM2} m²</span><span className="font-semibold tabular-nums">{unit.openingBalanceCents > 0 ? 'Dug' : unit.openingBalanceCents < 0 ? 'Avans' : 'Saldo'}: {formatDemoMoney(Math.abs(unit.openingBalanceCents))}</span></li>)}</ul> : <p className="leading-relaxed text-muted">Ovaj demo profil nema pristup pojedinačnim karticama.</p>;
+export function UnitCards({ cards, linkToCards = false }: { cards: readonly (DemoUnit & { balanceCents?: number })[]; linkToCards?: boolean }) {
+  return cards.length ? <ul className="divide-y divide-line">{cards.map(unit => <li key={unit.id} className="flex flex-wrap justify-between gap-3 py-3"><span>{linkToCards ? <Link className="inline-flex min-h-11 items-center font-semibold text-accent underline" href={`/demo/finansije/kartice/${unit.id}`}>{unit.label}</Link> : unit.label} · {unit.areaM2} m²</span><span className="font-semibold tabular-nums">{(unit.balanceCents ?? unit.openingBalanceCents) > 0 ? 'Dug' : (unit.balanceCents ?? unit.openingBalanceCents) < 0 ? 'Avans' : 'Saldo'}: {formatDemoMoney(Math.abs((unit.balanceCents ?? unit.openingBalanceCents)))}</span></li>)}</ul> : <p className="leading-relaxed text-muted">Ovaj demo profil nema pristup pojedinačnim karticama.</p>;
 }
 
 export function WorkList({ works }: { works: DemoTenant['works'] }) {

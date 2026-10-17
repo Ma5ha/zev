@@ -1,3 +1,4 @@
+import { cardSummary, currentFunds, publicEntry } from './finance';
 import type { DemoState, ProfileId } from './model';
 
 export function demoPermissions(profileId: ProfileId) {
@@ -24,8 +25,11 @@ export function selectDemoView(state: DemoState) {
     tenantName: tenant.name,
     profileId: state.profileId,
     openingFundsCents: tenant.openingFundsCents,
+    fundsCents: currentFunds(tenant),
+    entries: tenant.entries.map(entry => publicEntry(entry, permissions.canWriteFinances)),
+    financeTenant: permissions.canWriteFinances ? tenant : null,
     reconciledOn: tenant.reconciledOn,
-    cards: tenant.units.filter(unit => permissions.cards === 'all' || (permissions.cards === 'own' && unit.id === tenant.ownerUnitId)),
+    cards: tenant.units.filter(unit => permissions.cards === 'all' || (permissions.cards === 'own' && unit.id === tenant.ownerUnitId)).map(unit => cardSummary(tenant, unit)),
     works: tenant.works,
     announcements: tenant.announcements,
     issues: tenant.issues.filter(issue => permissions.canManageIssues || issue.authorMembershipId === membershipId),
@@ -40,7 +44,7 @@ export function hasUnsavedNote(state: DemoState) {
 }
 
 export function hasDemoChanges(state: DemoState) {
-  return hasUnsavedNote(state) || Object.values(state.tenants).some(tenant => tenant.note !== '');
+  return hasUnsavedNote(state) || state.financeDraft !== null || Object.values(state.tenants).some(tenant => tenant.note !== '' || tenant.entries.length > 0 || tenant.assessments.length > 0);
 }
 
 export function formatDemoMoney(cents: number) {

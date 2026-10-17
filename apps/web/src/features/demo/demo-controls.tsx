@@ -52,7 +52,7 @@ export function DemoControls() {
       <dialog ref={dialog} aria-labelledby="potvrda-naslov" onCancel={() => setPending(null)}
         className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-lg rounded-xl border border-line bg-surface p-6 text-ink shadow-xl backdrop:bg-black/40">
         <h2 id="potvrda-naslov" className="text-xl font-semibold">{pending === 'exit' ? 'Izaći iz demoa?' : pending?.type === 'reset' ? 'Vratiti početne podatke?' : 'Odbaciti nepotvrđeni unos?'}</h2>
-        <p className="mt-3 leading-relaxed text-muted">{pending === 'exit' ? 'Lokalne izmjene će biti izgubljene. Ponovni ulaz započinje početni demo.' : pending?.type === 'reset' ? 'Odbaci demo izmjene u oba ZEV-a i vrati Javor / Vlasnik.' : 'Nepotvrđena bilješka neće se prenijeti u drugi ZEV ili profil. Sačuvane demo bilješke ostaju u svom ZEV-u.'}</p>
+        <p className="mt-3 leading-relaxed text-muted">{pending === 'exit' ? 'Lokalne izmjene će biti izgubljene. Ponovni ulaz započinje početni demo.' : pending?.type === 'reset' ? 'Odbaci demo izmjene u oba ZEV-a i vrati Javor / Vlasnik.' : 'Nepotvrđeni unos će biti odbačen. Sačuvane demo izmjene ostaju u svom ZEV-u.'}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button variant="secondary" onClick={close}>Odustani</Button>
           <Button onClick={() => { if (pending) apply(pending); close(); }}>Potvrdi</Button>

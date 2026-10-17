@@ -31,7 +31,7 @@ export function MobileNavigation() {
   const pathname = usePathname();
   const dialog = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
-  const active = DEMO_DESTINATIONS.find(item => item.href === pathname)?.label ?? 'Demo prava';
+  const active = DEMO_DESTINATIONS.find(item => item.href === pathname || (item.href !== '/demo' && pathname.startsWith(`${item.href}/`)))?.label ?? 'Demo prava';
   function close() { dialog.current?.close(); setOpen(false); }
   return <div className="lg:hidden">
     <div className="flex items-center justify-between gap-3 border-b border-line pb-4">

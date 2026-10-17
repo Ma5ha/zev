@@ -1,4 +1,4 @@
-import { DemoFinances } from '@/features/demo/demo-modules';
+import { DemoFinances } from '@/features/demo/finances/finance-list';
 
 export const metadata = { title: 'Finansije — demo' };
 

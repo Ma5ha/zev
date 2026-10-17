@@ -79,7 +79,7 @@ Redoslijed je: potvrđeni demo obim DEV-01 → DEV-02 demo bez baze → korisnik
 
 #### Predložene podfaze DEV-02
 
-Podjela od 16. oktobra 2026, prihvaćena korisnikovom instrukcijom za nastavak sa DEV-02-A. Podfaze razrađuju postojeći obim; A je specifikacija, a B–I obuhvataju izradu, provjeru i pregled. Rezultat A vodi se u [specifikaciji demoa](demo-specifikacija.md), a statusi i provjere u [evidenciji](napredak.md). A–C su završene; D–I još nisu započete. Oznake DEV-03–DEV-10 ostaju nepromijenjene.
+Podjela od 16. oktobra 2026, prihvaćena korisnikovom instrukcijom za nastavak sa DEV-02-A. Podfaze razrađuju postojeći obim; A je specifikacija, a B–I obuhvataju izradu, provjeru i pregled. Rezultat A vodi se u [specifikaciji demoa](demo-specifikacija.md), a statusi i provjere u [evidenciji](napredak.md). A–E su završene; F–I slijede prema evidenciji i korisnikovoj instrukciji. Oznake DEV-03–DEV-10 ostaju nepromijenjene.
 
 | ID | Podfaza | Rezultat i kriterijum završetka | Zavisnost |
 |---|---|---|---|
@@ -217,4 +217,4 @@ Nakon pilota prvo riješiti utvrđene probleme. Cijenu i nastavak pretplate potv
 
 ## 9. Sljedeći konkretan korak
 
-DEV-02-A je pripremio [specifikaciju demoa](demo-specifikacija.md), a DEV-02-B provjerenu tehničku web osnovu sa početnim UI komponentama. DEV-02-C dodaje sintetičke podatke, demo kontekst i stanje sa resetom. DEV-02-D dodaje landing, responzivni okvir pet cjelina i početne preglede iz zajedničkog demo stanja. Naredni korak je DEV-02-E — finansijski demo, nakon korisnikove instrukcije; puni poslovni moduli još nisu izrađeni. Otvorena pitanja stvarne prijave i pilot podataka ne blokiraju demo: koriste se jasno označene sintetičke vrijednosti i simulirana prava. Nakon izrade, provjera i korisnikovog pregleda demoa razriješiti preostale odluke DEV-01, pa na korisnikovu instrukciju preći na DEV-03. Objavljivanje je zaseban korak.
+DEV-02-A je pripremio [specifikaciju demoa](demo-specifikacija.md), a DEV-02-B provjerenu tehničku web osnovu sa početnim UI komponentama. DEV-02-C dodaje sintetičke podatke, demo kontekst i stanje sa resetom. DEV-02-D dodaje landing, responzivni okvir pet cjelina i početne preglede iz zajedničkog demo stanja. DEV-02-E dodaje provjeren lokalni finansijski demo. Naredni korak je DEV-02-F — radovi i ponude, nakon korisnikove instrukcije; preostali poslovni moduli još nisu izrađeni. Otvorena pitanja stvarne prijave i pilot podataka ne blokiraju demo: koriste se jasno označene sintetičke vrijednosti i simulirana prava. Nakon izrade, provjera i korisnikovog pregleda demoa razriješiti preostale odluke DEV-01, pa na korisnikovu instrukciju preći na DEV-03. Objavljivanje je zaseban korak.

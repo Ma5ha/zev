@@ -5,7 +5,7 @@ import { TextField } from '@/components/ui/text-field';
 import { useDemo } from './demo-provider';
 
 export function DemoNote() {
-  const { view, draftNote, dispatch, hasUnsavedChanges } = useDemo();
+  const { view, draftNote, dispatch, hasUnsavedNote: hasUnsavedChanges } = useDemo();
   if (!view.permissions.canEditNote) return null;
   return (
     <section aria-labelledby="biljeska-naslov" className="space-y-4 rounded-xl border border-line bg-surface p-5 sm:p-6">

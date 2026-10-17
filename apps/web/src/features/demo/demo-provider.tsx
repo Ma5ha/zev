@@ -10,8 +10,10 @@ function useDemoState(startedAt: string) {
   const view = selectDemoView(state);
   return {
     view, dispatch,
+    financeDraft: state.financeDraft,
+    hasUnsavedNote: hasUnsavedNote(state),
     draftNote: state.draftNote ?? view.note ?? '',
-    hasUnsavedChanges: hasUnsavedNote(state),
+    hasUnsavedChanges: hasUnsavedNote(state) || state.financeDraft !== null,
     hasChanges: hasDemoChanges(state),
     message: state.message,
   };

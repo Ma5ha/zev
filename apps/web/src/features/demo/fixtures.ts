@@ -4,11 +4,11 @@ import type { DemoState } from './model';
 export function createDemoState(startedAt: string): DemoState {
   const closesAt = new Date(new Date(startedAt).getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
   return {
-    tenantId: 'javor', profileId: 'owner', draftNote: null, message: '',
+    tenantId: 'javor', profileId: 'owner', draftNote: null, financeDraft: null, message: '',
     tenants: {
       javor: {
         id: 'javor', name: 'ZEV Javor — demo', openingFundsCents: 100000,
-        reconciledOn: '2026-10-01', ownerUnitId: 'javor-a', note: '',
+        reconciledOn: '2026-10-01', ownerUnitId: 'javor-a', note: '', entries: [], assessments: [],
         units: [
           { id: 'javor-a', label: 'Jedinica A', areaM2: 60, openingBalanceCents: 2000 },
           { id: 'javor-b', label: 'Jedinica B', areaM2: 60, openingBalanceCents: -1000 },
@@ -30,7 +30,7 @@ export function createDemoState(startedAt: string): DemoState {
       },
       lipa: {
         id: 'lipa', name: 'ZEV Lipa — demo', openingFundsCents: 50000,
-        reconciledOn: '2026-10-01', ownerUnitId: 'lipa-c', note: '',
+        reconciledOn: '2026-10-01', ownerUnitId: 'lipa-c', note: '', entries: [], assessments: [],
         units: [{ id: 'lipa-c', label: 'Jedinica C', areaM2: 50, openingBalanceCents: 0 }],
         works: [], announcements: [], issues: [], polls: [],
       },
