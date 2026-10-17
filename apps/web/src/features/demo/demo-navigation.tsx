@@ -3,14 +3,16 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { IconHome, IconCoins, IconTool, IconClipboard, IconChartBar } from '@tabler/icons-react';
+import { useDemo } from './demo-provider';
 import { Button } from '@/components/ui/button';
 
 export const DEMO_DESTINATIONS = [
-  { href: '/demo', label: 'Pregled' },
-  { href: '/demo/finansije', label: 'Finansije' },
-  { href: '/demo/radovi', label: 'Radovi' },
-  { href: '/demo/obavjestenja', label: 'Oglasna tabla' },
-  { href: '/demo/ankete-i-prijave', label: 'Ankete i prijave' },
+  { href: '/demo', label: 'Pregled', icon: IconHome },
+  { href: '/demo/finansije', label: 'Finansije', icon: IconCoins },
+  { href: '/demo/radovi', label: 'Radovi', icon: IconTool },
+  { href: '/demo/obavjestenja', label: 'Oglasna tabla', icon: IconClipboard },
+  { href: '/demo/ankete-i-prijave', label: 'Ankete i prijave', icon: IconChartBar },
 ] as const;
 
 function NavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
@@ -18,13 +20,14 @@ function NavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
   return <nav aria-label="Glavne cjeline"><ul className="space-y-2">
     {DEMO_DESTINATIONS.map(item => <li key={item.href}>
       <Link href={item.href} onClick={onNavigate} aria-current={pathname === item.href || (item.href !== '/demo' && pathname.startsWith(`${item.href}/`)) ? 'page' : undefined}
-        className="flex min-h-11 items-center rounded-lg px-4 py-3 font-semibold hover:bg-canvas aria-[current=page]:bg-accent aria-[current=page]:text-white">{item.label}</Link>
+        className="flex min-h-12 items-center gap-3 rounded-xl px-3 py-3 font-medium navigation-link"><item.icon size={23} stroke={1.6} className="shrink-0" aria-hidden="true" />{item.label}</Link>
     </li>)}
   </ul></nav>;
 }
 
 export function DesktopNavigation() {
-  return <aside className="hidden border-r border-line bg-surface p-5 lg:block"><p className="mb-6 px-4 text-xl font-semibold">ZEV<span className="text-accent">.</span></p><NavigationLinks /></aside>;
+  const { view } = useDemo();
+  return <aside className="demo-sidebar hidden p-4 lg:block"><div className="sticky top-8 flex min-h-[calc(100dvh-4rem)] flex-col"><div className="mb-10 px-3"><p className="text-2xl font-semibold tracking-tight">ZEV<span className="text-warm-action-surface">.</span></p><p className="mt-1 text-sm text-white/80">{view.tenantName}</p></div><NavigationLinks /><div className="mt-auto px-3 pt-16"><p className="text-xl font-medium text-warm-action-surface">Dobar komšiluk<br />počinje povjerenjem.</p><p className="mt-3 text-sm leading-relaxed text-white/80">Naša zgrada. Naš zajednički dom.</p></div></div></aside>;
 }
 
 export function MobileNavigation() {

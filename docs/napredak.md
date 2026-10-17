@@ -6,17 +6,17 @@ Posljednje ažuriranje: 17. oktobar 2026. (Europe/Belgrade).
 
 Postavljeni su Nx/pnpm monorepo i Next.js web osnova u `apps/web`, sa TypeScriptom, Tailwindom i osnovnim UI komponentama. DEV-02-C dodaje sintetičke podatke i demo kontekst sa stanjem u memoriji, a DEV-02-D landing, responzivnu navigaciju pet cjelina i početne preglede. DEV-02-E dodaje lokalne finansijske unose, kartice i obračun; DEV-02-F dodaje detalj rada, ponude, status i povezane isplate; DEV-02-G dodaje objave, prijave sa lokalnom fotografijom i informativne ankete. Minimalni plan cilja pilot jedne zgrade; faze i kriterijumi implementacije razrađeni su u [razvojnom planu](razvojni-plan.md). Projektni [UI skill](../skills/zev-ui-design/SKILL.md) sa smjernicama i primjerima obavezan je za UI zadatke prema `AGENTS.md`. Prihvaćeni stack je zapisan u [stack.md](stack.md), a komande su u `../README.md`.
 
-Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, DEV-02-C kao demo podaci, profili i stanje sa resetom, DEV-02-D kao landing, navigacija i početni pregledi, DEV-02-E kao lokalni finansijski demo, DEV-02-F kao radovi i ponude, a DEV-02-G kao obavještenja, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Preostaje korisnikov pregled DEV-02-I, pa odvojeno odobreni DEV-03.
+Pripremljena je [specifikacija pilota](pilot-specifikacija.md). Korisnik navodi završen DEV-01; u dokumentaciji prijava i konkretna matrica dozvola još ostaju otvorene za backend. Potvrđeni su demo sa izmišljenim podacima, obračun po m², ručni rok, prvo web sa landing stranicom, kasnije mobilne aplikacije, tenant pristup i ZEV uloge. DEV-02 je U TOKU zbog naknadne vizuelne dorade J; DEV-02-A je ZAVRŠENO kao pregledana [specifikacija demoa](demo-specifikacija.md), DEV-02-B kao provjerena web osnova sa početnim placeholderom i `/ui` pregledom, DEV-02-C kao demo podaci, profili i stanje sa resetom, DEV-02-D kao landing, navigacija i početni pregledi, DEV-02-E kao lokalni finansijski demo, DEV-02-F kao radovi i ponude, a DEV-02-G kao obavještenja, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Korisnik je pregledao demo i potvrdio „za sada je ok“, bez trenutno traženih dorada; DEV-02-I je ZAVRŠENO. DEV-03 čeka novu instrukciju i zavisne odluke.
 
 Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-svih-dogovorenih-stavki). Detalji i ranije promjene statusa ostaju u istoriji.
 
 ## Sljedeći koraci
 
-- DEV-02-H je završen u dokumentovanom obimu. Slijedi DEV-02-I: korisnikov pregled, tek prema novoj instrukciji korisnika.
-- DEV-02-I ostaje PLANIRANO; DEV-02 kao cjelina ostaje U TOKU do korisnikovog pregleda i zaključka. Demo simulira tenant/role prikaze i privremene izmjene; reset ili osvježavanje vraća početne podatke.
-- Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi, tenant granici i dozvolama; backend počinje tek na korisnikovu instrukciju. DEV-02 je U TOKU; DEV-03–DEV-10 ostaju PLANIRANO. Raniji zapisi o statusima ostaju istorija.
-- Pri dodavanju framework paketa provjeriti njihove kompatibilne verzije, uz Nx dodatke na istoj verziji kao `nx`.
-- Udaljeni, ranije započeti Sites projekat i dalje nije potvrđeno uklonjen (ZEV-006).
+- Započeta je odobrena izvedba [UI revizije](dizajn/ui-revizija-paneli-select.md): K-B tokeni i komponente su primijenjeni i tehnički provjereni; preostaju širi responsive/fokus pregled. K-C select je implementiran i osnovno provjeren; preostaje puna matrica K-C, zatim K-D ekrani i K-E završna provjera.
+- DEV-02-I je završen kao korisnikov pregled; naknadno je odobrena vizuelna dorada DEV-02-J, pa DEV-02 ponovo ostaje U TOKU.
+- Prije DEV-03 razriješiti zavisne odluke DEV-01 o prijavi i detaljnim dozvolama; backend počinje tek na novu korisnikovu instrukciju. DEV-03–DEV-10 ostaju PLANIRANO; objavljivanje nije odobreno.
+- Demo ostaje bez baze, stvarnih naloga i trajne pohrane. Prethodni lokalni server zaustavljen je prije K-B builda; nova produkciona verzija radi na `127.0.0.1:3000`.
+- Udaljeni, ranije započeti Sites projekat nije potvrđeno uklonjen (ZEV-006).
 
 ## Istorija rada
 
@@ -333,32 +333,165 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 
 - DOC-STATUS-2 — ZAVRŠENO: dopunjen `AGENTS.md`; dodati statistika svih šest statusa i popis stavki koje traže pažnju. Detaljna tabela uređena po porodici oznaka i stabilnim ID-jevima, bez uklanjanja ranijih stavki. Brojevi izračunati iz aktuelnih redova; provjereni jedinstvenost ID-jeva, zbir, očuvanje ranijeg popisa i završni položaj tabele. `git diff --check` prolazi. Izmjena je dokumentaciona; aplikacione provjere nisu potrebne. Sljedeći razvojni korak ostaje korisnikov pregled DEV-02-I po novoj instrukciji.
 
+### 17. oktobar 2026. — pokretanje DEV-02-I u novom chatu
+
+- I-0 — U TOKU: korisnik je naložio pokretanje sljedeće tačke u novom chatu. Preduslov H postoji i provjeren je u dokumentovanim granicama. Git stablo je trenutno čisto; ranije izmjene su u međuvremenu sačuvane. Koraci: kreirati lokalni chat u istom ZEV projektu, prenijeti specifikaciju i izvještaj H, pripremiti demo za stvarni korisnikov pregled i evidentirati povratne informacije. I se ne označava završenim samim pokretanjem chata; backend i objavljivanje nisu odobreni.
+
+- I-0 — predaja ZAVRŠENO: kreiran lokalni chat „DEV-02-I — korisnikov pregled ZEV demoa“, ID `01a148d6-436e-7b92-ba60-5e3efa5f136f`. Preneseni obim, H izvještaj, pokretanje servera i obaveza održavanja statistike/završne tabele. DEV-02-I ostaje U TOKU; stvarni pregled i povratne informacije vodi novi chat. `git diff --check` provjeren; aplikacioni kod nije mijenjan ovom predajom.
+
+### 17. oktobar 2026. — DEV-02-I: priprema korisnikovog pregleda
+
+- I-1 — U TOKU: preuzeta predaja I-0. Pročitani obavezni planovi, specifikacija, izvještaj H i projektni UI skill. Git ima postojeću izmjenu `docs/napredak.md` iz predaje; očuvana je. Koraci: pokrenuti postojeći lokalni demo Nodeom 22.22.1 i Corepack pnpm-om na 127.0.0.1, provjeriti dostupnost i otvoriti korisniku; predstaviti pet cjelina kroz tri profila i oba ZEV-a; evidentirati stvarne povratne informacije, dogovorene dorade i ishod. H provjere se ne ponavljaju bez nove izmjene ili razloga. Backend i objavljivanje nisu dio naloga.
+
+- I-1 — priprema ZAVRŠENO: postojeći produkcioni demo pokrenut Nodeom 22.22.1 i Corepack pnpm-om (`nx start web --hostname=127.0.0.1 --port=3000`); sandbox odbio Nx sockete, ponovljeno uz odobrenu eskalaciju. Next je Ready; `lsof` potvrđuje isključivo 127.0.0.1:3000. Sandbox curl nije mogao pristupiti (000); dostupnost potvrđena stvarnim otvaranjem landinga i klikom „Pogledaj demo“ u ugrađenom browseru. Početni Javor/Vlasnik prikazuje 1.000 KM i samo A/dug 20 KM. Tab ostavljen korisniku, server radi (sesija 56878). Nema kodnih izmjena niti razloga za ponavljanje lint/typecheck/build iz H.
+- I-2 — U TOKU: korisniku predstavljen redoslijed pet cjelina: pregled → finansije → radovi/ponude → oglasna tabla → ankete/prijave, uz poređenje vlasnika/operatera/korisnika prostora, Javora/Lipe i završni reset. Stvarni korisnikov pregled, povratne informacije i dogovorene dorade još nisu izvršeni; DEV-02-I i DEV-02 ostaju U TOKU. Sljedeći korak je korisnikov komentar po cjelini (šta je nejasno, šta promijeniti i očekivano ponašanje).
+
+### 17. oktobar 2026. — DEV-02-I: prihvatanje pregleda
+
+- I-3 — U TOKU: korisnik je prvo potvrdio „pregledano“, a na pitanje o doradama odgovorio „za sada je ok“. Koraci: evidentirati prihvatanje bez trenutno traženih dorada, zaključiti I i DEV-02 u demo obimu, uskladiti aktuelne statuse i provjeriti tabelu/statistiku. Postojeće Git izmjene ostaju očuvane.
+
+- I-3 — ZAVRŠENO: evidentirani korisnikov stvarni pregled i odgovor „za sada je ok“. Nema trenutno zatraženih dorada; I-2, DEV-02-I i DEV-02 zaključeni su u demo obimu. Prihvatanje ne potvrđuje da je korisnik pojedinačno ponovio sve H scenarije niti odobrava backend ili objavljivanje. Usklađeni aktuelni pregled, razvojni plan, minimalni plan, stack, README i status specifikacije; istorija H ostaje sačuvana. Provjera: jedinstveni ID-jevi, svih šest statusa, zbir statistike, završni položaj tabele i `git diff --check`. Nema izmjene koda, novih testova ili ponavljanja lint/typecheck/build za dokumentacioni zaključak. Sljedeće su preostale odluke DEV-01 i nova instrukcija za DEV-03.
+
+### 17. oktobar 2026. — vizuelna dorada nakon pregleda
+
+- DEV-02-J — U TOKU: korisnik naknadno navodi da dizajn djeluje suvo i odobrava izradu vizuelnog prijedloga pregleda zgrade i finansijske kartice. Koraci: tri slikovna pravca sa toplijom paletom, korisnikov izbor, zatim implementacija odabranog smjera i provjera u demo obimu. Prijedlozi koriste postojeće sintetičke podatke i screenshot kartice Lipa; ne uvode poslovne funkcije. Istorijsko prihvatanje I ostaje sačuvano; DEV-02 ponovo U TOKU zbog nove dizajnerske dorade. Postojeće Git izmjene očuvane. Primijenjeni ZEV UI i Product Design/ideate skill; nema sačuvanog Product Design konteksta. Backend i objavljivanje nisu odobreni.
+
+- DEV-02-J-1 — ZAVRŠENO: built-in Image Gen generisao tri nezavisna slikovna prijedloga Pregleda zgrade i finansijske kartice; prikazani korisniku redom: 1 Topla zajednica (`exec-be358835-2bef-4f3a-aa5d-fb269541a34c.png`), 2 Živo dvorište (`exec-e80421e4-06c2-4ef0-963d-80242073fb60.png`), 3 Mirna evidencija (`exec-c114d361-03f5-4f2e-8762-e9fb0d92bec8.png`). Slike su preview u `/Users/mladenblagovcanin/.codex/generated_images/01a148d6-436e-7b92-ba60-5e3efa5f136f/`, nisu aplikacioni resursi. Promptovi: krem/petrolej/kajsija, izražena hijerarhija iznosa, ilustracija zgrade, postojeća navigacija i kartica; vizuelne razlike sidebar/horizontalna navigacija i grupisanje sadržaja. Referentni screenshot postojeće kartice priložen je svim pozivima. Vizuelno pregledane sve tri slike. Generisani tekst sadrži odstupanja (npr. naziv tenanta, lokacija, početni saldo ili statusni koraci); slike su prijedlozi izgleda, ne odobrenje izmjene podataka ili poslovnih pravila. Pri implementaciji koristiti stvarne postojeće podatke i pravila. Kod još nije mijenjan; nema tvrdnje o interaktivnosti ili provjerenoj pristupačnosti ovih slika.
+- DEV-02-J-2 — U TOKU: čeka korisnikov izbor među tri prikazana prijedloga; zatim implementacija u postojećem Next.js demou i provjera pogođenih tokova. J i DEV-02 ostaju U TOKU. Statistika (46 jedinstvenih ID-jeva), svih šest statusa i završni položaj tabele provjereni; `git diff --check` prolazi.
+
+### 17. oktobar 2026. — DEV-02-J: izbor druge verzije i plan stila
+
+- DEV-02-J-3 — U TOKU: korisnik bira drugu prikazanu sliku „Živo dvorište“ i traži stil i plan po njoj. Koraci: sačuvati tačnu referencu u projektu, definisati tokene, komponente i responzivno ponašanje, razraditi faze primjene i kriterijume provjere, povezati smjernice i evidenciju. Ovo je zadatak definisanja stila i plana; UI implementacija se ne prikazuje kao izvršena. Ranije izmjene šest dokumenata očuvane.
+
+- DEV-02-J-3 / DEV-02-J-A — ZAVRŠENO: korisnikov izbor pouzdano vezan za drugu prikazanu sliku „Živo dvorište“, vizuelno pregledan izvor i kopiran u `docs/dizajn/zivo-dvoriste-referenca.png`. Kreiran [stil i plan](dizajn/zivo-dvoriste.md): paleta sa semantičkim tokenima, tipografija, rasporedi/komponente, mobilni prikaz, resursi/pokret, primjena po ekranima, J-A–J-E sa zavisnostima i kriterijumima. Finansijska kartica sa desne strane mockupa ostaje zasebna ruta. Podaci slike ne zamjenjuju postojeća pravila. Dodata obavezna referenca u projektni UI skill, link u README i razrada u razvojni plan. Kod i živi UI nisu mijenjani. Provjereni lokalni linkovi, identitet kopije slike, jedinstveni ID-jevi/statistika, završni položaj tabele i `git diff --check`. Kontrast palete i izvedba nisu provjereni u živom UI-ju; pripadaju J-B–J-E. DEV-02-J-2: izbor ZAVRŠENO; sljedeći korak J-B, implementacija po novoj instrukciji. Prethodne Git izmjene očuvane.
+
+### 17. oktobar 2026. — pokretanje implementacije dizajna u novom chatu
+
+- J-0 — U TOKU: korisnik izričito traži pokretanje koraka plana u novom chatu. Odobrena implementacija DEV-02-J-B–J-D i provjere J-E u lokalnom demo obimu; korisnikov završni pregled ostaje zaseban stvarni rezultat. Koraci: kreirati lokalni chat u istom projektu i prenijeti stil, tačnu referencu, preduslove, Git stanje, server i pravila evidencije. Backend i objavljivanje nisu odobreni. Novi chat preuzima implementaciju i dalje ažuriranje statusa; ovdje se kod ne mijenja.
+
+- J-0 — predaja ZAVRŠENO: kreiran lokalni chat „DEV-02-J — izrada dizajna Živo dvorište“, ID `01a14966-0f81-7933-ab3f-79fb69944e37`, u istom projektu/checkoutu. Preneseni odobrenje za J-B–J-E, tačna druga referenca, stil/plan, postojeće Git izmjene, lokalni server i pravila provjere/evidencije. Novi chat preuzima implementaciju; stvarni korisnikov pregled ostaje nezavršen do potvrde. Nema kodnih promjena u ovoj predaji. `git diff --check` i statistika/završna tabela provjereni.
+
+### 17. oktobar 2026. — J-B–J-E: početak odobrene implementacije
+
+- Pregledani preduslovi, stvarno Git stanje i tačna referenca. Postojeće izmjene README/docs/skill nisu resetovane; sigurnosna kopija `/tmp/zev-before-j.tgz`.
+- J-B U TOKU: tokeni, komponente, ilustracija i licencirane ikone; zatim J-C okvir/pregled/kartica, J-D ostali prikazi i J-E tehnička/ručna provjera. Nema novih poslovnih pravila ili testova.
+- Postojeći lokalni server PID 20050 potvrđen na 127.0.0.1:3000; zaustaviti prije builda. Korisnikov pregled ostaje odvojen od tehničkog rezultata.
+
+### 17. oktobar 2026. — J-B/J-C/J-D: izvedeni zajednički stil i prikazi
+
+- Primijenjeni semantički tokeni, fokus/smanjeni pokret, zajedničke površine i tipografija. Tabler 3.49.0 (MIT, licenca u paketu) koristi pet linijskih ikona. Instalacija kroz postojeći Corepack pnpm, bez testne infrastrukture; postojeća upozorenja za ESLint i preskočene build skripte ostaju.
+- Generisan samostalan resurs `apps/web/public/images/courtyard.webp` (1400×850, 371 KB), bez teksta/UI-ja; image_gen izvor exec-1329f139-5346-4797-9249-9998785005d6.png. Vizuelno pregledan.
+- Ažurirani global.css, UI komponente, demo-frame/navigation/controls/preview/sections, finance-details i landing. Domenski reducer, selektori i obračuni nisu mijenjani.
+- Lint prošao; typecheck/build u provjeri. Postojeći server zaustavljen prije builda. Nx socket EPERM riješen propisanom eskalacijom. Vizuelna i ručna provjera slijedi.
+
+### 17. oktobar 2026. — J-E: ručna provjera i korekcija
+
+- Browser: kartica A ima dug 20 KM, početnu istoriju i 0 KM novih zaduženja. Prazna finansijska forma fokusira grešku; trošak 120 KM potvrđen nakon pregleda daje sredstva 880 KM i na radu plaćeno 120 KM. Promijenjen status rada U toku.
+- Objavljeno obavještenje; pokušaj promjene tenanta sa nacrtom otvara potvrdu, Escape čuva naslov. Lokalna WebP prijava ima pregled i čuvanje. Odgovor ankete i zatvaranje daju rezultat 0/1. Lipa ima 500 KM/C i prazne cjeline, bez Javor unosa.
+- Prvi vizuelni pregled otkrio preslab aktivni nav kontrast zbog utility sloja; uklonjen konflikt. Dodata jača hijerarhija kartice i ikona sredstava.
+- Izmjereni parovi surface/canvas/mint/peach: ink ≥12,98; muted ≥5,61; accent ≥6,79; danger ≥6,30; success ≥6,41; warning ≥6,12; control ≥3,40. Bijelo/sidebar 13,32; bijelo/aktivna navigacija 8,17; fokus kajsija/sidebar 8,80; bijelo/accent 7,59; ink/kajsija 9,58.
+- Privremeni build sa html font-size 200% potvrđuje 32px na 320px širine: pregled, finansije, kartica i radovi bez širenja dokumenta. Meni Enter/Escape vraća fokus. Screenshot `/tmp/zev-j-200-finance.png`. Nije iscrpljen svaki ekran sa povećanim tekstom. Privremeno pravilo uklonjeno; slijedi završni normalni build i screenshotovi.
+
+### 17. oktobar 2026. — DEV-02-K: plan dodatne UI revizije, početak
+
+- Zahtjev: pripremiti plan nove UI revizije prema priloženoj slici; preuzeti osjećaj, bez kopiranja palete, uz poseban fokus na moderne select kontrole. Odobreno je planiranje; implementacija nije dio ovog naloga.
+- DEV-02-K-A — U TOKU: pregled postojećeg stila, komponenti i select lokacija; zatim dokumentovati vizuelni smjer, redoslijed, ponašanje selecta i kriterijume provjere. Preduslov: postojeći DEV-02 demo i izvedene J promjene; J završne provjere nisu dokumentovano zaključene.
+- Pročitani obavezni projektni dokumenti, UI skill, smjernice/primjeri i prethodni dizajnerski plan; pregledani Git status, global.css, demo-frame i mjesta upotrebe native selecta. Zatečene nekomitovane izmjene su sačuvane. Referenca korisnika je vizuelni ulaz, ne izvor poslovnih pravila.
+
+### 17. oktobar 2026. — DEV-02-K-A: plan pripremljen i pregledan
+
+- ZAVRŠENO: `docs/dizajn/ui-revizija-paneli-select.md` definiše osjećaj reference uz postojeću paletu, geometriju/površine, zajednički select, četiri grupe migracije, ponašanje tastature/dodira, zavisnosti K-B–K-E i provjere. Povezan iz razvojnog plana. Nema izmjene aplikacionog koda ili instalacije paketa.
+- Provjera: pregledan obim prema zahtjevu i select lokacije prema `rg` pretrazi; lokalne reference, Git diff i zbir završne tabele provjeravaju se pri zatvaranju. Runtime, screenshotovi, lint/typecheck/build nisu izvršeni jer se mijenja samo plan; plan ih zahtijeva tokom izvedbe. Nisu pisani testovi.
+- Sljedeće: nakon korisnikove instrukcije početi K-B pa K-C; K-D primijeniti na postojeće ekrane i K-E provjeriti. Plan ne odobrava izvedbu. Prethodna J provjera ostaje nezaključena u dokumentovanim granicama.
+
+### 17. oktobar 2026. — DEV-02-K-A: tri vizuelna primjera
+
+- Korisnik traži tri dashboard primjera prema planu. ZAVRŠENO: tri nezavisna built-in Image Gen mockupa prikazana u chatu i sačuvana kao `docs/dizajn/ui-revizija-primjeri/dashboard-1.png`, `dashboard-2.png`, `dashboard-3.png` u redoslijedu prikaza. Ista ZEV paleta, različita hijerarhija i otvoreni moderni selecti. Promptovi i ograničenja generisanog sadržaja su u [bilješci](dizajn/ui-revizija-primjeri/promptovi.md). Vizuelno pregledano; to su slikovni koncepti, bez runtime, kontrast ili interakcione provjere. Korisnikov izbor slijedi; nema promjene koda ili novih testova. Ovo je vizuelna razrada K-A, bez implementacije ili promjene statusa K-B–K-E.
+
+### 17. oktobar 2026. — DEV-02-K-A: dodatne varijacije izabranog drugog primjera
+
+- Korisnik bira drugi prikazani dashboard i ponovo prilaže tačnu sliku; traži tri dodatne varijacije, uključujući blage promjene palete. ZAVRŠENO: tri nezavisna built-in Image Gen koncepta prikazana u chatu i sačuvana u `docs/dizajn/ui-revizija-varijacije/dashboard-1.png`, `dashboard-2.png` i `dashboard-3.png` prema redoslijedu prikaza. Palete sage/linen, slate/sand i olive/clay; zajednički raspored i otvoreni selecti. [Promptovi i granice](dizajn/ui-revizija-varijacije/promptovi.md) bilježe odstupanja generisanog teksta. Vizuelno pregledano; nema runtime ili interakcione provjere, izmjene koda, instalacije ili testova. Čeka se izbor nove serije. Prethodni primjeri ostaju sačuvani; nova serija ima zasebne fajlove i redoslijed prikaza.
+
+### 17. oktobar 2026. — J-B–J-D završeni, J-E pripremljen za korisnikov pregled
+
+- Završni lint/typecheck/build prolaze uz Node 22.22.1/Corepack pnpm. Nema novih testova. Poslovni reducer, selektori, finansijska pravila i dozvole nisu mijenjani.
+- Završni pregled na 320/360/768/1280 px bez širenja dokumenta. Screenshotovi pregleda, kartice, mobilnog pregleda i landinga sačuvani u `docs/dizajn/provjera/`. Referenca i konačni screenshotovi zajedno vizuelno pregledani; korekcije i prihvatljive razlike vodi `../design-qa.md` (final result: passed).
+- Potvrđen obračun 0,50 KM/m² (A 50/B 20, sredstva 1.000), reset sa potvrdom i korisnik prostora bez kartica. Konzola bez zabilježenih error poruka. Native datum zahtijevao je segmentni unos; ponovljeni obračun nije ponovo potvrđen u J, pa se ne tvrdi novi dokaz nedupliranja. Sve granice provjere su u izvještaju.
+- Landing, prava i /ui pregledani. README i izvedbeni dokument ažurirani. Lokalni produkcioni server pokrenut na 127.0.0.1:3000 (sesija 36766); nije objavljivanje.
+- Korisnik je pitao koje autorizacije su tražene: objašnjeni instalacija Tabler paketa, Nx provjere izvan sandboxa, zaustavljanje i pokretanja lokalnog servera. Nema autorizacije backenda ili objavljivanja.
+- J-E ostaje U TOKU samo radi stvarnog korisnikovog pregleda; sljedeće je njegov utisak i eventualne konkretne dorade. Postojeće nezakomitovane izmjene sačuvane; bez commita/resetovanja.
+
+### 17. oktobar 2026. — DEV-02-K-A: priprema konačnog plana izabrane varijacije
+
+- Korisnik bira broj 2 iz posljednje serije: `dizajn/ui-revizija-varijacije/dashboard-2.png` (Slate and Sand). Odobrena dopuna plana i priprema za izvedbu; ovim korakom se ne mijenja aplikacija.
+- K-A-izbor — U TOKU: potvrditi tačnu referencu; razraditi tokene, raspored, selecte, razlike slike i stvarnih podataka, mapu fajlova i kriterijume; povezati razvojni plan i UI skill; provjeriti reference/statistiku/diff. Zatečene Git izmjene ostaju sačuvane.
+
+### 17. oktobar 2026. — DEV-02-K-A: plan spreman prema izabranoj varijaciji 2
+
+- ZAVRŠENO: `docs/dizajn/ui-revizija-paneli-select.md` proširen tačnom referencom Slate and Sand iz posljednje serije, semantičkim tokenima, geometrijom/tipografijom/dubinom, rasporedom po profilima i širinama, mapom fajlova K-B–K-E i ispravkama generisanog sadržaja. Desni vlasnički sažetak je planiran; puna kartica ostaje zasebna ruta.
+- Usklađeni `docs/razvojni-plan.md` i projektni `skills/zev-ui-design/SKILL.md`: novi izbor ima prednost nad starom paletom, bez brisanja istorije. Izbor select primitive-a ostaje jasan tehnički zadatak na početku K-C, uz obaveznu provjeru dokumentacije i integracionog ponašanja.
+- Provjereni: tačna slika vizuelnim pregledom, lokalni linkovi promijenjenih dokumenata, jedinstvenost 58 ID-jeva, zbir svih šest statusa i posljednji položaj završne tabele; `git diff --check` prolazi. Nema aplikacionih izmjena ovog zadatka; lint/typecheck/build i runtime nisu pokretani za dokumentacionu dopunu, niti su pisani testovi. Zatečeni `design-qa.md` nije mijenjan.
+- Sljedeće: K-B prema narednoj instrukciji za izvedbu; K-C select, K-D ekrani, K-E provjera i korisnikov pregled. K-B–K-E nisu započeti, backend i objavljivanje nisu obuhvaćeni.
+
+### 17. oktobar 2026. — početak izvedbe DEV-02-K
+
+- Korisnik nalaže početak UI revizije i potvrđuje dozvole za postojeće pnpm skladište, provjere izvan sandboxa i lokalni server. Pregledani planovi, projektni UI skill, referenca i Git izmjene; ranije izmjene se čuvaju. Tabler 3.49.0 već postoji.
+- K-B je U TOKU: semantička Slate and Sand paleta, geometrija osnovnih komponenti i reprezentativni `/ui`; zatim provjera kontrasta, lint/typecheck/build i ručni pregled. K-C–K-E su odobreni nastavak po zavisnostima. Bez testova, backenda ili objavljivanja.
+
+### 17. oktobar 2026. — DEV-02-K-B: prvi izvedeni korak
+
+- Primijenjeni Slate and Sand tokeni u `apps/web/src/app/global.css`; stare mint/peach klase zamijenjene namjenskim funds-surface/balance-surface/warm-action-surface u potrošačima. Dodati panel radius 24 px, diskretna sjenka i inverse fokus. Polja imaju radius 12 px, naslov desktop 36 px; `/ui` ima primjere površina i dugmadi. Nema promjene podataka ili poslovnih pravila.
+- Provjera: postojeći lint, typecheck i build prolaze izvan sandboxa. Izmjereni kontrasti: ink/surface 15,76:1; muted/canvas 5,88:1, muted/funds 5,48:1; control/surface 3,88:1, control/funds 3,34:1, control/balance 3,13:1; inverse fokus/active sidebar 5,59:1. Semantičke danger/success/warning na bijeloj preko 6,8:1.
+- `/ui` vizuelno pregledan u ugrađenom browseru na dostupnoj širini približno 930 px: paneli, dvije površine, dugmad i poruke čitljivi. Iznos se prirodno prelama bez odsijecanja. Pokušaj native klika nije dao pouzdanu potvrdu validacionog fokusa, pa se ta provjera ne računa kao uspješna. Responsive matrica, 200% tekst i čitač ekrana još nisu izvršeni; K-B ostaje U TOKU do tih provjera. K-C–K-E nisu implementirani.
+- Prethodni server PID 27326 zaustavljen, nova produkciona verzija pokrenuta na `http://127.0.0.1:3000`; `/ui` je lokalni pregled. Tabler nije ponovo instaliran jer već postoji. Nema novih testova, zavisnosti, backenda, commita ili objavljivanja. Slijedi dovršavanje K-B provjera, zatim zajednički select K-C prema odobrenom planu.
+
+### 17. oktobar 2026. — K-C: moderniji selektori i blagi gradijent, početak
+
+- Korisnik traži moderniji izgled selektora i blag gradijent. K-C-1 U TOKU: zajednička kontrola i migracija svih postojećih izbora; K-C-2 PLANIRANO: tehnički i ručni pregled. U okviru K-B dodati diskretne gradijente na glavne površine.
+- Izabran `@radix-ui/react-select` prema zvaničnoj dokumentaciji https://www.radix-ui.com/primitives/docs/components/select: kontrolisana vrijednost, portal sa collision položajem, tastatura/typeahead i upravljanje fokusom. Očuvati postojeće promjene konteksta i potvrde. Odabir se evidentira prije instalacije; bez ručne implementacije listbox ponašanja.
+
+### 17. oktobar 2026. — K-C: selektori i gradijenti, rezultat
+
+- K-C-1 ZAVRŠENO: novi `components/ui/select.tsx` koristi `@radix-ui/react-select` 2.4.1, Tabler chevron/kvačicu, portal, položaj prema raspoloživom prostoru, skrol i kontrolisanu vrijednost. Sve postojeće select lokacije migrirane: demo ZEV/profil, finansijski unos i filter, status prijave. Prazni izbori „Bez povezivanja“ i „Sve kategorije“ ostaju dostupni. `/ui/component-example.tsx` prikazuje zajedničku kontrolu i disabled stanje. Pretraga ne nalazi stare native select elemente u izvornim ekranima.
+- U `global.css` dodati zaobljeni trigger i otvoreni meni, označen izbor, hover/fokus, invalid/disabled i blagi neprozirni gradijenti na kontrolama, sidebaru, sredstvima i saldu. Postojeći semantički tekst/statusi očuvani; nema izmjene finansijskih pravila.
+- Instalacija prvo nije prošla zbog različite pnpm store putanje; ponovljena kroz postojeće korisničko skladište uz odobrenje i uspješno završena. `package.json` i lockfile sadrže paket. Pregled browsera otkrio je dvostruku aktivaciju zbog omotavajuće labele; ispravljeno eksplicitnim label/ID vezama u demo kontrolama i statusu prijave.
+- K-C-2 ZAVRŠENO u osnovnom desktop obimu: završni lint/typecheck/build i diff check prolaze. Ugrađeni browser, oko 1075 CSS px: meni se otvara, izbor Lipe prikazuje 500 KM i jedinicu C; ponovno otvaranje radi; Home pomjera fokus na Javor bez potvrde, Escape ostavlja Lipu i vraća fokus na trigger. Reload vraća Javor. Vizuelno potvrđeni gradijenti i meni; snimak `/private/tmp/zev-modern-select.png`.
+- Granice: puna matrica K-C (svi profili, nacrt/potvrde, svi finansijski izbori i greške, status prijave, 320/360/768 px, 200% tekst, mobilni dodir i čitač ekrana) još nije izvršena, pa cijeli K-C ostaje U TOKU. Nisu dodati testovi ili backend. Lokalna produkciona verzija ponovo radi na `127.0.0.1:3000`. K-D/E nisu završeni ovim zahtjevom.
+
+### 17. oktobar 2026. — commit i push UI izmjena
+
+- Korisnik nalaže commit i push dosadašnjih izmjena. OPS-UI-COMMIT U TOKU: pregled Git stanja i diff-a, lokalni commit svih dosadašnjih UI resursa/koda/planova, zatim push ako postoji odredište.
+- Pregledano: grana `master`, nema podešenog remote-a (`git remote -v` je prazan). Push zavisi od URL-a korisnikovog repozitorijuma; URL nije pretpostavljen. Prethodne uspješne lint/typecheck/build provjere i granice ručnih provjera ostaju važeće jer izvorni kod ovim zadatkom nije mijenjan. `git diff --check` prolazi. Obuhvat uključuje ranije J/K izmjene, resurse i dokumentaciju; nezavršene K provjere nisu proglašene završenim.
+
 ## Statistika i pregled statusa
 
-**Ukupno: 44 evidentirane stavke.** Ažurirano: 17. oktobar 2026. (Europe/Belgrade).
+Ukupan broj stavki: **59**.
 
 | Status | Broj stavki | Značenje |
-|---|---:|---|
-| **ZAVRŠENO** | 29 | Rezultat postoji i provjeren je u navedenom obimu. |
-| **U TOKU** | 4 | Započeto; preostale stavke navedene su u popisu. |
-| **PLANIRANO** | 9 | Još nije započeto; nije automatski odobreno. |
-| **BLOKIRANO** | 1 | Nastavak zavisi od konkretne prepreke. |
-| **PAUZIRANO** | 1 | Korisnik je zatražio zaustavljanje. |
-| **OTKAZANO** | 0 | Napušteno ili zamijenjeno uz zabilježen razlog. |
-| **UKUPNO** | **44** | Svi jedinstveni ID-jevi završnog popisa. |
+|---|---|---|
+| ZAVRŠENO | 37 | Detalji i preostalo u završnoj tabeli. |
+| U TOKU | 10 | Detalji i preostalo u završnoj tabeli. |
+| PLANIRANO | 10 | Detalji i preostalo u završnoj tabeli. |
+| BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
+| PAUZIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
+| OTKAZANO | 0 | Detalji i preostalo u završnoj tabeli. |
 
-Broje se evidencione stavke, uključujući zbirne faze i njihove podfaze. Ovo nije procenat završenosti aplikacije niti procjena preostalog rada.
+Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije procenat završenosti aplikacije. Planirane faze nisu automatski odobrene.
 
 ### Stavke koje traže pažnju
 
-| Status | Stavke | Preostalo / prepreka |
-|---|---|---|
-| U TOKU | ZEV-015, DEV-01, DEV-01-B — pravila pilota | Razriješiti način prijave i detaljne dozvole prije backenda; tri povezana evidenciona reda. |
-| U TOKU | DEV-02 — demo i korisnikov pregled | A–H završeni; preostaje DEV-02-I, stvarni korisnikov pregled i zaključak. |
-| BLOKIRANO | ZEV-006 — stari Sites projekat | Brisanje nije potvrđeno; raniji dostupni alati nisu nudili brisanje. |
-| PAUZIRANO | ZEV-004 — ranije započeta aplikacija | Istorijski zaustavljena izrada u `aplikacija/`; ne miješati sa sadašnjim DEV-02 demoom. |
-
-**Sljedeće:** DEV-02-I je PLANIRANO i čeka novu instrukciju za pregled. DEV-03–DEV-10 ostaju planirane faze; backend i objavljivanje nisu odobreni.
+- **ZEV-004 — PAUZIRANO**: Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena.
+- **ZEV-006 — BLOKIRANO**: Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen.
+- **ZEV-015 — U TOKU**: Nacrt, matrica pristupa i sintetički obračun pripremljeni; demo, obračun po m² i ručni rok potvrđeni. Platforma, landing, tenant smjer i ZEV uloge su potvrđeni; prijava i detaljne dozvole ostaju otvorene.
+- **DEV-01 — U TOKU**: Demo pravila potvrđena; stvarna prijava i detaljne dozvole ostaju otvorene prije backenda.
+- **DEV-01-B — U TOKU**: Potvrđeni demo, obračun, web sa landingom, kasnije mobilne aplikacije, tenant smjer i ZEV uloge; prijava i detaljna prava još nisu potvrđeni.
+- **DEV-02 — U TOKU**: A–H završeni u dokumentovanim granicama; korisnik pregledao i za sada prihvatio bez dorada (I-3). Nova vizuelna dorada J je u toku; lokalni demo bez backenda i objavljivanja.
+- **DEV-02-J — U TOKU**: J-A–J-D završeni; J-E tehnički provjeren, čeka korisnikov pregled. Bez backenda ili objavljivanja.
+- **DEV-02-J-E — U TOKU**: Tehnički i ručni dio završen u obimu design-qa.md; preostaje stvarni korisnikov pregled novog dizajna.
+- **DEV-02-K — U TOKU**: [Plan](dizajn/ui-revizija-paneli-select.md) spreman prema izabranoj posljednjoj varijaciji 2 Slate and Sand; Izvedba odobrena; K-B u toku, slijede K-C–K-E.
+- **DEV-02-K-B — U TOKU**: Tokeni, površine, polja i /ui primijenjeni; lint/typecheck/build i kontrast prolaze, vizuelno pregledano na dostupnoj širini. Preostaje responsive/200% tekst i pouzdana provjera fokusa.
+- **DEV-02-K-C — U TOKU**: Radix 2.4.1, zajednička komponenta i sve lokacije migrirane; lint/typecheck/build, izbor ZEV-a, Home/Escape i povrat fokusa potvrđeni. Preostaje puna matrica validacije, nacrta, profila, mobilnog dodira i 200% teksta.
+- **OPS-UI-COMMIT — U TOKU**: Priprema lokalnog commita na master; push blokiran jer nijedan Git remote nije podešen. Potreban URL repozitorijuma.
 
 ## Status svih dogovorenih stavki
 
@@ -390,7 +523,7 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-01-B | Usaglasiti odluke sa korisnikom | U TOKU | Potvrđeni demo, obračun, web sa landingom, kasnije mobilne aplikacije, tenant smjer i ZEV uloge; prijava i detaljna prava još nisu potvrđeni. |
 | DEV-01-C | Provjeriti specifikaciju i kriterijume završetka | ZAVRŠENO | Pregledani nacrt i kriterijumi; lokalni linkovi, aritmetika i diff provjereni. Kriterijumi cijele DEV-01 još nisu ispunjeni; nova provjera nakon odluka. |
 | DEV-01-D | Uskladiti platforme, landing, tenant i ZEV uloge | ZAVRŠENO | Ažurirani planovi, stack i specifikacija; pregledana dosljednost i reference. Rezultat je dokumentacija, bez implementacije. |
-| DEV-02 | Interaktivni web demo i korisnikov pregled | U TOKU | A–H završeni u dokumentovanim granicama; preostaje korisnikov pregled I. |
+| DEV-02 | Interaktivni web demo i korisnikov pregled | U TOKU | A–H završeni u dokumentovanim granicama; korisnik pregledao i za sada prihvatio bez dorada (I-3). Nova vizuelna dorada J je u toku; lokalni demo bez backenda i objavljivanja. |
 | DEV-02-A | Specifikacija ekrana i demo scenarija | ZAVRŠENO | `demo-specifikacija.md`: ekrani, navigacija, demo prava, podaci i očekivani ishodi; pregled dokumentacije i aritmetike završen. UI nije implementiran. |
 | DEV-02-B | Tehnička web osnova i osnovne komponente | ZAVRŠENO | `apps/web`: Next.js/React, TypeScript, Tailwind, UI tokeni i komponente; frozen instalacija, lint, eksplicitni typecheck, build i lokalni dev/produkcioni pregled prošli. Poslovni demo nije izrađen. |
 | DEV-02-C | Sintetički podaci, demo kontekst i stanje | ZAVRŠENO | Dva tenanta, tri profila, selektori dozvoljenog prikaza, lokalna bilješka i reset. Lint/typecheck/build i ručni scenariji konteksta/memorije prošli; opis prava nije stvarna zaštita. |
@@ -399,8 +532,8 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-02-F | Demo radova i ponuda | ZAVRŠENO | Detalj, poređenje ponuda, izvođač, ugovoreno/plaćeno, status i povezane isplate; SC-06/07, lint/typecheck/build i UI 320/1280 px provjereni. |
 | DEV-02-G | Obavještenja, prijave i informativne ankete | ZAVRŠENO | Lokalni obrasci, fotografija, statusi, odgovor/izmjena/zatvaranje i zbirni rezultati. SC-08–10 i validacija ručno provjereni u navedenim granicama; lint/typecheck/build prolaze. |
 | DEV-02-H | Cjelovita provjera i dorade | ZAVRŠENO | Povezani tokovi, uloge/tenanti, reset/osvježavanje, reflow i pristupačnost provjereni u obimu [izvještaja](demo-provjera-h.md); konkretne dorade i završni lint/typecheck/build potvrđeni. |
-| DEV-02-I | Korisnikov pregled i zaključak | PLANIRANO | Korisnikov pregled nije izvršen; potreban je novi nalog. |
-| DEV-03 | Baza, prijava, članstva i kontrola pristupa | PLANIRANO | Čeka pregled demoa, instrukciju za backend i zavisne odluke DEV-01; izvršavanje nije odobreno. |
+| DEV-02-I | Korisnikov pregled i zaključak | ZAVRŠENO | Korisnik potvrdio „pregledano“ i „za sada je ok“; nema trenutno traženih dorada. Detalji I-3 u istoriji. |
+| DEV-03 | Baza, prijava, članstva i kontrola pristupa | PLANIRANO | Demo pregledan; čeka novu instrukciju za backend i zavisne odluke DEV-01; izvršavanje nije odobreno. |
 | DEV-04 | Produkciona finansijska evidencija i kartice | PLANIRANO | Zavisnost DEV-03; lokalni finansijski demo E nije završena produkciona faza. |
 | DEV-05 | Produkcioni radovi, ponude i isplate | PLANIRANO | Zavisnost DEV-04; demo F ne zamjenjuje backend tokove. |
 | DEV-06 | Produkciona oglasna tabla i prijave | PLANIRANO | Zavisnost DEV-03, povezivanje sa radovima poslije DEV-05. |
@@ -412,3 +545,18 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | H-0 | Predati DEV-02-H u novi chat | ZAVRŠENO | Predaja završena; H izvršen u ovom chatu, detalji i ispravka Git pretpostavke sačuvani u istoriji. |
 | DOC-STATUS-1 | Obavezati agenta na završnu tabelu svih stavki | ZAVRŠENO | Dopunjen AGENTS.md, postojeći pregled premješten i dopunjen; položaj, ID-jevi, statusi i diff provjereni. |
 | DOC-STATUS-2 | Dodati statistiku i pregled statusa | ZAVRŠENO | Dodati brojevi svih statusa, legenda i izdvojene stavke za pažnju; zbir i potpunost provjereni. |
+| I-0 | Predati DEV-02-I u novi chat | ZAVRŠENO | Predaja završena; priprema i stvarni pregled preuzeti u ovom chatu. |
+| DEV-02-J | Vizuelna dorada demoa | U TOKU | J-A–J-D završeni; J-E tehnički provjeren, čeka korisnikov pregled. Bez backenda ili objavljivanja. |
+| DEV-02-J-A | Stil i plan „Živo dvorište“ | ZAVRŠENO | Referenca sačuvana; stil, tokene, komponente i plan definiše dizajn/zivo-dvoriste.md. Dokumentaciona provjera; UI nije implementiran. |
+| DEV-02-J-B | Tokeni, komponente i resursi | ZAVRŠENO | Tokeni/komponente, samostalna ilustracija i MIT Tabler ikone; kontrast izmjeren, detalji u istoriji. |
+| DEV-02-J-C | Okvir, pregled i kartica | ZAVRŠENO | Okvir, pregled i zasebna kartica; oba tenanta/tri profila i desktop/mobilni prikazi provjereni u obimu design-qa.md. |
+| DEV-02-J-D | Ostale cjeline i landing | ZAVRŠENO | Ostale cjeline, landing, prava i UI koriste zajednički stil; ručne provjere i granice u design-qa.md. |
+| DEV-02-J-E | Provjera dizajnerske dorade i pregled | U TOKU | Tehnički i ručni dio završen u obimu design-qa.md; preostaje stvarni korisnikov pregled novog dizajna. |
+| J-0 | Predati implementaciju dizajna u novi chat | ZAVRŠENO | Kreiran chat 01a14966-0f81-7933-ab3f-79fb69944e37; preneseni plan i odobrenje za izvedbu J-B–J-E. |
+| DEV-02-K | Dodatna UI revizija prema novoj referenci | U TOKU | [Plan](dizajn/ui-revizija-paneli-select.md) spreman prema izabranoj posljednjoj varijaciji 2 Slate and Sand; Izvedba odobrena; K-B u toku, slijede K-C–K-E. |
+| DEV-02-K-A | Pripremiti smjer i plan UI revizije | ZAVRŠENO | Tačna posljednja varijacija 2, tokeni, raspored/profili, select specifikacija i mapa fajlova pripremljeni; dokumentaciona provjera, bez runtime izmjena. |
+| DEV-02-K-B | Revidirati površine i osnovne kontrole | U TOKU | Tokeni, površine, polja i /ui primijenjeni; lint/typecheck/build i kontrast prolaze, vizuelno pregledano na dostupnoj širini. Preostaje responsive/200% tekst i pouzdana provjera fokusa. |
+| DEV-02-K-C | Zajednički moderni select i migracija | U TOKU | Radix 2.4.1, zajednička komponenta i sve lokacije migrirane; lint/typecheck/build, izbor ZEV-a, Home/Escape i povrat fokusa potvrđeni. Preostaje puna matrica validacije, nacrta, profila, mobilnog dodira i 200% teksta. |
+| DEV-02-K-D | Primijeniti reviziju na ekrane | PLANIRANO | Nakon K-C: okvir, pregled, kartica i ostali postojeći ekrani. |
+| DEV-02-K-E | Provjera revizije i korisnikov pregled | PLANIRANO | Nakon K-D: tehničke i ručne provjere, screenshotovi i zaseban korisnikov ishod. |
+| OPS-UI-COMMIT | Komitovati i pushati dosadašnje UI izmjene | U TOKU | Priprema lokalnog commita na master; push blokiran jer nijedan Git remote nije podešen. Potreban URL repozitorijuma. |

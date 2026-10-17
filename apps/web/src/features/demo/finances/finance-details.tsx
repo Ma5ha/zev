@@ -47,8 +47,8 @@ export function FinanceCard({ unitId }: { unitId: string }) {
   return <div className="space-y-6">
     <PageHeading eyebrow="Ovlašćeni prikaz kartice" title={card.label}>{card.areaM2} m² · {view.tenantName}. Stanje kartice je odvojeno od zajedničkih sredstava.</PageHeading>
     <DemoSection id="kartica-saldo" title="Trenutno stanje kartice">
-      <p className="text-3xl font-semibold tabular-nums">{card.balanceCents > 0 ? 'Dug' : card.balanceCents < 0 ? 'Avans' : 'Saldo'}: {formatDemoMoney(Math.abs(card.balanceCents))}</p>
-      <p className="text-sm text-muted">Ukupno stanje uključuje početni saldo i sve demo unose, nezavisno od filtera.</p>
+      <div className="card-balance space-y-3"><p className="text-sm font-medium">Ukupno stanje kartice</p><p className="money-display">{card.balanceCents > 0 ? 'Dug' : card.balanceCents < 0 ? 'Avans' : 'Saldo'}: {formatDemoMoney(Math.abs(card.balanceCents))}</p>
+      <p className="text-sm text-muted">Ukupno stanje uključuje početni saldo i sve demo unose, nezavisno od filtera.</p></div>
       <div><label htmlFor="card-period" className="font-semibold">Period stavki</label><input id="card-period" type="month" value={period} onChange={event => setPeriod(event.target.value)} className="mt-2 block min-h-11 w-full max-w-sm rounded-lg border border-control bg-surface px-3" /></div>
       <p>Zaduženo {period || '(svi periodi)'}: {formatDemoMoney(charges.reduce((sum, item) => sum + item.amountCents, 0))}</p>
       <p>Uplaćeno {period || '(svi periodi)'}: {formatDemoMoney(payments.reduce((sum, item) => sum + item.amountCents, 0))}</p>

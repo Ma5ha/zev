@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, LinkButton } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { TextField } from '@/components/ui/text-field';
 import { Notice } from '@/components/ui/notice';
 import { PageHeading } from '@/components/ui/page-heading';
@@ -13,7 +14,6 @@ import { EXPENSE_CATEGORIES, assessmentPreview, initialFinanceDraft, parseCents,
 import { AttachmentPreview } from './attachment-preview';
 
 const titles = { expense: 'Dodaj trošak', payment: 'Evidentiraj uplatu', assessment: 'Mjesečni obračun' };
-const selectClass = 'mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3 py-2 font-normal';
 
 export function FinanceForm({ kind }: { kind: FinanceKind }) {
   const { view, dispatch, financeDraft } = useDemo();
@@ -70,7 +70,7 @@ export function FinanceForm({ kind }: { kind: FinanceKind }) {
 }
 
 function SelectField({ id, label, value, options, error, onChange, optional = false }: { id: string; label: string; value: string; options: readonly (readonly string[])[]; error?: string; onChange: (value: string) => void; optional?: boolean }) {
-  return <div><label htmlFor={id} className="font-semibold">{label}</label><select id={id} className={selectClass} value={value} onChange={event => onChange(event.target.value)} required={!optional} aria-invalid={!!error} aria-describedby={error ? `${id}-greska` : undefined}><option value="">{optional ? 'Bez povezivanja' : 'Izaberite'}</option>{options.map(([id, text]) => <option key={id} value={id}>{text}</option>)}</select>{error && <p id={`${id}-greska`} className="mt-2 text-sm text-danger">{error}</p>}</div>;
+  return <div><label htmlFor={id} className="font-semibold">{label}</label><Select id={id} className="mt-2" value={value} onValueChange={onChange} required={!optional} aria-invalid={!!error} aria-describedby={error ? `${id}-greska` : undefined} options={[{ value: '', label: optional ? 'Bez povezivanja' : 'Izaberite' }, ...options.map(([value, label]) => ({ value, label }))]} />{error && <p id={`${id}-greska`} className="mt-2 text-sm text-danger">{error}</p>}</div>;
 }
 
 export function DeniedFinance() {

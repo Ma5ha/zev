@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { TextField } from '@/components/ui/text-field';
 import { Notice } from '@/components/ui/notice';
 import { useDemo } from './demo-provider';
@@ -48,7 +49,7 @@ function Photo({ photo }: { photo: { name: string; data: string } }) {
 }
 export function CommunityIssues() {
   const { view, dispatch } = useDemo();
-  return <DemoSection id="prijave" title={view.permissions.canManageIssues ? 'Prijave aktivnog ZEV-a' : 'Moje prijave'}><Notice>Za hitnu opasnost odmah kontaktirajte nadležnu službu ili odgovornu osobu. Demo ne šalje prijavu službi.</Notice><div className="my-4"><CommunityForm key={`${view.tenantId}:${view.profileId}`} kind="issue" /></div>{view.issues.length ? <ul className="divide-y divide-line">{view.issues.map(issue => <li className="space-y-3 py-4" key={issue.id}><details><summary className="min-h-11 cursor-pointer whitespace-pre-wrap break-words font-semibold">{issue.description}</summary>{issue.date && <p>{formatDemoDate(issue.date)}</p>}{issue.photo && <Photo photo={issue.photo} />}</details><p>Status: {issue.status}</p>{view.permissions.canManageIssues && <label className="block">Promijeni status<select className={control} value={issue.status} onChange={event => dispatch({ type: 'issue-status', id: issue.id, status: event.target.value as typeof issueStatuses[number] })}>{issueStatuses.map(status => <option key={status}>{status}</option>)}</select></label>}</li>)}</ul> : <p>Nema prijava dostupnih ovom profilu u aktivnom ZEV-u.</p>}</DemoSection>;
+  return <DemoSection id="prijave" title={view.permissions.canManageIssues ? 'Prijave aktivnog ZEV-a' : 'Moje prijave'}><Notice>Za hitnu opasnost odmah kontaktirajte nadležnu službu ili odgovornu osobu. Demo ne šalje prijavu službi.</Notice><div className="my-4"><CommunityForm key={`${view.tenantId}:${view.profileId}`} kind="issue" /></div>{view.issues.length ? <ul className="divide-y divide-line">{view.issues.map(issue => <li className="space-y-3 py-4" key={issue.id}><details><summary className="min-h-11 cursor-pointer whitespace-pre-wrap break-words font-semibold">{issue.description}</summary>{issue.date && <p>{formatDemoDate(issue.date)}</p>}{issue.photo && <Photo photo={issue.photo} />}</details><p>Status: {issue.status}</p>{view.permissions.canManageIssues && <div><label htmlFor={`issue-status-${issue.id}`}>Promijeni status</label><Select id={`issue-status-${issue.id}`} className="mt-2" aria-label={`Promijeni status prijave: ${issue.description}`} value={issue.status} onValueChange={value => dispatch({ type: 'issue-status', id: issue.id, status: value as typeof issueStatuses[number] })} options={issueStatuses.map(status => ({ value: status, label: status }))} /></div>}</li>)}</ul> : <p>Nema prijava dostupnih ovom profilu u aktivnom ZEV-u.</p>}</DemoSection>;
 }
 export function CommunityPolls() {
   const { view } = useDemo();

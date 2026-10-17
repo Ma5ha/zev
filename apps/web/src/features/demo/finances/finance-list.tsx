@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { LinkButton } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { PageHeading } from '@/components/ui/page-heading';
 import { Button } from '@/components/ui/button';
 import { DemoSection, FundsSummary, UnitCards, formatDemoDate } from '../demo-sections';
@@ -31,7 +32,7 @@ export function DemoFinances() {
     <DemoSection id="promet" title="Prihodi i rashodi">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div><label htmlFor="period" className="font-semibold">Period</label><input id="period" type="month" value={period} onChange={event => filter('period', event.target.value)} className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3" /><p className="mt-2 text-sm text-muted">Prazan period prikazuje sve stavke.</p></div>
-        <div><label htmlFor="filter-category" className="font-semibold">Kategorija</label><select id="filter-category" value={category} onChange={event => filter('category', event.target.value)} className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3"><option value="">Sve kategorije</option>{[...EXPENSE_CATEGORIES, 'Uplate održavanja'].map(item => <option key={item}>{item}</option>)}</select></div>
+        <div><label htmlFor="filter-category" className="font-semibold">Kategorija</label><Select id="filter-category" className="mt-2" value={category} onValueChange={value => filter('category', value)} options={[{ value: '', label: 'Sve kategorije' }, ...[...EXPENSE_CATEGORIES, 'Uplate održavanja'].map(item => ({ value: item, label: item }))]} /></div>
       </div>
       {entries.length ? <TransactionList entries={entries} query={query} /> : <p className="text-muted">{view.entries.length ? 'Nema stavki za izabrane filtere.' : 'Još nema evidentiranih prihoda ili rashoda. Početna sredstva nisu nova uplata.'}</p>}
       {(period || category) && <Button variant="secondary" onClick={() => router.replace('/demo/finansije', { scroll: false })}>Poništi filtere</Button>}

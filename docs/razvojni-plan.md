@@ -30,7 +30,7 @@ Odluke i prijedlozi DEV-01 vode se u [specifikaciji pilota](pilot-specifikacija.
 | ID | Faza / rezultat | Zavisnosti | Status |
 |---|---|---|---|
 | DEV-01 | Potvrđen pilot i specifikacija otvorenih pravila | Minimalni plan i postojeća dokumentacija | U TOKU |
-| DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01; otvorene produkcione odluke ne blokiraju demo | U TOKU — specifikacija A, web osnova B i demo kontekst C završeni; puni poslovni moduli još nisu izrađeni |
+| DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01 | ZAVRŠENO u demo obimu — A–H i korisnikov pregled I; prihvaćen za sada bez dorada 17. oktobra 2026. |
 | DEV-03 | Baza, prijava, članstva i kontrola pristupa | Pregledan DEV-02, korisnikova instrukcija za backend i razriješene zavisne odluke DEV-01 | PLANIRANO |
 | DEV-04 | Finansijska evidencija i sopstvena kartica | DEV-03 | PLANIRANO |
 | DEV-05 | Radovi, ponude, napredak i povezane isplate | DEV-04 | PLANIRANO |
@@ -217,4 +217,18 @@ Nakon pilota prvo riješiti utvrđene probleme. Cijenu i nastavak pretplate potv
 
 ## 9. Sljedeći konkretan korak
 
-DEV-02-A je pripremio [specifikaciju demoa](demo-specifikacija.md), a DEV-02-B provjerenu tehničku web osnovu sa početnim UI komponentama. DEV-02-C dodaje sintetičke podatke, demo kontekst i stanje sa resetom. DEV-02-D dodaje landing, responzivni okvir pet cjelina i početne preglede iz zajedničkog demo stanja. DEV-02-E dodaje provjeren lokalni finansijski demo. DEV-02-F dodaje provjeren detalj rada, ponude, status i povezane isplate. DEV-02-G dodaje provjerene lokalne objave, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Naredni korak je korisnikov pregled DEV-02-I, nakon nove korisnikove instrukcije; cijela faza DEV-02 još nije završena. Otvorena pitanja stvarne prijave i pilot podataka ne blokiraju demo: koriste se jasno označene sintetičke vrijednosti i simulirana prava. Nakon izrade, provjera i korisnikovog pregleda demoa razriješiti preostale odluke DEV-01, pa na korisnikovu instrukciju preći na DEV-03. Objavljivanje je zaseban korak.
+DEV-02-A je pripremio [specifikaciju demoa](demo-specifikacija.md), a DEV-02-B provjerenu tehničku web osnovu sa početnim UI komponentama. DEV-02-C dodaje sintetičke podatke, demo kontekst i stanje sa resetom. DEV-02-D dodaje landing, responzivni okvir pet cjelina i početne preglede iz zajedničkog demo stanja. DEV-02-E dodaje provjeren lokalni finansijski demo. DEV-02-F dodaje provjeren detalj rada, ponude, status i povezane isplate. DEV-02-G dodaje provjerene lokalne objave, prijave i informativne ankete. DEV-02-H je završen u obimu [izvještaja provjere](demo-provjera-h.md). Korisnik je 17. oktobra 2026. potvrdio pregled i „za sada je ok“, bez trenutno traženih dorada; DEV-02-I i DEV-02 su završeni u demo obimu. Naredno je razrješenje zavisnih odluka DEV-01; DEV-03 zahtijeva novu instrukciju. Otvorena pitanja stvarne prijave i pilot podataka ne blokiraju demo: koriste se jasno označene sintetičke vrijednosti i simulirana prava. Nakon izrade, provjera i korisnikovog pregleda demoa razriješiti preostale odluke DEV-01, pa na korisnikovu instrukciju preći na DEV-03. Objavljivanje je zaseban korak.
+
+## Naknadna vizuelna dorada — DEV-02-J
+
+17. oktobar 2026: nakon prihvatanja funkcionalnog demoa korisnik traži topliji i življi ukupni dizajn. Odobren vizuelni prijedlog Pregleda zgrade i finansijske kartice: tri slikovna pravca, izbor korisnika, zatim implementacija i provjera odabranog smjera u postojećem demo projektu. DEV-02 ponovo U TOKU zbog ove dopune; prethodni rezultati A–I ostaju sačuvani. Nema promjene poslovnog obima, backenda ili odobrenja za objavljivanje.
+
+Korisnik je odabrao drugu prikazanu verziju „Živo dvorište“. Konkretni [stil i plan primjene](dizajn/zivo-dvoriste.md) definišu J-A (stil/plan), J-B (tokeni/resursi), J-C (okvir/pregled/kartica), J-D (ostale cjeline) i J-E (provjera/pregled). J-A je dokumentacioni rezultat; izvedba J-B–J-E ostaje planirana prema narednoj instrukciji.
+
+## Dodatna UI revizija — DEV-02-K
+
+17. oktobar 2026: korisnik traži plan prema novoj priloženoj referenci, sa istim osjećajem zaobljenih panela i dotjeranih kontrola, bez kopiranja palete, uz moderne selecte. [Plan revizije](dizajn/ui-revizija-paneli-select.md) zadržava paletu „Živo dvorište“ i razrađuje K-A (plan), K-B (tokeni/komponente), K-C (select), K-D (ekrani) i K-E (provjera/pregled). Odobreno je samo planiranje K-A; izvedba ostaje PLANIRANO prema narednoj instrukciji. Prethodni J rezultati i nedovršene provjere ostaju evidentirani zasebno. Nema promjene funkcionalnog obima, backenda ili objavljivanja.
+
+### DEV-02-K — potvrđeni vizuelni izbor i spremna izvedbena specifikacija
+
+17. oktobar 2026: korisnik bira **drugu sliku posljednje serije**, `dizajn/ui-revizija-varijacije/dashboard-2.png` (Slate and Sand), i traži ažuriran plan spreman za izvedbu. [Aktuelni plan](dizajn/ui-revizija-paneli-select.md) sada definiše novu paletu, asimetričan desktop raspored, desni sažetak vlasničke kartice (puna kartica ostaje zasebna ruta), prikaze ostalih profila, mobilni redoslijed, mapu fajlova i ispravke generisanih podataka. Ovo zamjenjuje raniju pretpostavku nepromijenjene tople palete; J dokument ostaje istorija. K-A je završen dokumentacioni rezultat, K-B–K-E ostaju PLANIRANO; ovaj nalog priprema plan, bez izvedbe. Prvi izvedbeni korak je K-B, zatim K-C, K-D i K-E. Select primitive se bira i provjerava na početku K-C; ostale dizajnerske odluke su dovoljno razrađene za početak.

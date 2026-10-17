@@ -1,18 +1,27 @@
 @import 'tailwindcss' source('../');
 
 @theme {
-  --color-canvas: #f5f6f8;
+  --color-canvas: #f5f6f5;
   --color-surface: #ffffff;
-  --color-ink: #17212f;
-  --color-muted: #526071;
-  --color-line: #d5dae1;
-  --color-control: #758194;
-  --color-accent: #175cd3;
-  --color-accent-hover: #124aa8;
-  --color-danger: #b42318;
-  --color-success: #067647;
-  --color-warning: #8a4b08;
-  --color-focus: #175cd3;
+  --color-ink: #162432;
+  --color-muted: #52616f;
+  --color-line: #dce2e6;
+  --color-control: #758391;
+  --color-accent: #293e50;
+  --color-accent-hover: #203242;
+  --color-danger: #a52c25;
+  --color-success: #216344;
+  --color-warning: #80500e;
+  --color-focus: #293e50;
+  --color-sidebar: #293e50;
+  --color-sidebar-active: #405d72;
+  --color-funds-surface: #e8eff3;
+  --color-balance-surface: #f1e5d6;
+  --color-warm-action-surface: #eed9be;
+  --color-focus-inverse: #f1e5d6;
+  --radius-panel: 1.5rem;
+  --shadow-panel: 0 4px 20px rgb(41 62 80 / 5%);
+  --shadow-menu: 0 12px 32px rgb(41 62 80 / 14%);
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -23,12 +32,74 @@
   :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
   h1, h2, h3, p, a, label, li, dd, button { overflow-wrap: anywhere; }
   input, select, textarea { min-width: 0; max-width: 100%; }
-  ::selection { background: #dbe8ff; color: var(--color-ink); }
+  ::selection { background: #e8eff3; color: var(--color-ink); }
 }
 
 @layer components {
-  .action { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-center text-base font-semibold; }
+  .action { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-center text-base font-semibold transition-colors duration-150; }
   .action-primary { @apply bg-accent text-white hover:bg-accent-hover; }
   .action-secondary { @apply border border-control bg-surface text-ink hover:bg-canvas; }
   .action:disabled { @apply cursor-not-allowed border border-line bg-canvas text-muted; }
+}
+
+@layer components {
+  .demo-sidebar { @apply bg-sidebar text-white; }
+  .demo-sidebar :focus-visible { outline-color: var(--color-focus-inverse); }
+  .navigation-link:hover, .navigation-link[aria-current="page"] { background: var(--color-funds-surface); }
+  .demo-sidebar a:hover { background: var(--color-sidebar-active); }
+  .demo-sidebar a[aria-current="page"] { background: var(--color-sidebar-active); }
+  .demo-section { @apply rounded-panel border border-line bg-surface shadow-panel; }
+  #sredstva { @apply bg-funds-surface; }
+  #kartica-pregled, #prijave-pregled { @apply bg-balance-surface; }
+  .money-display { @apply text-4xl font-semibold tracking-tight tabular-nums sm:text-5xl; }
+  .courtyard-hero { @apply grid items-center gap-6 overflow-hidden lg:grid-cols-[1fr_1.2fr]; }
+  .courtyard-hero h1 { @apply text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl; }
+  .courtyard-image { @apply h-auto w-full rounded-2xl object-cover; }
+  .demo-controls { @apply flex flex-wrap items-end gap-4; }
+  .demo-controls .demo-context-field { @apply min-w-0 flex-1 text-sm; }
+
+  .demo-controls .demo-actions { @apply flex flex-wrap gap-x-4 gap-y-1; }
+  .demo-actions .action { @apply min-h-11 border-0 bg-transparent px-0 py-2 text-sm font-medium text-muted underline underline-offset-4; }
+  .card-balance { @apply rounded-xl bg-balance-surface p-5 sm:p-6; }
+  .status-badge { @apply inline-flex rounded-full bg-balance-surface px-3 py-1 text-sm font-medium text-ink; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+@layer components {
+  #kartica-pregled li > span:last-child { @apply text-2xl; }
+  .demo-controls .demo-context-field { flex-basis: 11rem; }
+}
+
+/* Stable, opaque surfaces with a gentle Slate and Sand tint. */
+@layer components {
+  .select-trigger {
+    @apply flex min-h-12 w-full items-center justify-between gap-3 rounded-2xl border border-control px-4 py-3 text-left text-base font-medium text-ink;
+    background: linear-gradient(145deg, #ffffff, #f2f5f7);
+    box-shadow: 0 2px 5px rgb(41 62 80 / 4%), inset 0 1px 0 #fff;
+    transition: border-color 150ms, box-shadow 150ms;
+    cursor: pointer;
+  }
+  .select-trigger:hover { border-color: var(--color-accent); box-shadow: 0 4px 12px rgb(41 62 80 / 8%); }
+  .select-trigger[data-state="open"] { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgb(41 62 80 / 12%); }
+  .select-trigger[aria-invalid="true"] { border-color: var(--color-danger); }
+  .select-trigger:disabled { cursor: not-allowed; color: var(--color-muted); background: var(--color-canvas); box-shadow: none; }
+  .select-chevron { @apply flex size-7 shrink-0 items-center justify-center rounded-lg bg-funds-surface text-accent; transition: transform 150ms; }
+  .select-trigger[data-state="open"] .select-chevron { transform: rotate(180deg); }
+  .select-menu {
+    @apply z-50 overflow-hidden rounded-2xl border border-control bg-surface text-ink shadow-menu;
+    width: var(--radix-select-trigger-width);
+    max-width: calc(100vw - 1.5rem);
+    max-height: min(22rem, var(--radix-select-content-available-height));
+  }
+  .select-option { @apply relative flex min-h-11 cursor-pointer items-center rounded-xl py-3 pr-10 pl-3 text-base; outline: none; overflow-wrap: anywhere; user-select: none; }
+  .select-option[data-state="checked"] { @apply bg-funds-surface font-semibold; }
+  .select-option[data-highlighted] { @apply bg-accent text-white; }
+  .select-option[data-disabled] { @apply text-muted; cursor: not-allowed; }
+  .select-check { @apply absolute right-3 flex items-center; }
+  .select-scroll { @apply flex min-h-8 items-center justify-center bg-surface text-accent; }
+  .demo-sidebar { background-image: linear-gradient(160deg, #354d60, #293e50 55%, #243747); }
+  #sredstva, #finansije-sredstva, .bg-funds-surface { background-image: linear-gradient(125deg, #f3f7fa, #e8eff3); }
+  #kartica-pregled, #prijave-pregled, .card-balance { background-image: linear-gradient(130deg, #faf4ec, #f1e5d6); }
 }

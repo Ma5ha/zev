@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Select } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useDemo } from './demo-provider';
 import { DEMO_PROFILES, DEMO_TENANTS } from './model';
@@ -30,24 +31,20 @@ export function DemoControls() {
   function close() { dialog.current?.close(); setPending(null); }
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <label className="space-y-2 font-semibold">Demo ZEV
-          <select className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3 py-2 font-normal" value={view.tenantId}
-            onChange={event => { const tenant = DEMO_TENANTS.find(item => item.id === event.target.value); if (tenant) request({ type: 'context', tenantId: tenant.id, profileId: view.profileId }); }}>
-            {DEMO_TENANTS.map(tenant => <option key={tenant.id} value={tenant.id}>{tenant.label}</option>)}
-          </select>
-        </label>
-        <label className="space-y-2 font-semibold">Demo profil
-          <select className="mt-2 block min-h-11 w-full rounded-lg border border-control bg-surface px-3 py-2 font-normal" value={view.profileId}
-            onChange={event => { const profile = DEMO_PROFILES.find(item => item.id === event.target.value); if (profile) request({ type: 'context', tenantId: view.tenantId, profileId: profile.id }); }}>
-            {DEMO_PROFILES.map(profile => <option key={profile.id} value={profile.id}>{profile.label}</option>)}
-          </select>
-        </label>
-      </div>
-      <div className="flex flex-wrap gap-3">
+    <div>
+      <div className="demo-controls">
+        <div className="demo-context-field"><label htmlFor="demo-tenant" className="font-semibold">Demo ZEV</label>
+          <Select id="demo-tenant" className="mt-2" value={view.tenantId} options={DEMO_TENANTS.map(tenant => ({ value: tenant.id, label: tenant.label }))}
+            onValueChange={value => { const tenant = DEMO_TENANTS.find(item => item.id === value); if (tenant) request({ type: 'context', tenantId: tenant.id, profileId: view.profileId }); }} />
+        </div>
+        <div className="demo-context-field"><label htmlFor="demo-profile" className="font-semibold">Demo profil</label>
+          <Select id="demo-profile" className="mt-2" value={view.profileId} options={DEMO_PROFILES.map(profile => ({ value: profile.id, label: profile.label }))}
+            onValueChange={value => { const profile = DEMO_PROFILES.find(item => item.id === value); if (profile) request({ type: 'context', tenantId: view.tenantId, profileId: profile.id }); }} />
+        </div>
+      <div className="demo-actions">
         <Button variant="secondary" onClick={() => request({ type: 'reset', startedAt: new Date().toISOString() })}>Vrati početni demo</Button>
         <Button variant="secondary" onClick={() => request('exit')}>Izađi iz demoa</Button>
+      </div>
       </div>
       <dialog ref={dialog} aria-labelledby="potvrda-naslov" onCancel={() => setPending(null)}
         className="fixed inset-0 m-auto max-h-[90dvh] overflow-y-auto w-[calc(100%-2rem)] max-w-lg rounded-xl border border-line bg-surface p-6 text-ink shadow-xl backdrop:bg-black/40">

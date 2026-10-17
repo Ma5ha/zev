@@ -78,9 +78,12 @@ nx.json               # Nx podešavanja
 pnpm-workspace.yaml   # aplikacije i paketi obuhvaćeni workspace-om
 ```
 
-Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. DEV-02-H provjera i dorade su završeni u obimu [izvještaja](docs/demo-provjera-h.md). Slijedi korisnikov pregled DEV-02-I prema novoj instrukciji; backend i objavljivanje zahtijevaju zasebno odobrenje.
+Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. DEV-02-H provjera i dorade su završeni u obimu [izvještaja](docs/demo-provjera-h.md). DEV-02-I i DEV-02 završeni su nakon korisnikovog pregleda 17. oktobra 2026, za sada bez dorada; backend i objavljivanje zahtijevaju zasebno odobrenje.
 
 ## Dokumentacija
+
+Odabrani vizuelni smjer za doradu demoa: [Živo dvorište — stil i plan](docs/dizajn/zivo-dvoriste.md), druga prikazana verzija. Stil je primijenjen kroz DEV-02-J-B–J-D. Tehničke i ručne provjere opisane su u [design QA izvještaju](design-qa.md); novi korisnikov pregled J-E ostaje otvoren.
+
 
 - [Glavne upute agentima](AGENTS.md)
 - [Minimalni plan](docs/minimalni-plan.md)

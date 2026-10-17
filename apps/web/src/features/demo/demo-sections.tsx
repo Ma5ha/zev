@@ -1,17 +1,18 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { IconCoins } from '@tabler/icons-react';
 import type { DemoTenant, DemoUnit } from './model';
 import { formatDemoMoney } from './selectors';
 
 export function DemoSection({ id, title, href, linkLabel, children }: { id: string; title: string; href?: string; linkLabel?: string; children: ReactNode }) {
-  return <section id={id} aria-labelledby={`${id}-naslov`} className="min-w-0 space-y-4 rounded-xl border border-line bg-surface p-5 sm:p-6">
+  return <section id={id} aria-labelledby={`${id}-naslov`} className="demo-section min-w-0 space-y-4 p-5 sm:p-6">
     <div className="flex flex-wrap items-center justify-between gap-3"><h2 id={`${id}-naslov`} className="text-xl font-semibold">{title}</h2>{href && <Link href={href} className="inline-flex min-h-11 items-center font-semibold text-accent underline underline-offset-4">{linkLabel ?? 'Pogledaj sve'}</Link>}</div>
     {children}
   </section>;
 }
 
 export function FundsSummary({ cents, reconciledOn }: { cents: number; reconciledOn: string }) {
-  return <div><p className="text-sm text-muted">Saldo evidencije</p><p className="mt-2 text-4xl font-semibold tracking-tight tabular-nums">{formatDemoMoney(cents)}</p><p className="mt-3 text-sm leading-relaxed text-muted">Početna osnova: demo stanje na dan {formatDemoDate(reconciledOn)} Datum ostaje isti pri lokalnim unosima. Podaci nisu provjereni u banci.</p><p className="mt-2 text-sm text-muted">Dug i avans pojedinačnih kartica nisu dio ovog iznosa.</p></div>;
+  return <div className="flex items-start gap-5"><span className="hidden rounded-full bg-white/70 p-5 sm:block"><IconCoins size={40} stroke={1.5} aria-hidden="true" /></span><div className="min-w-0"><p className="text-sm text-muted">Saldo evidencije</p><p className="mt-2 money-display">{formatDemoMoney(cents)}</p><p className="mt-3 text-sm leading-relaxed text-muted">Početna osnova: demo stanje na dan {formatDemoDate(reconciledOn)} Datum ostaje isti pri lokalnim unosima. Podaci nisu provjereni u banci.</p><p className="mt-2 text-sm text-muted">Dug i avans pojedinačnih kartica nisu dio ovog iznosa.</p></div></div>;
 }
 
 export function UnitCards({ cards, linkToCards = false }: { cards: readonly (DemoUnit & { balanceCents?: number })[]; linkToCards?: boolean }) {
@@ -19,7 +20,7 @@ export function UnitCards({ cards, linkToCards = false }: { cards: readonly (Dem
 }
 
 export function WorkList({ works }: { works: DemoTenant['works'] }) {
-  return works.length ? <ul className="divide-y divide-line">{works.map(work => <li key={work.id} className="space-y-2 py-3"><h3 className="font-semibold"><Link className="inline-flex min-h-11 items-center text-accent underline underline-offset-4" href={`/demo/radovi/${work.id}`}>{work.title}</Link></h3><p className="text-sm text-muted">Status: {work.status}</p><p className="text-sm text-muted">Primljene ponude: {work.offers.length} · Ugovoreno: <span className="tabular-nums">{formatDemoMoney(work.contractedCents)}</span></p></li>)}</ul> : <p className="leading-relaxed text-muted">Nema radova u ovom prikazu.</p>;
+  return works.length ? <ul className="divide-y divide-line">{works.map(work => <li key={work.id} className="space-y-2 py-3"><h3 className="font-semibold"><Link className="inline-flex min-h-11 items-center text-accent underline underline-offset-4" href={`/demo/radovi/${work.id}`}>{work.title}</Link></h3><p><span className="status-badge">{work.status}</span></p><p className="text-sm text-muted">Primljene ponude: {work.offers.length} · Ugovoreno: <span className="tabular-nums">{formatDemoMoney(work.contractedCents)}</span></p></li>)}</ul> : <p className="leading-relaxed text-muted">Nema radova u ovom prikazu.</p>;
 }
 
 export function AnnouncementList({ announcements }: { announcements: DemoTenant['announcements'] }) {

@@ -7,6 +7,10 @@ description: "Oblikuj, implementiraj i pregledaj ZEV ekrane, komponente, navigac
 
 Primijeni Appleovu filozofiju na responzivni ZEV web/PWA: korisnik razumije novac, radove i narednu radnju bez posebne obuke. Smjernice podržavaju postojeći minimalni obim i DEV fazu; same ne pokreću implementaciju, objavljivanje ili kupovinu resursa.
 
+## Potvrđeni ZEV vizuelni smjer
+
+Aktuelni izbor korisnika od 17. oktobra 2026. je **Slate and Sand**, broj 2 iz posljednje serije varijacija. Obavezno pročitaj [aktuelni plan UI revizije](../../docs/dizajn/ui-revizija-paneli-select.md) i pregledaj [tačnu izabranu referencu](../../docs/dizajn/ui-revizija-varijacije/dashboard-2.png). Taj izbor ima prednost nad ranijim petrolej/zelenim smjerom „Živo dvorište“ i početnim plavim primjerima. [Raniji stil](../../docs/dizajn/zivo-dvoriste.md) ostaje istorija i kontekst postojeće izvedbe. Generisana slika određuje vizuelni cilj, ne poslovne podatke, nove funkcije ili dozvole. Poštuj ispravke teksta i sadržaja u aktuelnom planu. Status i odobrenje izvedbe vodi evidencija; izbor slike i spreman plan sami ne predstavljaju implementaciju.
+
 ## Prije odluke o interfejsu
 
 - Pročitaj projektni `AGENTS.md` i tražene planove. Utvrdi ulogu, cilj zadatka, dozvoljene podatke i stvarno stanje komponenti. Koristi postojeći vizuelni sistem ako već postoji.
