@@ -23,7 +23,9 @@ export type DemoTenant = Readonly<{
   works: readonly Readonly<{
     id: string;
     title: string;
+    description: string;
     status: 'Priprema' | 'U toku' | 'Završeno';
+    statusHistory: readonly Readonly<{ from: string; to: string }>[];
     offerDeadline: string;
     offers: readonly Readonly<{ id: string; contractor: string; amountCents: number }>[];
     selectedOfferId: string;

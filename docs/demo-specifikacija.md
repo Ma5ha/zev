@@ -157,3 +157,10 @@ Svaki unos ima pregled prije potvrde; zaduženja po jedinici/mjesecu se ne dupli
 Lokalni prilog prihvata PDF, JPEG, PNG ili WebP do 5 MB (demo izbor), sa pregledom slike i preuzimanjem lokalnog fajla. Blob URL se oslobađa pri uklanjanju prikaza/resetu/navigaciji; sam File ostaje samo uz dozvoljen zapis u memoriji do reseta ili izlaska. Privatni prilozi i napomene uplata uklanjaju se iz zajedničkog prikaza prije renderovanja; dostupni su kroz dozvoljenu karticu ili operateru. MIME provjera ovdje nije serverska provjera dokumenta.
 
 Kontrole unosa imaju sažetak i greške uz polja, uz očuvan nacrt. Interna veza za odlazak, promjena ZEV-a/profila i reset traže potvrdu za nepotvrđen unos; Escape čuva unos. Osvježavanje nepotvrđenog obrasca koristi browser upozorenje kada ga browser podržava. Browser back/forward može zadržati nacrt u layoutu umjesto dijaloga; sačuvani podaci ostaju u istom demo kontekstu. Stvarne mrežne greške, storno, audit i sigurno knjiženje ostaju backend faze.
+
+
+## 11. Implementaciona dopuna DEV-02-F
+
+Detalj `/demo/radovi/[workId]` prikazuje opis, rok, dvije uporedive sintetičke ponude, izabrani Servis B, ugovoreno i zbir povezanih rashoda iz finansija. Operater mijenja status Priprema/U toku/Završeno; lokalni slijed promjena nestaje pri resetu. Završeni radovi imaju zasebnu listu. Vlasnik i korisnik prostora čitaju zajedničke radove bez izmjena. Nedostajući rad u aktivnom ZEV-u ne otkriva sadržaj drugog ZEV-a.
+
+Povezani trošak unosi se postojećom finansijskom formom uz izbor rada; linkovi povezuju detalj rada i finansijsku stavku. Ne postoji drugi upis isplate niti ručni zbir plaćenog. Izbor ponude/ugovoreni iznos ostaju početni demo podaci; uređivanje ugovora i unos radova/ponuda pripadaju produkcionoj razradi DEV-05. Ovo nije formalna odluka niti stvarni audit.

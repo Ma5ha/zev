@@ -7,7 +7,7 @@ import { AnnouncementList, DemoSection, WorkList } from './demo-sections';
 
 export function DemoWorks() {
   const { view } = useDemo();
-  return <div className="space-y-6"><PageHeading eyebrow="Održavanje zgrade" title="Radovi">Početni pregled radova i njihovih statusa.</PageHeading><DemoSection id="radovi-lista" title="Aktivni radovi"><WorkList works={view.works.filter(work => work.status !== 'Završeno')} /></DemoSection><Notice>Detalji radova, poređenje ponuda i povezane isplate dolaze u narednim koracima.{view.permissions.canManageWorks ? ' Promjena statusa još nije dostupna.' : ''}</Notice></div>;
+  return <div className="space-y-6"><PageHeading eyebrow="Održavanje zgrade" title="Radovi">Otvorite rad za poređenje ponuda, status i povezane isplate.</PageHeading><DemoSection id="radovi-lista" title="Aktivni radovi"><WorkList works={view.works.filter(work => work.status !== 'Završeno')} /></DemoSection><DemoSection id="zavrseni-radovi" title="Završeni radovi"><WorkList works={view.works.filter(work => work.status === 'Završeno')} /></DemoSection></div>;
 }
 
 export function DemoAnnouncements() {

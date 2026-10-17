@@ -44,7 +44,7 @@ export function hasUnsavedNote(state: DemoState) {
 }
 
 export function hasDemoChanges(state: DemoState) {
-  return hasUnsavedNote(state) || state.financeDraft !== null || Object.values(state.tenants).some(tenant => tenant.note !== '' || tenant.entries.length > 0 || tenant.assessments.length > 0);
+  return hasUnsavedNote(state) || state.financeDraft !== null || Object.values(state.tenants).some(tenant => tenant.note !== '' || tenant.entries.length > 0 || tenant.assessments.length > 0 || tenant.works.some(work => work.statusHistory.length > 0));
 }
 
 export function formatDemoMoney(cents: number) {

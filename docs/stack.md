@@ -23,7 +23,7 @@ Status: korisnik je prihvatio predloženi stack uz izbor **Nx-a umjesto Turborep
 
 ## Organizacija aplikacija i zajedničkog koda
 
-Nx i pnpm osnova je inicijalizovana u glavnom folderu repozitorijuma. Nx je zaključan na 23.3.0, pnpm na 10.34.7, a `.nvmrc` navodi korišćeni Node.js 22.22.1. U DEV-02-B generisan je `apps/web` sa Next.js 16.4.2, Reactom 19.3.1, Tailwindom 4.3.3, TypeScriptom 6.0.3 i ESLint konfiguracijom. Web ima landing, razvojni pregled UI komponenti, demo kontekst iz DEV-02-C (dva sintetička ZEV-a, tri profila, podaci i stanje u memoriji) te responzivnu navigaciju pet cjelina i početne preglede iz DEV-02-D. DEV-02-E dodaje lokalne finansijske unose, kartice i mjesečni obračun; preostali moduli slijede u F–G. `libs/` još sadrži samo `.gitkeep`; Expo i Supabase nisu inicijalizovani. Ostali paketi dodaju se kada budu potrebni odgovarajućoj fazi.
+Nx i pnpm osnova je inicijalizovana u glavnom folderu repozitorijuma. Nx je zaključan na 23.3.0, pnpm na 10.34.7, a `.nvmrc` navodi korišćeni Node.js 22.22.1. U DEV-02-B generisan je `apps/web` sa Next.js 16.4.2, Reactom 19.3.1, Tailwindom 4.3.3, TypeScriptom 6.0.3 i ESLint konfiguracijom. Web ima landing, razvojni pregled UI komponenti, demo kontekst iz DEV-02-C (dva sintetička ZEV-a, tri profila, podaci i stanje u memoriji) te responzivnu navigaciju pet cjelina i početne preglede iz DEV-02-D. DEV-02-E dodaje lokalne finansijske unose, kartice i mjesečni obračun; DEV-02-F dodaje detalje radova, ponude, status i povezane isplate. Preostali modul slijedi u G. `libs/` još sadrži samo `.gitkeep`; Expo i Supabase nisu inicijalizovani. Ostali paketi dodaju se kada budu potrebni odgovarajućoj fazi.
 
 Predložena ciljna struktura:
 

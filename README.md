@@ -4,7 +4,7 @@ Nx monorepo za web i buduću mobilnu aplikaciju za zajednice etažnih vlasnika.
 
 ## Trenutni obim
 
-Next.js web demo u `apps/web` koristi TypeScript, Tailwind CSS i zajedničke UI tokene. `/` je javni landing, `/demo` pregled zgrade, a responzivna navigacija vodi na Finansije, Radove, Oglasnu tablu i Ankete i prijave. `/demo/prava` objašnjava tri demo profila, dok `/ui` ostaje razvojni pregled osnovnih komponenti. DEV-02-D dodaje landing, navigaciju i početne prikaze; DEV-02-E dodaje lokalni finansijski demo. Detalji radova i unosi F–G još nisu dostupni.
+Next.js web demo u `apps/web` koristi TypeScript, Tailwind CSS i zajedničke UI tokene. `/` je javni landing, `/demo` pregled zgrade, a responzivna navigacija vodi na Finansije, Radove, Oglasnu tablu i Ankete i prijave. `/demo/prava` objašnjava tri demo profila, dok `/ui` ostaje razvojni pregled osnovnih komponenti. DEV-02-D dodaje landing, navigaciju i početne prikaze; DEV-02-E dodaje lokalni finansijski demo. DEV-02-F dodaje detalje radova, poređenje ponuda, status i povezane isplate. Unosi G još nisu dostupni.
 
 Za pokretanje nisu potrebni `.env`, backend ključevi, Supabase projekat ili baza. Mobilna aplikacija još nije generisana. Nema stvarne prijave, trajne pohrane ili objavljivanja.
 
@@ -78,7 +78,7 @@ nx.json               # Nx podešavanja
 pnpm-workspace.yaml   # aplikacije i paketi obuhvaćeni workspace-om
 ```
 
-Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. Sljedeći razvojni korak je DEV-02-F: radovi i ponude, nakon korisnikove instrukcije.
+Nx dodatke `@nx/*` držati na istoj verziji kao paket `nx` (23.3.0). Postavljeni su Next.js 16.4.2, React 19.3.1 i Tailwind 4.3.3; tačno instalirane verzije ostalih zavisnosti vodi lockfile. Sljedeći razvojni korak je DEV-02-G: obavještenja, prijave i ankete, nakon korisnikove instrukcije.
 
 ## Dokumentacija
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { LinkButton } from '@/components/ui/button';
 import { PageHeading } from '@/components/ui/page-heading';
 import { DemoSection, formatDemoDate } from '../demo-sections';
@@ -22,7 +23,7 @@ export function FinanceEntryDetail({ entryId }: { entryId: string }) {
     <DemoSection id="stavka" title="Detalji stavke">
       <dl className="grid gap-4 sm:grid-cols-2"><div><dt className="text-sm text-muted">{entry.kind === 'expense' ? 'Rashod' : 'Prihod'}</dt><dd className="mt-1 text-2xl font-semibold tabular-nums">{formatDemoMoney(entry.amountCents)}</dd></div><div><dt className="text-sm text-muted">Datum</dt><dd>{formatDemoDate(entry.date)}</dd></div><div><dt className="text-sm text-muted">Kategorija</dt><dd>{entry.category}</dd></div>{entry.author && <div><dt className="text-sm text-muted">Unio</dt><dd>{entry.author}</dd></div>}</dl>
       {entry.kind === 'payment' && view.permissions.canWriteFinances && <><p>Jedinica: {view.cards.find(unit => unit.id === entry.unitId)?.label}</p><p className="text-muted">Napomena: {entry.description || 'Nije navedena.'}</p></>}
-      {entry.workId && <p>Povezani rad: {view.works.find(work => work.id === entry.workId)?.title}</p>}
+      {entry.workId && <p>Povezani rad: <Link className="inline-flex min-h-11 items-center text-accent underline" href={`/demo/radovi/${entry.workId}`}>{view.works.find(work => work.id === entry.workId)?.title}</Link></p>}
       {entry.attachment && <AttachmentPreview file={entry.attachment} />}
       {entry.kind === 'payment' && !view.permissions.canWriteFinances && <p className="text-sm text-muted">Privatni podaci uplate dostupni su kroz dozvoljenu karticu.</p>}
       <p className="text-sm text-muted">Originalni demo unos. Ispravke i storno biće razrađeni u backend fazi; finansijska istorija se ovdje ne briše.</p>

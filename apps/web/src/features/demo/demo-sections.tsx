@@ -19,7 +19,7 @@ export function UnitCards({ cards, linkToCards = false }: { cards: readonly (Dem
 }
 
 export function WorkList({ works }: { works: DemoTenant['works'] }) {
-  return works.length ? <ul className="divide-y divide-line">{works.map(work => <li key={work.id} className="space-y-2 py-3"><h3 className="font-semibold">{work.title}</h3><p className="text-sm text-muted">Status: {work.status}</p><p className="text-sm text-muted">Primljene ponude: {work.offers.length} · Ugovoreno: <span className="tabular-nums">{formatDemoMoney(work.contractedCents)}</span></p></li>)}</ul> : <p className="leading-relaxed text-muted">Trenutno nema aktivnih radova. Radovi ove zgrade prikazivaće se ovdje.</p>;
+  return works.length ? <ul className="divide-y divide-line">{works.map(work => <li key={work.id} className="space-y-2 py-3"><h3 className="font-semibold"><Link className="inline-flex min-h-11 items-center text-accent underline underline-offset-4" href={`/demo/radovi/${work.id}`}>{work.title}</Link></h3><p className="text-sm text-muted">Status: {work.status}</p><p className="text-sm text-muted">Primljene ponude: {work.offers.length} · Ugovoreno: <span className="tabular-nums">{formatDemoMoney(work.contractedCents)}</span></p></li>)}</ul> : <p className="leading-relaxed text-muted">Nema radova u ovom prikazu.</p>;
 }
 
 export function AnnouncementList({ announcements }: { announcements: DemoTenant['announcements'] }) {

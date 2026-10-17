@@ -6,6 +6,7 @@ import { demoPermissions } from './selectors';
 export type DemoAction =
   | { type: 'finance-draft'; draft: FinanceDraft | null }
   | { type: 'finance-save' }
+  | { type: 'work-status'; workId: string; status: 'Priprema' | 'U toku' | 'Završeno' }
   | { type: 'context'; tenantId: TenantId; profileId: ProfileId }
   | { type: 'draft-note'; value: string }
   | { type: 'save-note' }
@@ -14,6 +15,15 @@ export type DemoAction =
 
 export function demoReducer(state: DemoState, action: DemoAction): DemoState {
   switch (action.type) {
+    case 'work-status': {
+      const tenant = state.tenants[state.tenantId];
+      const work = tenant.works.find(item => item.id === action.workId);
+      if (!demoPermissions(state.profileId).canManageWorks || !work || work.status === action.status || !['Priprema', 'U toku', 'Završeno'].includes(action.status)) return state;
+      return { ...state, message: `Status rada u demou: ${action.status}.`, tenants: {
+        ...state.tenants, [tenant.id]: { ...tenant, works: tenant.works.map(item => item.id === work.id
+          ? { ...item, status: action.status, statusHistory: [...item.statusHistory, { from: item.status, to: action.status }] } : item) },
+      } };
+    }
     case 'finance-draft':
       return demoPermissions(state.profileId).canWriteFinances
         ? { ...state, financeDraft: action.draft, message: '' } : state;

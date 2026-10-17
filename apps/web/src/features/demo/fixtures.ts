@@ -15,6 +15,7 @@ export function createDemoState(startedAt: string): DemoState {
         ],
         works: [{
           id: 'javor-vrata', title: 'Popravka ulaznih vrata', status: 'Priprema',
+          description: 'Podešavanje šarki, zamjena brave i provjera zatvaranja zajedničkih ulaznih vrata. Sintetički primjer rada.', statusHistory: [],
           offerDeadline: '2026-10-10', selectedOfferId: 'ponuda-b', contractedCents: 115000,
           offers: [
             { id: 'ponuda-a', contractor: 'Servis A', amountCents: 105000 },
