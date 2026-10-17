@@ -609,14 +609,17 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 - Stvarno stanje: grana `master`, HEAD `67d4dd5` već sadrži ranije UI izmjene; `origin` je sada podešen na `https://github.com/Ma5ha/zev.git`. Ranija napomena da remote nedostaje opisuje prethodno stanje i više nije aktuelna. Ne kreira se novi udaljeni repozitorijum.
 - Obuhvat: potvrđene role/matrica, odlaganje UI koraka, lokalni Supabase staging, migracija/seed, razvojne komande i dokumentacija. Ranije uspješne provjere ostaju važeće jer izvorni kod nije mijenjan ovim zadatkom. `git diff --check` prolazi; lokalni `.temp` i env/tajne nisu u obuhvatu.
 
+- OPS-STAGING-COMMIT — ZAVRŠENO: kreiran `2503bfe` (`feat(db): add local Supabase staging and agreed access model`), push na `https://github.com/Ma5ha/zev.git`/`master` uspješan (`67d4dd5..2503bfe`). Git indeks je prvo odbijen sandboxom; ponavljanje uz odobrenje prošlo. Uključeno 17 pregledanih fajlova; ignorisani env/.temp nisu komitovani. Ova dopuna evidencije ide u zaseban dokumentacioni commit.
+- Ispravka ranijeg OPS-UI-COMMIT statusa: `67d4dd5` već sadrži UI izmjene i bio je jednak lokalnom origin/master prije ovog pusha; uspješan push nove grane potvrđuje i njegovu prisutnost na udaljenoj istoriji. Stavka sada ZAVRŠENO. Nisu ponavljane aplikacione provjere jer ovaj zadatak ne mijenja aplikacioni kod.
+
 ## Statistika i pregled statusa
 
 Ukupan broj stavki: **62**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 39 | Detalji i preostalo u završnoj tabeli. |
-| U TOKU | 9 | Detalji i preostalo u završnoj tabeli. |
+| ZAVRŠENO | 41 | Detalji i preostalo u završnoj tabeli. |
+| U TOKU | 7 | Detalji i preostalo u završnoj tabeli. |
 | PLANIRANO | 7 | Detalji i preostalo u završnoj tabeli. |
 | BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
 | PAUZIRANO | 6 | Detalji i preostalo u završnoj tabeli. |
@@ -640,8 +643,6 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 - **DEV-02-K-C — PAUZIRANO**: Radix 2.4.1, zajednička komponenta i sve lokacije migrirane; lint/typecheck/build, izbor ZEV-a, Home/Escape i povrat fokusa potvrđeni. Preostaje puna matrica validacije, nacrta, profila, mobilnog dodira i 200% teksta. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
 - **DEV-02-K-D — PAUZIRANO**: Nakon K-C: okvir, pregled, kartica i ostali postojeći ekrani. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
 - **DEV-02-K-E — PAUZIRANO**: Nakon K-D: tehničke i ručne provjere, screenshotovi i zaseban korisnikov ishod. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
-- **OPS-UI-COMMIT — U TOKU**: Priprema lokalnog commita na master; push blokiran jer nijedan Git remote nije podešen. Potreban URL repozitorijuma.
-- **OPS-STAGING-COMMIT — U TOKU**: Pregled završen; slijede commit i push na origin/master.
 
 ## Status svih dogovorenih stavki
 
@@ -709,7 +710,7 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-02-K-C | Zajednički moderni select i migracija | PAUZIRANO | Radix 2.4.1, zajednička komponenta i sve lokacije migrirane; lint/typecheck/build, izbor ZEV-a, Home/Escape i povrat fokusa potvrđeni. Preostaje puna matrica validacije, nacrta, profila, mobilnog dodira i 200% teksta. Odloženo na korisnikov zahtjev; povratak na novu instrukciju. |
 | DEV-02-K-D | Primijeniti reviziju na ekrane | PAUZIRANO | Nakon K-C: okvir, pregled, kartica i ostali postojeći ekrani. Odloženo na korisnikov zahtjev; povratak na novu instrukciju. |
 | DEV-02-K-E | Provjera revizije i korisnikov pregled | PAUZIRANO | Nakon K-D: tehničke i ručne provjere, screenshotovi i zaseban korisnikov ishod. Odloženo na korisnikov zahtjev; povratak na novu instrukciju. |
-| OPS-UI-COMMIT | Komitovati i pushati dosadašnje UI izmjene | U TOKU | Priprema lokalnog commita na master; push blokiran jer nijedan Git remote nije podešen. Potreban URL repozitorijuma. |
+| OPS-UI-COMMIT | Komitovati i pushati dosadašnje UI izmjene | ZAVRŠENO | UI commit 67d4dd5 postoji na origin/master; potvrđeno pri uspješnom staging pushu. Ranija prepreka remote-a više ne postoji. |
 | DOC-UI-PAUSE-1 | Evidentirati odlaganje preostalih UI koraka | ZAVRŠENO | K-B–K-E pauzirani uz očuvane rezultate i preostali obim; usklađeni planovi i pregled statusa. Dokumentaciona provjera; aplikacija nije mijenjana. |
 | DEV-03-A | Lokalna staging baza i prenosiva osnova | ZAVRŠENO | Lokalni Supabase radi na 127.0.0.1, migracija/seed/audit i zatvoren pristup SQL provjereni; [uputstvo](lokalni-staging.md). Puna Auth/RLS/UI integracija preostaje u DEV-03. |
-| OPS-STAGING-COMMIT | Commit i push lokalne baze i potvrđenih odluka | U TOKU | Pregled završen; slijede commit i push na origin/master. |
+| OPS-STAGING-COMMIT | Commit i push lokalne baze i potvrđenih odluka | ZAVRŠENO | Commit 2503bfe pushan na origin/master; dokumentaciona potvrda u narednom commitu. |
