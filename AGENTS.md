@@ -86,6 +86,14 @@ U istoriju dodaj novi zapis; ne briši prethodne zapise da bi promijenio prikaz 
 - Ne nastavljaj pauziranu izradu niti objavljuj aplikaciju na osnovu same stavke „sljedeći korak“. Potrebna je instrukcija korisnika za nastavak.
 - Završni odgovor treba kratko navesti rezultat, važna ograničenja i link do ažurirane evidencije kada je relevantna.
 
+## Commit i push — samo na izričit nalog korisnika
+
+- Ne izvršavaj commit ili push na svoju inicijativu. Završetak zadatka, plan i „sljedeći korak“ nisu odobrenje za ove radnje.
+- Kada korisnik izričito naloži commit i/ili push (npr. „Komituj i pushaj“), to je odobrenje za tražene Git radnje u obimu tog naloga. Izvrši ih bez dodatnog razgovornog pitanja za potvrdu.
+- Nalog samo za commit ne odobrava push. Raniji izvršeni nalog nije trajno odobrenje za buduće zadatke.
+- Prije izvršavanja provjeri izmjene, ciljnu granu/remote i da tajne ili lokalni kredencijali ne ulaze u commit. Nalog za običan push ne odobrava force push, brisanje udaljenih grana ili prepisivanje istorije.
+- Ove upute ne dodjeljuju sistemske dozvole niti zaobilaze sandbox ili obavezno odobrenje alata. Ako alat zahtijeva odobrenje, zatraži ga kroz predviđeni mehanizam, bez dodatnog razgovornog pitanja; trajna tehnička dozvola važi samo ako je stvarno odobrena u okruženju.
+
 ## Testovi
 
 - Ne piši, ne generiši i ne dodaj testove dok korisnik to izričito ne naredi. Ovo važi za unit, integration, end-to-end i snapshot testove, kao i za automatsko generisanje testova pri kreiranju aplikacija ili biblioteka.
