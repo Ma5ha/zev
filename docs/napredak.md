@@ -642,7 +642,7 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 
 - Korisnik je izričito naložio commit i push dopune `AGENTS.md` i evidencije. Pregled izmjena, grane `master`, remote-a `origin` i `git diff --check` prošli su.
 - OPS-GIT-AUTH-COMMIT-1 — ZAVRŠENO: priprema i dokumentaciona provjera; nema aplikacionih izmjena ili potrebe za runtime provjerom.
-- OPS-GIT-AUTH-COMMIT-2 — U TOKU: commit, push i provjera usklađenosti lokalnog/udaljenog HEAD-a.
+- OPS-GIT-AUTH-COMMIT-2 — ZAVRŠENO: commit `88c1ed3` pushan na `origin/master`; uspjeh potvrđen Git izlazom. Završna potvrda evidencije ide u prateći dokumentacioni commit.
 
 ## Statistika i pregled statusa
 
@@ -650,8 +650,8 @@ Ukupan broj stavki: **66**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 44 | Detalji i preostalo u završnoj tabeli. |
-| U TOKU | 8 | Detalji i preostalo u završnoj tabeli. |
+| ZAVRŠENO | 45 | Detalji i preostalo u završnoj tabeli. |
+| U TOKU | 7 | Detalji i preostalo u završnoj tabeli. |
 | PLANIRANO | 7 | Detalji i preostalo u završnoj tabeli. |
 | BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
 | PAUZIRANO | 6 | Detalji i preostalo u završnoj tabeli. |
@@ -661,7 +661,6 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 
 ### Stavke koje traže pažnju
 
-- **OPS-GIT-AUTH-COMMIT — U TOKU**: commit, push i provjera HEAD-a.
 
 
 - **ZEV-004 — PAUZIRANO**: Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena.
@@ -752,4 +751,4 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-03-B | Serverske operacije, RLS i lokalni identiteti | ZAVRŠENO | Migracije 002–006, uski RPC-i/RLS, sintetički Auth identiteti i ručne SQL/HTTP provjere; [izvještaj](pristup-bazi-b.md). Poslovni moduli i web Auth/UI preostaju. |
 | OPS-ACCESS-COMMIT | Commit i push serverskih operacija DEV-03-B | ZAVRŠENO | Commit `cbea9ac` pushan na origin/master; Git potvrdio uspješan prenos. Završna evidencija u pratećem dokumentacionom commitu. |
 | DOC-GIT-AUTH | Git radnje samo na nalog, bez ponovne razgovorne potvrde | ZAVRŠENO | `AGENTS.md` definiše izričit nalog i zabranu samoinicijativnog commita/pusha; sistemske dozvole ostaju zasebne. |
-| OPS-GIT-AUTH-COMMIT | Commit i push pravila Git odobrenja | U TOKU | Priprema provjerena; slijede commit, push na origin/master i provjera HEAD-a. |
+| OPS-GIT-AUTH-COMMIT | Commit i push pravila Git odobrenja | ZAVRŠENO | Commit `88c1ed3` pushan na origin/master; završna evidencija u pratećem dokumentacionom commitu. |
