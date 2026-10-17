@@ -631,7 +631,7 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 
 - Korisnik je zatražio commit i push svih trenutnih izmjena DEV-03-B. Pregledani su Git status, obim izmjena, lokalni seed i izvještaj prethodnih provjera; `git diff --check` prolazi.
 - OPS-ACCESS-COMMIT-1 — pregled i priprema: ZAVRŠENO. Uključuju se migracije 002–006, skripta za lokalne sintetičke identitete i prateća dokumentacija/konfiguracija. Ignorisani lokalni kredencijali ne ulaze u commit.
-- OPS-ACCESS-COMMIT-2 — commit i push: U TOKU. Slijede commit na `master`, push na `origin/master` i provjera udaljenog identifikatora. Ranije SQL/HTTP provjere nisu ponavljane za ovu Git operaciju; nema novih testova ili objavljivanja aplikacije.
+- OPS-ACCESS-COMMIT-2 — commit i push: ZAVRŠENO. Commit `cbea9ac` uspješno je pushan na `origin/master` (Git potvrda `59bf754..cbea9ac`). Provjereni su sintaksa skripte (`node --check`), diff i ignorisanje lokalnih kredencijala. Završna evidencija prati se zasebnim dokumentacionim commitom. Ranije SQL/HTTP provjere nisu ponavljane za ovu Git operaciju; nema novih testova ili objavljivanja aplikacije.
 
 ## Statistika i pregled statusa
 
@@ -639,8 +639,8 @@ Ukupan broj stavki: **64**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 42 | Detalji i preostalo u završnoj tabeli. |
-| U TOKU | 8 | Detalji i preostalo u završnoj tabeli. |
+| ZAVRŠENO | 43 | Detalji i preostalo u završnoj tabeli. |
+| U TOKU | 7 | Detalji i preostalo u završnoj tabeli. |
 | PLANIRANO | 7 | Detalji i preostalo u završnoj tabeli. |
 | BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
 | PAUZIRANO | 6 | Detalji i preostalo u završnoj tabeli. |
@@ -650,7 +650,6 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 
 ### Stavke koje traže pažnju
 
-- **OPS-ACCESS-COMMIT — U TOKU**: commit i push pripremljenih DEV-03-B izmjena.
 
 - **ZEV-004 — PAUZIRANO**: Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena.
 - **ZEV-006 — BLOKIRANO**: Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen.
@@ -738,4 +737,4 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-03-A | Lokalna staging baza i prenosiva osnova | ZAVRŠENO | Lokalni Supabase radi na 127.0.0.1, migracija/seed/audit i zatvoren pristup SQL provjereni; [uputstvo](lokalni-staging.md). Puna Auth/RLS/UI integracija preostaje u DEV-03. |
 | OPS-STAGING-COMMIT | Commit i push lokalne baze i potvrđenih odluka | ZAVRŠENO | Commit 2503bfe pushan na origin/master; dokumentaciona potvrda u narednom commitu. |
 | DEV-03-B | Serverske operacije, RLS i lokalni identiteti | ZAVRŠENO | Migracije 002–006, uski RPC-i/RLS, sintetički Auth identiteti i ručne SQL/HTTP provjere; [izvještaj](pristup-bazi-b.md). Poslovni moduli i web Auth/UI preostaju. |
-| OPS-ACCESS-COMMIT | Commit i push serverskih operacija DEV-03-B | U TOKU | Priprema provjerena; preostaju commit, push na origin/master i provjera udaljenog identifikatora. |
+| OPS-ACCESS-COMMIT | Commit i push serverskih operacija DEV-03-B | ZAVRŠENO | Commit `cbea9ac` pushan na origin/master; Git potvrdio uspješan prenos. Završna evidencija u pratećem dokumentacionom commitu. |
