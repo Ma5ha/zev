@@ -827,14 +827,16 @@ FIN-DELEGIRANO — ZAVRŠENO: odluke zapisane u `odluke-finansije.md`, usklađen
 - Na izričit nalog korisnika preuzet commit i push svih šest trenutnih dokumentacionih izmjena: pregled DEV-03-E, finansijske odluke, matrica prava, pilot specifikacija, razvojni plan i evidencija.
 - OPS-FIN-DOCS-COMMIT — U TOKU. Pregledani sadržaj, Git status, grana `master` i remote `origin` (`Ma5ha/zev`); `git diff --check` prolazi. Nisu pronađeni kredencijali u pregledanim izmjenama. Preostaje kreiranje commita i običan push, pa provjera usklađenosti sa remote-om. Aplikacija i baza nisu mijenjane.
 
+- OPS-FIN-DOCS-COMMIT — ZAVRŠENO: commit `e0342d6` kreiran i uspješno pushan na `origin/master` (Git potvrdio `0d70694..e0342d6`). Završna evidencija ide u prateći dokumentacioni commit. Provjera staged diff-a prošla; izvršne provjere nisu ponavljane za dokumentacionu izmjenu.
+
 ## Statistika i pregled statusa
 
 Ukupan broj stavki: **91**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 67 | Rezultat provjeren u navedenim granicama. |
-| U TOKU | 9 | Djelimično završeno; preostalo navedeno ispod. |
+| ZAVRŠENO | 68 | Rezultat provjeren u navedenim granicama. |
+| U TOKU | 8 | Djelimično završeno; preostalo navedeno ispod. |
 | PLANIRANO | 7 | Nije započeto; nije automatski odobreno. |
 | BLOKIRANO | 1 | Potreban konkretan odgovor ili spoljni uslov. |
 | PAUZIRANO | 7 | Korisnik je odložio nastavak. |
@@ -844,7 +846,6 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 
 ### Stavke koje traže pažnju
 
-- **OPS-FIN-DOCS-COMMIT — U TOKU**: Preostaju commit, push i potvrda remote-a.
 
 - **ZEV-004 — PAUZIRANO**: Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena.
 - **ZEV-006 — BLOKIRANO**: Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen.
@@ -961,4 +962,4 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | FIN-PRILOZI | Potvrditi privatnost finansijskih priloga | ZAVRŠENO | Zajednički računi članovima nakon provjere/redakcije; pojedinačne uplate po kartici/periodu. Postupak i roditeljske veze nisu implementirani. |
 | FIN-AVANS | Potvrditi automatsko pokriće narednog zaduženja avansom | ZAVRŠENO | Postojeći avans pokriva naredno zaduženje bez novog priliva; FIN-04/PIL-07 usklađeni. Bez prenosa između vlasnika ili implementacije. |
 | FIN-DELEGIRANO | Donijeti preostale finansijske odluke po ovlašćenju korisnika | ZAVRŠENO | Pravila FIN-01–11 i sintetički parametri dokumentovani; specifikacija/plan/pregled E usklađeni. Stvarni podaci prije pilota, C/D pregled i nalog DEV-04 preostaju. Bez implementacije. |
-| OPS-FIN-DOCS-COMMIT | Commit i push pregleda E i finansijskih odluka | U TOKU | Sadržaj i cilj master/origin provjereni; preostaju commit, push i potvrda remote-a. |
+| OPS-FIN-DOCS-COMMIT | Commit i push pregleda E i finansijskih odluka | ZAVRŠENO | Commit `e0342d6` uspješno pushan na origin/master; šest dokumentacionih fajlova. Završna evidencija u pratećem commitu. |
