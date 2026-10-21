@@ -1,6 +1,6 @@
 # Evidencija napretka — ZEV
 
-Posljednje ažuriranje: 17. oktobar 2026. (Europe/Belgrade).
+Posljednje ažuriranje: 21. oktobar 2026. (Europe/Belgrade).
 
 ## Trenutno stanje
 
@@ -708,30 +708,151 @@ Aktuelni status svih dogovorenih stavki nalazi se u [završnoj tabeli](#status-s
 - Pregledani fajlovi, grana/remote, staged diff i `git diff --check`; env/lokalni kredencijali ostaju ignorisani. Provjera vrijednosti lokalnih ključeva i privatnih key blokova u izmijenjenim fajlovima nije našla poklapanja. Raniji D lint/typecheck/build/SQL i ručne provjere nisu ponavljani jer aplikacioni kod nije mijenjan u Git zadatku.
 - Ova potvrda čuva se u pratećem dokumentacionom commitu u okviru istog naloga. DEV-03 ostaje U TOKU; nema objavljivanja ili nastavka drugih faza.
 
+### 17. oktobar 2026. — E-0: odobren završni pregled DEV-03 u novom chatu
+
+- Korisnik je naložio „Pokreni iduci korak u novom chatu“ nakon prijedloga pregleda C/D, zaključka kriterijuma DEV-03 i pripreme finansijskih odluka. E-0 U TOKU: kreiranje novog lokalnog chata i predaja; DEV-03-E PLANIRANO, odobren za izvršavanje u novom chatu.
+- Preduslovi: HEAD `0d70694` na master i origin/master; radno stablo čisto prije ovog zapisa. A–D završeni u dokumentovanim lokalnim granicama. Novi chat prvo provjerava dokumente, Git i stvarno stanje; ne ponavlja završene provjere bez razloga.
+- Obim E: pregled kriterijuma cijelog DEV-03, jasno odvajanje tehničke provjere od stvarnog korisnikovog pregleda C/D, popis preostalih operativnih uslova i konkretnih finansijskih odluka prije DEV-04. Korisnikov pregled C nije potvrđen i ne smije biti izmišljen. Ovo ne odobrava implementaciju DEV-04, udaljene resurse, objavljivanje, nove testove ili Git upise. K-B–K-E ostaju pauzirani.
+
+### 17. oktobar 2026. — DEV-03-E: preuzimanje i plan pregleda
+
+- E-0 ZAVRŠENO: predaja preuzeta u chatu `01a14b25-e648-7103-95f2-332342167772`. Potvrđen HEAD `0d70694`; jedina zatečena izmjena je zapis predaje u ovom dokumentu.
+- DEV-03-E U TOKU. E-1: povezati kriterijume plana sa stvarnim kodom i postojećim dokazima A–D; E-2: pripremiti korisnikov pregled C/D i operativne uslove; E-3: pripremiti finansijske odluke PIL-05–09 i rubne slučajeve promjene vlasništva; E-4: uskladiti dokumentaciju, provjeriti linkove/statistiku/diff.
+- Pročitani obavezni dokumenti, C/D izvještaji, matrica i recovery postupci; pregledani Auth/proxy/server i endpoint priloga. Koristi se projektni UI skill za uputstvo pregleda; nema novog UI dizajna ili tvrdnje o novoj vizuelnoj provjeri.
+- Nema promjene baze ili aplikacije, ponavljanja ranijih lint/build/SQL provjera, DEV-04 implementacije, novih testova, udaljenih resursa ili Git upisa.
+
+### 17. oktobar 2026. — DEV-03-E: rezultat nezavisnog pregleda
+
+- E-1 ZAVRŠENO: `docs/pregled-dev-03-e.md` povezuje korake/kriterijume plana sa B/C/D dokazima i pregledanim Auth/proxy/portal/Storage kodom. Prethodni lint/typecheck/build/SQL/browser ishodi nisu ponavljani niti predstavljeni kao nova provjera.
+- E-2 ZAVRŠENO: isti dokument daje konkretno uputstvo za lični pregled C/D i tabelu operativnih uslova sa odgovornom ulogom i trenutkom razrješenja. Nema nove vizuelne provjere ili potvrde pune pristupačnosti. Skill i relevantne reference pročitani; K ostaje pauziran.
+- E-3 ZAVRŠENO: `docs/odluke-finansije.md` razrađuje PIL-05–09 kroz FIN-01–11, uključujući promjenu vlasništva, povrat i priloge; sintetički primjer završava sa 950,00 KM nakon korekcije i povrata. Nijedan prijedlog nije potvrđen samom pripremom.
+- Usklađeni aktuelni pregled `docs/razvojni-plan.md` i dopuna `docs/matrica-prava.md`; sačuvani istorijski opisi. DEV-03 ostaje U TOKU: lokalni A–D dokazi nisu korisnikovo prihvatanje ili stvarna operativna spremnost. Roditeljski poslovni prilozi pripadaju zavisnim modulima, nisu proglašeni kvarom D.
+- E-4 ZAVRŠENO: lokalni linkovi izmijenjene dokumentacije, jedinstvenost ID-jeva, svih šest zbirnih statusa i položaj završne tabele provjereni; `git diff --check` prolazi.
+- E-5 BLOKIRANO: čeka se stvarni korisnikov pregled C/D i odgovori na otvorene finansijske odluke. Poslana konkretna pitanja; odsustvo odgovora nije potvrda. Nezavisni pregledni/dokumentacioni koraci završeni; nema implementacije DEV-04.
+- Sljedeće odobreno: evidentirati odgovore i ishod pregleda, uskladiti zaključak DEV-03. Novi implementacioni obim, udaljeni resursi, objavljivanje i Git radnje zahtijevaju novi nalog. Baza/podaci/serveri nisu mijenjani.
+
+### 17. oktobar 2026. — odložen korisnikov pregled C/D
+
+- Korisnik navodi da trenutno nije u prilici za pregled i smatra da može naknadno. Korak evidentiranja odlaganja: preuzeti instrukciju, uskladiti pregled E i aktuelne statuse, provjeriti evidenciju.
+- E-5 PAUZIRANO u dijelu korisnikovog pregleda C/D, na korisnikov zahtjev; pregled nije izvršen niti je dato prihvatanje. Finansijski odgovori takođe nisu dati i ostaju otvoreni, bez pretpostavljene potvrde.
+- DEV-03 i DEV-03-E ostaju U TOKU sa završenim nezavisnim pregledom; odlaganje pregleda ne odobrava DEV-04 ili zatvaranje DEV-03. Nema novog roka, automatizovanog podsjetnika, promjene aplikacije/baze ili Git upisa.
+- Ažurirani `docs/pregled-dev-03-e.md` i ova evidencija. Provjereni aktuelni statusi, jedinstveni ID-jevi, statistika svih šest statusa i završni položaj tabele; `git diff --check` prolazi. Naredno: korisnikov naknadni pregled i zasebni odgovori o finansijama kada bude u prilici.
+
+### 17. oktobar 2026. — FIN-OSNOVA: potvrda osnovnih finansijskih pravila
+
+- Korisnik odgovara „Da“ na tri izričito navedena pravila. FIN-OSNOVA U TOKU: evidentirati tačan opseg potvrde, uskladiti PIL-07/08 i finansijski upitnik, provjeriti evidenciju.
+- Potvrđeni su ručni mjesečni obračun koji pokreće ovlašćeni operater uz pregled prije potvrde; raspored uplate prvo na najstarije dospjele obaveze, ostatak kao avans; računanje u feningima uz zaokruživanje pola naviše i bez automatskih kamata.
+- Potvrda ne obuhvata promjenu roka, redoslijed jednakih dospijeća, ručne izuzetke rasporeda, korišćenje postojećeg avansa, konkretan nivo zaokruživanja po zaduženju, korekcije ili promjenu vlasnika. To ostaje za zaseban dogovor. Pregled C/D ostaje odložen; DEV-04 nije odobren.
+
+- FIN-OSNOVA ZAVRŠENO: potvrda prenesena u `pilot-specifikacija.md` (PIL-07/08), `odluke-finansije.md`, `pregled-dev-03-e.md` i `razvojni-plan.md`. Provjereni opseg potvrde, lokalni linkovi, statistika, jedinstvenost ID-jeva i diff. Nema promjene aplikacije/baze ili izvršnih provjera; dokumentaciona odluka u DEV-01-B/DEV-03-E.
+
+### 17. oktobar 2026. — FIN-KOREKCIJE: potvrda postupka ispravke
+
+- FIN-KOREKCIJE U TOKU: preuzet korisnikov odgovor „Da“ na postupak storna i novog ispravnog zapisa; koraci su usklađivanje PIL-09/FIN-06, evidencije i dokumentaciona provjera.
+- Potvrđeno: pogrešan iznos ispravlja se stornom i novim ispravnim zapisom, uz obavezan razlog, autora i vrijeme; original ostaje sačuvan. Odluka pripada DEV-01-B/DEV-03-E i priprema DEV-04, bez implementacije.
+- Nisu time potvrđeni preostali detalji povezanih rasporeda, ispravke opisa, promjene vlasnika ili prenosa salda. C/D pregled ostaje odložen, DEV-03 nezaključen, DEV-04 bez naloga za izradu.
+
+- FIN-KOREKCIJE ZAVRŠENO: usklađeni PIL-09, finansijski upitnik i razvojni plan; provjereni linkovi, jedinstveni ID-jevi, svih šest statusa i završni položaj tabele. `git diff --check` prolazi; aplikacioni kod/baza nisu mijenjani niti su potrebne nove izvršne provjere.
+
+### 17. oktobar 2026. — FIN-PERIOD: podjela mjeseca pri promjeni vlasnika
+
+- FIN-PERIOD U TOKU: preuzet korisnikov odgovor „Da“ na srazmjernu podjelu mjesečnog zaduženja po danima vlasništva; koraci su usklađivanje specifikacije, FIN-07 i razvojnog plana te provjera evidencije.
+- Potvrđeno: u mjesecu promjene zaduženje se dijeli prema broju kalendarskih dana vlasništva. Datum promjene pripada novom vlasniku: promjena 16. aprila daje prethodnom 1–15. april (15 dana), novom 16–30. april (15 dana). Osnova razmjere je stvarni broj dana tog mjeseca.
+- Ovo je pravilo proizvoda u DEV-01-B/DEV-03-E, bez pravnog zaključka o prenosu duga. Ostatak feninga, zakašnjele uplate i eventualni dokumentovani prenos salda nisu potvrđeni. C/D ostaje odložen; nema odobrenja DEV-04.
+
+- FIN-PERIOD ZAVRŠENO: usklađeni FIN-07, specifikacija i razvojni plan; provjereni lokalni linkovi, ID-jevi, statistika i završna tabela. `git diff --check` prolazi. Promjena je dokumentaciona; aplikacija i baza nisu mijenjane, izvršne provjere nisu ponavljane.
+
+### 17. oktobar 2026. — FIN-UPLATA-PERIOD: zakašnjela uplata prethodnog vlasnika
+
+- FIN-UPLATA-PERIOD U TOKU: preuzet odgovor „Da“ na pravilo da uplata za dug prethodnog vlasnika, primljena nakon promjene vlasništva, zatvara njegov stari dug bez uticaja na karticu novog vlasnika. Koraci: uskladiti FIN-07/specifikaciju/plan, provjeriti evidenciju.
+- Potvrda se odnosi na uplatu identifikovanu kao uplata za prethodni dug; datum prijema sam ne prenosi uplatu ili dug novom vlasniku. Stvarni priliv povećava novac jednom, dok raspored zatvara odgovarajuću staru obavezu. Nisu potvrđeni neidentifikovana uplata, višak/povrat ili prenos salda.
+- Odluka pripada DEV-01-B/DEV-03-E. Nema implementacije DEV-04; pregled C/D ostaje odložen i DEV-03 nezaključen.
+
+- FIN-UPLATA-PERIOD ZAVRŠENO: FIN-07, specifikacija i razvojni plan usklađeni sa izričitom potvrdom; provjereni lokalni linkovi, jedinstveni ID-jevi, zbir svih šest statusa i završni položaj tabele. `git diff --check` prolazi. Aplikacija/baza nisu mijenjane; nema novih testova ili ponavljanja izvršnih provjera.
+
+### 17. oktobar 2026. — FIN-BEZ-PRENOSA: odvojen saldo vlasnika
+
+- FIN-BEZ-PRENOSA U TOKU: preuzeta izričita potvrda korisnika da prva verzija nema prenos duga ili avansa između prethodnog i novog vlasnika; svako zadržava svoj saldo. Koraci: uskladiti FIN-08, specifikaciju i plan, provjeriti evidenciju.
+- FIN-08 je razriješen za prvu verziju: nema ni ručnog dokumentovanog prenosa salda kroz aplikaciju. Eventualna kasnija podrška zahtijeva novi dogovor. Ovo je pravilo proizvoda, ne pravni zaključak o obavezama stranaka.
+- Ostaju ostala finansijska pitanja, uključujući povrat avansa i ostatak feninga. DEV-04 nije odobren za izradu; C/D pregled ostaje odložen.
+
+- FIN-BEZ-PRENOSA ZAVRŠENO: FIN-08, specifikacija i razvojni plan usklađeni; provjereni lokalni linkovi, jedinstveni ID-jevi, svih šest statusa, zbir i položaj završne tabele. `git diff --check` prolazi. Dokumentaciona odluka u DEV-01-B/DEV-03-E; bez izmjene aplikacije/baze ili ponavljanja izvršnih provjera.
+
+### 17. oktobar 2026. — FIN-POVRAT: potvrda povrata avansa
+
+- FIN-POVRAT U TOKU: korisnik potvrđuje povrat do raspoloživog avansa, uz evidentiran razlog; isplata istovremeno smanjuje sredstva ZEV-a i avans vlasnika. Koraci: uskladiti FIN-09/specifikaciju/plan i provjeriti evidenciju.
+- Potvrđen je dio FIN-09 koji se odnosi na povrat; obrada neidentifikovanih uplata nije obuhvaćena odgovorom. Odluka pripada DEV-01-B/DEV-03-E, bez implementacije DEV-04 ili prihvatanja odloženog C/D pregleda.
+
+- FIN-POVRAT ZAVRŠENO: finansijski upitnik, specifikacija i razvojni plan usklađeni sa potvrdom. Provjereni lokalni linkovi, jedinstveni ID-jevi, statistika svih šest statusa i završna tabela; `git diff --check` prolazi. Aplikacija i baza nisu mijenjane, izvršne provjere nisu ponavljane.
+
+### 17. oktobar 2026. — FIN-NERASPOREDJENO: potvrda neidentifikovane uplate
+
+- FIN-NERASPOREDJENO U TOKU: preuzet odgovor „Da“ na pravilo da neidentifikovana uplata povećava sredstva ZEV-a, ostaje neraspoređena dok operater ne potvrdi karticu, a naknadni raspored ne povećava sredstva ponovo. Koraci: uskladiti FIN-09/specifikaciju/plan i provjeriti evidenciju.
+- Potvrđen je preostali osnovni dio FIN-09; uplata ne dodjeljuje vlasništvo ili pristup kartici. Odluka pripada DEV-01-B/DEV-03-E. Nema implementacije DEV-04 ili prihvatanja odloženog C/D pregleda.
+
+- FIN-NERASPOREDJENO ZAVRŠENO: FIN-09, specifikacija i razvojni plan usklađeni; provjereni lokalni linkovi, jedinstveni ID-jevi, statistika svih šest statusa i završni položaj tabele. `git diff --check` prolazi. Bez promjene aplikacije/baze, novih testova ili ponavljanja izvršnih provjera.
+
+### 17. oktobar 2026. — FIN-BANKA: potvrda usaglašavanja
+
+- FIN-BANKA U TOKU: preuzet korisnikov odgovor „Da“ na evidenciju datuma, stanja sa bankovnog izvoda i razlike prema aplikaciji, bez automatskog dodavanja prihoda/rashoda radi izjednačavanja. Koraci: uskladiti FIN-10/specifikaciju/plan i provjeriti evidenciju.
+- Potvrđen osnov usaglašavanja; razlika se razjašnjava, ne knjiži automatski. Kategorije, blagajna i konkretna odgovorna osoba/učestalost nisu potvrđeni ovim odgovorom.
+- Odluka pripada DEV-01-B/DEV-03-E; nema implementacije DEV-04, promjene baze ili prihvatanja odloženog C/D pregleda.
+
+- FIN-BANKA ZAVRŠENO: FIN-10, specifikacija i razvojni plan usklađeni. Provjereni lokalni linkovi, jedinstveni ID-jevi, statistika svih šest statusa i završna tabela; `git diff --check` prolazi. Dokumentaciona promjena, bez novih testova ili ponavljanja izvršnih provjera.
+
+### 17. oktobar 2026. — FIN-PRILOZI: potvrda privatnosti finansijskih priloga
+
+- FIN-PRILOZI U TOKU: preuzet odgovor „Da“ na zajedničke račune dostupne članovima nakon provjere i uklanjanja nepotrebnih ličnih podataka, dok prilozi pojedinačnih uplata prate prava konkretne kartice i perioda. Koraci: uskladiti FIN-11/PIL-10, matricu, plan i evidenciju te provjeriti dokumentaciju.
+- Potvrđena je vidljivost; nije izgrađen postupak redakcije, upload forma ili veza priloga sa finansijskim roditeljskim zapisom. Tehnička obaveza izvedenog opsega/FK iz D ostaje za budući modul.
+- Odluka pripada DEV-01-B/DEV-03-E; nema implementacije DEV-04, promjene baze ili prihvatanja odloženog C/D pregleda.
+
+- FIN-PRILOZI ZAVRŠENO: FIN-11/PIL-10, matrica prava i razvojni plan usklađeni sa potvrdom. Provjereni lokalni linkovi, jedinstveni ID-jevi, statistika svih šest statusa i završna tabela; `git diff --check` prolazi. Aplikacija/baza nisu mijenjane niti su ponavljane izvršne provjere.
+
+### 17. oktobar 2026. — FIN-AVANS: automatsko pokriće zaduženja
+
+- FIN-AVANS U TOKU: preuzeta potvrda da postojeći avans automatski pokriva naredno zaduženje bez novog priliva. Koraci: uskladiti FIN-04, specifikaciju/plan i provjeriti evidenciju.
+- Primjer: avans 10 KM i naredno zaduženje 30 KM daju dug 20 KM; sredstva ZEV-a se ne mijenjaju. Potrošnja avansa važi u istoj ovlašćenoj evidenciji, bez prenosa na novog vlasnika.
+- Odluka pripada DEV-01-B/DEV-03-E; nema implementacije DEV-04 niti prihvatanja odloženog C/D pregleda.
+
+- FIN-AVANS ZAVRŠENO: FIN-04, specifikacija i razvojni plan usklađeni; dodat aktuelni zbirni opseg potvrda u finansijskim odlukama. Provjereni lokalni linkovi, jedinstveni ID-jevi, svih šest statusa i završna tabela; `git diff --check` prolazi. Bez promjene aplikacije/baze ili novih izvršnih provjera.
+
+## 18. oktobar 2026 — delegirane finansijske odluke (FIN-DELEGIRANO)
+
+Korisnik je prepustio agentu preostale finansijske odluke uz mogućnost kasnije izmjene. Koraci: evidentirati ovlašćenje — ZAVRŠENO; definisati preostala pravila FIN-01–11 — U TOKU; uskladiti specifikaciju/plan i provjeriti dokumentaciju — PLANIRANO. Zadatak pripada odlukama DEV-01/DEV-03-E za budući DEV-04; ne predstavlja nalog za implementaciju, prihvatanje C/D ili objavljivanje. Stvarni iznosi i dokumenti zgrade nisu izmišljeni.
+
+FIN-DELEGIRANO — ZAVRŠENO: odluke zapisane u `odluke-finansije.md`, usklađeni `pilot-specifikacija.md`, `razvojni-plan.md` i `pregled-dev-03-e.md`. Provjereni aritmetički primjeri, lokalne reference, jedinstveni ID-jevi i zbir statusa; provjera diff-a evidentirana pri završetku. Raniji zapis U TOKU iznad opisuje početak zadatka. Nema izmjene aplikacije/baze, novih testova niti ponavljanja runtime provjera. Sljedeće: odloženi korisnikov pregled C/D; DEV-04 čeka zaseban nalog.
+
+### 21. oktobar 2026. — OPS-FIN-DOCS-COMMIT: commit i push trenutne dokumentacije
+
+- Na izričit nalog korisnika preuzet commit i push svih šest trenutnih dokumentacionih izmjena: pregled DEV-03-E, finansijske odluke, matrica prava, pilot specifikacija, razvojni plan i evidencija.
+- OPS-FIN-DOCS-COMMIT — U TOKU. Pregledani sadržaj, Git status, grana `master` i remote `origin` (`Ma5ha/zev`); `git diff --check` prolazi. Nisu pronađeni kredencijali u pregledanim izmjenama. Preostaje kreiranje commita i običan push, pa provjera usklađenosti sa remote-om. Aplikacija i baza nisu mijenjane.
+
 ## Statistika i pregled statusa
 
-Ukupan broj stavki: **72**.
+Ukupan broj stavki: **91**.
 
 | Status | Broj stavki | Značenje |
 |---|---|---|
-| ZAVRŠENO | 51 | Detalji i preostalo u završnoj tabeli. |
-| U TOKU | 7 | Detalji i preostalo u završnoj tabeli. |
-| PLANIRANO | 7 | Detalji i preostalo u završnoj tabeli. |
-| BLOKIRANO | 1 | Detalji i preostalo u završnoj tabeli. |
-| PAUZIRANO | 6 | Detalji i preostalo u završnoj tabeli. |
-| OTKAZANO | 0 | Detalji i preostalo u završnoj tabeli. |
+| ZAVRŠENO | 67 | Rezultat provjeren u navedenim granicama. |
+| U TOKU | 9 | Djelimično završeno; preostalo navedeno ispod. |
+| PLANIRANO | 7 | Nije započeto; nije automatski odobreno. |
+| BLOKIRANO | 1 | Potreban konkretan odgovor ili spoljni uslov. |
+| PAUZIRANO | 7 | Korisnik je odložio nastavak. |
+| OTKAZANO | 0 | Napušteno ili zamijenjeno uz razlog. |
 
 Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije procenat završenosti aplikacije. Planirane faze nisu automatski odobrene.
 
 ### Stavke koje traže pažnju
 
+- **OPS-FIN-DOCS-COMMIT — U TOKU**: Preostaju commit, push i potvrda remote-a.
+
 - **ZEV-004 — PAUZIRANO**: Početni projekat postavljen je u `aplikacija/`; korisnik je zaustavio izradu. Funkcionalna aplikacija nije završena niti objavljena.
 - **ZEV-006 — BLOKIRANO**: Projekat „Komšijski — ZEV pilot“, ID `appgprj_6ad27d479cc08191a87f5a3fb1cae8e7`, ranije je kreiran. Dostupni Sites alati nisu nudili brisanje; udaljeni projekat nije uklonjen.
-- **ZEV-015 — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena.
-- **DEV-01 — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena.
-- **DEV-01-B — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena.
+- **ZEV-015 — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) i ankete prije DEV-07. Cijela faza još nije završena.
+- **DEV-01 — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) i ankete prije DEV-07. Cijela faza još nije završena.
+- **DEV-01-B — U TOKU**: Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) i ankete prije DEV-07. Cijela faza još nije završena.
 - **DEV-02 — U TOKU**: A–H završeni u dokumentovanim granicama; korisnik pregledao i za sada prihvatio bez dorada (I-3). Nova vizuelna dorada J je u toku; lokalni demo bez backenda i objavljivanja.
-- **DEV-03 — U TOKU**: A–D završeni u dokumentovanom lokalnom obimu. Preostaju pregled C/D i zaključak kriterijuma cijele faze, stvarna operativna priprema i vezivanje priloga za buduće poslovne module. Udaljeni resursi nisu odobreni.
+- **DEV-03 — U TOKU**: A–D završeni u dokumentovanom lokalnom obimu. [Pregled E](pregled-dev-03-e.md) povezuje kriterijume sa dokazima. Preostaju korisnikov ishod C/D i zaključak faze, stvarna operativna priprema; roditeljske veze priloga provjeriti uz buduće module. Udaljeni resursi nisu odobreni.
 - **DEV-02-J — U TOKU**: J-A–J-D završeni; J-E tehnički provjeren, čeka korisnikov pregled. Bez backenda ili objavljivanja.
 - **DEV-02-J-E — U TOKU**: Tehnički i ručni dio završen u obimu design-qa.md; preostaje stvarni korisnikov pregled novog dizajna.
 - **DEV-02-K — PAUZIRANO**: K-A završen; djelimični K-B/K-C sačuvani. Preostali K-B–K-E odloženi na korisnikov zahtjev 17. oktobra 2026; povratak na novu instrukciju.
@@ -739,6 +860,8 @@ Broje se evidencioni redovi, uključujući zbirne faze i podfaze; ovo nije proce
 - **DEV-02-K-C — PAUZIRANO**: Radix 2.4.1, zajednička komponenta i sve lokacije migrirane; lint/typecheck/build, izbor ZEV-a, Home/Escape i povrat fokusa potvrđeni. Preostaje puna matrica validacije, nacrta, profila, mobilnog dodira i 200% teksta. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
 - **DEV-02-K-D — PAUZIRANO**: Nakon K-C: okvir, pregled, kartica i ostali postojeći ekrani. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
 - **DEV-02-K-E — PAUZIRANO**: Nakon K-D: tehničke i ručne provjere, screenshotovi i zaseban korisnikov ishod. Odloženo na korisnikov zahtjev; povratak na novu instrukciju.
+- **DEV-03-E — U TOKU**: E-1–E-4 dokumentacioni dio završen; [pregled](pregled-dev-03-e.md) i [finansijske odluke](odluke-finansije.md). E-5: korisnik odložio pregled C/D za kasnije; FIN-01–11 razriješeni delegiranim izborom; stvarni pilot podaci preostaju. DEV-04 nije odobren.
+- **E-5 — PAUZIRANO**: Korisnik odložio lični pregled C/D za kasnije; prihvatanje nije dato. Finansijske odluke razriješene u FIN-DELEGIRANO; preostaje pregled C/D.
 
 ## Status svih dogovorenih stavki
 
@@ -762,12 +885,12 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | ZEV-012 | Napraviti razvojni plan na osnovu minimalnog plana | ZAVRŠENO | Kreiran `razvojni-plan.md` sa deset faza, zavisnostima, kriterijumima završetka i otvorenim odlukama. Provjereni obim, lokalni linkovi i diff; implementacija nije započeta. |
 | ZEV-013 | Obavezati agente da prate razvojni plan | ZAVRŠENO | U `AGENTS.md` dodati obavezno čitanje plana, praćenje DEV faza, zavisnosti i kriterijuma te povezivanje sa evidencijom. Pregled diff-a, referenca i `git diff --check` prošli. |
 | ZEV-014 | Kreirati UI skill i smjernice iz Appleove filozofije | ZAVRŠENO | Kreiran projektni `zev-ui-design` sa smjernicama, primjerima i izvorima; povezan kroz `AGENTS.md`, README i razvojni plan. YAML i lokalni linkovi provjereni alternativnim alatima; zvanični validator nije radio zbog nedostajućeg PyYAML-a. UI nije implementiran. |
-| ZEV-015 | DEV-01 — dogovor pravila i specifikacija demoa/pilota | U TOKU | Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena. |
+| ZEV-015 | DEV-01 — dogovor pravila i specifikacija demoa/pilota | U TOKU | Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) i ankete prije DEV-07. Cijela faza još nije završena. |
 | ZEV-016 | Uvrstiti interaktivni demo bez baze u plan | ZAVRŠENO | DEV-02 razrađen kao demo bez Supabase-a, sa pregledom prije DEV-03; usklađeni planovi, specifikacija, stack i upute. Implementacija nije pokrenuta. |
 | ZEV-017 | Razraditi podfaze DEV-02 | ZAVRŠENO | Podfaze A–I i kriterijumi pripremljeni i dokumentaciono provjereni; detalji u istoriji. |
-| DEV-01 | Pravila pilota i zavisne odluke | U TOKU | Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena. |
+| DEV-01 | Pravila pilota i zavisne odluke | U TOKU | Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) i ankete prije DEV-07. Cijela faza još nije završena. |
 | DEV-01-A | Pripremiti nacrt pravila pilota | ZAVRŠENO | `pilot-specifikacija.md` odvaja potvrđene odluke, prijedloge i otvorena pitanja. |
-| DEV-01-B | Usaglasiti odluke sa korisnikom | U TOKU | Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, finansijske odluke prije DEV-04 i ankete prije DEV-07. Cijela faza još nije završena. |
+| DEV-01-B | Usaglasiti odluke sa korisnikom | U TOKU | Šest rola, pristup i oporavak potvrđeni; [matrica](matrica-prava.md) i PIL tabela konsolidovani. Lokalni početak i B su odobreni/izvršeni. Preostaju operativne procedure za stvarne naloge prije upotrebe, PIL-12 prije udaljenih resursa, stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) i ankete prije DEV-07. Cijela faza još nije završena. |
 | DEV-01-C | Provjeriti specifikaciju i kriterijume završetka | ZAVRŠENO | Pregledani nacrt i kriterijumi; lokalni linkovi, aritmetika i diff provjereni. Kriterijumi cijele DEV-01 još nisu ispunjeni; nova provjera nakon odluka. |
 | DEV-01-D | Uskladiti platforme, landing, tenant i ZEV uloge | ZAVRŠENO | Ažurirani planovi, stack i specifikacija; pregledana dosljednost i reference. Rezultat je dokumentacija, bez implementacije. |
 | DEV-02 | Interaktivni web demo i korisnikov pregled | U TOKU | A–H završeni u dokumentovanim granicama; korisnik pregledao i za sada prihvatio bez dorada (I-3). Nova vizuelna dorada J je u toku; lokalni demo bez backenda i objavljivanja. |
@@ -780,7 +903,7 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | DEV-02-G | Obavještenja, prijave i informativne ankete | ZAVRŠENO | Lokalni obrasci, fotografija, statusi, odgovor/izmjena/zatvaranje i zbirni rezultati. SC-08–10 i validacija ručno provjereni u navedenim granicama; lint/typecheck/build prolaze. |
 | DEV-02-H | Cjelovita provjera i dorade | ZAVRŠENO | Povezani tokovi, uloge/tenanti, reset/osvježavanje, reflow i pristupačnost provjereni u obimu [izvještaja](demo-provjera-h.md); konkretne dorade i završni lint/typecheck/build potvrđeni. |
 | DEV-02-I | Korisnikov pregled i zaključak | ZAVRŠENO | Korisnik potvrdio „pregledano“ i „za sada je ok“; nema trenutno traženih dorada. Detalji I-3 u istoriji. |
-| DEV-03 | Baza, prijava, članstva i kontrola pristupa | U TOKU | A–D završeni u dokumentovanom lokalnom obimu. Preostaju pregled C/D i zaključak kriterijuma cijele faze, stvarna operativna priprema i vezivanje priloga za buduće poslovne module. Udaljeni resursi nisu odobreni. |
+| DEV-03 | Baza, prijava, članstva i kontrola pristupa | U TOKU | A–D završeni u dokumentovanom lokalnom obimu. [Pregled E](pregled-dev-03-e.md) povezuje kriterijume sa dokazima. Preostaju korisnikov ishod C/D i zaključak faze, stvarna operativna priprema; roditeljske veze priloga provjeriti uz buduće module. Udaljeni resursi nisu odobreni. |
 | DEV-04 | Produkciona finansijska evidencija i kartice | PLANIRANO | Zavisnost DEV-03; lokalni finansijski demo E nije završena produkciona faza. |
 | DEV-05 | Produkcioni radovi, ponude i isplate | PLANIRANO | Zavisnost DEV-04; demo F ne zamjenjuje backend tokove. |
 | DEV-06 | Produkciona oglasna tabla i prijave | PLANIRANO | Zavisnost DEV-03, povezivanje sa radovima poslije DEV-05. |
@@ -820,3 +943,22 @@ Sve dogovorene stavke sa aktuelnim statusom; detaljne provjere i promjene status
 | D-0 | Predaja DEV-03-D u novi chat | ZAVRŠENO | Kreiran chat 01a14b16-80d2-7e10-b1a8-e35b52bb3b85; odobrenje i ograničenja preneseni. |
 | DEV-03-D | Privatni prilozi i operativni administratorski oporavak | ZAVRŠENO | Lokalna infrastruktura i ručne provjere D-1–D-4; [izvještaj](prilozi-d.md) i [recovery](oporavak-administratora.md). Sintetički prilozi, bez produkcionih roditeljskih modula; pregled C nije potvrđen. |
 | OPS-PRIVATE-D-COMMIT | Commit i push privatnih priloga DEV-03-D | ZAVRŠENO | Commit e7f7914 pushan na origin/master, uključujući prethodni lokalni C commit 411ebb4; završna potvrda u pratećem dokumentacionom commitu. |
+| E-0 | Predaja završnog pregleda DEV-03 u novi chat | ZAVRŠENO | Preuzeto u chatu 01a14b25-e648-7103-95f2-332342167772; potvrđen HEAD 0d70694 i jedina zatečena izmjena evidencije. |
+| DEV-03-E | Završni pregled lokalnog DEV-03 i preostalih odluka | U TOKU | E-1–E-4 dokumentacioni dio završen; [pregled](pregled-dev-03-e.md) i [finansijske odluke](odluke-finansije.md). E-5: korisnik odložio pregled C/D za kasnije; FIN-01–11 razriješeni delegiranim izborom; stvarni pilot podaci preostaju. DEV-04 nije odobren. |
+| E-1 | Pregledati kriterijume DEV-03 i dokaze A–D | ZAVRŠENO | Tabela kriterijuma u pregledu E; pregled relevantnog koda i postojećih izvještaja, bez ponavljanja ranijih izvršnih provjera. |
+| E-2 | Pripremiti pregled C/D i operativne uslove | ZAVRŠENO | Koraci ličnog pregleda i tabela uslova/odgovornosti; stvarni korisnikov ishod nije potvrđen. |
+| E-3 | Pripremiti stvarni finansijski podaci prije pilota (pravila izabrana u FIN-DELEGIRANO) | ZAVRŠENO | FIN-01–11, granice potvrđenih pravila i sintetička aritmetika; otvoreni prijedlozi nisu prihvaćeni. |
+| E-4 | Uskladiti i provjeriti dokumentaciju E | ZAVRŠENO | Usklađeni razvojni plan i matrica; lokalni linkovi, jedinstveni ID-jevi, statistika i diff provjereni. |
+| E-5 | Evidentirati korisnikov pregled C/D i finansijske odluke | PAUZIRANO | Korisnik odložio lični pregled C/D za kasnije; prihvatanje nije dato. Finansijske odluke razriješene u FIN-DELEGIRANO; preostaje pregled C/D. |
+| FIN-OSNOVA | Potvrditi osnov obračuna, rasporeda uplata i preciznosti | ZAVRŠENO | Korisnik potvrdio tri pravila; PIL-07/08 i finansijske odluke usklađeni. Preostali detalji/korekcije/vlasništvo nisu potvrđeni; nema implementacije. |
+| FIN-KOREKCIJE | Potvrditi ispravku pogrešnog finansijskog iznosa | ZAVRŠENO | Potvrđeni storno + novi ispravni zapis uz razlog, autora/vrijeme i očuvanje originala; PIL-09/FIN-06 usklađeni. Bez implementacije DEV-04. |
+| FIN-PERIOD | Potvrditi podjelu zaduženja u mjesecu promjene vlasnika | ZAVRŠENO | Podjela po kalendarskim danima; datum promjene pripada novom vlasniku. Ostatak feninga riješen u FIN-DELEGIRANO; zakašnjela uplata naknadno potvrđena u FIN-UPLATA-PERIOD; bez implementacije. |
+| FIN-UPLATA-PERIOD | Potvrditi zakašnjelu uplatu za dug prethodnog vlasnika | ZAVRŠENO | Zatvara njegov stari dug bez uticaja na karticu novog vlasnika; FIN-07/specifikacija/plan usklađeni. Bez implementacije. |
+| FIN-BEZ-PRENOSA | Potvrditi prvu verziju bez prenosa duga ili avansa | ZAVRŠENO | FIN-08: svaki vlasnik zadržava svoj saldo; nema automatskog ni posebnog dokumentovanog prenosa u prvoj verziji. Bez implementacije. |
+| FIN-POVRAT | Potvrditi povrat raspoloživog avansa | ZAVRŠENO | Povrat do raspoloživog avansa uz razlog; isplata smanjuje sredstva ZEV-a i avans vlasnika. Neidentifikovane uplate naknadno razriješene u FIN-NERASPOREDJENO; bez implementacije. |
+| FIN-NERASPOREDJENO | Potvrditi obradu neidentifikovane uplate | ZAVRŠENO | Jedan priliv, neraspoređen do potvrde kartice od operatera; naknadni raspored ne povećava sredstva ponovo. FIN-09 usklađen; bez implementacije. |
+| FIN-BANKA | Potvrditi osnov usaglašavanja sa bankom | ZAVRŠENO | Datum, stanje izvoda i razlika; bez automatskih prihoda/rashoda za izjednačavanje. Ostali FIN-10 detalji izabrani u FIN-DELEGIRANO; bez implementacije. |
+| FIN-PRILOZI | Potvrditi privatnost finansijskih priloga | ZAVRŠENO | Zajednički računi članovima nakon provjere/redakcije; pojedinačne uplate po kartici/periodu. Postupak i roditeljske veze nisu implementirani. |
+| FIN-AVANS | Potvrditi automatsko pokriće narednog zaduženja avansom | ZAVRŠENO | Postojeći avans pokriva naredno zaduženje bez novog priliva; FIN-04/PIL-07 usklađeni. Bez prenosa između vlasnika ili implementacije. |
+| FIN-DELEGIRANO | Donijeti preostale finansijske odluke po ovlašćenju korisnika | ZAVRŠENO | Pravila FIN-01–11 i sintetički parametri dokumentovani; specifikacija/plan/pregled E usklađeni. Stvarni podaci prije pilota, C/D pregled i nalog DEV-04 preostaju. Bez implementacije. |
+| OPS-FIN-DOCS-COMMIT | Commit i push pregleda E i finansijskih odluka | U TOKU | Sadržaj i cilj master/origin provjereni; preostaju commit, push i potvrda remote-a. |

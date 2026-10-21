@@ -31,7 +31,7 @@ Odluke i prijedlozi DEV-01 vode se u [specifikaciji pilota](pilot-specifikacija.
 |---|---|---|---|
 | DEV-01 | Potvrđen pilot i specifikacija otvorenih pravila | Minimalni plan i postojeća dokumentacija | U TOKU |
 | DEV-02 | Interaktivni web demo bez baze i korisnikov pregled | Potvrđen demo obim iz DEV-01 | U TOKU — A–I završeni u demo obimu; naknadne vizuelne dorade nezaključene, preostali K-B–K-E pauzirani na korisnikov zahtjev. |
-| DEV-03 | Baza, prijava, članstva i kontrola pristupa | Pregledan demo i potvrđene osnovne odluke; odobren lokalni početak | U TOKU — DEV-03-A lokalna staging baza; puna prijava i kontrola pristupa preostaju |
+| DEV-03 | Baza, prijava, članstva i kontrola pristupa | Pregledan demo i potvrđene osnovne odluke; odobren lokalni početak | U TOKU — A–D lokalno provjereni; E pregled kriterijuma, korisnikov ishod C/D i operativni uslovi otvoreni |
 | DEV-04 | Finansijska evidencija i sopstvena kartica | DEV-03 | PLANIRANO |
 | DEV-05 | Radovi, ponude, napredak i povezane isplate | DEV-04 | PLANIRANO |
 | DEV-06 | Oglasna tabla i prijave problema | DEV-03; povezivanje sa radovima nakon DEV-05 | PLANIRANO |
@@ -310,3 +310,53 @@ Dopuna delegiranja, 17. oktobar 2026: potvrđeno da vlasnik može tražiti opozi
 17. oktobar 2026: korisnik je naložio nastavak u narednom chatu nakon prijedloga D. To odobrava lokalni D bez tvrdnje da je korisnikov pregled C izvršen. Koraci su D-1 privatni bucket/metadata/RPC/RLS, D-2 serversko preuzimanje sa ponovnom provjerom prava bez signed URL-a, D-3 kontrolisani operativni oporavak i D-4 lokalne ručne/tehničke provjere. [Izvještaj D](prilozi-d.md) i [recovery postupak](oporavak-administratora.md) preciziraju granice.
 
 D koristi sintetičke priloge kao provjeru infrastrukture; ne uvodi produkcione poslovne module DEV-04–07. Prije njihove upotrebe vezati opseg priloga za stvarni roditeljski zapis i njegove periode. Prije stvarnog pilota potvrditi odgovorne osobe, dokaze identiteta, operativne tajne, SMTP/HTTPS, backup/restore baze i objekata, kvote i postupak za opasne dokumente. Zasebno pregledati cijeli DEV-03 prema kriterijumima iznad i potvrditi preostale poslovne odluke; D nije automatski završetak cijele faze. K-B–K-E ostaju pauzirani; udaljeni resursi i objavljivanje traže zaseban nalog.
+
+## DEV-03-E — pregled kriterijuma i odluka prije finansija
+
+17. oktobar 2026: po korisnikovom nalogu preuzet završni lokalni pregled. [Pregled E](pregled-dev-03-e.md) povezuje svaki kriterijum sa dokazima B/C/D, daje uputstvo korisnikovog pregleda i odvaja uslove stvarnog pilota od budućih poslovnih modula. Ovo je aktuelni pregled naspram istorijskih opisa bez Auth-a ili Storage-a iznad. A–D završeni su u svojim dokumentovanim granicama; cijeli DEV-03 ostaje U TOKU, bez izmišljenog korisnikovog prihvatanja.
+
+[Finansijske odluke](odluke-finansije.md) konkretizuju PIL-05–09 i rubne slučajeve vlasništva, povrata, usaglašavanja i privatnosti. Odluke nisu potvrđene pripremom dokumenta. Zavisnosti DEV-04 ostaju kriterijumi DEV-03, razriješene zavisne odluke i novi nalog za izradu. Roditeljske veze priloga implementiraju se i provjeravaju sa odgovarajućim modulom; njihovo odsustvo sada nije kvar D. Udaljeni resursi/objavljivanje nisu odobreni; K-B–K-E ostaju pauzirani.
+
+### Potvrda osnovnih finansijskih pravila
+
+17. oktobar 2026: potvrđeni su ručni mjesečni obračun sa pregledom prije potvrde, raspored uplata na najstarije dospjele obaveze pa avans i računanje u feningima uz zaokruživanje pola naviše bez automatskih kamata. [Finansijske odluke](odluke-finansije.md) razdvajaju ovu potvrdu od preostalih detalja, korekcija i promjene vlasnika. DEV-04 ostaje PLANIRANO bez odobrenja izrade; pregled C/D odložen je za kasnije.
+
+### Potvrda finansijskih korekcija
+
+17. oktobar 2026: korisnik potvrđuje storno pogrešnog iznosa i novi ispravan zapis, uz razlog, autora/vrijeme i očuvanje originala (PIL-09/FIN-06). Preostali detalji i promjena vlasnika ostaju otvoreni u [finansijskim odlukama](odluke-finansije.md); implementacija DEV-04 nije odobrena.
+
+### Potvrda podjele mjeseca pri promjeni vlasnika
+
+17. oktobar 2026: potvrđena podjela mjesečnog zaduženja prema kalendarskim danima vlasništva; dan promjene pripada novom vlasniku. FIN-07 ostaje djelimično otvoren zbog ostatka feninga i zakašnjelih uplata; [finansijske odluke](odluke-finansije.md). Ova odluka ne odobrava izradu DEV-04.
+
+### Potvrda zakašnjele uplate nakon promjene vlasnika
+
+17. oktobar 2026: potvrđeno da uplata za dug prethodnog vlasnika primljena nakon promjene zatvara njegov stari dug bez uticaja na karticu novog vlasnika. FIN-07 ima potvrđena oba osnovna pravila; preostaje ostatak feninga pri podjeli. Ostale odluke su u [finansijskom upitniku](odluke-finansije.md); DEV-04 nije odobren.
+
+### Potvrda prve verzije bez prenosa salda
+
+17. oktobar 2026: FIN-08 potvrđen — nema prenosa duga/avansa između prethodnog i novog vlasnika u prvoj verziji; svako zadržava svoj saldo. To uključuje izostavljanje posebne operacije dokumentovanog prenosa. Ostala pitanja ostaju u [finansijskim odlukama](odluke-finansije.md); nema naloga za izradu DEV-04.
+
+### Potvrda povrata avansa
+
+17. oktobar 2026: potvrđen povrat do raspoloživog avansa uz razlog, sa istovremenim smanjenjem sredstava ZEV-a i avansa vlasnika. FIN-09 ostaje djelimično otvoren zbog neidentifikovanih uplata; [finansijske odluke](odluke-finansije.md). Izrada DEV-04 nije odobrena.
+
+### Potvrda neidentifikovane uplate
+
+17. oktobar 2026: potvrđena neidentifikovana uplata kao jedan priliv sredstava, neraspoređena do potvrde kartice od operatera; raspored ne stvara novi priliv. FIN-09 ima potvrđena oba osnovna dijela; [finansijske odluke](odluke-finansije.md). DEV-04 ostaje bez naloga za izradu.
+
+### Potvrda usaglašavanja sa bankom
+
+17. oktobar 2026: potvrđena evidencija datuma, stanja izvoda i razlike prema aplikaciji, bez automatskog prihoda/rashoda radi izjednačavanja. Preostali detalji FIN-10 su u [finansijskim odlukama](odluke-finansije.md). DEV-04 ostaje bez naloga za izradu.
+
+### Potvrda privatnosti finansijskih priloga
+
+17. oktobar 2026: potvrđena vidljivost zajedničkih računa članovima nakon provjere i uklanjanja nepotrebnih ličnih podataka; prilozi pojedinačnih uplata prate ovlašćenu karticu i period. FIN-11/PIL-10 usklađeni; postupak redakcije i roditeljske veze izvesti uz modul. Nema naloga za izradu DEV-04.
+
+### Potvrda automatskog korišćenja avansa
+
+17. oktobar 2026: postojeći avans automatski pokriva naredno zaduženje bez novog priliva (FIN-04/PIL-07). Primjer 10 KM avansa i 30 KM zaduženja daje dug 20 KM. Ostali detalji ostaju u [finansijskim odlukama](odluke-finansije.md); izrada DEV-04 nije odobrena.
+
+## Delegirane finansijske odluke — 18. oktobar 2026.
+
+Korisnik je ovlastio agenta da donese preostale finansijske odluke. Važeća pravila FIN-01–11 su u [finansijskim odlukama](odluke-finansije.md#važeće-odluke-po-delegiranom-ovlašćenju--18-oktobar-2026) i imaju prednost nad ranijim navodima otvorenih produktnih pitanja: početna stanja i verzije tarifa, obavezan rok i audit izmjene, deterministički raspored, zaokruživanje i podjela ostatka, korekcije, bankovni obim i pregled te redakcija priloga. Sintetički parametri su izabrani za buduću lokalnu izradu; stvarna tarifa, početna stanja i dokumenti ostaju uslov prije pilota. Finansijske odluke više ne čekaju pojedinačne odgovore korisnika. Pregled C/D ostaje odložen, DEV-03 nije zaključen, a DEV-04 i objavljivanje nisu odobreni. Odluke nisu implementacija.

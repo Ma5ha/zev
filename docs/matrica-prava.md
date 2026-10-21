@@ -72,3 +72,11 @@ Pregled ranijeg stanja bez Auth integracije iznad opisuje preduslove pri planira
 ### Lokalna infrastruktura DEV-03-D
 
 Privatni prilozi sada imaju lokalnu infrastrukturu opsega/rola i serversko preuzimanje sa svježom provjerom; [izvještaj D](prilozi-d.md). Poslovni roditeljski zapisi još ne postoje, pa ovo nije završena zaštita produkcionog ledgera/prijava. [Kontrolisani recovery postupci](oporavak-administratora.md) razrađeni su i SQL dijelovi provjereni rollbackom; PRE-06 prije stvarne upotrebe i dalje traži imenovane osobe, nezavisnog odobravaoca, provjeru stvarnog identiteta i operativno uvježbavanje. PRE-03 uključuje i korisnikovo odobrenje lokalnog D; korisnikov pregled C nije potvrđen.
+
+### Pregled DEV-03-E
+
+Aktuelni [pregled kriterijuma](pregled-dev-03-e.md) povezuje PRE uslove sa lokalnim A–D rezultatima. PRE-03 uključuje odobren E pregled, bez odobrenja DEV-04. PRE-06 ima dokumentovan recovery i lokalne rollback probe D; imenovane osobe, stvarna provjera identiteta i operativna vježba ostaju otvoreni prije stvarne upotrebe. PRE-07 ima [konkretna pitanja za odluku](odluke-finansije.md), bez novih potvrda. Korisnikov pregled C/D još nije evidentiran. Raniji opisi odsustva Auth/Storage-a ostaju istorija pripreme.
+
+### Potvrda finansijskih priloga
+
+17. oktobar 2026: zajednički računi dostupni su članovima nakon provjere i uklanjanja nepotrebnih ličnih podataka; prilozi pojedinačnih uplata prate prava konkretne kartice i perioda. Potvrda FIN-11/PIL-10 ne proširuje prava postojećih rola. Roditeljske veze i postupak redakcije tek se implementiraju uz finansijski modul; D ostaje lokalna infrastruktura.

@@ -16,10 +16,10 @@ Ranije je dogovoren pilot jedne zgrade sa pet cjelina minimalnog plana. Korisnik
 | PIL-04 | Izričito ovlašćene kartice/periodi, zajednička kartica suvlasnika bez dupliranja; zakupac po zahtjevu vlasnika i evidentiranju administratora | POTVRĐENO | §15, §19–21; finansijski detalji promjene prije DEV-04 |
 | PIL-05 | Početni mjesec, stanje računa i pojedinačna početna dugovanja/avansi | ČEKA PODATKE | Ovlašćena osoba pilota preko korisnika, prije DEV-04 i unosa stvarnih podataka |
 | PIL-06 | Mjesečna obaveza po m²; rok plaćanja unosi se ručno uz obračun | POTVRĐEN OSNOV; STOPA OTVORENA | Korisnik potvrdio model; stopa i početni mjesec demoa još nisu potvrđeni, stvarni osnov zgrade potreban prije pilota |
-| PIL-07 | Ručno pokretanje mjesečnog obračuna uz pregled; raspored uplata prvo na najstarije dospjele obaveze, ostatak kao avans | PRIJEDLOG | Korisnik i ovlašćena osoba pilota, prije DEV-04 |
-| PIL-08 | Računanje u cijelim feningima; pri množenju stopom/površinom zaokruživanje po zaduženju na dvije decimale, pola naviše; bez automatskih kamata | PRIJEDLOG | Korisnik i ovlašćena osoba pilota, prije DEV-04 |
-| PIL-09 | Ispravka finansijskog zapisa korektivnim zapisom sa razlogom i vezom na original; bez brisanja istorije | DIO MINIMALNOG PLANA / RAZRADA ZA POTVRDU | Korisnik potvrđuje konkretan postupak prije DEV-04 |
-| PIL-10 | Član vidi sopstvene prijave; sadržaj obrađuju operater sadržaja i administratori; privatni finansijski prilozi prate karticu/period | POTVRĐEN OSNOV PRISTUPA | §11–16, §20–21; obrada/redakcija zajedničkih dokumenata prije odgovarajućeg modula |
+| PIL-07 | Ručno pokretanje mjesečnog obračuna uz pregled; raspored uplata prvo na najstarije dospjele obaveze, ostatak kao avans | POTVRĐEN OSNOV | Korisnik potvrdio 17. oktobra 2026; preostali detalji FIN-03/04 u finansijskim odlukama prije DEV-04 |
+| PIL-08 | Računanje u feningima, zaokruživanje pola naviše; bez automatskih kamata | POTVRĐEN OSNOV | Korisnik potvrdio 17. oktobra 2026; tačan nivo zaokruživanja po zaduženju još razraditi prije DEV-04 |
+| PIL-09 | Pogrešan iznos: storno i novi ispravan zapis uz razlog, autora i vrijeme; original ostaje sačuvan | POTVRĐEN POSTUPAK | Korisnik potvrdio 17. oktobra 2026; povezane rasporede i ostale detalje razraditi prije DEV-04 |
+| PIL-10 | Član vidi sopstvene prijave; sadržaj obrađuju operater sadržaja i administratori; privatni finansijski prilozi prate karticu/period | POTVRĐEN OSNOV PRISTUPA | §11–16, §20–21, §34; potvrđena provjera/redakcija zajedničkih računa, postupak izvesti uz modul |
 | PIL-11 | Informativna anketa: jedan odgovor po aktivnom članstvu, izmjena do zatvaranja, zbirni rezultati nakon zatvaranja bez javnog imenika odgovora | PRIJEDLOG | Korisnik, prije DEV-07; bez formalnog glasanja |
 | PIL-12 | Hosting, region baze, trošak i odgovorna osoba za uslugu | OTVORENO | Korisnik, prije kreiranja udaljenih resursa |
 | PIL-13 | Rokovi čuvanja, kopije baze i dokumenata, obnova i podrška | OTVORENO | Korisnik i operater pilota, prije DEV-09/10 |
@@ -352,3 +352,47 @@ Objedinjene su potvrde u [matrici prava](matrica-prava.md), usklađene PIL-03/04
 ## 25. DEV-03-B — izvršiva osnovna prava
 
 17. oktobar 2026: na korisnikovu instrukciju implementirani su RLS/RPC-i nad lokalnom osnovom identiteta, članstava, rola, vlasništva i delegiranja; sintetički Auth bootstrap i ručne SQL/HTTP provjere opisani su u [izvještaju B](pristup-bazi-b.md). Ovo ne implementira finansijski ledger, poslovne priloge ili web prijavu. Ranije tvrdnje da su svi klijenti zatvoreni i nema Auth identiteta odnose se na prethodnu A fazu. Operativni oporavak stvarnih naloga i poslovne odluke kasnijih faza ostaju zasebni.
+
+## 26. Osnovna finansijska pravila — potvrda
+
+17. oktobar 2026: korisnik potvrđuje ručni mjesečni obračun ovlašćenog operatera sa pregledom prije potvrde, raspored uplata na najstarije dospjele obaveze pa avans i računanje u feningima sa zaokruživanjem pola naviše bez automatskih kamata. Tačan opseg i preostali detalji FIN-03–05 su u [finansijskim odlukama](odluke-finansije.md). Korekcije i finansijska promjena vlasnika nisu potvrđene ovim odgovorom. Ovo je odluka proizvoda, bez implementacije DEV-04; korisnikov pregled C/D ostaje odložen.
+
+## 27. Finansijske korekcije — potvrđen postupak
+
+17. oktobar 2026: korisnik potvrđuje ispravku pogrešnog iznosa stornom i novim ispravnim zapisom, uz obavezan razlog, autora i vrijeme. Original ostaje sačuvan. To potvrđuje osnov postupka PIL-09/FIN-06; detalji korekcije povezanih rasporeda i izmjene opisa ostaju za razradu. Nema implementacije DEV-04 ili novih odluka o vlasničkim periodima.
+
+## 28. Promjena vlasnika — potvrđena podjela mjesečnog zaduženja
+
+17. oktobar 2026: korisnik potvrđuje srazmjernu podjelu zaduženja prema broju kalendarskih dana vlasništva u konkretnom mjesecu. Datum promjene pripada novom vlasniku. Za promjenu 16. aprila: prethodnom 15 dana, novom 15 dana. Dug i avans se i dalje ne prenose automatski. Postupanje sa ostatkom feninga, zakašnjelom uplatom i eventualnim dokumentovanim prenosom salda ostaje otvoreno u [finansijskim odlukama](odluke-finansije.md). Ovo dopunjuje §20, bez implementacije ili pravnog tumačenja prenosa duga.
+
+## 29. Zakašnjela uplata nakon promjene vlasnika — potvrda
+
+17. oktobar 2026: korisnik potvrđuje da uplata za dug prethodnog vlasnika, primljena nakon promjene vlasništva, zatvara njegov raniji dug, bez promjene kartice novog vlasnika. Datum prijema ne mijenja period/pripadnost obaveze. Ovo dopunjuje §20 i FIN-07; ne odobrava automatski prenos salda, rješavanje neidentifikovanih uplata ili implementaciju DEV-04.
+
+## 30. Prva verzija bez prenosa salda — potvrda
+
+17. oktobar 2026: korisnik potvrđuje da prva verzija ne omogućava prenos duga ili avansa između prethodnog i novog vlasnika, uključujući poseban dokumentovani prenos. Svako zadržava svoj saldo. Ovo pooštrava ranije pravilo bez automatskog prenosa iz §20 i razrješava FIN-08 za početni obim. Pravna pitanja eventualnih sporazuma ostaju izvan ove produktne odluke. DEV-04 nije implementiran.
+
+## 31. Povrat avansa — potvrda
+
+17. oktobar 2026: korisnik potvrđuje povrat do raspoloživog iznosa avansa uz evidentiran razlog. Isplata istovremeno smanjuje sredstva ZEV-a i avans vlasnika. Potvrđen je dio FIN-09 o povratu, dok obrada neidentifikovanih uplata ostaje otvorena. Ovo je odluka proizvoda bez implementacije DEV-04.
+
+## 32. Neidentifikovana uplata — potvrda
+
+17. oktobar 2026: korisnik potvrđuje da neidentifikovana uplata povećava sredstva ZEV-a, ali ostaje neraspoređena dok operater ne potvrdi kojoj kartici pripada. Naknadni raspored ne povećava sredstva ponovo. Time je potvrđen preostali osnovni dio FIN-09. Izrada DEV-04 nije odobrena ovom odlukom.
+
+## 33. Usaglašavanje sa bankom — potvrda
+
+17. oktobar 2026: korisnik potvrđuje evidentiranje datuma, stanja sa bankovnog izvoda i razlike prema aplikaciji. Razlika se razjašnjava, bez automatskog knjiženja prihoda ili rashoda radi izjednačavanja. Potvrđen osnov FIN-10; odgovorna osoba/učestalost, kategorije i blagajna ostaju za dogovor. Nema implementacije DEV-04.
+
+## 34. Privatnost finansijskih priloga — potvrda
+
+17. oktobar 2026: korisnik potvrđuje zajedničke račune dostupne članovima nakon provjere i uklanjanja nepotrebnih ličnih podataka. Prilozi pojedinačnih uplata prate prava konkretne kartice i perioda. Ovo dopunjuje PIL-10/FIN-11, bez promjene potvrđene matrice ovlašćenih rola i bez implementacije DEV-04 ili novog odobrenja za stvarne dokumente.
+
+## 35. Automatsko korišćenje avansa — potvrda
+
+17. oktobar 2026: korisnik potvrđuje da postojeći avans automatski pokriva naredno zaduženje bez novog priliva. Avans 10 KM uz naredno zaduženje 30 KM daje dug 20 KM. Ovo dopunjuje PIL-07/FIN-04, bez prenosa avansa između vlasnika i bez implementacije DEV-04.
+
+## Delegirane finansijske odluke — 18. oktobar 2026.
+
+Korisnik je ovlastio agenta da donese preostale finansijske odluke. Važeća pravila FIN-01–11 su u [finansijskim odlukama](odluke-finansije.md#važeće-odluke-po-delegiranom-ovlašćenju--18-oktobar-2026) i imaju prednost nad ranijim navodima otvorenih produktnih pitanja: početna stanja i verzije tarifa, obavezan rok i audit izmjene, deterministički raspored, zaokruživanje i podjela ostatka, korekcije, bankovni obim i pregled te redakcija priloga. Sintetički parametri su izabrani za buduću lokalnu izradu; stvarna tarifa, početna stanja i dokumenti ostaju uslov prije pilota. Finansijske odluke više ne čekaju pojedinačne odgovore korisnika. Pregled C/D ostaje odložen, DEV-03 nije zaključen, a DEV-04 i objavljivanje nisu odobreni. Odluke nisu implementacija.
